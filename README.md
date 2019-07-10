@@ -18,6 +18,11 @@ Two solutions were used, one that utilizes a while() loop and is destructive on 
 Write a function which takes in an array and the value to be added. Without utilizing any of the built-in methods available to your language, return an array with the new value added at the middle index.
 ## Solution
 Create an index into the array where the value will be inserted, utilize slice and .append/.extend to construct a return array
-
-<!-- Embedded whiteboard image -->
 ![alt_text](https://github.com/marvincolgin/data-structures-and-algorythms/blob/array_shift/challenges/array_shift/assets/whiteboard.jpg)
+
+# Array Binary Search
+## Challenge
+Write a function which takes in an array and the value to be searched. Return -1 if the value is not found, otherwise return the index (0 based). Incoming array is sorted.
+## Solution
+Divide and Conquer! Look at the middle element, is it the middle element? Return. If not, create a new middle from either the smaller side or larger side. Repeat.
+![alt_text](https://github.com/marvincolgin/data-structures-and-algorythms/blob/array_binary_search/challenges/array_binary_search/assets/whiteboard.jpg)
