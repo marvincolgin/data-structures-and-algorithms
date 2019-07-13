@@ -40,9 +40,11 @@ Define a method called <strike>toString (or __str__ in Python)</strike>.toJSON w
 ## Approach & Efficiency
 My implementation of the link list comprises of two objects, LinkList and LinkNode, written in Python.
 ```
+##Big O analysis:
 .insert() == O(1)
 .count() == O(n)
 .includes() == O(n)
+
 ## API
 ListList
     def __init__(self):
