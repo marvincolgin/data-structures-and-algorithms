@@ -39,6 +39,7 @@ Define a method called includes which takes any value as an argument and returns
 Define a method called <strike>toString (or __str__ in Python)</strike>.toJSON which takes in no arguments and returns a string representing all the values in the Linked List.
 ## Approach & Efficiency
 My implementation of the link list comprises of two objects, LinkList and LinkNode, written in Python.
+```
 .insert() == O(1)
 .count() == O(n)
 .includes() == O(n)
@@ -58,4 +59,4 @@ ListList
 ListNode
     def __init__(self, value, next=None, prev=None):
         # constructor
-
+```
