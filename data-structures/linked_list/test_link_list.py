@@ -59,13 +59,11 @@ def test_includes_notfound():
 
 
 def test_toJSON():
-    # @TODO having troubles with pytest.exit() directive
-    # @pytest.exit("TODO: Having troubles comparing the returned STRING value
-    # the the literal string EXPECTED")
-    # ll = LinkList()
-    # helper_insert_many(ll)
-    # actual = ll.toJSON()
-    # print(actual)
-    # expected = "{ "head": { "value": "9", "next": { "value": "8", "next": { "value": "7", "next": { "value": "6", "next": { "value": "5", "next": { "value": "4", "next": { "value": "3", "next": { "value": "2", "next": { "value": "1", "next": { "value": "0", "next": null, "prev": null }, "prev": null}, "prev": null }, "prev": null }, "prev": null }, "prev": null }, "prev": null }, "prev": null }, "prev": null }, "prev": null } }
-    # assert expected == actual
-    assert True == True
+    # Dump the LinkList to JSON and compare to what it should be
+    ll = LinkList()
+    helper_insert_many(ll)
+    actual = ll.toJSON()
+    expected = """{ "head": { "value": "9", "next": { "value": "8", "next": { "value": "7", "next": { "value": "6", "next": { "value": "5", "next": { "value": "4", "next": { "value": "3", "next": { "value": "2", "next": { "value": "1", "next": { "value": "0", "next": null, "prev": null }, "prev": null }, "prev": null }, "prev": null }, "prev": null }, "prev": null }, "prev": null }, "prev": null }, "prev": null }, "prev": null } }"""
+    print(actual)
+    print(expected)
+    assert expected == actual
