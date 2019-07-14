@@ -8,10 +8,11 @@ My initial approach was to utilize the `list.insert()` and `list.pop()` to rebui
 
 ## Solution
 Two solutions were used, one that utilizes a while() loop and is destructive on the inbound array. The second is "pythonic" and utilizes an index slice and a -1 stride.
-
-<!-- Embedded whiteboard image -->
+<!--
+@TODO: This isn't working...
 ![alt_text](https://github.com/marvincolgin/data-structures-and-algorythms/blob/array_reverse/challenges/array_reverse/assets/whiteboard.jpg)
 ![alt_text](https://github.com/marvincolgin/data-structures-and-algorythms/blob/array_reverse/challenges/array_reverse/assets/whiteboard2.jpg)
+-->
 
 # Insert and Shift Array
 ## Challenge
