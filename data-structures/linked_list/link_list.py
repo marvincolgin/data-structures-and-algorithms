@@ -26,7 +26,7 @@ class LinkList():
 
     def toJSON(self):
         # dump object to JSON and return as String
-        buf = json.dumps(self, default=lambda o: o.__dict__, indent=0  )
+        buf = json.dumps(self, default=lambda o: o.__dict__, indent=0)
         return buf
 
     def insert(self, value):
