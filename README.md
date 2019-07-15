@@ -8,10 +8,11 @@ My initial approach was to utilize the `list.insert()` and `list.pop()` to rebui
 
 ## Solution
 Two solutions were used, one that utilizes a while() loop and is destructive on the inbound array. The second is "pythonic" and utilizes an index slice and a -1 stride.
-
-<!-- Embedded whiteboard image -->
+<!--
+@TODO: This isn't working...
 ![alt_text](https://github.com/marvincolgin/data-structures-and-algorythms/blob/array_reverse/challenges/array_reverse/assets/whiteboard.jpg)
 ![alt_text](https://github.com/marvincolgin/data-structures-and-algorythms/blob/array_reverse/challenges/array_reverse/assets/whiteboard2.jpg)
+-->
 
 # Insert and Shift Array
 ## Challenge
@@ -26,3 +27,39 @@ Write a function which takes in an array and the value to be searched. Return -1
 ## Solution
 Divide and Conquer! Look at the middle element, is it the middle element? Return. If not, create a new middle from either the smaller side or larger side. Repeat.
 ![alt_text](https://github.com/marvincolgin/data-structures-and-algorythms/blob/array_binary_search/challenges/array_binary_search/assets/whiteboard.jpg)
+
+# Singly Linked List
+<!-- Short summary or background information -->
+Linked-Lists (singly) is a dynamic data-structure which resembles a length of chain, where the entire length of chain is the list and the individual links of the chain are nodes. A singlarly linked list is only traversable in one direction, but utilizing a head element that points to the first node in the list, the second node in the list points to the next link in the chain, and finally the last element in the list points to "none"
+## Challenge
+<!-- Description of the challenge -->
+Create a Node class that has properties for the value stored in the Node, and a pointer to the next Node.
+Within your LinkedList class, include a head property. Upon instantiation, an empty Linked List should be created.
+Define a method called insert which takes any value as an argument and adds a new node with that value to the head of the list with an O(1) Time performance.
+Define a method called includes which takes any value as an argument and returns a boolean result depending on whether that value exists as a Node's value somewhere within the list.
+Define a method called <strike>toString (or __str__ in Python)</strike>.toJSON which takes in no arguments and returns a string representing all the values in the Linked List.
+## Approach & Efficiency
+My implementation of the link list comprises of two objects, LinkList and LinkNode, written in Python.
+```
+##Big O analysis:
+.insert() == O(1)
+.count() == O(n)
+.includes() == O(n)
+
+## API
+ListList
+    def __init__(self):
+        # constructor
+    def toJSON(self):
+        # dump object to JSON and return as String
+    def insert(self, value):
+        # insert value at the head of the list
+    def includes(self, value):
+        # traverse list and determine if a value exists
+        # return bool
+    def count(self):
+        # count the number of nodes and return count
+ListNode
+    def __init__(self, value, next=None, prev=None):
+        # constructor
+```
