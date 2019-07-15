@@ -67,3 +67,44 @@ def test_toJSON():
     print(actual)
     print(expected)
     assert expected == actual
+
+
+def test_append():
+    ll = LinkList()
+    ll.insert('2')
+    ll.insert('3')
+    ll.insert('1')
+    ll.append('5')
+
+
+def helper_insertBefore():
+    ll = LinkList()
+    ll.insert('2')
+    ll.insert('3')
+    ll.insert('1')
+    return ll
+
+
+"""
+def test_insertBefore():
+    ll = helper_insertBefore()
+    ll.insertBefore(3, 4)
+    ll = helper_insertBefore()
+    ll.insertBefore(1, 5)
+
+    ll = helper_insertBefore()
+    ll.insertBefore(2, 5)
+
+    ll = helper_insertBefore()
+    ll.insertBefore(4, 5)
+    ** exception
+
+def test_insertAfter()
+    ll = helper_insertBefore()
+    ll.insertAfter(3, 5)
+
+    ll.insertAfter(2, 5
+
+    ll.insertAfter(4, 5
+    Exception
+"""

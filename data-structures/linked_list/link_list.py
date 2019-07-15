@@ -56,3 +56,23 @@ class LinkList():
             cnt += 1
             cur = cur.next
         return cnt
+
+
+    def append(value)
+        # adds a new node with the given value to the end of the list
+        # BigO == O(n)
+        pass
+
+
+    def insertBefore(value, newVal)
+        # add a new node with the given newValue immediately before the first value node
+        # BigO == O(n)
+        pass
+
+
+    def insertAfter(value, newVal)
+        # add a new node with the given newValue immediately after the first value node
+        # BigO == O(n)
+        pass
+
+
