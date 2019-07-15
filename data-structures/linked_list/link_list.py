@@ -30,6 +30,17 @@ class LinkList():
         buf = buf.replace('\n', ' ').replace('\r', '')
         return buf
 
+    def toStr(self):
+        # dump list as simple text-list
+        buf = ''
+        ptr = self.head
+        while ptr is not None:
+            buf = buf + ptr.value + ','
+            ptr = ptr.next
+        if buf.endswith(','):
+            buf = buf[:-1]
+        return buf
+
     def insert(self, value):
         # insert value at the head of the list
         node = LinkNode(value, self.head)
@@ -57,20 +68,33 @@ class LinkList():
             cur = cur.next
         return cnt
 
-
-    def append(value)
+    def append(self, value):
         # adds a new node with the given value to the end of the list
         # BigO == O(n)
-        pass
 
+        # Handle Base Case First
+        if self.head is None:
+            node = LinkNode(self, value, None)
+            self.head = node
+            return True
 
-    def insertBefore(value, newVal)
-        # add a new node with the given newValue immediately before the first value node
+        # Traverse List to find end
+        ptr = self.head
+        while ptr.next is not None:
+            ptr = ptr.next
+
+        # insert new node at location of ptr
+        node = LinkNode(value)
+        ptr.next = node
+
+        return True
+
+    def insertBefore(self, value, newVal):
+        # add a new node wifith the given newValue immediately before the first value node
         # BigO == O(n)
         pass
 
-
-    def insertAfter(value, newVal)
+    def insertAfter(self, value, newVal):
         # add a new node with the given newValue immediately after the first value node
         # BigO == O(n)
         pass

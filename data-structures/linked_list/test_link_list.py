@@ -75,6 +75,9 @@ def test_append():
     ll.insert('3')
     ll.insert('1')
     ll.append('5')
+    expected = '1,3,2,5'
+    actual = ll.toStr()
+    assert expected == actual
 
 
 def helper_insertBefore():
