@@ -101,3 +101,5 @@ Linked List find Kth from end. Write a function that takes a number, k, as a par
 3. Where k is not a positive integer
 4. Where the linked list is of a size 1
 5. "Happy Path" where k is not at the end, but somewhere in the middle of the linked list
+## Whiteboard
+![alt_text](https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/data-structures/linked_list/assets/linked_lists-ll_insertions-whiteboard.jpg)
