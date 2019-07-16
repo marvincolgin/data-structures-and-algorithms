@@ -85,7 +85,8 @@ Linked List insertions. Modify the LinkedList class to include additional API fu
 4. Can successfully insert a node before the first node of a linked list
 5. Can successfully insert after a node in the middle of the linked list
 6. Can successfully insert a node after the last node of the linked list
-
+## Whiteboard
+![alt_text](https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/data-structures/linked_list/assets/linked_lists-ll_insertions-whiteboard.jpg)
 
 ## Challenge
 Linked List find Kth from end. Write a function that takes a number, k, as a parameter and returns the node's value for the kth element from end of list.
