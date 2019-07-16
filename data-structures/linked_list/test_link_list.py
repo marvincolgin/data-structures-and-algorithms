@@ -90,28 +90,38 @@ def test_append():
 
 def helper_insertBefore():
     ll = LinkList()
-    ll.insert('2')
-    ll.insert('3')
     ll.insert('1')
+    ll.insert('3')
+    ll.insert('2')
     return ll
 
 
 def test_insertBefore():
-    #ll = helper_insertBefore()
-    #ll.insertBefore('3', '4')
-    #expected = '1,4,3,2'
-    #actual = ll.toStr()
-    #assert expected == actual
+    ll = helper_insertBefore()
+    ll.insertBefore('3', '4')
+    expected = '2,4,3,1'
+    actual = ll.toStr()
+    assert expected == actual
 
-    #ll = helper_insertBefore()
-    #ll.insertBefore(1, 5)
+    ll = helper_insertBefore()
+    ll.insertBefore('1', '5')
+    expected = '2,3,5,1'
+    actual = ll.toStr()
+    assert expected == actual
 
-    #ll = helper_insertBefore()
-    #ll.insertBefore(2, 5)
+    ll = helper_insertBefore()
+    ll.insertBefore('2', '5')
+    expected = '5,2,3,1'
+    actual = ll.toStr()
+    assert expected == actual
 
-    #ll = helper_insertBefore()
-    #ll.insertBefore(4, 5)
-    #** exception
+    ll = helper_insertBefore()
+    actual = ll.insertBefore('4', '5')
+    expected = False
+    assert expected == actual
+    # @TODO: Assignment wanted me to raise an exception
+    # @ I've worked way too long on this, but this is how...
+    # self.assertRaises(SomeCoolException, mymod.myfunc)
     pass
 
 
