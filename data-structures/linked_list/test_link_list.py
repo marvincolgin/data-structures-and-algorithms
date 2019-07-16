@@ -95,8 +95,11 @@ def test_insertBefore():
     actual = ll.toStr()
     assert expected == actual
 
-    #ll = helper_insertBefore()
-    #ll.insertBefore(1, 5)
+    ll = helper_insertBefore()
+    ll.insertBefore(1, 5)
+    expected = '5,1,3,2'
+    actual = ll.toStr()
+    assert expected == actual
 
     #ll = helper_insertBefore()
     #ll.insertBefore(2, 5)
