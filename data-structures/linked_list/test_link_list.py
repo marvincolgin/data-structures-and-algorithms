@@ -122,7 +122,6 @@ def test_insertBefore():
     # @TODO: Assignment wanted me to raise an exception
     # @ I've worked way too long on this, but this is how...
     # self.assertRaises(SomeCoolException, mymod.myfunc)
-    pass
 
 
 """
