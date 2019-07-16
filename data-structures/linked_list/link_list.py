@@ -72,26 +72,24 @@ class LinkList():
         # adds a new node with the given value to the end of the list
         # BigO == O(n)
 
-        # Handle Base Case First
-        if self.head is None:
-            node = LinkNode(value, None)
-            self.head = node
-            return True
+        # walk to end of list
+        prev, cur = None, self.head
+        while cur is not None:
+            prev = cur
+            cur = cur.next
 
-        # Traverse List to find end
-        ptr = self.head
-        while ptr.next is not None:
-            ptr = ptr.next
-
-        # insert new node at location of ptr
-        node = LinkNode(value)
-        ptr.next = node
+        # create the node and add it to the end
+        node = LinkNode(value, None)
+        prev.next = node
 
         return True
 
-    def insertBefore(self, beforeThisVal, newVal):
+    def insertBefore(self, beforeThisVal: int, newVal: str):
         # add a new node wifith the given newValue immediately before the first value node
         # BigO == O(n)
+
+        print(f'beforeThisVal:[{beforeThisVal}]')
+        print(f'newVal:[{newVal}]')
 
         # Handle Base Case First
         if self.head is None:
@@ -99,7 +97,14 @@ class LinkList():
             self.head = node
             return True
 
-        # Find value to insert *before*
+        # Handle: target is first entry
+        if self.head.value == beforeThisVal:
+            node = LinkNode(newVal)
+            node.next = self.head
+            self.head = node
+            return True
+
+        # Handle: traverse list, looking for value
         found = False
         ptr = self.head
         while ptr is not None:
@@ -107,13 +112,13 @@ class LinkList():
                 found = True
                 break
             ptr = ptr.next
-
-        # Insert *if* found
-        if found:
-            node = LinkNode(newVal)
-            node.next = ptr.next
-            ptr.next = node
-            return True
+            # Insert *if* found
+            if found:
+                print(f'ptr.next.value:[{ptr.next.value}]')
+                node = LinkNode(newVal)
+                node.next = ptr.next
+                ptr.next = node
+                return True
 
         return False
 
@@ -128,4 +133,5 @@ if __name__ == "__main__":
     ll.insert('2')
     ll.insert('3')
     ll.insert('1')
-    ll.insertBefore('3', '4')
+    ll.insertBefore('1', '4')
+    print(ll.toStr())
