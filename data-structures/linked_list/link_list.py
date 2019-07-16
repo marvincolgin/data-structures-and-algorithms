@@ -88,39 +88,23 @@ class LinkList():
         # add a new node wifith the given newValue immediately before the first value node
         # BigO == O(n)
 
-        print(f'beforeThisVal:[{beforeThisVal}]')
-        print(f'newVal:[{newVal}]')
-
-        # Handle Base Case First
-        if self.head is None:
-            node = LinkNode(newVal)
-            self.head = node
-            return True
-
-        # Handle: target is first entry
-        if self.head.value == beforeThisVal:
-            node = LinkNode(newVal)
-            node.next = self.head
-            self.head = node
-            return True
-
-        # Handle: traverse list, looking for value
+        # walk the list to find it or the end
         found = False
-        ptr = self.head
-        while ptr is not None:
-            if ptr.next is not None and ptr.next.value == beforeThisVal:
+        prev, cur = self.head, self.head
+        while cur is not None:
+            if cur.value == newVal:
                 found = True
-                break
-            ptr = ptr.next
-            # Insert *if* found
-            if found:
-                print(f'ptr.next.value:[{ptr.next.value}]')
-                node = LinkNode(newVal)
-                node.next = ptr.next
-                ptr.next = node
-                return True
+            prev = cur
+            cur = cur.next
 
-        return False
+        # if found, put it in the chain, as a link right before the node containing value
+        if found
+            node = LineNode(value)
+            node.next = cur
+            prev.next = node
+
+        return found
+
 
     def insertAfter(self, value, newVal):
         # add a new node with the given newValue immediately after the first value node
