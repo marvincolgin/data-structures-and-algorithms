@@ -122,16 +122,25 @@ def test_insertBefore():
     # @TODO: Assignment wanted me to raise an exception
     # @ I've worked way too long on this, but this is how...
     # self.assertRaises(SomeCoolException, mymod.myfunc)
-    pass
 
 
-"""
-def test_insertAfter()
+def test_insertAfter():
     ll = helper_insertBefore()
-    ll.insertAfter(3, 5)
+    ll.insertAfter('3', '5')
+    expected = '2,3,5,1'
+    actual = ll.toStr()
+    assert expected == actual
 
-    ll.insertAfter(2, 5
+    ll = helper_insertBefore()
+    ll.insertAfter('2', '5')
+    expected = '2,5,3,1'
+    actual = ll.toStr()
+    assert expected == actual
 
-    ll.insertAfter(4, 5
-    Exception
-"""
+    ll = helper_insertBefore()
+    actual = ll.insertAfter('4', '5')
+    expected = False
+    assert expected == actual
+    # @TODO: Assignment wanted me to raise an exception
+    # @ I've worked way too long on this, but this is how...
+    # self.assertRaises(SomeCoolException, mymod.myfunc)

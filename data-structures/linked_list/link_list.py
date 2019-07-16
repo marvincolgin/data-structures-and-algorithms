@@ -125,7 +125,7 @@ class LinkList():
     def insertAfter(self, targetVal: int, newVal: str):
         # add a new node with the given newValue immediately AFTER the node containg targetVal
         # BigO == O(n)
-        return self.insertBefore(self, targetVal, newVal, True)
+        return self.insertBefore(targetVal, newVal, True)
 
 
 if __name__ == "__main__":
