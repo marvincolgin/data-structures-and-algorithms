@@ -1,4 +1,5 @@
 from link_list import LinkList, LinkNode
+import pytest
 
 
 def helper_insert_many(ll):
@@ -157,15 +158,19 @@ def helper_kthFromEnd():
 
 def test_kthFromEnd():
     ll = helper_kthFromEnd()
+    print(ll.toStr())
+
     actual = ll.kthFromEnd(0)
     expected = "2"
     assert actual == expected
 
-    #actual = ll.kthFromEnd(2)
-    #expected = "3"
+    actual = ll.kthFromEnd(2)
+    expected = "3"
+    assert actual == expected
 
-    #actual = ll.kthFromEnd(6)
-    #expected = False
-#head -> [1] -> [3] -> [8] -> [2] -> X	0	2
-#head -> [1] -> [3] -> [8] -> [2] -> X	2	3
-#head -> [1] -> [3] -> [8] -> [2] -> X	6	Exception
+
+def test_kthFromEnd_Exception():
+    ll = helper_kthFromEnd()
+
+    with pytest.raises(AssertionError):
+        assert(ll.kthFromEnd(6))
