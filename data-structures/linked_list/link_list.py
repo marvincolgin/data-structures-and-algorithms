@@ -74,7 +74,7 @@ class LinkList():
 
         # Handle Base Case First
         if self.head is None:
-            node = LinkNode(self, value, None)
+            node = LinkNode(value, None)
             self.head = node
             return True
 
@@ -89,10 +89,33 @@ class LinkList():
 
         return True
 
-    def insertBefore(self, value, newVal):
+    def insertBefore(self, beforeThisVal, newVal):
         # add a new node wifith the given newValue immediately before the first value node
         # BigO == O(n)
-        pass
+
+        # Handle Base Case First
+        if self.head is None:
+            node = LinkNode(newVal)
+            self.head = node
+            return True
+
+        # Find value to insert *before*
+        found = False
+        ptr = self.head
+        while ptr is not None:
+            if ptr.next is not None and ptr.next.value == beforeThisVal:
+                found = True
+                break
+            ptr = ptr.next
+
+        # Insert *if* found
+        if found:
+            node = LinkNode(newVal)
+            node.next = ptr.next
+            ptr.next = node
+            return True
+
+        return False
 
     def insertAfter(self, value, newVal):
         # add a new node with the given newValue immediately after the first value node
@@ -100,3 +123,9 @@ class LinkList():
         pass
 
 
+if __name__ == "__main__":
+    ll = LinkList()
+    ll.insert('2')
+    ll.insert('3')
+    ll.insert('1')
+    ll.insertBefore('3', '4')
