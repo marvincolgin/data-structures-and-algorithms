@@ -131,6 +131,10 @@ class LinkList():
         # finds the Kth element from the end of the list and returns value for node
         # BigO == O(n)
 
+        # Only positive integers
+        if k < 0:
+            raise AssertionError(f'WAIT!!! You must pass a positive integer, k:[{k}]')
+
         ptrA = self.head
         ptrB = self.head
 
@@ -165,6 +169,7 @@ if __name__ == "__main__":
     ll.insert("8")
     ll.insert("3")
     ll.insert("1")
-    actual = ll.kthFromEnd(0)
+    print(f'll.toStr():[{ll.toStr()}]')
+    actual = ll.kthFromEnd(5)
     print(f'actual:[{actual}]')
     expected = "2"

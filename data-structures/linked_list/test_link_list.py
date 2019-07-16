@@ -164,13 +164,33 @@ def test_kthFromEnd():
     expected = "2"
     assert actual == expected
 
+    # "Happy Path" where k is not at the end, but somewhere in the middle of the linked list
     actual = ll.kthFromEnd(2)
     expected = "3"
+    assert actual == expected
+
+    # Where k and the length of the list are the same
+    with pytest.raises(AssertionError):
+        assert(ll.kthFromEnd(5))
+
+    # Where k is not a positive integer
+    with pytest.raises(AssertionError):
+        assert(ll.kthFromEnd(-1))
+
+
+def test_kthFromEnd_OneLinkList():
+    ll = LinkList()
+    ll.insert("blah")
+
+    #Where the linked list is of a size 1
+    actual = ll.kthFromEnd(0)
+    expected = "blah"
     assert actual == expected
 
 
 def test_kthFromEnd_Exception():
     ll = helper_kthFromEnd()
 
+    # TEST: Where k is greater than the length of the linked list
     with pytest.raises(AssertionError):
         assert(ll.kthFromEnd(6))
