@@ -19,6 +19,14 @@ def test_class_exists():
     assert LinkNode
 
 
+def test_count():
+    ll = LinkList()
+    helper_insert_many(ll)
+    expected = 10
+    actual = ll.count()
+    assert actual == expected
+
+
 def test_insert():
     ll = LinkList()
     ll.insert('one')
@@ -67,3 +75,72 @@ def test_toJSON():
     print(actual)
     print(expected)
     assert expected == actual
+
+
+def test_append():
+    ll = LinkList()
+    ll.insert('2')
+    ll.insert('3')
+    ll.insert('1')
+    ll.append('5')
+    expected = '1,3,2,5'
+    actual = ll.toStr()
+    assert expected == actual
+
+
+def helper_insertBefore():
+    ll = LinkList()
+    ll.insert('1')
+    ll.insert('3')
+    ll.insert('2')
+    return ll
+
+
+def test_insertBefore():
+    ll = helper_insertBefore()
+    ll.insertBefore('3', '4')
+    expected = '2,4,3,1'
+    actual = ll.toStr()
+    assert expected == actual
+
+    ll = helper_insertBefore()
+    ll.insertBefore('1', '5')
+    expected = '2,3,5,1'
+    actual = ll.toStr()
+    assert expected == actual
+
+    ll = helper_insertBefore()
+    ll.insertBefore('2', '5')
+    expected = '5,2,3,1'
+    actual = ll.toStr()
+    assert expected == actual
+
+    ll = helper_insertBefore()
+    actual = ll.insertBefore('4', '5')
+    expected = False
+    assert expected == actual
+    # @TODO: Assignment wanted me to raise an exception
+    # @ I've worked way too long on this, but this is how...
+    # self.assertRaises(SomeCoolException, mymod.myfunc)
+
+
+def test_insertAfter():
+    ll = helper_insertBefore()
+    ll.insertAfter('3', '5')
+    expected = '2,3,5,1'
+    actual = ll.toStr()
+    assert expected == actual
+
+    ll = helper_insertBefore()
+    ll.insertAfter('2', '5')
+    expected = '2,5,3,1'
+    actual = ll.toStr()
+    assert expected == actual
+
+    ll = helper_insertBefore()
+    actual = ll.insertAfter('4', '5')
+    expected = False
+    assert expected == actual
+    # @TODO: Assignment wanted me to raise an exception
+    # @ I've worked way too long on this, but this is how...
+    # self.assertRaises(SomeCoolException, mymod.myfunc)
