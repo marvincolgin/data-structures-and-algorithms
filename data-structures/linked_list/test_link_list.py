@@ -144,3 +144,28 @@ def test_insertAfter():
     # @TODO: Assignment wanted me to raise an exception
     # @ I've worked way too long on this, but this is how...
     # self.assertRaises(SomeCoolException, mymod.myfunc)
+
+
+def helper_kthFromEnd():
+    ll = LinkList()
+    ll.insert("2")
+    ll.insert("8")
+    ll.insert("3")
+    ll.insert("1")
+    return ll
+
+
+def test_kthFromEnd():
+    ll = helper_kthFromEnd()
+    actual = ll.kthFromEnd(0)
+    expected = "2"
+    assert actual == expected
+
+    #actual = ll.kthFromEnd(2)
+    #expected = "3"
+
+    #actual = ll.kthFromEnd(6)
+    #expected = False
+#head -> [1] -> [3] -> [8] -> [2] -> X	0	2
+#head -> [1] -> [3] -> [8] -> [2] -> X	2	3
+#head -> [1] -> [3] -> [8] -> [2] -> X	6	Exception
