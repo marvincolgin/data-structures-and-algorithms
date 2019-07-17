@@ -115,7 +115,7 @@ class LinkList():
                 cur.next = node
             else:
                 node.next = cur
-                if prev is None: # edge-case, if the targetVal is first node
+                if prev is None:  # edge-case, if the targetVal is first node
                     self.head = node
                 else:
                     prev.next = node
@@ -127,11 +127,49 @@ class LinkList():
         # BigO == O(n)
         return self.insertBefore(targetVal, newVal, True)
 
+    def kthFromEnd(self, k):
+        # finds the Kth element from the end of the list and returns value for node
+        # BigO == O(n)
+
+        # Only positive integers
+        if k < 0:
+            raise AssertionError(f'WAIT!!! You must pass a positive integer, k:[{k}]')
+
+        ptrA = self.head
+        ptrB = self.head
+
+        # Walk ptrA out to "K" elements
+        tooSmall = False
+        c = 0
+        while c < k-1:
+            if ptrA.next is None:
+                tooSmall = True
+                break
+            ptrA = ptrA.next
+            c += 1
+        if tooSmall:
+            raise AssertionError(f'WAIT!!! There are not enough elements in the link list for k:[{k}].')
+
+        # Walk ptrA and ptrB out to the end of the list
+        # ptrB will point to our requested node
+        # note: for short lengths where the value is found before k elements, we are going to skip walking
+        # ptrB until the difference between it and ptrA is "k"
+        while ptrA.next is not None:
+            ptrA = ptrA.next
+            if c >= k:
+                ptrB = ptrB.next
+            c += 1
+
+        return ptrB.value
+
 
 if __name__ == "__main__":
     ll = LinkList()
-    ll.insert('2')
-    ll.insert('3')
-    ll.insert('1')
-    ll.insertBefore('1', '4')
-    print(ll.toStr())
+    ll.insert("2")
+    ll.insert("8")
+    ll.insert("3")
+    ll.insert("1")
+    print(f'll.toStr():[{ll.toStr()}]')
+    actual = ll.kthFromEnd(5)
+    print(f'actual:[{actual}]')
+    expected = "2"

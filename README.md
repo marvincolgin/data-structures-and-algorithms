@@ -85,3 +85,22 @@ Linked List insertions. Modify the LinkedList class to include additional API fu
 4. Can successfully insert a node before the first node of a linked list
 5. Can successfully insert after a node in the middle of the linked list
 6. Can successfully insert a node after the last node of the linked list
+## Whiteboard
+![alt_text](https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/data-structures/linked_list/assets/linked_lists-ll_insertions-whiteboard.jpg)
+
+## Challenge
+Linked List find Kth from end. Write a function that takes a number, k, as a parameter and returns the node's value for the kth element from end of list.
+## API
+```
+.kthFromEnd(k)
+    # finds the Kth element from the end of the list and returns value for node
+    # BigO == O(n)
+```
+## TESTS
+1. Where k is greater than the length of the linked list
+2. Where k and the length of the list are the same
+3. Where k is not a positive integer
+4. Where the linked list is of a size 1
+5. "Happy Path" where k is not at the end, but somewhere in the middle of the linked list
+## Whiteboard
+![alt_text](https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/data-structures/linked_list/assets/linked_lists-ll_insertions-whiteboard.jpg)

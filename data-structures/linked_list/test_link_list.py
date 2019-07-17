@@ -1,4 +1,5 @@
 from link_list import LinkList, LinkNode
+import pytest
 
 
 def helper_insert_many(ll):
@@ -144,3 +145,52 @@ def test_insertAfter():
     # @TODO: Assignment wanted me to raise an exception
     # @ I've worked way too long on this, but this is how...
     # self.assertRaises(SomeCoolException, mymod.myfunc)
+
+
+def helper_kthFromEnd():
+    ll = LinkList()
+    ll.insert("2")
+    ll.insert("8")
+    ll.insert("3")
+    ll.insert("1")
+    return ll
+
+
+def test_kthFromEnd():
+    ll = helper_kthFromEnd()
+    print(ll.toStr())
+
+    actual = ll.kthFromEnd(0)
+    expected = "2"
+    assert actual == expected
+
+    # "Happy Path" where k is not at the end, but somewhere in the middle of the linked list
+    actual = ll.kthFromEnd(2)
+    expected = "3"
+    assert actual == expected
+
+    # Where k and the length of the list are the same
+    with pytest.raises(AssertionError):
+        assert(ll.kthFromEnd(5))
+
+    # Where k is not a positive integer
+    with pytest.raises(AssertionError):
+        assert(ll.kthFromEnd(-1))
+
+
+def test_kthFromEnd_OneLinkList():
+    ll = LinkList()
+    ll.insert("blah")
+
+    #Where the linked list is of a size 1
+    actual = ll.kthFromEnd(0)
+    expected = "blah"
+    assert actual == expected
+
+
+def test_kthFromEnd_Exception():
+    ll = helper_kthFromEnd()
+
+    # TEST: Where k is greater than the length of the linked list
+    with pytest.raises(AssertionError):
+        assert(ll.kthFromEnd(6))
