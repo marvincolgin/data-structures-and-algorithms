@@ -131,7 +131,6 @@ STACK: implement a stack data structure (LIFO)
 .push(val): bool
 .pop(): val
 .peek(): val
-.
 ```
 ## TESTS
 * STACK: push onto a stack
@@ -144,12 +143,14 @@ STACK: implement a stack data structure (LIFO)
 ## Challenge
 QUEUE: implement a queue data structure (FIFO)
 ## API
+```
 .enqueue(val): bool
     # Add a value to the queue
 .dequeue(val): bool
     # Remove entry from queue with a given value
 .peek(): val
     # Get value from the head of the queue (without removing it)
+```
 ## TESTS
 * QUEUE: enqueue into a queue
 * QUEUE: enqueue multiple values into a queue
