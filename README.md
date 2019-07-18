@@ -128,9 +128,9 @@ mergeList(listA, listB)
 STACK: implement a stack data structure (LIFO)
 ## API
 ```
-.push(val): bool
-.pop(): val
-.peek(): val
+.push(val) -> bool:
+.pop() -> str:
+.peek() -> str:
 ```
 ## TESTS
 * STACK: push onto a stack
@@ -144,11 +144,11 @@ STACK: implement a stack data structure (LIFO)
 QUEUE: implement a queue data structure (FIFO)
 ## API
 ```
-.enqueue(val): bool
+.enqueue(val) -> bool:
     # Add a value to the queue
-.dequeue(val): bool
+.dequeue(val) -> bool:
     # Remove entry from queue with a given value
-.peek(): val
+.peek() -> str:
     # Get value from the head of the queue (without removing it)
 ```
 ## TESTS
