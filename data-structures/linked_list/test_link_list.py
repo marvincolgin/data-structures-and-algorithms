@@ -197,7 +197,8 @@ def test_kthFromEnd_Exception():
         assert(ll.kthFromEnd(6))
 
 
-def test_ll_merge():
+def test_ll_merge_equal():
+    # TEST: Merge two equal
     listA = LinkList()
     listA.append('apple')
     listA.append('bannana')
@@ -208,8 +209,14 @@ def test_ll_merge():
     listB.append('frosted flakes')
     listB.append('wheaties')
 
-    expected = 'apple,cheerios,bannan,frosted flakes,orange,wheaties'
+    listA.mergeList(listA, listB)
+
+    expected = 'apple,cheerios,bannana,frosted flakes,orange,wheaties'
     actual = listA.toStr()
 
     assert expected == actual
 
+    # TEST: Merge two unequal
+    # TEST: Merge one empty list
+    # TEST: Merge two empty lists
+    # TEST: Merge a list with just 1 item
