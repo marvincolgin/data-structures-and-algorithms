@@ -104,3 +104,19 @@ Linked List find Kth from end. Write a function that takes a number, k, as a par
 5. "Happy Path" where k is not at the end, but somewhere in the middle of the linked list
 ## Whiteboard
 ![alt_text](https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/data-structures/linked_list/assets/linked_lists-ll_insertions-whiteboard.jpg)
+
+## Challenge
+Merge Two Linked Lists.
+Write a function called mergeLists which takes two linked lists as arguments. Zip the two linked lists together into one so that the nodes alternate between the two lists and return a reference to the head of the zipped list. Try and keep additional space down to O(1). You have access to the Node class and all the properties on the Linked List class as well as the methods created in previous challenges.
+## API
+```
+mergeList(listA, listB)
+```
+## TESTS
+1. Merge two equal
+2. Merge two unequal
+3. Merge one empty list
+4. Merge two empty lists
+5. Merge a list with just 1 item
+## Whiteboard
+![alt_text](https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/data-structures/linked_list/assets/ll_merge-whiteboard.jpg)
