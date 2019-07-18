@@ -96,6 +96,27 @@ class LinkList():
 
         return True
 
+    def remove(self, value) -> bool:
+        # removes a node from a list, given a specific value
+        # BigO == O(n*2) ... I could eliminate self.includes(), but I think it's more readable
+        # NOTE: only the first one found will be removed
+
+        ret = False
+        if self.includes(value):
+            prev, cur = None, self.head
+            while cur is not None:
+                if cur.value == value:
+                    if prev is None:
+                        self.head = cur.next
+                    else:
+                        prev.next = cur.next
+                    ret = True
+                    break
+                prev = cur
+                cur = cur.next
+
+        return ret
+
     def insertBefore(self, targetVal: int, newVal: str, afterInstead=False):
         # add a new node with the given newValue immediately BEFORE the node containg targetVal
         # note: this bevahoir can be modified by the bool afterInstead
