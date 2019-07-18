@@ -1,4 +1,5 @@
 import json
+#from ll_merge import mergeList
 
 
 # **********************************
@@ -88,7 +89,10 @@ class LinkList():
 
         # create the node and add it to the end
         node = LinkNode(value, None)
-        prev.next = node
+        if (prev == None):
+            self.head = node
+        else:
+            prev.next = node
 
         return True
 
@@ -163,13 +167,44 @@ class LinkList():
         return ptrB.value
 
 
+    def mergeList(self, listA, listB):
+        # Merge two lists
+        # BigO == O(n)
+
+        ptrA = listA.head
+        ptrB = listB.head
+
+        print(f'ptrA:[{ptrA}]')
+        print(f'ptrB:[{ptrB}]')
+        while ptrA is not None or ptrB is not None:
+            print(f'ptrA.value:[{ptrA.value}]')
+            print(f'ptrB.value:[{ptrB.value}]')
+            if ptrA is not None:
+                prev = ptrA
+                ptrA = ptrA.next
+                prev.next = ptrB
+            if ptrB is not None:
+                prev = ptrB
+                ptrB = ptrB.next
+                prev.next = ptrA
+
+        return listA
+
+
 if __name__ == "__main__":
-    ll = LinkList()
-    ll.insert("2")
-    ll.insert("8")
-    ll.insert("3")
-    ll.insert("1")
-    print(f'll.toStr():[{ll.toStr()}]')
-    actual = ll.kthFromEnd(5)
+
+    listA = LinkList()
+    listA.append('apple')
+    listA.append('bannana')
+    listA.append('orange')
+
+    listB = LinkList()
+    listB.append('cheerios')
+    listB.append('frosted flakes')
+    listB.append('wheaties')
+
+    expected = 'apple,cheerios,bannan,frosted flakes,orange,wheaties'
+    listA.mergeList(listA, listB)
+    actual = listA.toStr()
+
     print(f'actual:[{actual}]')
-    expected = "2"

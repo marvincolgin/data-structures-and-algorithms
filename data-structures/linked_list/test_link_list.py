@@ -1,5 +1,6 @@
 from link_list import LinkList, LinkNode
 import pytest
+import ll_merge.ll_merge
 
 
 def helper_insert_many(ll):
@@ -194,3 +195,29 @@ def test_kthFromEnd_Exception():
     # TEST: Where k is greater than the length of the linked list
     with pytest.raises(AssertionError):
         assert(ll.kthFromEnd(6))
+
+
+def test_ll_merge():
+
+    # @TODO: TEST: Merge two unequal
+    # @TODO: TEST: Merge one empty list
+    # @TODO: TEST: Merge two empty lists
+    # @TODO: TEST: Merge a list with just 1 item
+
+    listA = LinkList()
+    listA.append('apple')
+    listA.append('bannana')
+    listA.append('orange')
+
+    listB = LinkList()
+    listB.append('cheerios')
+    listB.append('frosted flakes')
+    listB.append('wheaties')
+
+    listA.mergeList(listA, listB)
+
+    expected = 'apple,cheerios,bannana,frosted flakes,orange,wheaties'
+    actual = listA.toStr()
+
+    assert expected == actual
+
