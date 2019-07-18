@@ -208,7 +208,9 @@ def test_ll_merge():
     listB.append('frosted flakes')
     listB.append('wheaties')
 
-    expected = 'apple,cheerios,bannan,frosted flakes,orange,wheaties'
+    listA.mergeList(listA, listB)
+
+    expected = 'apple,cheerios,bannana,frosted flakes,orange,wheaties'
     actual = listA.toStr()
 
     assert expected == actual
