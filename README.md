@@ -111,6 +111,8 @@ Write a function called mergeLists which takes two linked lists as arguments. Zi
 ## API
 ```
 mergeList(listA, listB)
+    # Merge two linked lists
+    # BigO = O(n)
 ```
 ## TESTS
 1. Merge two equal
