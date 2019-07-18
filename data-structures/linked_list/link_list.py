@@ -88,7 +88,10 @@ class LinkList():
 
         # create the node and add it to the end
         node = LinkNode(value, None)
-        prev.next = node
+        if (prev == None):
+            self.head = node
+        else:
+            prev.next = node
 
         return True
 
