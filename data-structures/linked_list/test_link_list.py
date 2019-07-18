@@ -89,6 +89,14 @@ def test_append():
     actual = ll.toStr()
     assert expected == actual
 
+def test_remove():
+    ll = LinkList()
+    helper_insert_many(ll)
+    actual = ll.remove('5')
+    expected = True
+    assert actual == expected
+    assert ll.count() == 9
+
 
 def helper_insertBefore():
     ll = LinkList()
