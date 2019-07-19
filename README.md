@@ -133,12 +133,12 @@ STACK: implement a stack data structure (LIFO)
 .peek() -> str:
 ```
 ## TESTS
-* STACK: push onto a stack
-* STACK: push multiple values onto a stack
-* STACK: pop off the stack
-* STACK: empty a stack after multiple pops
-* STACK: peek the next item on the stack
-* STACK: instantiate an empty stack
+- [x] push onto a stack
+- [x] push multiple values onto a stack
+- [x] pop off the stack
+- [x] empty a stack after multiple pops
+- [x] peek the next item on the stack
+- [x] instantiate an empty stack
 
 ## Challenge
 QUEUE: implement a queue data structure (FIFO)
@@ -152,9 +152,9 @@ QUEUE: implement a queue data structure (FIFO)
     # Get value from the head of the queue (without removing it)
 ```
 ## TESTS
-* QUEUE: enqueue into a queue
-* QUEUE: enqueue multiple values into a queue
-* QUEUE: dequeue out of a queue the expected value
-* QUEUE: peek into a queue, seeing the expected value
-* QUEUE: empty a queue after multiple dequeues
-* QUEUE: instantiate an empty queue
+- [x] enqueue into a queue
+- [x] enqueue multiple values into a queue
+- [x] dequeue out of a queue the expected value
+- [x] peek into a queue, seeing the expected value
+- [x] empty a queue after multiple dequeues
+- [x] instantiate an empty queue
