@@ -15,8 +15,8 @@ class Stack():
         return self._data.count()
 
     def pop(self) -> str:
-        val = self.peek()
-        if val != '':
+        b,val = self._data.peekHead()
+        if b:
             self._data.remove(val)
         return val
 
@@ -24,12 +24,8 @@ class Stack():
         self._data.insert(val)
         return True
 
-    def peek(self) -> str:
-        # not going to do it...
-        # return self._data and self.data.head
-        if self._data.head is not None:
-            return self._data.head.value
-        return ''
+    def peek(self) -> [bool,str]:
+        return self._data.peekHead()
 
 # *********************************
 class Queue():
@@ -38,17 +34,23 @@ class Queue():
     def __init__(self):
         self._data = LinkList()
 
-    def enqueue(val) -> bool:
+    def count(self) -> int:
+        return self._data.count()
+
+    def toStr(self) -> str:
+        return self._data.toStr()
+
+    def enqueue(self, val) -> bool:
        # Add a value to the queue
        return self._data.append(val)
 
-    def dequeue(val) -> bool:
+    def dequeue(self, val) -> bool:
        # Remove entry from queue with a given value
        # NOTE: will only remove the first element found with val
        return self._data.remove(val)
 
-    def peek() -> str:
+    def peek(self) -> [bool, str]:
        # Get value from the head of the queue (without removing it)
-       if (self.
-       pass
+       return self._data.peekHead()
+
 
