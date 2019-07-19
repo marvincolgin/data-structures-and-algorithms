@@ -1,6 +1,6 @@
 import pytest
 import sys
-from stacks_and_queues import Stack
+from stacks_and_queues import Stack, Queue
 
 
 def helper_stack_addlots():
@@ -72,11 +72,40 @@ def test_stack_peek():
     assert actual == expected
 
 
-    """
-* QUEUE: enqueue into a queue
-* QUEUE: enqueue multiple values into a queue
-* QUEUE: dequeue out of a queue the expected value
-* QUEUE: peek into a queue, seeing the expected value
-* QUEUE: empty a queue after multiple dequeues
-* QUEUE: instantiate an empty queue
-    """
+def test_queue_classexists():
+    assert Queue
+
+
+def test_queue_cancreate():
+    q = Queue()
+    expected = True
+    actual = isinstance(q, Queue)
+    assert expected == actual
+
+
+def test_queue_enqueue():
+    # enqueue into a queue
+    pass
+
+def test_queue_enqueue_lots():
+    # enqueue multiple values into a queue
+    pass
+
+
+def test_queue_dequeue():
+    # dequeue out of a queue the expected value
+    pass
+
+
+def test_queue_peek():
+    # peek into a queue, seeing the expected value
+    pass
+
+
+def test_queue_dequeue_untilempty():
+    # empty a queue after multiple dequeues
+    pass
+
+
+
+

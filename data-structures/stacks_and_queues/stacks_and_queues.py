@@ -10,7 +10,6 @@ class Stack():
 
     def __init__(self):
         self._data = LinkList()
-        pass
 
     def count(self) -> int:
         return self._data.count()
@@ -31,3 +30,25 @@ class Stack():
         if self._data.head is not None:
             return self._data.head.value
         return ''
+
+# *********************************
+class Queue():
+
+
+    def __init__(self):
+        self._data = LinkList()
+
+    def enqueue(val) -> bool:
+       # Add a value to the queue
+       return self._data.append(val)
+
+    def dequeue(val) -> bool:
+       # Remove entry from queue with a given value
+       # NOTE: will only remove the first element found with val
+       return self._data.remove(val)
+
+    def peek() -> str:
+       # Get value from the head of the queue (without removing it)
+       if (self.
+       pass
+

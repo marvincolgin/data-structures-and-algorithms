@@ -98,6 +98,24 @@ def test_remove():
     assert ll.count() == 9
 
 
+def test_peekHead():
+    ll = LinkList()
+    helper_insert_many(ll)
+    expectedStr = "9"
+    expectedBool = True
+    actualBool,actualStr = ll.peekHead()
+    assert expectedStr == actualStr
+    assert expectedBool == actualBool
+
+
+def test_peekHead_empty():
+    ll = LinkList()
+    expectedStr = ""
+    expectedBool = False
+    actualBool,actualStr = ll.peekHead()
+    assert expectedBool == actualBool
+
+
 def helper_insertBefore():
     ll = LinkList()
     ll.insert('1')

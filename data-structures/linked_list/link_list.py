@@ -77,7 +77,7 @@ class LinkList():
             cur = cur.next
         return cnt
 
-    def append(self, value):
+    def append(self, value) -> bool:
         # adds a new node with the given value to the end of the list
         # BigO == O(n)
 
@@ -95,6 +95,15 @@ class LinkList():
             prev.next = node
 
         return True
+
+    def peekHead(self) -> [bool, str]:
+        retStr = ''
+        retBool = False
+        if self.head is not None:
+            retStr = self.head.value
+            retBool = True
+        return [retBool, retStr]
+
 
     def remove(self, value) -> bool:
         # removes a node from a list, given a specific value
