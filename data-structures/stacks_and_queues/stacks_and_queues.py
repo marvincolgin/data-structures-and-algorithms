@@ -1,6 +1,5 @@
 import sys
-sys.path.insert(0, '../linked_list')
-from link_list import LinkList
+sys.path.insert(0, '../linked_list') from link_list import LinkList
 
 
 # ********************************
@@ -15,7 +14,7 @@ class Stack():
         return self._data.count()
 
     def pop(self) -> str:
-        b,val = self._data.peekHead()
+        b, val = self._data.peekHead()
         if b:
             self._data.remove(val)
         return val
@@ -24,12 +23,12 @@ class Stack():
         self._data.insert(val)
         return True
 
-    def peek(self) -> [bool,str]:
+    def peek(self) -> [bool, str]:
         return self._data.peekHead()
+
 
 # *********************************
 class Queue():
-
 
     def __init__(self):
         self._data = LinkList()
@@ -41,16 +40,14 @@ class Queue():
         return self._data.toStr()
 
     def enqueue(self, val) -> bool:
-       # Add a value to the queue
-       return self._data.append(val)
+        # Add a value to the queue
+        return self._data.append(val)
 
     def dequeue(self, val) -> bool:
-       # Remove entry from queue with a given value
-       # NOTE: will only remove the first element found with val
-       return self._data.remove(val)
+        # Remove entry from queue with a given value
+        # NOTE: will only remove the first element found with val
+        return self._data.remove(val)
 
     def peek(self) -> [bool, str]:
-       # Get value from the head of the queue (without removing it)
-       return self._data.peekHead()
-
-
+        # Get value from the head of the queue (without removing it)
+        return self._data.peekHead()

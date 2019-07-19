@@ -27,8 +27,8 @@ def test_stack_push():
     # STACK: push onto a stack
     stack = Stack()
     stack.push('pao de queijo')
-    actualBool,actualStr = stack.peek()
-    expectedBool, expectedStr = True,'pao de queijo'
+    actualBool, actualStr = stack.peek()
+    expectedBool, expectedStr = True, 'pao de queijo'
     assert actualBool == expectedBool
     assert actualStr == expectedStr
 
@@ -137,8 +137,9 @@ def test_queue_dequeue_error():
 def test_queue_peek():
     # peek into a queue, seeing the expected value
     q = helper_queue_enqueue_lots()
-    actualBool,actualStr = q.peek()
-    assert actualBool == True
+    actualBool, actualStr = q.peek()
+    expectedBool = True
+    assert actualBool == expectedBool
     expected = 'pao de queijo'
     assert expected == actualStr
 
@@ -146,8 +147,9 @@ def test_queue_peek():
 def test_queue_peek_empty():
     # peek into a queue, seeing the expected value
     q = Queue()
-    actualBool,actualStr = q.peek()
-    assert actualBool == False
+    actualBool, actualStr = q.peek()
+    expectedBool = False
+    assert actualBool == expectedBool
     expected = ''
     assert expected == actualStr
 
@@ -159,5 +161,3 @@ def test_queue_dequeue_untilempty():
     for x in arr:
         q.dequeue(x)
     assert q.count() == 0
-
-
