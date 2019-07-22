@@ -158,3 +158,38 @@ QUEUE: implement a queue data structure (FIFO)
 - [x] peek into a queue, seeing the expected value
 - [x] empty a queue after multiple dequeues
 - [x] instantiate an empty queue
+
+
+## Challenge
+QUEUE: implement a queue data structure (FIFO), using a Stack as the base data structure
+## API
+```
+class PseudoQueue(object):
+
+    def __init__(self):
+        # create Stack for internal data-struct
+
+    def count(self):
+        # pass through method to underlying data struct
+        # BigO == O(n)
+
+    def enqueue(self, val: str) -> bool:
+        # enqeue a value at the end queue
+        # BigO == O(1)
+
+    def dequeue(self) -> (str, bool):
+        # dequeue from head of queue
+        # BigO == O(n)
+        # Algo: use a second stack, as we need the bottom element on the first stack
+        # so we are going to unload the first stack, into a temp stack, in order to
+        # get at the bottom element of the first, then rebuild it from temp to first-stack
+```
+## TESTS
+- [x] class existence
+- [x] enqueue multiple items
+- [x] dequeue item
+- [x] dequeue multiple items
+- [ ] dequeue all until empty
+## Whiteboard
+![alt_text](https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/data-structures/linked_list/assets/ll_merge-whiteboard.jpg)
+
