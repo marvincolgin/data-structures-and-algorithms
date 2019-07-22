@@ -122,3 +122,39 @@ mergeList(listA, listB)
 5. Merge a list with just 1 item
 ## Whiteboard
 ![alt_text](https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/data-structures/linked_list/assets/ll_merge-whiteboard.jpg)
+
+
+## Challenge
+STACK: implement a stack data structure (LIFO)
+## API
+```
+.push(val) -> bool:
+.pop() -> str:
+.peek() -> str:
+```
+## TESTS
+- [x] push onto a stack
+- [x] push multiple values onto a stack
+- [x] pop off the stack
+- [x] empty a stack after multiple pops
+- [x] peek the next item on the stack
+- [x] instantiate an empty stack
+
+## Challenge
+QUEUE: implement a queue data structure (FIFO)
+## API
+```
+.enqueue(val) -> bool:
+    # Add a value to the queue
+.dequeue(val) -> bool:
+    # Remove entry from queue with a given value
+.peek() -> str:
+    # Get value from the head of the queue (without removing it)
+```
+## TESTS
+- [x] enqueue into a queue
+- [x] enqueue multiple values into a queue
+- [x] dequeue out of a queue the expected value
+- [x] peek into a queue, seeing the expected value
+- [x] empty a queue after multiple dequeues
+- [x] instantiate an empty queue
