@@ -41,6 +41,11 @@ class PseudoQueue(object):
         retStr = ''
         retBool = False
 
+        # Empty List? Early return!
+        b, s = self._data.peek()
+        if not b:
+            return retStr, retBool
+
         # reverse the primary stack into temp stack
         tempStack = Stack()
         while True:

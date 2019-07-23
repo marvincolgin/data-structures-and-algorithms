@@ -31,11 +31,13 @@ def test_dequeue():
 
     # @TODO these next two are failing, I need to move on to LAB tho..
 
-    #expectedStr = 'blueberry'
-    #actualStr, actualBool = pq.dequeue()
-    #assert expectedStr == actualStr
+    expectedStr = 'blueberry'
+    actualStr, actualBool = pq.dequeue()
+    assert expectedStr == actualStr
 
-    #expectedBool = False
-    #actualStr, actualBool = pq.dequeue()
-    #assert expectedStr == actualStr
+    expectedStr = ''
+    expectedBool = False
+    actualStr, actualBool = pq.dequeue()
+    assert expectedStr == actualStr
+    assert expectedBool == actualBool
 
