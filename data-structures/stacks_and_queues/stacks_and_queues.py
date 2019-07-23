@@ -1,5 +1,6 @@
 import sys
-sys.path.insert(0, '../linked_list') from link_list import LinkList
+sys.path.insert(0, '../linked_list')
+from link_list import LinkList
 
 
 # ********************************
