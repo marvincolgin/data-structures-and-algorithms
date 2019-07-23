@@ -189,6 +189,6 @@ class PseudoQueue(object):
 - [x] enqueue multiple items
 - [x] dequeue item
 - [x] dequeue multiple items
-- [ ] dequeue all until empty
+- [x] dequeue all until empty
 ## Whiteboard
 ![alt_text](https://github.com/marvincolgin/data-structures-and-algorithms/blob/queue_with_stacks/challenges/queue_with_stacks/assets/whiteboard.jpg)
