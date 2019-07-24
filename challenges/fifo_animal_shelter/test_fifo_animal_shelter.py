@@ -39,7 +39,7 @@ def test_shelter_enq_deq():
     assert actual == expected
 
 
-def test_shelf_enq_lots():
+def test_shelter_enq_lots():
     shelter = AnimalShelter()
 
     # Inc 10 (ALTERNATING)
@@ -66,7 +66,10 @@ def test_shelf_enq_lots():
 
         assert actual == expected
 
-def test_shelf_deq_empty():
+def test_shelter_deq_empty():
     # @TODO
     pass
 
+def test_shelter_deq_prev():
+    # @TODO
+    pass
