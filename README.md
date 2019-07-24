@@ -192,3 +192,51 @@ class PseudoQueue(object):
 - [x] dequeue all until empty
 ## Whiteboard
 ![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/1805a3f00421d5f5f4bc5578e9cfc4522d47e9ba/challenges/queue_with_stacks/assets/whiteboard.jpg)
+
+## Challenge
+FIFO Animal Shelter: create a class called AnimalShelter which holds only dogs/cats. The shelter operates as first-in / first-out
+## API
+```
+
+class AnimalType(IntEnum):
+
+class Animal(object):
+    def __init__(self, animaltype : AnimalType):
+        # create internal data structs
+    def serialize(self):
+        # return json for obj
+    def Factory(jsonstr : str): # -> Animal
+        # create Animal class Dog|Cat for Json
+
+class Cat(Animal):
+    def __init__(self):
+        # create internal data structs
+
+class Dog(Animal):
+    def __init__(self):
+        # create internal data structs
+
+class AnimalShelter():
+    def __init__(self):
+        # create internal data structs
+    def enqueue(self, animal : Animal):
+        # add animal to shelter
+    def dequeue(self, pref : AnimalType=None) -> Animal:
+        # grab animal that has been in queue the longest, optionally provide parameter
+
+```
+## TESTS
+- [x] class existence
+- [x] enq one
+- [x] enq many
+- [x] deq one (no pref)
+- [ ] deq one (with pref)
+- [x] deq until empty
+
+## STRETCH
+- [ ] deq oldest
+```
+## Whiteboard
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/SOMEUUID/challenges/fifo_animal_shelter/assets/whiteboard.jpg)
+
+
