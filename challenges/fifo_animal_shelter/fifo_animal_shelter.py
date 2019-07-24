@@ -18,11 +18,11 @@ class AnimalType(IntEnum):
 
 class Animal(object):
 
-    type = AnimalType.UNKNOWN
+    animaltype = AnimalType.UNKNOWN
 
-    def __init__(self, type : AnimalType):
+    def __init__(self, animaltype : AnimalType):
         # create obj
-        self.type = type
+        self.animaltype = animaltype
 
     def serialize(self):
         # return json for obj
@@ -32,14 +32,15 @@ class Animal(object):
     def Factory(jsonstr : str): # -> Animal
         # create Animal class Dog|Cat for Json
         d = json.loads(jsonstr)
-        print(f'd:[{d}]')
-        if d['type'] == AnimalType.CAT:
+
+        if d['animaltype'] == AnimalType.CAT:
             obj = Animal(AnimalType.CAT)
-        elif d['type'] == AnimalType.DOG:
+        elif d['animaltype'] == AnimalType.DOG:
             obj = Animal(AnimalType.DOG)
         else:
             print('Bad JSON')
             return None
+
         return obj
 
 
@@ -48,14 +49,14 @@ class Cat(Animal):
     def __init__(self):
         # create obj
         # call super with CAT
-        pass
+        super().__init__(AnimalType.CAT)
 
 class Dog(Animal):
 
     def __init__(self):
         # create obj
         # call super with DOG
-        pass
+        super().__init__(AnimalType.DOG)
 
 
 class AnimalShelter():

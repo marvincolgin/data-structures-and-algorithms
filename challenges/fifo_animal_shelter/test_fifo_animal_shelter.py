@@ -6,16 +6,24 @@ def test_class_exists():
     Cat()
     Dog()
 
+
 def test_animal_serialize():
+    # test DOG create/serialize
     a = Animal(AnimalType.CAT)
     actual = a.serialize()
-    expected = '{"type": 1}'
+    expected = '{"animaltype": 1}'
+    assert actual == expected
+    # test DOG create/serialize
+    a = Animal(AnimalType.DOG)
+    actual = a.serialize()
+    expected = '{"animaltype": 2}'
     assert actual == expected
 
 def test_animal_factory():
-    serialdata = '{"type": 1}'
+    serialdata = '{"animaltype": 1}'
     a = Animal.Factory(serialdata)
     actual = a.serialize()
     expected = serialdata
     assert actual == expected
+
 
