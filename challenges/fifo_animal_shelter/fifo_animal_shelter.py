@@ -61,14 +61,20 @@ class Dog(Animal):
 
 class AnimalShelter():
 
+    q = None  # Queue
     def __init__(self):
         # create internal data structs
-        pass
+        self.q = Queue()
 
     def enqueue(self, animal : Animal):
         # add animal to shelter
-        pass
+        self.q.enqueue(animal.serialize())
 
     def dequeue(self, pref : AnimalType=None) -> Animal:
         # grab animal that has been in queue the longest, optionally provide parameter
-        pass
+        b, val = self.q.peek()
+        if not b:
+            return None
+
+        if self.q.dequeue(val):
+            return Animal.Factory(val)
