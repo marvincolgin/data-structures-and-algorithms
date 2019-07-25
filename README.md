@@ -235,7 +235,6 @@ class AnimalShelter():
 
 ## STRETCH
 - [ ] deq oldest
-```
 ## Whiteboard
 ![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/SOMEUUID/challenges/fifo_animal_shelter/assets/whiteboard.jpg)
 
@@ -256,4 +255,4 @@ def multi_bracket_validation(input : str) -> boolean:
 - [x] Only Closed
 - [x] Empty
 ## Whiteboard
-![alt_text](https://)
+![alt_text](https://github.com/marvincolgin/data-structures-and-algorithms/raw/multi_bracket_validation/challenges/multi_bracket_validation/assets/whiteboard.jpg)
