@@ -239,4 +239,21 @@ class AnimalShelter():
 ## Whiteboard
 ![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/SOMEUUID/challenges/fifo_animal_shelter/assets/whiteboard.jpg)
 
-
+## Challenge
+Create a function, which takes in a string and tests it to make sure that any open brackets ('{','(','[') are balanced with their corresponding closing-brackets ('}',')',']').
+## API
+```
+def multi_bracket_validation(input : str) -> boolean:
+```
+## TESTS
+- [x] Balanced
+- [x] Balanced Complicated
+- [x] Balanced extra characters
+- [x] Balanced nested
+- [x] Balanced alternating
+- [x] Unbalanced
+- [x] Only Open
+- [x] Only Closed
+- [x] Empty
+## Whiteboard
+![alt_text](https://)
