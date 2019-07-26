@@ -22,34 +22,19 @@ class BinaryTree:
 
         def _visit(node):
 
+            if method == TraverseMethod.PRE_ORDER:
+               results.append(node.value)
+
+            if node.left:
+                _visit(node.left)
+
             if method == TraverseMethod.IN_ORDER:
-
-               if node.left:
-                   _visit(node.left)
-
                results.append(node.value)
 
-               if node.right:
-                   _visit(node.right)
+            if node.right:
+                _visit(node.right)
 
-            elif method == TraverseMethod.PRE_ORDER:
-
-               results.append(node.value)
-
-               if node.left:
-                   _visit(node.left)
-
-               if node.right:
-                   _visit(node.right)
-
-            elif method == TraverseMethod.POST_ORDER:
-
-               if node.left:
-                   _visit(node.left)
-
-               if node.right:
-                   _visit(node.right)
-
+            if method == TraverseMethod.POST_ORDER:
                results.append(node.value)
 
         _visit(self.root)
