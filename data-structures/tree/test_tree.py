@@ -1,5 +1,5 @@
 import pytest
-from tree import TraverseMethod, BinaryTree, Node
+from tree import TraverseMethod, BinaryTree, Node, BinarySearchTree
 
 
 def test_exists():
@@ -51,16 +51,19 @@ def test_post_order(tree):
     expected = [ 8, 9, 7, 6, 2, 4, 5, 3, 1 ]
     actual = tree.returnAsArr(TraverseMethod.POST_ORDER)
     assert expected == actual
-"""
+
 def test_exists():
     assert BinarySearchTree
 
+def test_contains():
+    tree = BinarySearchTree()
+    tree.add(50)
+    assert tree.contains(50)
 
 def test_add_empty():
     tree = BinarySearchTree()
     tree.add("apple")
     assert tree.root.value == "apple"
-
 
 def test_add_smaller():
     tree = BinarySearchTree()
@@ -69,7 +72,6 @@ def test_add_smaller():
     assert tree.root.value == 50
     assert tree.root.left.value == 25
 
-
 def test_add_larger():
     tree = BinarySearchTree()
     tree.add(50)
@@ -77,16 +79,8 @@ def test_add_larger():
     assert tree.root.value == 50
     assert tree.root.right.value == 75
 
-
-def test_contains():
-    tree = BinarySearchTree()
-    tree.add(50)
-    assert tree.contains(50)
-
-
 def test_not_contains():
     tree = BinarySearchTree()
     tree.add(50)
     assert not tree.contains(150)
 
-"""
