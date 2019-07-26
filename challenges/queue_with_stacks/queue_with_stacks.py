@@ -1,10 +1,11 @@
 import os,sys,inspect
+
 currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
 parentdir = os.path.dirname(currentdir)
-sys.path.insert(0, parentdir+'\\..\\data-structures\\stacks_and_queues')
-p = parentdir+'\\..\\data-structures\\linked_list'
-# r:\bps-web\cf-401\data-structures-and-algorithms\challenges\..\data-structures\linked_list\link_list.py
-print(p)
+
+sys.path.insert(0, currentdir+'/../../data-structures/stacks_and_queues')
+p = currentdir+'/../../data-structures/linked_list'
+
 sys.path.insert(0,p)
 
 from stacks_and_queues import Stack
