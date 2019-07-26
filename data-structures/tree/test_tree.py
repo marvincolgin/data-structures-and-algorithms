@@ -38,20 +38,19 @@ def test_fixture(tree):
 
 def test_pre_order(tree):
     expected = [ 1, 2, 6, 7, 8, 9, 3, 4, 5 ]
-    actual = tree.traverse(TraverseMethod.PRE_ORDER)
+    actual = tree.returnAsArr(TraverseMethod.PRE_ORDER)
     assert expected == actual
 
 
 def test_in_order(tree):
     expected = [ 6, 8, 7, 9, 2, 1, 4, 3, 5 ]
-    actual = tree.traverse(TraverseMethod.IN_ORDER)
+    actual = tree.returnAsArr(TraverseMethod.IN_ORDER)
     assert expected == actual
 
 def test_post_order(tree):
     expected = [ 8, 9, 7, 6, 2, 4, 5, 3, 1 ]
-    actual = tree.traverse(TraverseMethod.POST_ORDER)
+    actual = tree.returnAsArr(TraverseMethod.POST_ORDER)
     assert expected == actual
-
 """
 def test_exists():
     assert BinarySearchTree
