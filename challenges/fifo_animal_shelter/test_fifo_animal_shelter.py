@@ -39,7 +39,7 @@ def test_shelter_enq_deq():
     assert actual == expected
 
 
-def test_shelter_enq_lots():
+def helper_shelter_enq10():
     shelter = AnimalShelter()
 
     # Inc 10 (ALTERNATING)
@@ -54,6 +54,13 @@ def test_shelter_enq_lots():
     shelter.enqueue(Animal(AnimalType.CAT))
     shelter.enqueue(Animal(AnimalType.DOG))
 
+    return shelter
+
+
+def test_shelter_enq_lots():
+
+    shelter = helper_shelter_enq10()
+
     # Deq 10
     for x in range(10):
         a = shelter.dequeue()
@@ -66,10 +73,42 @@ def test_shelter_enq_lots():
 
         assert actual == expected
 
-def test_shelter_deq_empty():
-    # @TODO
-    pass
 
-def test_shelter_deq_prev():
-    # @TODO
-    pass
+def test_shelter_deq_empty():
+    shelter = helper_shelter_enq10()
+
+    # Deq 10
+    for x in range(10):
+        shelter.dequeue()
+
+    # Deq EMPTY
+    expected = None
+    actual = shelter.dequeue()
+    assert expected == actual
+
+def test_shelter_deq_pref_found():
+    shelter = AnimalShelter()
+
+    # Inc 10 (ALTERNATING)
+    shelter.enqueue(Animal(AnimalType.CAT))
+    shelter.enqueue(Animal(AnimalType.CAT))
+    shelter.enqueue(Animal(AnimalType.CAT))
+    shelter.enqueue(Animal(AnimalType.DOG))
+    shelter.enqueue(Animal(AnimalType.DOG))
+
+    animal = shelter.dequeue(AnimalType.DOG)
+    actual = animal.serialize()
+    expected = '{"animaltype": 2}'
+    assert actual == expected
+
+def test_shelter_deq_pref_notfound():
+    shelter = AnimalShelter()
+
+    # Inc 10 (ALTERNATING)
+    shelter.enqueue(Animal(AnimalType.CAT))
+    shelter.enqueue(Animal(AnimalType.CAT))
+    shelter.enqueue(Animal(AnimalType.CAT))
+
+    actual = shelter.dequeue(AnimalType.DOG)
+    expected = None
+    assert actual == expected

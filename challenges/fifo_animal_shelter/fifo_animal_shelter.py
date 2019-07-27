@@ -5,7 +5,7 @@ sys.path.insert(0, parentdir+'\\..\\data-structures\\stacks_and_queues')
 p = parentdir+'\\..\\data-structures\\linked_list'
 sys.path.insert(0,p)
 sys.path.insert(0,p)
-from stacks_and_queues import Queue
+from stacks_and_queues import Queue, Stack
 from enum import IntEnum
 import json
 
@@ -72,9 +72,52 @@ class AnimalShelter():
 
     def dequeue(self, pref : AnimalType=None) -> Animal:
         # grab animal that has been in queue the longest, optionally provide parameter
-        b, val = self.q.peek()
-        if not b:
-            return None
 
-        if self.q.dequeue(val):
-            return Animal.Factory(val)
+        # No Pref First
+        if pref == None:
+            b, val = self.q.peek()
+            if not b:
+                return None
+
+            if self.q.dequeue(val):
+                return Animal.Factory(val)
+        else:
+            stack = Stack()
+
+            # Find the Animal we Want (deq, push to stack)
+            found = False
+            b, val = self.q.peek()
+            while b:
+                animal = Animal.Factory(val)
+                if animal.animaltype == pref:
+                    found = True
+                    break
+                stack.push(val)
+                self.q.dequeue(val)
+
+                b, val = self.q.peek()
+
+            if found:
+
+                # Pop off stack and enqueue back to queue
+                # record the current count, as we need to cycle the enq (back of line) to the front
+                c = self.q.count()
+                b, val = stack.peek()
+                while b:
+                    val = stack.pop()
+                    self.q.enqueue(val)
+
+                    b, val = stack.peek()
+
+                # cycle the back of the list to the front
+                diff = self.q.count() - c
+                for x in range(diff):
+                    val = self.q.peek()
+                    self.q.dequeue(val)
+                    self.q.enqueue(val)
+
+                return animal
+            else:
+                return None
+
+

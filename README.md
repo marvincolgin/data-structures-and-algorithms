@@ -230,7 +230,7 @@ class AnimalShelter():
 - [x] enq one
 - [x] enq many
 - [x] deq one (no pref)
-- [ ] deq one (with pref)
+- [x] deq one (with pref)
 - [x] deq until empty
 
 ## STRETCH
