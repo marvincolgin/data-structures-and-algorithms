@@ -1,4 +1,5 @@
 import pytest
+import random
 from tree import TraverseMethod, BinaryTree, Node, BinarySearchTree
 
 
@@ -84,3 +85,27 @@ def test_not_contains():
     tree.add(50)
     assert not tree.contains(150)
 
+def test_add_X_random():
+
+    vals = []
+    tree = BinarySearchTree()
+    for j in range(50):
+
+        # Generate a list of X elements (not duplicate)
+        while True:
+           x = str(random.randint(1,200))
+           try:
+               noused = vals.index(x)
+           except:
+               # No Found
+               break
+
+        vals.append(x)
+        tree.add(x)
+
+    actual = tree.returnAsArr(TraverseMethod.IN_ORDER)
+
+    vals.sort()
+    expected = vals
+
+    assert expected == actual

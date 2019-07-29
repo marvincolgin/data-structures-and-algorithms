@@ -71,12 +71,12 @@ class BinarySearchTree(BinaryTree):
                 if node.left is None:
                     node.left = Node(new_value)
                 else:
-                    _visit(node.left)
+                    _find_and_insert(node.left)
             if node.value < new_value:
                 if node.right is None:
                     node.right = Node(new_value)
                 else:
-                    _visit(node.right)
+                    _find_and_insert(node.right)
 
         if self.root is None:
             self.root = Node(new_value)
