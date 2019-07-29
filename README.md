@@ -256,3 +256,57 @@ def multi_bracket_validation(input : str) -> boolean:
 - [x] Empty
 ## Whiteboard
 ![alt_text](https://github.com/marvincolgin/data-structures-and-algorithms/raw/multi_bracket_validation/challenges/multi_bracket_validation/assets/whiteboard.jpg)
+
+## Data-Structures
+Create Binary Tree and Binary Search Tree
+## API
+```
+class TraverseMethod(IntEnum):
+    # enum class for traversal and processing order
+
+class Node:
+    # class for nodes within Tree
+
+    def __init__(self, value):
+        # constructor for creating Node
+
+
+class BinaryTree:
+
+    def __init__(self):
+        # constructor for creating BinaryTree
+
+    def traverse(self, method : TraverseMethod, action_func):
+        # visit each node in atree, using a specified method and call action_func() for each node
+
+        def _visit(node):
+            # recusive function for visiting each node
+
+    def returnAsArr(self, method : TraverseMethod):
+        # return the enter tree as an array using a specified method
+
+
+class BinarySearchTree(BinaryTree):
+    # class for binary-search-tree
+
+    def add(self, new_value):
+        # adds new value to the tree
+
+        def _find_and_insert(node):
+            # recursive method for evaluating a node and calling itself depending on the value
+
+    def contains(self, target_value) -> bool:
+        # accepts a value, and returns a boolean indicating whether or not the value is in the tree at least once.
+
+        def _visit(node):
+            # recursive function for isiting each node
+```
+## TESTS
+- [x] instantiate an empty tree
+- [x] instantiate a tree with a single root node
+- [x] add a left child and right child to a single root node
+- [x] return a collection from a preorder traversal
+- [x] return a collection from an inorder traversal
+- [x] return a collection from a postorder traversal
+## Whiteboard
+None
