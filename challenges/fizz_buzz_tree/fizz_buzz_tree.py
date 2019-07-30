@@ -7,6 +7,7 @@ from tree import BinaryTree, TraverseMethod
 
 
 def fizz_buzz_valueswitch(node):
+    # action_func() which was fed to BinaryTree.travere()
 
     if node is None:
         return
@@ -20,6 +21,7 @@ def fizz_buzz_valueswitch(node):
 
 
 def fizz_buzz_tree(tree : BinaryTree) -> BinaryTree:
+    # traverse tree, value = value%3==0 ? 'Fizz, value = value%5==0 ? 'Buzz' (set value to 'FizzBuzz' if both conditions met)
 
     # Base Case
     if tree is None or tree.root is None:
