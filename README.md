@@ -310,3 +310,21 @@ class BinarySearchTree(BinaryTree):
 - [x] return a collection from a postorder traversal
 ## Whiteboard
 None
+
+## Challenge
+Write a function called FizzBuzzTree which takes a tree as an argument.
+Determine weather or not the value of each node is divisible by 3, 5 or both, and change the value of each of the nodes:
+- [x] value is divisible by 3, replace the value with "Fizz"
+- [x] value is divisible by 5, replace the value with "Buzz"
+- [x] value is divisible by 3 and 5, replace the value with "FizzBuzz"
+- [x] Return the tree with its new values.
+```
+def fizzBuzzTree(tree: BinaryTree) -> BinaryTree:
+    # traverse tree, value = value%3==0 ? 'Fizz, value = value%5==0 ? 'Buzz' (set value to 'FizzBuzz' if both conditions met)
+```
+## TESTS
+- [x] empty tree
+- [x] None that trigger
+- [x] All that trigger FizzBuzz
+## whiteboard
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/be06edcb4417bd0d1a66896bb24b9339ac6ea962/challenges/fizz_buzz_tree/assets/whiteboard.jpg)
