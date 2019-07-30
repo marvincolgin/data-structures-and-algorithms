@@ -327,4 +327,4 @@ def fizzBuzzTree(tree: BinaryTree) -> BinaryTree:
 - [x] None that trigger
 - [x] All that trigger FizzBuzz
 ## whiteboard
-![alt_text](https://github.com/marvincolgin/data-structures-and-algorithms/blob/be06edcb4417bd0d1a66896bb24b9339ac6ea962/challenges/fizz_buzz_tree/assets/whiteboard.jpg)
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/be06edcb4417bd0d1a66896bb24b9339ac6ea962/challenges/fizz_buzz_tree/assets/whiteboard.jpg)
