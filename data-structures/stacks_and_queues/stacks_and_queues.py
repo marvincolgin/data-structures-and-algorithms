@@ -14,17 +14,17 @@ class Stack():
     def count(self) -> int:
         return self._data.count()
 
-    def pop(self) -> str:
+    def pop(self) -> object:
         b, val = self._data.peekHead()
         if b:
             self._data.remove(val)
         return val
 
-    def push(self, val: str) -> bool:
+    def push(self, val: object) -> bool:
         self._data.insert(val)
         return True
 
-    def peek(self) -> [bool, str]:
+    def peek(self) -> [bool, object]:
         return self._data.peekHead()
 
 
@@ -49,6 +49,6 @@ class Queue():
         # NOTE: will only remove the first element found with val
         return self._data.remove(val)
 
-    def peek(self) -> [bool, str]:
+    def peek(self) -> [bool, object]:
         # Get value from the head of the queue (without removing it)
         return self._data.peekHead()
