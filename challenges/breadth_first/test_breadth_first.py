@@ -44,3 +44,6 @@ def test_breadth_first():
     expected = '50, 25, 60, 30'
 
     assert actual == expected
+
+def test_breadth_empty():
+    breadth_first(BinaryTree(), action_func)
