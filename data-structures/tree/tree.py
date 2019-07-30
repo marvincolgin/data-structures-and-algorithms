@@ -30,19 +30,19 @@ class BinaryTree:
             # recusive function for visiting each node
 
             if method == TraverseMethod.PRE_ORDER:
-                action_func(node.value)
+                action_func(node)
 
             if node.left:
                 _visit(node.left)
 
             if method == TraverseMethod.IN_ORDER:
-                action_func(node.value)
+                action_func(node)
 
             if node.right:
                 _visit(node.right)
 
             if method == TraverseMethod.POST_ORDER:
-                action_func(node.value)
+                action_func(node)
 
         _visit(self.root)
 
@@ -51,8 +51,8 @@ class BinaryTree:
 
         result = []
 
-        def action_func(value):
-            result.append(value)
+        def action_func(node):
+            result.append(node.value)
 
         self.traverse(method, action_func)
         return(result)

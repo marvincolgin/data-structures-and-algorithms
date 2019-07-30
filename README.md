@@ -323,9 +323,8 @@ def fizzBuzzTree(tree: BinaryTree) -> BinaryTree:
     # traverse tree, value = value%3==0 ? 'Fizz, value = value%5==0 ? 'Buzz' (set value to 'FizzBuzz' if both conditions met)
 ```
 ## TESTS
-- [ ] empty tree
-- [ ] Mix of divisable
-- [ ] All one type
-- [ ] All that trigger FizzBuzz
+- [x] empty tree
+- [ ] None that trigger
+- [x] All that trigger FizzBuzz
 ## whiteboard
 
