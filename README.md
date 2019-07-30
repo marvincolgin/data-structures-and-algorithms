@@ -333,5 +333,12 @@ def fizzBuzzTree(tree: BinaryTree) -> BinaryTree:
 Breadth-first Traversal.
 - [x] breadth first traversal method which takes a Binary Tree as its unique input.
 - [x] print every node encountered
+```
+def breadth_first(tree, action_func):
+```
+## TESTS
+- [x] empty tree
+- [x] null tree object
+- [x] tree of nodes
 ## whiteboard
 ![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/breadth_first/challenges/breadth_first/assets/whiteboard.jpg)
