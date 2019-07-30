@@ -334,4 +334,4 @@ Breadth-first Traversal.
 - [x] breadth first traversal method which takes a Binary Tree as its unique input.
 - [x] print every node encountered
 ## whiteboard
-Coming Soon
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/breadth_first/challenges/breadth_first/assets/whiteboard.jpg)
