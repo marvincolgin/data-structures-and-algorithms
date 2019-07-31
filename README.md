@@ -328,3 +328,17 @@ def fizzBuzzTree(tree: BinaryTree) -> BinaryTree:
 - [x] All that trigger FizzBuzz
 ## whiteboard
 ![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/be06edcb4417bd0d1a66896bb24b9339ac6ea962/challenges/fizz_buzz_tree/assets/whiteboard.jpg)
+
+## Challenge
+Breadth-first Traversal.
+- [x] breadth first traversal method which takes a Binary Tree as its unique input.
+- [x] print every node encountered
+```
+def breadth_first(tree, action_func):
+```
+## TESTS
+- [x] empty tree
+- [x] null tree object
+- [x] tree of nodes
+## whiteboard
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/breadth_first/challenges/breadth_first/assets/whiteboard.jpg)
