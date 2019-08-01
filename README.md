@@ -354,4 +354,4 @@ def find_max(tree : BinaryTree) -> (bool,int):
 - [x] empty tree
 - [x] tree == None
 ## whiteboard
-![alt_text]()
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/c7e136b9fcf6c8522eb6d74643e65a4b8fb83c4e/challenges/find_maximum_binary_tree/assets/whiteboard.jpg)
