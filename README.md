@@ -347,12 +347,11 @@ def breadth_first(tree, action_func):
 Find the Maximum Value in a Binary Tree
 - [x] function called find_maximum_value which takes binary tree as its only input
 ```
-def find_maximum_value(tree : BinaryTree) -> int:
+def find_max(tree : BinaryTree) -> (bool,int):
 ```
 ## TESTS
+- [x] find max
 - [x] empty tree
-- [x] all same value
-- [x] max on left
-- [x] max on right
+- [x] tree == None
 ## whiteboard
 ![alt_text]()
