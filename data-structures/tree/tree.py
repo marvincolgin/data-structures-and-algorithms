@@ -1,3 +1,4 @@
+from __future__ import annotations
 from enum import IntEnum
 
 class TraverseMethod(IntEnum):
@@ -56,6 +57,27 @@ class BinaryTree:
 
         self.traverse(method, action_func)
         return(result)
+
+    @staticmethod
+    def find_max(tree : BinaryTree) -> (bool,int):
+        # return the largest integer in treee
+
+        retBool = False
+        retVal  = -1
+
+
+        def action_func(node):
+            nonlocal retVal
+            if node.value > retVal:
+                retVal = node.value
+
+        if tree and tree.root:
+            retBool = True
+            retVal = tree.root.value
+
+            tree.traverse(TraverseMethod.IN_ORDER, action_func)
+
+        return retBool, retVal
 
 
 class BinarySearchTree(BinaryTree):
