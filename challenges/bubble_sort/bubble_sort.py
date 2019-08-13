@@ -1,8 +1,7 @@
 
 
-def insertion_sort(arr):
+def bubble_sort(arr):
     # BigO == n^2
-    # My own take, without using pseudo code.
 
 
     # 0 Elements: Exception
