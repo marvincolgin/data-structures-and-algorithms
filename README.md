@@ -361,6 +361,12 @@ Insertion Sort
 - [x] code sort func
 - [x] tests
 - [ ] blog post
+## API
+```
+def insertion_sort(arr):
+    # BigO == n^2
+    # My own take, without using pseudo code.
+```
 ## TESTS
 - [x] func exists
 - [x] sort 5
