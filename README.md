@@ -342,3 +342,16 @@ def breadth_first(tree, action_func):
 - [x] tree of nodes
 ## whiteboard
 ![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/breadth_first/challenges/breadth_first/assets/whiteboard.jpg)
+
+## Challenge
+Find the Maximum Value in a Binary Tree
+- [x] function called find_maximum_value which takes binary tree as its only input
+```
+def find_max(tree : BinaryTree) -> (bool,int):
+```
+## TESTS
+- [x] find max
+- [x] empty tree
+- [x] tree == None
+## whiteboard
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/c7e136b9fcf6c8522eb6d74643e65a4b8fb83c4e/challenges/find_maximum_binary_tree/assets/whiteboard.jpg)
