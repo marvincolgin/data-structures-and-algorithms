@@ -357,15 +357,14 @@ def find_max(tree : BinaryTree) -> (bool,int):
 ![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/c7e136b9fcf6c8522eb6d74643e65a4b8fb83c4e/challenges/find_maximum_binary_tree/assets/whiteboard.jpg)
 
 ## Challenge
-Insertion Sort
+Bubble Sort
 - [x] code sort func
 - [x] tests
 - [x] blog post
 ## API
 ```
-def insertion_sort(arr):
+def bubble_sort(arr):
     # BigO == n^2
-    # My own take, without using pseudo code.
 ```
 ## TESTS
 - [x] func exists
@@ -373,6 +372,3 @@ def insertion_sort(arr):
 - [x] all same
 - [x] sort zero array
 - [x] sort 1000 random
-
-## Blog Post
-![alt_text](https://marvincolgin.com/index.php/2019/08/12/insertion-sort/|BLOG: insertion sort)
