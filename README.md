@@ -360,7 +360,7 @@ def find_max(tree : BinaryTree) -> (bool,int):
 Insertion Sort
 - [x] code sort func
 - [x] tests
-- [ ] blog post
+- [x] blog post
 ## API
 ```
 def insertion_sort(arr):
