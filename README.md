@@ -374,6 +374,5 @@ def insertion_sort(arr):
 - [x] sort zero array
 - [x] sort 1000 random
 
-## Whiteboard
-TBD
-![alt_text](https://tobefixed.com)
+## Blog Post
+![alt_text](https://marvincolgin.com/index.php/2019/08/12/insertion-sort/|BLOG: insertion sort)
