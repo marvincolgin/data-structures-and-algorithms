@@ -1,5 +1,5 @@
 
-def merge_array(arr, left, right):
+def merge_array(arr, left, right: list) -> list:
     # combine left and right sides
 
     # counters for tracking the left and right side
@@ -37,7 +37,7 @@ def merge_array(arr, left, right):
     return arr
 
 
-def merge_split(arr):
+def merge_split(arr: list) -> list:
     # actual merge_sort function, without error handling
     # :: recursivily called
 
@@ -61,7 +61,7 @@ def merge_split(arr):
     return arr
 
 
-def merge_sort(arr):
+def merge_sort(arr: list) -> list:
     # BigO (n log n)
     # :: log n, as this is a divide algo
     # :: n, as we need to merge the halfs back
