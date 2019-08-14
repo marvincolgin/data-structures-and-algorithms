@@ -372,3 +372,30 @@ def bubble_sort(arr):
 - [x] all same
 - [x] sort zero array
 - [x] sort 1000 random
+
+## Challenge
+Merge Sort
+- [x] code sort func
+- [x] tests
+- [x] blog post
+## API
+```
+def merge_sort(arr):
+    # BigO (n log n)
+    # :: log n, as this is a divide algo
+    # :: n, as we need to merge the halfs back
+
+def merge_split(arr):
+    # actual merge_sort function, without error handling
+    # :: recursivily called
+
+def merge_array(arr, left, right):
+    # combine left and right sides
+
+```
+## TESTS
+- [x] func exists
+- [x] sort 5
+- [x] all same
+- [x] sort zero array
+- [x] sort 1000 random
