@@ -372,3 +372,20 @@ def bubble_sort(arr):
 - [x] all same
 - [x] sort zero array
 - [x] sort 1000 random
+
+## Challenge
+Insertion Sort
+- [x] code sort func
+- [x] tests
+- [x] blog post
+## API
+```
+def insertion_sort(arr):
+    # BigO = O(2n)
+```
+## TESTS
+- [x] func exists
+- [x] sort 5
+- [x] all same
+- [x] sort zero array
+- [x] sort 1000 random
