@@ -5,16 +5,10 @@ def _partition(arr: list, start, end: int) -> int:
     # Start at the Start
     scout = wagon = start
 
-    # Pick a pivot point
-    # pivot = arr[end]
-    #r = random.randint(start,end)
-    #print('start:[{start}]', start)
-    #print('end:[{end}]', end)
-    #r = random.randrange(start,end)
-    r = end
-    #print(f'r:[{r}]')
-    pivot = arr[r]
-    #print(f'pivot:[{pivot}]')
+    # Pick a pivot point (choose: first, end, middle)
+    # @TODO: get fancy, pick 3 random ints from array
+    # and use the middle value's index as pivot
+    pivot = arr[end]
 
     # Continue until Scout is at end
     while scout < end:
