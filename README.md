@@ -416,3 +416,22 @@ def merge_array(arr, left, right):
 - [x] all same
 - [x] sort zero array
 - [x] sort 1000 random
+
+## Algorithm
+Quick Sort
+- [x] code sort func
+- [x] tests
+- [x] blog post
+## API
+```
+def quick_sort(arr):
+    # BigO (n log n)
+    # :: log n, as this is a divide algo
+    # :: n, as we need to merge the halfs back
+```
+## TESTS
+- [x] func exists
+- [x] sort 5
+- [x] all same
+- [x] sort zero array
+- [x] sort 1000 random
