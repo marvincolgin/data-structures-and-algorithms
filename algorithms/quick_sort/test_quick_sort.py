@@ -6,6 +6,14 @@ from quick_sort import quick_sort
 def test_func_exists():
     quick_sort([1])
 
+"""
+def test_sort():
+    input = [5,15,3,9,10]
+    actual = quick_sort(input)
+    expected = [3,5,9,10,15]
+    # assert actual == expected
+    assert True == False
+"""
 
 def test_sort():
     input = [1, 5, 3, 2, 4]
