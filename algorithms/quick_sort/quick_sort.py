@@ -1,25 +1,37 @@
+import random
 
 def _partition(arr: list, start, end: int) -> int:
 
     # Start at the Start
     scout = wagon = start
 
-    while scout < end:
-        #print(f'scout:[{scout}]')
-        #print(f'wagon:[{wagon}]')
+    # Pick a pivot point
+    # pivot = arr[end]
+    #r = random.randint(start,end)
+    #print('start:[{start}]', start)
+    #print('end:[{end}]', end)
+    #r = random.randrange(start,end)
+    r = end
+    #print(f'r:[{r}]')
+    pivot = arr[r]
+    #print(f'pivot:[{pivot}]')
 
-        if arr[scout] < arr[end]:
-            #print(f'swyapping... [{arr[wagon]}]:[{arr[scout]}] for [{arr[scout]}]:[{arr[wagon]}]')
+    # Continue until Scout is at end
+    while scout < end:
+
+        # is the value less-than pivot?
+        if arr[scout] < pivot:
+
             # swap scout for wagon, vice versa
             arr[wagon], arr[scout] = arr[scout], arr[wagon]
 
             # adv wagon
             wagon += 1
 
-
+        # move scout forward
         scout += 1
 
-    #print(f'swapping... [{arr[wagon]}]:[{arr[end]}] for [{arr[end]}]:[{arr[wagon]}]')
+    # final swap
     arr[wagon], arr[end] = arr[end], arr[wagon]
 
     return wagon
@@ -57,6 +69,7 @@ def quick_sort(arr: list) -> list:
         return arr
 
     # Do It!!!!
+    random.seed()
     arr = _quick_sort(arr, 0, len(arr)-1)
 
     return arr
