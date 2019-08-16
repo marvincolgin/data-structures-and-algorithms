@@ -435,3 +435,21 @@ def quick_sort(arr):
 - [x] all same
 - [x] sort zero array
 - [x] sort 1000 random
+
+## Data-Structure
+Hash Table
+- [x] Implement Hash Table
+- [x] TESTS
+- [x] Docs
+## API
+```
+```
+# TESTS
+- [x] add
+- [x] contains
+- [x] not-contains
+- [x] hash deterministic
+- [x] hash in range
+- [x] hash diff value for diff keys
+- [x] collisions
+
