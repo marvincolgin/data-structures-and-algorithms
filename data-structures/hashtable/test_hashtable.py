@@ -1,54 +1,51 @@
 import pytest
 from hashtable import HashTable
 
+
 def test_exists():
     assert HashTable
 
-@pytest.mark.skip()
+
+def test_hash_makeHash_deterministic():
+    ht = HashTable()
+    assert ht._makeHash('taco') == ht._makeHash('taco')
+
+
+def test_hash_makeHash_deterministic_diff():
+    ht = HashTable()
+    assert not ht._makeHash('taco') == ht._makeHash('bell')
+
+
+def test_hash_add():
+    ht = HashTable()
+    ht.add('spam','eggs')
+    assert ht.get('spam') == 'eggs'
+
+
 def test_get_missing():
     ht = HashTable()
-
 
     # do this or test for return of None if you go that way
     with pytest.raises(ValueError):
         ht.get('spam')
 
-@pytest.mark.skip()
-def test_add():
-    ht = HashTable()
-    ht.add('spam','eggs')
 
-    assert ht.get('spam') == 'eggs'
-
-@pytest.mark.skip()
 def test_contains():
     ht = HashTable()
     ht.add('spam','eggs')
     assert ht.contains('spam')
 
-@pytest.mark.skip()
+
 def test_not_contains():
     ht = HashTable()
     assert not ht.contains('spam')
 
-@pytest.mark.skip()
-def test_hash_same():
+
+def test_hashIdx_in_range():
     ht = HashTable()
-    assert ht.hash('taco') == ht.hash('taco')
-
-@pytest.mark.skip()
-def test_hash_in_range():
-    ht = HashTable()
-    assert  0 <= ht.hash('eggs') < len(ht.buckets)
+    assert  0 <= ht._getHashIndex(ht._makeHash('eggs')) < len(ht._data)
 
 
-@pytest.mark.skip()
-def test_hash_different():
-    ht = HashTable()
-    assert not ht.hash('taco') == ht.hash('bell')
-
-
-@pytest.mark.skip()
 def test_collision():
     ht = HashTable()
     ht.add('spam','spammy stuff')
