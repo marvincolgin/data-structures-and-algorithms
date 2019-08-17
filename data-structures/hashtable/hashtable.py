@@ -1,27 +1,23 @@
 import sys
 sys.path.insert(0, '../linked_list')
-from link_list import LinkList
-import json
+from link_list import LinkList  # noqa E402
+import json  # noqa E402
 
 
 class HashTable():
     # Big O time == O(1)
     # :: worst case is O(n), if small hash array or terrible collisions
 
-
     # storage for HashTable
     _data = []
 
-
-    def __init__(self, hashtableSize = 1024):
+    def __init__(self, hashtableSize=1024):
         # create with hashTableSize
         self._data = [None] * hashtableSize
-
 
     def _makePayload(self, name, value):
         # return dict of name/value pair
         return({'name': name, 'value': value})
-
 
     def _makeHash(self, name) -> int:
         # create a hash based on the name to be added to hashtable
@@ -38,20 +34,17 @@ class HashTable():
 
         return hash
 
-
     def _getHashIndex(self, hash: int) -> int:
         # get the index into the hash-table for a given hash value
 
         return hash % len(self._data)
 
-
     def _get_callbackcompare(self, payload, val) -> bool:
         # func passed to LinkList compare
         return payload.get('name') == val
 
-
     def add(self, name, value):
-        # accepts name/value pair and adds them to the hashtabl
+        # accepts name/value pair and adds them to the hashtable
         # if there are collisions, then they will be handled
         # by using a linked-list
 
@@ -61,7 +54,7 @@ class HashTable():
         elem = self._data[hashIdx]
         payload = self._makePayload(name, value)
 
-        if elem == None:
+        if elem is None:
             elem = LinkList()
             elem.insert(payload)
             self._data[hashIdx] = elem
@@ -71,7 +64,6 @@ class HashTable():
             else:
                 raise ValueError('Already added to hashtable')
 
-
     def get(self, name):
         # returns value in hashtable for a given name
         # if the value is not found, and exception will be raised
@@ -80,16 +72,16 @@ class HashTable():
         hashIdx = self._getHashIndex(hash)
 
         elem = self._data[hashIdx]
-        if elem == None:
+        if elem is None:
             raise ValueError('Not found')
 
-
         try:
-            payload_dict = elem.get_callbackCompare(self._get_callbackcompare, name)
+            payload_dict = elem.get_callbackCompare(
+                self._get_callbackcompare, name
+            )
             return payload_dict.get('value')
         except Exception:
             raise Exception('Not found')
-
 
     def contains(self, name) -> bool:
         # returns true|false if the name is in the hashtable
@@ -99,4 +91,3 @@ class HashTable():
             return True
         except ValueError:
             return False
-

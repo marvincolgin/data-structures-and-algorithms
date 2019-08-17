@@ -443,6 +443,37 @@ Hash Table
 - [x] Docs
 ## API
 ```
+class HashTable():
+
+    def __init__(self, hashtableSize = 1024):
+        # create with hashTableSize
+
+    def _makePayload(self, name, value):
+        # return dict of name/value pair
+
+    def _makeHash(self, name) -> int:
+        # create a hash based on the name to be added to hashtable
+        # this is a silly hash, as it's just for experiment and
+        # gives us the ability to easily create collisions. Live
+        # code should use something more sophisticated
+
+    def _getHashIndex(self, hash: int) -> int:
+        # get the index into the hash-table for a given hash value
+
+    def _get_callbackcompare(self, payload, val) -> bool:
+        # func passed to LinkList compare
+
+    def add(self, name, value):
+        # accepts name/value pair and adds them to the hashtable
+        # if there are collisions, then they will be handled
+        # by using a linked-list
+
+    def get(self, name):
+        # returns value in hashtable for a given name
+        # if the value is not found, and exception will be raised
+
+    def contains(self, name) -> bool:
+        # returns true|false if the name is in the hashtable
 ```
 # TESTS
 - [x] add
