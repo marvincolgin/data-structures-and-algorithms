@@ -56,6 +56,20 @@ class LinkList():
         node.next = self.head
         self.head = node
 
+    def get_callbackCompare(self, callback, callback_baggage) -> object:
+        # traverse list and determine if a value exiss
+        # based on 'compare_func' which is passed in
+        # @var callback func for perform a comparison
+        # @var callback_baggage additional information to carry along thru to func
+
+        cur = self.head
+        while cur is not None:
+            if callback(cur.value, callback_baggage):
+                return cur.value
+            cur = cur.next
+
+        raise Exception('Not found.')
+
     def includes(self, value):
         # traverse list and determine if a value exists
         # return bool
@@ -204,11 +218,7 @@ class LinkList():
         ptrA = listA.head
         ptrB = listB.head
 
-        print(f'ptrA:[{ptrA}]')
-        print(f'ptrB:[{ptrB}]')
         while ptrA is not None or ptrB is not None:
-            print(f'ptrA.value:[{ptrA.value}]')
-            print(f'ptrB.value:[{ptrB.value}]')
             if ptrA is not None:
                 prev = ptrA
                 ptrA = ptrA.next
