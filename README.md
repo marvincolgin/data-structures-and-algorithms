@@ -485,7 +485,7 @@ class HashTable():
 - [x] collisions
 
 ## Challenge
-search the longstr for complete words, return the first word that has more than one occurrence
+repeated_words(): search the longstr for complete words, return the first word that has more than one occurrence
 - [x] Branch Created
 - [x] Function Created
 - [x] Tests
