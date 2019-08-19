@@ -21,9 +21,14 @@ class LinkList():
 
     head = None
 
-    def __init__(self):
+    # Function used to compare values (set via constructor)
+    comparison_func = None
+
+    def __init__(self, comparison_func=None):
         # constructor
         self.head = None
+        self.comparison_func = comparison_func
+
 
     def toJSON(self):
         # dump object to JSON and return as String
@@ -56,15 +61,37 @@ class LinkList():
         node.next = self.head
         self.head = node
 
+    def get(self, value):  # -> Any:
+        # traverse list and determine if a value exist
+
+        cur = self.head
+        while cur is not None:
+            if self.comparison_func is not None:
+                if self.comparison_func(cur.value, value):
+                    return cur.value
+            else:
+                if cur.value == value:
+                    return cur.value
+            cur = cur.next
+
+        raise Exception('Not found.')
+
     def includes(self, value):
         # traverse list and determine if a value exists
         # return bool
         ret = False
         cur = self.head
         while cur is not None:
-            if cur.value == value:
-                ret = True
-                break
+
+            if self.comparison_func is not None:
+                if self.comparison_func(cur.value, value):
+                    ret = True
+                    break
+            else:
+                if cur.value == value:
+                    ret = True
+                    break
+
             cur = cur.next
         return ret
 
@@ -204,11 +231,7 @@ class LinkList():
         ptrA = listA.head
         ptrB = listB.head
 
-        print(f'ptrA:[{ptrA}]')
-        print(f'ptrB:[{ptrB}]')
         while ptrA is not None or ptrB is not None:
-            print(f'ptrA.value:[{ptrA.value}]')
-            print(f'ptrB.value:[{ptrB.value}]')
             if ptrA is not None:
                 prev = ptrA
                 ptrA = ptrA.next
