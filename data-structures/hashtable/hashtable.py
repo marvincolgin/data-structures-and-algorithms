@@ -39,7 +39,7 @@ class HashTable():
 
         return hash % len(self._data)
 
-    def _get_callbackcompare(self, payload, val) -> bool:
+    def _hashtable_compare_func(self, payload, val) -> bool:
         # func passed to LinkList compare
         return payload.get('name') == val
 
@@ -55,13 +55,10 @@ class HashTable():
         payload = self._makePayload(name, value)
 
         if elem is None:
-            elem = LinkList()
+            elem = LinkList(self._hashtable_compare_func)
             elem.insert(payload)
             self._data[hashIdx] = elem
         else:
-            @TODO extend the linklist.includes() method to use
-            comparison function
-
             if not elem.includes(payload):
                 elem.insert(payload)
             else:
@@ -79,9 +76,7 @@ class HashTable():
             raise ValueError('Not found')
 
         try:
-            payload_dict = elem.get_callbackCompare(
-                self._get_callbackcompare, name
-            )
+            payload_dict = elem.get(name)
             return payload_dict.get('value')
         except Exception:
             raise Exception('Not found')

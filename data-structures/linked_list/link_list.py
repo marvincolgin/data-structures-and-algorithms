@@ -23,9 +23,8 @@ class LinkList():
 
     # Function used to compare values (set via constructor)
     comparison_func = None
-    comparison_baggage = None
 
-    def __init__(self, comparison_func=None, comparison_baggage=None):
+    def __init__(self, comparison_func=None):
         # constructor
         self.head = None
         self.comparison_func = comparison_func
@@ -62,13 +61,13 @@ class LinkList():
         node.next = self.head
         self.head = node
 
-    def get(self, value) -> Any:
+    def get(self, value):  # -> Any:
         # traverse list and determine if a value exist
 
         cur = self.head
         while cur is not None:
             if self.comparison_func is not None:
-                if self.comparison_func(cur.value, value, self.comparison_baggage):
+                if self.comparison_func(cur.value, value):
                     return cur.value
             else:
                 if cur.value == value:
@@ -85,7 +84,7 @@ class LinkList():
         while cur is not None:
 
             if self.comparison_func is not None:
-                if self.comparison_func(cur.value, self.comparison_baggage):
+                if self.comparison_func(cur.value, value):
                     ret = True
                     break
             else:
