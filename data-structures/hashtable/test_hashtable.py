@@ -16,6 +16,15 @@ def test_hash_makeHash_deterministic_diff():
     assert not ht._makeHash('taco') == ht._makeHash('bell')
 
 
+def test_hash_delete():
+    ht = HashTable()
+    ht.add('spam','eggs')
+    ht.delete('spam')
+
+    with pytest.raises(ValueError):
+        ht.get('spam')
+
+
 def test_hash_add():
     ht = HashTable()
     ht.add('spam','eggs')
@@ -59,5 +68,6 @@ def test_collision():
     ht.add('maps', 'mappy stuff')
     assert ht.get('spam') == 'spammy stuff'
     assert ht.get('maps') == 'mappy stuff'
+
 
 

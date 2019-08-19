@@ -87,7 +87,39 @@ class HashTable():
             payload_dict = elem.get(name)
             return payload_dict.get('value')
         except Exception:
-            raise Exception('Not found')
+            raise ValueError('Not found')
+
+    def delete(self, name):
+        # remove an entry in the hashtable
+
+        found = False
+        try:
+            found = self.contains(name)
+        except ValueError:
+            raise ValueError(f'Name:[{name}] does not exist.')
+
+        if found:
+            hash = self._makeHash(name)
+            hashIdx = self._getHashIndex(hash)
+
+            elem = self._data[hashIdx]
+            if elem is None:
+                raise ValueError(f'Name:[{name}] entry into HashTable is None.')
+
+            b = elem.remove(name)
+
+
+    """
+    def update(self, name, value)
+        # updates an entry in the hashtable with a new value
+
+        if not self.contains(name)
+            raise ValueError(f'Name:[{name}] does not exist.')
+
+        try:
+            val = self.get(name)
+    """
+
 
     def contains(self, name) -> bool:
         # returns true|false if the name is in the hashtable

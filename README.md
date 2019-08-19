@@ -460,7 +460,7 @@ class HashTable():
     def _getHashIndex(self, hash: int) -> int:
         # get the index into the hash-table for a given hash value
 
-    def _get_callbackcompare(self, payload, val) -> bool:
+    def _hashtable_compare_func(self, payload1, payload2) -> bool:
         # func passed to LinkList compare
 
     def add(self, name, value):

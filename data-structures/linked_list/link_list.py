@@ -141,13 +141,22 @@ class LinkList():
         if self.includes(value):
             prev, cur = None, self.head
             while cur is not None:
-                if cur.value == value:
+
+                found = False
+                if self.comparison_func is not None:
+                    if self.comparison_func(cur.value, value):
+                        found = True
+                elif cur.value == value:
+                    found = True
+
+                if found:
                     if prev is None:
                         self.head = cur.next
                     else:
                         prev.next = cur.next
                     ret = True
                     break
+
                 prev = cur
                 cur = cur.next
 
