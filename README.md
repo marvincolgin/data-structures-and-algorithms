@@ -484,3 +484,22 @@ class HashTable():
 - [x] hash diff value for diff keys
 - [x] collisions
 
+## Challenge
+search the longstr for complete words, return the first word that has more than one occurrence
+- [x] Branch Created
+- [x] Function Created
+- [x] Tests
+- [x] Docs
+```
+def repeated_word(longstr: str) -> str:
+    # search the longstr for complete words
+    # return the first word that has more than
+    # one occurrence
+    # BigO Time==O(n) Space==O(n*1.3)
+```
+## TESTS
+- [x] Sample Text #1
+- [x] Sample Text #2
+- [x] Sample Text #3
+## whiteboard
+![alt_text]()
