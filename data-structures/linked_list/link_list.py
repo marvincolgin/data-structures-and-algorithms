@@ -21,9 +21,15 @@ class LinkList():
 
     head = None
 
-    def __init__(self):
+    # Function used to compare values (set via constructor)
+    comparison_func = None
+    comparison_baggage = None
+
+    def __init__(self, comparison_func=None, comparison_baggage=None):
         # constructor
         self.head = None
+        self.comparison_func = comparison_func
+
 
     def toJSON(self):
         # dump object to JSON and return as String
@@ -56,16 +62,17 @@ class LinkList():
         node.next = self.head
         self.head = node
 
-    def get_callbackCompare(self, callback, callback_baggage) -> object:
-        # traverse list and determine if a value exiss
-        # based on 'compare_func' which is passed in
-        # @var callback func for perform a comparison
-        # @var callback_baggage additional information to carry along thru to func
+    def get(self, value) -> Any:
+        # traverse list and determine if a value exist
 
         cur = self.head
         while cur is not None:
-            if callback(cur.value, callback_baggage):
-                return cur.value
+            if self.comparison_func is not None:
+                if self.comparison_func(cur.value, value, self.comparison_baggage):
+                    return cur.value
+            else:
+                if cur.value == value:
+                    return cur.value
             cur = cur.next
 
         raise Exception('Not found.')
@@ -76,9 +83,16 @@ class LinkList():
         ret = False
         cur = self.head
         while cur is not None:
-            if cur.value == value:
-                ret = True
-                break
+
+            if self.comparison_func is not None:
+                if self.comparison_func(cur.value, self.comparison_baggage):
+                    ret = True
+                    break
+            else:
+                if cur.value == value:
+                    ret = True
+                    break
+
             cur = cur.next
         return ret
 

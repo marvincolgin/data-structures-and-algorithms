@@ -59,6 +59,9 @@ class HashTable():
             elem.insert(payload)
             self._data[hashIdx] = elem
         else:
+            @TODO extend the linklist.includes() method to use
+            comparison function
+
             if not elem.includes(payload):
                 elem.insert(payload)
             else:

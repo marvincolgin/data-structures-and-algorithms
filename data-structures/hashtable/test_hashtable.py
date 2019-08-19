@@ -21,6 +21,13 @@ def test_hash_add():
     ht.add('spam','eggs')
     assert ht.get('spam') == 'eggs'
 
+def test_hash_update():
+    ht = HashTable()
+    ht.add('spam','eggs')
+
+    ht.add('spam','email')
+    assert ht.get('spam') == 'email'
+
 
 def test_get_missing():
     ht = HashTable()
