@@ -1,5 +1,5 @@
 # Reverse an Array
-
+z
 ## Challenge
 Create a function, which reverses an array/linked-list, as passed via a parameter and pass the new array back as the `return()` for the function.
 
@@ -502,4 +502,4 @@ def repeated_word(longstr: str) -> str:
 - [x] Sample Text #2
 - [x] Sample Text #3
 ## whiteboard
-![alt_text]()
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/repeated_word/challenges/repeated_word/assets/whiteboard.jpg)
