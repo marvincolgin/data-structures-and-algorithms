@@ -15,7 +15,7 @@ class HashTable():
         # create with hashTableSize
         self._data = [None] * hashtableSize
 
-    def _makePayload(self, name, value):
+    def _makePayload(self, name, value) -> dict:
         # return dict of name/value pair
         return({'name': name, 'value': value})
 
@@ -39,9 +39,17 @@ class HashTable():
 
         return hash % len(self._data)
 
-    def _hashtable_compare_func(self, payload, val) -> bool:
+    def _hashtable_compare_func(self, payload1, payload2) -> bool:
         # func passed to LinkList compare
-        return payload.get('name') == val
+
+        # sometimes we will compare our own payload
+        # other times, it's just the varname coming in as payload2
+        if isinstance(payload2, dict):
+            retVal = payload1.get('name') == payload2.get('name')
+        else:
+            retVal = payload1.get('name') == payload2
+
+        return retVal
 
     def add(self, name, value):
         # accepts name/value pair and adds them to the hashtable

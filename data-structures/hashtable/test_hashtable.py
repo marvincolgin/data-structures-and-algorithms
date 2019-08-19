@@ -21,13 +21,13 @@ def test_hash_add():
     ht.add('spam','eggs')
     assert ht.get('spam') == 'eggs'
 
-def test_hash_update():
+
+def test_hash_add_alreadyexists():
     ht = HashTable()
     ht.add('spam','eggs')
 
-    ht.add('spam','email')
-    assert ht.get('spam') == 'email'
-
+    with pytest.raises(ValueError):
+        ht.add('spam','email')
 
 def test_get_missing():
     ht = HashTable()
