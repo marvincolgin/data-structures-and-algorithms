@@ -24,6 +24,12 @@ def test_hash_delete():
     with pytest.raises(ValueError):
         ht.get('spam')
 
+def test_hash_update():
+    ht = HashTable()
+    ht.add('spam', 'eggs')
+    ht.update('spam', 'email')
+    ht.get('spam') == 'email'
+
 
 def test_hash_add():
     ht = HashTable()

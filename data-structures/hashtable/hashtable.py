@@ -108,18 +108,14 @@ class HashTable():
 
             b = elem.remove(name)
 
-
-    """
-    def update(self, name, value)
+    def update(self, name, value):
         # updates an entry in the hashtable with a new value
 
-        if not self.contains(name)
+        if not self.contains(name):
             raise ValueError(f'Name:[{name}] does not exist.')
 
-        try:
-            val = self.get(name)
-    """
-
+        self.delete(name)
+        self.add(name, value)
 
     def contains(self, name) -> bool:
         # returns true|false if the name is in the hashtable
