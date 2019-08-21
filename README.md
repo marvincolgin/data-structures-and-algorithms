@@ -503,3 +503,25 @@ def repeated_word(longstr: str) -> str:
 - [x] Sample Text #3
 ## whiteboard
 ![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/repeated_word/challenges/repeated_word/assets/whiteboard.jpg)
+
+## Challenge
+tree_intersection(): given two binary-trees, return an array containing shared values
+- [x] Branch Created
+- [x] Function Created
+- [x] Tests
+- [x] Docs
+- [x] Pep8 Code Styling
+```
+def tree_intersection(tree1, tree2: BinaryTree) -> list:
+    # return an array with all the values in both tree1 and tree2
+    # BigO Time==O(2n)  Space==0(1.3n) 30% for hashtable
+    # assumption: No Duplicates within Trees
+```
+## TESTS
+- [x] Func / Empty Trees
+- [x] Invalid Params
+- [x] All Matches
+- [x] No Matches
+- [x] Some Matching
+## whiteboard
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/tree_intersection/challenges/tree_intersection/assets/whiteboard.jpg)
