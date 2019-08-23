@@ -557,6 +557,18 @@ def left_join(h1, h2: HashTable) -> list:
 - [x] Size()
 #### API
 ```
+class Vertex:
+    def __init__(self, value: Any):
+class Edge:
+    def __init__(self, vertex: Vertex, weight=0):
+class Graph:
+    def __init__(self):
+    def __len__(self) -> int:
+    def add_vertex(self, value) -> Vertex:
+    def add_edge(self, vert1: Vertex, vert2: Vertex, weight=0.0):
+    def get_neighbors(self, vertex: Vertex) -> List[Edge]:
+    def get_vertexes(self) -> Optional[List[Vertex]]:
+    def breadth_first(self, root, action_func):
 ```
 #### TESTS
 - [x] Node can be successfully added to the graph

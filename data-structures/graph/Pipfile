@@ -8,6 +8,7 @@ verify_ssl = true
 [packages]
 pytest = "*"
 pep8 = "*"
+mypy = "*"
 
 [requires]
 python_version = "3.7"
