@@ -550,11 +550,11 @@ def left_join(h1, h2: HashTable) -> list:
 ## Data Structure
 ### Graphs
 #### Features
-- [x] AddNode()
-- [x] AddEdge()
-- [x] GetNodes()
-- [x] GetNeighbors()
-- [x] Size()
+- [x] Add Vertex
+- [x] Add Edge
+- [x] Get Neighbors
+- [x] Get Vertexes
+- [x] Get Length
 #### API
 ```
 class Vertex:
@@ -579,5 +579,3 @@ class Graph:
 - [x] The proper size is returned, representing the number of nodes in the graph
 - [x] A graph with only one node and edge can be properly returned
 - [x] An empty graph properly returns null
-## Whiteboard
-![alt_text(https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/graph/challenges/graph/assets/whiteboard.jpg)
