@@ -546,3 +546,36 @@ def left_join(h1, h2: HashTable) -> list:
 - [x] Full Sample
 ## Whiteboard
 ![alt_text(https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/left_join/challenges/left_join/assets/whiteboard.jpg)
+
+## Data Structure
+### Graphs
+#### Features
+- [x] Add Vertex
+- [x] Add Edge
+- [x] Get Neighbors
+- [x] Get Vertexes
+- [x] Get Length
+#### API
+```
+class Vertex:
+    def __init__(self, value: Any):
+class Edge:
+    def __init__(self, vertex: Vertex, weight=0):
+class Graph:
+    def __init__(self):
+    def __len__(self) -> int:
+    def add_vertex(self, value) -> Vertex:
+    def add_edge(self, vert1: Vertex, vert2: Vertex, weight=0.0):
+    def get_neighbors(self, vertex: Vertex) -> List[Edge]:
+    def get_vertexes(self) -> Optional[List[Vertex]]:
+    def breadth_first(self, root, action_func):
+```
+#### TESTS
+- [x] Node can be successfully added to the graph
+- [x] An edge can be successfully added to the graph
+- [x] A collection of all nodes can be properly retrieved from the graph
+- [x] All appropriate neighbors can be retrieved from the graph
+- [x] Neighbors are returned with the weight between nodes included
+- [x] The proper size is returned, representing the number of nodes in the graph
+- [x] A graph with only one node and edge can be properly returned
+- [x] An empty graph properly returns null
