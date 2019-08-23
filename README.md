@@ -525,3 +525,24 @@ def tree_intersection(tree1, tree2: BinaryTree) -> list:
 - [x] Some Matching
 ## whiteboard
 ![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/tree_intersection/challenges/tree_intersection/assets/whiteboard.jpg)
+
+## Challenge
+left_join(): given two hash-tables, return a list of all items from the first h1 and the value that exists in h2, if no value exists return None
+- [x] LEFT JOINs two hashmaps into a single data structure.
+- [x] 1st param is hashmap with words and synonyms
+- [x] 2nd param is hashmap with words and antonyms
+- [x] Combine the key and corresponding values (if they exist) into a new data structure according to LEFT JOIN logic.
+- [X] Code Styling: PEP8
+```
+def left_join(h1, h2: HashTable) -> list:
+    # perform a left-join on h1 against h2
+    # - returns a list of dict:{word,syntonym,antonym)
+    # - BigO time==O(n) space==0(n)
+    # -      worst: time==O(3n)
+```
+## TeSTS
+- [x] Func / Input Validation
+- [x] 2 rec, 1 with value in 2nd hashtable
+- [x] Full Sample
+## Whiteboard
+![alt_text(https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/left_join/challenges/left_join/assets/whiteboard.jpg)
