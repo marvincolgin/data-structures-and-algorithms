@@ -545,7 +545,7 @@ def left_join(h1, h2: HashTable) -> list:
 - [x] 2 rec, 1 with value in 2nd hashtable
 - [x] Full Sample
 ## Whiteboard
-![alt_text(https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/left_join/challenges/left_join/assets/whiteboard.jpg)
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/left_join/challenges/left_join/assets/whiteboard.jpg)
 
 ## Data Structure
 ### Graphs
@@ -579,3 +579,5 @@ class Graph:
 - [x] The proper size is returned, representing the number of nodes in the graph
 - [x] A graph with only one node and edge can be properly returned
 - [x] An empty graph properly returns null
+## Whiteboard
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/graph-day2/data-structures/graph/assets/whiteboard.jpg)
