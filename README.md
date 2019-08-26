@@ -579,3 +579,5 @@ class Graph:
 - [x] The proper size is returned, representing the number of nodes in the graph
 - [x] A graph with only one node and edge can be properly returned
 - [x] An empty graph properly returns null
+## Whiteboard
+![alt_text(https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/graph-day2/challenges/graph-day2/assets/whiteboard.jpg)
