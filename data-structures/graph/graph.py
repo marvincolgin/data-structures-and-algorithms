@@ -63,15 +63,13 @@ class Graph:
         # While there are items in Que
         while q:
 
-            # Get the current and mark as traversed
+            # Get the current, mark as visited and add to reset
             current = q.pop()
             current.visited = True
-
-            # Add as something to reset
             to_reset.add(current)
 
             # Call our Action function with the "Edge", which will have weight
-            action_func(current)  # which will be edge
+            action_func(current)
 
             # Iterate through all the edge-connections to neighbors
             for edge in current.neighbors:
