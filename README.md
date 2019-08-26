@@ -580,4 +580,4 @@ class Graph:
 - [x] A graph with only one node and edge can be properly returned
 - [x] An empty graph properly returns null
 ## Whiteboard
-![alt_text(https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/graph-day2/challenges/graph-day2/assets/whiteboard.jpg)
+![alt_text(https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/graph-day2/data-structures/graph/assets/whiteboard.jpg)
