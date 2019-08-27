@@ -581,3 +581,19 @@ class Graph:
 - [x] An empty graph properly returns null
 ## Whiteboard
 ![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/graph-day2/data-structures/graph/assets/whiteboard.jpg)
+
+## Challenge
+### Graphs
+#### Get Edges
+Given a complete Graph data-structure, containing a variety of Vertexes/Edges containing city-names and costs, (Flight Routes) and a list of cities (Flight Plan), return True|False if the flight-plan can be performed and the cost.
+- [x] Function
+- [x] Docs
+- [x] Tests
+#### API
+```
+```
+#### TESTS
+- [x] Invalid Input: Graph
+- [x] Invalid Input: List
+- [x] Flight-Plan with valid Flight-Route
+- [x] Flight-Plan with invalid Flight-Route
