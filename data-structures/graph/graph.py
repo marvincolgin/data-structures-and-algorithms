@@ -50,6 +50,8 @@ class Graph:
 
     def breadth_first(self, root, action_func):
         # traverse through the graph, breadth-first order
+        # @TODO: Since we are using a set() for to_reset(), we could
+        # get rid of the .visited flag
 
         # init python queue class
         q = deque()
