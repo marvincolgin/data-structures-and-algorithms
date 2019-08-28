@@ -581,3 +581,28 @@ class Graph:
 - [x] An empty graph properly returns null
 ## Whiteboard
 ![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/graph-day2/data-structures/graph/assets/whiteboard.jpg)
+
+## Challenge
+### Graphs
+#### Get Edges
+Overall: Identify if a given path exists through the Graph where path is a given list of values
+Use Case: Given a complete Graph data-structure, containing a variety of Vertexes/Edges containing city-names and costs, (Flight Routes) and a list of cities (Flight Plan), return True|False if the flight-plan can be performed and the cost.
+- [x] Function
+- [x] Docs
+- [x] Tests
+#### API
+```
+def get_edges(graph: Graph, path_ro: List) -> Tuple[bool, float]:
+    # identify if a given path exists through the Graph
+    # where path is a given list of values
+    # @path_ro will be treated as read-only
+    # BigO time==O(V+P*E) .. where p is len(path_ro)
+    # BigO space==O(1)
+```
+#### TESTS
+- [x] Invalid Input: Graph
+- [x] Invalid Input: List
+- [x] Flight-Plan with valid Flight-Route
+- [x] Flight-Plan with invalid Flight-Route
+## Whiteboard
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/get-edges/challenges/get_edges/assets/whiteboard.jpg)
