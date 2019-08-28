@@ -592,9 +592,17 @@ Use Case: Given a complete Graph data-structure, containing a variety of Vertexe
 - [x] Tests
 #### API
 ```
+def get_edges(graph: Graph, path_ro: List) -> Tuple[bool, float]:
+    # identify if a given path exists through the Graph
+    # where path is a given list of values
+    # @path_ro will be treated as read-only
+    # BigO time==O(V+P*E) .. where p is len(path_ro)
+    # BigO space==O(1)
 ```
 #### TESTS
 - [x] Invalid Input: Graph
 - [x] Invalid Input: List
 - [x] Flight-Plan with valid Flight-Route
 - [x] Flight-Plan with invalid Flight-Route
+## Whiteboard
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/get-edges/challenges/get_edges/assets/whiteboard.jpg)

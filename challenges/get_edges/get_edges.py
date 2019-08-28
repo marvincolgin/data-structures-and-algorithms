@@ -8,6 +8,9 @@ def get_edges(graph: Graph, path_ro: List) -> Tuple[bool, float]:
     # identify if a given path exists through the Graph
     # where path is a given list of values
     # @path_ro will be treated as read-only
+    # BigO time==O(V+P*E) .. where p is len(path_ro)
+    # BigO space==O(1)
+
 
     # Input Validation
     if not graph or not isinstance(graph, Graph):
