@@ -123,3 +123,34 @@ def test_breadth_first():
     g.breadth_first(blackberry, visit)
 
     assert visited == ['blackberry', 'strawberry', 'blueberry']
+
+
+def test_depth_first():
+    graph = Graph()
+
+    a = graph.add_vertex('a')
+    b = graph.add_vertex('b')
+    c = graph.add_vertex('c')
+    d = graph.add_vertex('d')
+    e = graph.add_vertex('e')
+    f = graph.add_vertex('f')
+    g = graph.add_vertex('g')
+    h = graph.add_vertex('h')
+
+    graph.add_edge(a, b)
+    graph.add_edge(a, d)
+    graph.add_edge(b, d)
+    graph.add_edge(d, f)
+    graph.add_edge(d, h)
+    graph.add_edge(d, e )
+
+    visited = []
+
+    def _visit(vertex):
+        visited.append(vertex.value)
+
+    graph.depth_first(a, _visit)
+
+    expected = ['a', 'b', 'c', 'g', 'd', 'e', 'h', 'f']
+
+    assert visited == expected

@@ -81,3 +81,7 @@ class Graph:
         # reset visited flag for all vertexes visisted
         for vertex in to_reset:
             vertex.visited = False
+
+    def depth_first(self, root, action_func):
+        # traverse through the graph, depth-first order
+        pass
