@@ -585,7 +585,8 @@ class Graph:
 ## Challenge
 ### Graphs
 #### Get Edges
-Given a complete Graph data-structure, containing a variety of Vertexes/Edges containing city-names and costs, (Flight Routes) and a list of cities (Flight Plan), return True|False if the flight-plan can be performed and the cost.
+Overall: Identify if a given path exists through the Graph where path is a given list of values
+Use Case: Given a complete Graph data-structure, containing a variety of Vertexes/Edges containing city-names and costs, (Flight Routes) and a list of cities (Flight Plan), return True|False if the flight-plan can be performed and the cost.
 - [x] Function
 - [x] Docs
 - [x] Tests
