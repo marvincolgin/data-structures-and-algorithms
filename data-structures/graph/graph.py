@@ -1,3 +1,9 @@
+import os,sys,inspect
+cwd = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+sys.path.insert(0, cwd)
+# sys.path.insert(0, cwd+'/../../data-structures/tree')
+sys.path.insert(0, cwd+'/../../data-structures/stacks_and_queues')
+from stacks_and_queues import Stack
 from typing import List, Any, Optional
 from collections import deque
 
@@ -82,6 +88,60 @@ class Graph:
         for vertex in to_reset:
             vertex.visited = False
 
-    def depth_first(self, root, action_func):
+    def depth_first_recursive(self, root: Vertex, action_func: Any) -> None:
         # traverse through the graph, depth-first order
-        pass
+
+        # Validate Input
+        if not root or not isinstance(root, Vertex):
+            raise EValueError("@param root must be a valid Vertex object")
+
+        # Init internal data-struct
+        visited = set()
+
+        # Worker func for recursion
+        def _visit(vertex):
+            nonlocal visited, action_func
+
+            # Check if we've seen this before
+            if vertex in visited:
+                return
+
+            # Perform Action
+            action_func(vertex.value)
+
+            # Loop through connections
+            for edge in vertex.neighbors:
+                _visit(edge.vertex)
+
+        # Prime Recursion
+        _visit(root)
+
+    def depth_first(self, root: Vertex, action_func: Any) -> None:
+        # traverse through the graph, depth-first order
+
+        # Validate Input
+        if not root or not isinstance(root, Vertex):
+            raise EValueError("@param root must be a valid Vertex object")
+
+        # Init internal data-structs
+        visited = set()
+        stack = Stack()
+
+        # set initial vertex
+        stack.push(root)
+
+        # Stack will contain a lsit
+        while stack:
+            vertex = stack.pop()
+            print('vertex:', vertex)
+            print('vertex is None:', vertex is None)
+            print('vertex==""', vertex == "")
+
+            visited.add(vertex)
+            action_func(vertex.value)
+
+            for edge in vertex.neighbors:
+                if not edge.vertex in visited:
+                    stack.push(edge.vertex)
+
+

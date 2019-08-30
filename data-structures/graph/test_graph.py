@@ -137,20 +137,79 @@ def test_depth_first():
     g = graph.add_vertex('g')
     h = graph.add_vertex('h')
 
+
+    # Undirected Graph
+
+    # A
     graph.add_edge(a, b)
     graph.add_edge(a, d)
-    graph.add_edge(b, d)
+
+    # B
+    graph.add_edge(b, c)
+
+    # C
+    graph.add_edge(b, g)
+
+    # D
     graph.add_edge(d, f)
     graph.add_edge(d, h)
-    graph.add_edge(d, e )
+    graph.add_edge(d, e)
+
+    # E
+
+    # F
+    # No more undirected edges
+
+    # G
+    # No more undirected edges
+
+    # H
+    # No more undirected edges
+
+
+
+    """
+    # Directed Graph
+
+    # A
+    graph.add_edge(a, b)
+    graph.add_edge(a, d)
+
+    # B
+    graph.add_edge(b, c)
+    graph.add_edge(b, d)
+    graph.add_edge(b, a)
+
+    # C
+    graph.add_edge(c, b)
+    graph.add_edge(c, g)
+
+    # D
+    graph.add_edge(d, a)
+    graph.add_edge(d, b)
+    graph.add_edge(d, f)
+    graph.add_edge(d, h)
+    graph.add_edge(d, e)
+
+    # E
+    graph.add_edge(e, d)
+
+    # F
+    graph.add_edge(f, d)
+    graph.add_edge(f, h)
+
+    # H
+    graph.add_edge(h, f)
+    graph.add_edge(h, d)
+    """
 
     visited = []
+    def _visit(value):
+        print(f'_visited()::value:', value)
+        visited.append(value)
 
-    def _visit(vertex):
-        visited.append(vertex.value)
+    graph.depth_first_recursive(a, _visit)
 
-    graph.depth_first(a, _visit)
-
-    expected = ['a', 'b', 'c', 'g', 'd', 'e', 'h', 'f']
+    expected = ['a', 'b', 'c', 'g', 'd', 'f', 'h', 'e']
 
     assert visited == expected
