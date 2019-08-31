@@ -14,6 +14,9 @@ class Vertex:
         self.neighbors: List[Edge] = []  # noqa E701
         self.visited = False
 
+    def __str__(self):
+        return("value:", ''.join(self.value))
+
 
 class Edge:
     def __init__(self, vertex: Vertex, weight=0):
@@ -125,23 +128,25 @@ class Graph:
 
         # Init internal data-structs
         visited = set()
-        stack = Stack()
+        # stack = Stack() @TODO: !!!Bug in my stack and last element of type string!!!
+        stack = deque()
+
 
         # set initial vertex
-        stack.push(root)
+        stack.append(root)
 
         # Stack will contain a lsit
         while stack:
             vertex = stack.pop()
-            print('vertex:', vertex)
-            print('vertex is None:', vertex is None)
-            print('vertex==""', vertex == "")
 
             visited.add(vertex)
             action_func(vertex.value)
 
+            print('edges for vertex.value:', vertex.value)
             for edge in vertex.neighbors:
                 if not edge.vertex in visited:
-                    stack.push(edge.vertex)
+                    if edge.vertex == "":
+                        print("edge.vertex is ''")
+                    stack.append(edge.vertex)
 
 

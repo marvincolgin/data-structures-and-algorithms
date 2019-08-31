@@ -203,13 +203,18 @@ def test_depth_first():
     graph.add_edge(h, d)
     """
 
-    visited = []
     def _visit(value):
         print(f'_visited()::value:', value)
         visited.append(value)
 
+    # Recursive
+    visited = []
     graph.depth_first_recursive(a, _visit)
-
     expected = ['a', 'b', 'c', 'g', 'd', 'f', 'h', 'e']
+    assert visited == expected
 
+    # Stack
+    visited = []
+    graph.depth_first(a, _visit)
+    expected = ['a', 'd', 'e', 'h', 'f', 'b', 'g', 'c']
     assert visited == expected
