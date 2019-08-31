@@ -612,11 +612,10 @@ Graph: Depth-First Traversal.
 - [x] breadth first traversal method which takes a Binary Tree as its unique input.
 - [x] print every node encountered
 ```
-def depth_first(self, tree, action_func):
+def depth_first_recursive(self, root: Vertex, action_func: Any) -> None:
+def depth_first(self, root: Vertex, action_func: Any) -> None:
 ```
 ## TESTS
 - [x] empty tree
 - [x] null tree object
 - [x] tree of nodes
-## whiteboard
-![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/depth_first/challenges/depth_first/assets/whiteboard.jpg)
