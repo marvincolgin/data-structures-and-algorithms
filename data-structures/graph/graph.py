@@ -142,11 +142,8 @@ class Graph:
             visited.add(vertex)
             action_func(vertex.value)
 
-            print('edges for vertex.value:', vertex.value)
             for edge in vertex.neighbors:
                 if not edge.vertex in visited:
-                    if edge.vertex == "":
-                        print("edge.vertex is ''")
                     stack.append(edge.vertex)
 
 
