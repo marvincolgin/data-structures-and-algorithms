@@ -137,7 +137,6 @@ def test_depth_first():
     g = graph.add_vertex('g')
     h = graph.add_vertex('h')
 
-
     # Undirected Graph
 
     # A
@@ -165,8 +164,6 @@ def test_depth_first():
 
     # H
     # No more undirected edges
-
-
 
     """
     # Directed Graph
