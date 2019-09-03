@@ -1,17 +1,16 @@
-import os,sys,inspect
+import os, sys, inspect
 cwd = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
 sys.path.insert(0, cwd)
-# sys.path.insert(0, cwd+'/../../data-structures/tree')
 sys.path.insert(0, cwd+'/../../data-structures/stacks_and_queues')
-from stacks_and_queues import Stack
-from typing import List, Any, Optional
-from collections import deque
+from stacks_and_queues import Stack  # noqa 402
+from typing import List, Any, Optional  # noqa 402
+from collections import deque  # noqa 402
 
 
 class Vertex:
     def __init__(self, value: Any):
         self.value = value
-        self.neighbors: List[Edge] = []  # noqa E701
+        self.neighbors: List[Edge] = []  # noqa 701
         self.visited = False
 
     def __str__(self):
@@ -128,9 +127,8 @@ class Graph:
 
         # Init internal data-structs
         visited = set()
-        # stack = Stack() @TODO: !!!Bug in my stack and last element of type string!!!
+        # stack = Stack() @TODO: !!!Bug in my stack and last element of type string!!!  # noqa 501
         stack = deque()
-
 
         # set initial vertex
         stack.append(root)
@@ -143,7 +141,5 @@ class Graph:
             action_func(vertex.value)
 
             for edge in vertex.neighbors:
-                if not edge.vertex in visited:
+                if edge.vertex not in visited:
                     stack.append(edge.vertex)
-
-
