@@ -1,3 +1,9 @@
+import os,sys,inspect
+cwd = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+sys.path.insert(0, cwd)
+# sys.path.insert(0, cwd+'/../../data-structures/tree')
+sys.path.insert(0, cwd+'/../../data-structures/stacks_and_queues')
+from stacks_and_queues import Stack
 from typing import List, Any, Optional
 from collections import deque
 
@@ -7,6 +13,9 @@ class Vertex:
         self.value = value
         self.neighbors: List[Edge] = []  # noqa E701
         self.visited = False
+
+    def __str__(self):
+        return("value:", ''.join(self.value))
 
 
 class Edge:
@@ -81,3 +90,63 @@ class Graph:
         # reset visited flag for all vertexes visisted
         for vertex in to_reset:
             vertex.visited = False
+
+    def depth_first_recursive(self, root: Vertex, action_func: Any) -> None:
+        # traverse through the graph, depth-first order
+
+        # Validate Input
+        if not root or not isinstance(root, Vertex):
+            raise EValueError("@param root must be a valid Vertex object")
+
+        # Init internal data-struct
+        visited = set()
+
+        # Worker func for recursion
+        def _visit(vertex):
+            nonlocal visited, action_func
+
+            # Check if we've seen this before
+            if vertex in visited:
+                return
+
+            # Perform Action
+            action_func(vertex.value)
+
+            # Loop through connections
+            for edge in vertex.neighbors:
+                _visit(edge.vertex)
+
+        # Prime Recursion
+        _visit(root)
+
+    def depth_first(self, root: Vertex, action_func: Any) -> None:
+        # traverse through the graph, depth-first order
+
+        # Validate Input
+        if not root or not isinstance(root, Vertex):
+            raise EValueError("@param root must be a valid Vertex object")
+
+        # Init internal data-structs
+        visited = set()
+        # stack = Stack() @TODO: !!!Bug in my stack and last element of type string!!!
+        stack = deque()
+
+
+        # set initial vertex
+        stack.append(root)
+
+        # Stack will contain a lsit
+        while stack:
+            vertex = stack.pop()
+
+            visited.add(vertex)
+            action_func(vertex.value)
+
+            print('edges for vertex.value:', vertex.value)
+            for edge in vertex.neighbors:
+                if not edge.vertex in visited:
+                    if edge.vertex == "":
+                        print("edge.vertex is ''")
+                    stack.append(edge.vertex)
+
+

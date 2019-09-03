@@ -1,5 +1,5 @@
 # Reverse an Array
-z
+
 ## Challenge
 Create a function, which reverses an array/linked-list, as passed via a parameter and pass the new array back as the `return()` for the function.
 
@@ -606,3 +606,16 @@ def get_edges(graph: Graph, path_ro: List) -> Tuple[bool, float]:
 - [x] Flight-Plan with invalid Flight-Route
 ## Whiteboard
 ![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/get-edges/challenges/get_edges/assets/whiteboard.jpg)
+
+## Challenge
+Graph: Depth-First Traversal.
+- [x] breadth first traversal method which takes a Binary Tree as its unique input.
+- [x] print every node encountered
+```
+def depth_first_recursive(self, root: Vertex, action_func: Any) -> None:
+def depth_first(self, root: Vertex, action_func: Any) -> None:
+```
+## TESTS
+- [x] empty tree
+- [x] null tree object
+- [x] tree of nodes
