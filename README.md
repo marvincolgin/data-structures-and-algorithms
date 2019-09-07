@@ -1,107 +1,104 @@
-# Data Structures and Algorithms
+Data Structures and Algorithms
 Written in Python by Vin Colgin Summer 2019
 
 Table of Contents:
 <!--ts-->
-   * [Data Structures and Algorithms](#data-structures-and-algorithms)
    * [Array/Linked Lists](#arraylinked-lists)
-      * [Challenge: Reverse an Array](#challenge-reverse-an-array)
-         * [Approach &amp; Efficiency](#approach--efficiency)
-         * [Solution](#solution)
-      * [Challenge: Insert and Shift Array](#challenge-insert-and-shift-array)
-         * [Solution](#solution-1)
-      * [Challenge: Array Binary Search](#challenge-array-binary-search)
-         * [Solution](#solution-2)
-      * [Challenge: Singly Linked List](#challenge-singly-linked-list)
-                  * [Big O analysis:](#big-o-analysis)
-                  * [API](#api)
-      * [Challenge: Linked List insertions.](#challenge-linked-list-insertions)
-         * [API](#api-1)
-         * [TESTS](#tests)
-         * [Whiteboard](#whiteboard)
-      * [Challenge: Linked List find Kth from end.](#challenge-linked-list-find-kth-from-end)
-         * [API](#api-2)
-         * [TESTS](#tests-1)
-         * [Whiteboard](#whiteboard-1)
-      * [Challenge: Merge Two Linked Lists.](#challenge-merge-two-linked-lists)
-         * [API](#api-3)
-         * [TESTS](#tests-2)
-         * [Whiteboard](#whiteboard-2)
+      * [Reverse an Array](#reverse-an-array)
+            * [Approach &amp; Efficiency](#approach--efficiency)
+            * [Solution](#solution)
+      * [Insert and Shift Array](#insert-and-shift-array)
+            * [Solution](#solution-1)
+      * [Array Binary Search](#array-binary-search)
+            * [Solution](#solution-2)
+      * [Singly Linked List](#singly-linked-list)
+            * [Big O analysis:](#big-o-analysis)
+            * [API](#api)
+      * [Linked List insertions.](#linked-list-insertions)
+            * [API](#api-1)
+            * [TESTS](#tests)
+            * [Whiteboard](#whiteboard)
+      * [Linked List find Kth from end.](#linked-list-find-kth-from-end)
+            * [API](#api-2)
+            * [TESTS](#tests-1)
+            * [Whiteboard](#whiteboard-1)
+      * [Merge Two Linked Lists.](#merge-two-linked-lists)
+            * [API](#api-3)
+            * [TESTS](#tests-2)
+            * [Whiteboard](#whiteboard-2)
    * [Stacks and Queues](#stacks-and-queues)
-      * [Challenge: STACK: implement a stack data structure (LIFO)](#challenge-stack-implement-a-stack-data-structure-lifo)
-         * [API](#api-4)
-         * [TESTS](#tests-3)
-      * [Challenge: QUEUE: implement a queue data structure (FIFO)](#challenge-queue-implement-a-queue-data-structure-fifo)
-         * [API](#api-5)
-         * [TESTS](#tests-4)
-      * [Challenge QUEUE: implement a queue data structure (FIFO), using a Stack as the base data structure](#challenge-queue-implement-a-queue-data-structure-fifo-using-a-stack-as-the-base-data-structure)
-         * [API](#api-6)
-         * [TESTS](#tests-5)
-         * [Whiteboard](#whiteboard-3)
-      * [Challenge: FIFO Animal Shelter](#challenge-fifo-animal-shelter)
-         * [API](#api-7)
-         * [TESTS](#tests-6)
-         * [STRETCH](#stretch)
+      * [STACK Data Structure (LIFO)](#stack-data-structure-lifo)
+            * [API](#api-4)
+            * [TESTS](#tests-3)
+      * [QUEUE Data Structure (FIFO)](#queue-data-structure-fifo)
+            * [API](#api-5)
+            * [TESTS](#tests-4)
+      * [QUEUE: implemented using a Stack as the base data structure](#queue-implemented-using-a-stack-as-the-base-data-structure)
+            * [API](#api-6)
+            * [TESTS](#tests-5)
+            * [Whiteboard](#whiteboard-3)
+      * [Queue Demo: Animal Shelter](#queue-demo-animal-shelter)
+            * [API](#api-7)
+            * [TESTS](#tests-6)
          * [Whiteboard](#whiteboard-4)
-      * [Challenge: Balanced Brackets](#challenge-balanced-brackets)
-         * [API](#api-8)
-         * [TESTS](#tests-7)
-         * [Whiteboard](#whiteboard-5)
+      * [Stack Demo: Balanced Brackets](#stack-demo-balanced-brackets)
+            * [API](#api-8)
+            * [TESTS](#tests-7)
+            * [Whiteboard](#whiteboard-5)
    * [Binary Tree (BT) and Binary Search Tree (BST)](#binary-tree-bt-and-binary-search-tree-bst)
-      * [Data-Structures: Create Binary Tree and Binary Search Tree](#data-structures-create-binary-tree-and-binary-search-tree)
-         * [API](#api-9)
-         * [TESTS](#tests-8)
-         * [Whiteboard](#whiteboard-6)
-      * [Challenge: FizzBuzzTree](#challenge-fizzbuzztree)
-         * [API](#api-10)
-         * [TESTS](#tests-9)
-         * [whiteboard](#whiteboard-7)
-      * [Challenge: Breadth-first Binary Tree Traversal.](#challenge-breadth-first-binary-tree-traversal)
-         * [API](#api-11)
-         * [TESTS](#tests-10)
-         * [whiteboard](#whiteboard-8)
-      * [Challenge: Find the Maximum Value in a Binary Tree](#challenge-find-the-maximum-value-in-a-binary-tree)
-         * [API](#api-12)
-         * [TESTS](#tests-11)
-         * [whiteboard](#whiteboard-9)
-      * [Algorith: Bubble Sort](#algorith-bubble-sort)
-         * [API](#api-13)
-         * [TESTS](#tests-12)
-      * [Algorithm: Insertion Sort](#algorithm-insertion-sort)
-         * [API](#api-14)
-         * [TESTS](#tests-13)
-      * [Algorithm: Merge Sort](#algorithm-merge-sort)
-         * [API](#api-15)
-         * [TESTS](#tests-14)
-      * [Algorithm: Quick Sort](#algorithm-quick-sort)
-         * [API](#api-16)
-         * [TESTS](#tests-15)
+            * [API](#api-9)
+            * [TESTS](#tests-8)
+            * [Whiteboard](#whiteboard-6)
+      * [Tree Demo: FizzBuzzTree](#tree-demo-fizzbuzztree)
+            * [API](#api-10)
+            * [TESTS](#tests-9)
+            * [whiteboard](#whiteboard-7)
+      * [Breadth-first Traversal.](#breadth-first-traversal)
+            * [API](#api-11)
+            * [TESTS](#tests-10)
+            * [whiteboard](#whiteboard-8)
+      * [Binary Tree Demo: Find the Maximum Value in a Binary Tree](#binary-tree-demo-find-the-maximum-value-in-a-binary-tree)
+            * [API](#api-12)
+            * [TESTS](#tests-11)
+            * [whiteboard](#whiteboard-9)
+      * [Bubble Sort](#bubble-sort)
+            * [API](#api-13)
+            * [TESTS](#tests-12)
+      * [Insertion Sort](#insertion-sort)
+            * [API](#api-14)
+            * [TESTS](#tests-13)
+      * [Merge Sort](#merge-sort)
+            * [API](#api-15)
+            * [TESTS](#tests-14)
+      * [Quick Sort](#quick-sort)
+            * [API](#api-16)
+            * [TESTS](#tests-15)
       * [Data-Structure: Hash Table](#data-structure-hash-table)
-         * [API](#api-17)
-         * [TESTS](#tests-16)
-      * [Challenge: Repeated Words](#challenge-repeated-words)
-         * [API](#api-18)
-         * [TESTS](#tests-17)
-         * [whiteboard](#whiteboard-10)
-         * [Challenge: Tree Intersection](#challenge-tree-intersection)
-         * [TESTS](#tests-18)
-         * [whiteboard](#whiteboard-11)
-      * [Challenge: Left Join](#challenge-left-join)
-         * [TeSTS](#tests-19)
-         * [Whiteboard](#whiteboard-12)
+            * [API](#api-17)
+            * [TESTS](#tests-16)
+      * [Repeated Words](#repeated-words)
+            * [API](#api-18)
+            * [TESTS](#tests-17)
+            * [whiteboard](#whiteboard-10)
+         * [Tree Intersection](#tree-intersection)
+            * [TESTS](#tests-18)
+            * [whiteboard](#whiteboard-11)
+      * [Left Join](#left-join)
+            * [TeSTS](#tests-19)
+            * [Whiteboard](#whiteboard-12)
       * [Data Structure: Graphs](#data-structure-graphs)
-         * [Features](#features)
-         * [API](#api-19)
-         * [TESTS](#tests-20)
-         * [Whiteboard](#whiteboard-13)
-      * [Challenge: Graphs, Get Edges](#challenge-graphs-get-edges)
-         * [API](#api-20)
-         * [TESTS](#tests-21)
-         * [Whiteboard](#whiteboard-14)
+            * [Features](#features)
+            * [API](#api-19)
+            * [TESTS](#tests-20)
+            * [Whiteboard](#whiteboard-13)
+      * [Graphs, Get Edges](#graphs-get-edges)
+            * [API](#api-20)
+            * [TESTS](#tests-21)
+            * [Whiteboard](#whiteboard-14)
       * [Challenge](#challenge)
-         * [TESTS](#tests-22)
+            * [TESTS](#tests-22)
 
-<!-- Added by: mmc, at: Fri Sep  6 21:27:56 PDT 2019 -->
+<!-- Added by: mmc, at: Fri Sep  6 22:04:35 PDT 2019 -->
 
 <!--te-->
 
@@ -109,32 +106,32 @@ Table of Contents:
 
 
 <!-- ********************* -->
-## Challenge: Reverse an Array
+## Reverse an Array
 Create a function, which reverses an array/linked-list, as passed via a parameter and pass the new array back as the `return()` for the function.
-### Approach & Efficiency
+#### Approach & Efficiency
 My initial approach was to utilize the `list.insert()` and `list.pop()` to rebuild the list in reverse order. However, my white boarding partner showed me a more pythonic method utilizing slices with a -1 stride.
-### Solution
+#### Solution
 Two solutions were used, one that utilizes a while() loop and is destructive on the inbound array. The second is "pythonic" and utilizes an index slice and a -1 stride.
 
 
 <!-- ********************* -->
-## Challenge: Insert and Shift Array
+## Insert and Shift Array
 Write a function which takes in an array and the value to be added. Without utilizing any of the built-in methods available to your language, return an array with the new value added at the middle index.
-### Solution
+#### Solution
 Create an index into the array where the value will be inserted, utilize slice and .append/.extend to construct a return array
 ![alt_text](https://github.com/marvincolgin/data-structures-and-algorythms/blob/array_shift/challenges/array_shift/assets/whiteboard.jpg)
 
 
 <!-- ********************* -->
-## Challenge: Array Binary Search
+## Array Binary Search
 Write a function which takes in an array and the value to be searched. Return -1 if the value is not found, otherwise return the index (0 based). Incoming array is sorted.
-### Solution
+#### Solution
 Divide and Conquer! Look at the middle element, is it the middle element? Return. If not, create a new middle from either the smaller side or larger side. Repeat.
 ![alt_text](https://github.com/marvincolgin/data-structures-and-algorythms/blob/array_binary_search/challenges/array_binary_search/assets/whiteboard.jpg)
 
 
 <!-- ********************* -->
-## Challenge: Singly Linked List
+## Singly Linked List
 <!-- Linked-Lists (singly) is a dynamic data-structure which resembles a length of chain, where the entire length of chain is the list and the individual links of the chain are nodes. A singlarly linked list is only traversable in one direction, but utilizing a head element that points to the first node in the list, the second node in the list points to the next link in the chain, and finally the last element in the list points to "none"
 
 ### Tasks
@@ -144,13 +141,13 @@ Define a method called insert which takes any value as an argument and adds a ne
 Define a method called includes which takes any value as an argument and returns a boolean result depending on whether that value exists as a Node's value somewhere within the list.
 Define a method called <strike>toString (or __str__ in Python)</strike>.toJSON which takes in no arguments and returns a string representing all the values in the Linked List.
 -->
-### Big O analysis:
+#### Big O analysis:
 ```
 .insert() == O(1)
 .count() == O(n)
 .includes() == O(n)
 ```
-### API
+#### API
 ```python
 class LinkList()
 
@@ -177,9 +174,9 @@ class ListNode()
 
 
 <!-- ********************* -->
-## Challenge: Linked List insertions.
+## Linked List insertions.
 Modify the LinkedList class to include additional API functions for the insertion of data.
-### API
+#### API
 ```python
 class LinkList()
 
@@ -195,54 +192,54 @@ class LinkList()
         # add a new node with the given newValue immediately after the first value node
         # BigO == O(n)
 ```
-### TESTS
+#### TESTS
 - [x] add a node to the end of the linked list
 - [x] add multiple nodes to the end of a linked list
 - [x] insert a node before a node located i the middle of a linked list
 - [x] insert a node before the first node of a linked list
 - [x] insert after a node in the middle of the linked list
 - [x] insert a node after the last node of the linked list
-### Whiteboard
+#### Whiteboard
 ![alt_text](https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/data-structures/linked_list/assets/linked_lists-ll_insertions-whiteboard.jpg)
 
 
 <!-- ********************* -->
-## Challenge: Linked List find Kth from end.
+## Linked List find Kth from end.
 Write a function that takes a number, k, as a parameter and returns the node's value for the kth element from end of list.
-### API
+#### API
 ```python
 class LinkList():
     def kthFromEnd(k):
         # finds the Kth element from the end of the list and returns value for node
         # BigO == O(n)
 ```
-### TESTS
+#### TESTS
 - [x] Where k is greater than the length of the linked list
 - [x] Where k and the length of the list are the same
 - [x] Where k is not a positive integer
 - [x] Where the linked list is of a size 1
 - [x] "Happy Path" where k is not at the end, but somewhere in the middle of the linked list
-### Whiteboard
+#### Whiteboard
 ![alt_text](https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/data-structures/linked_list/assets/linked_lists-ll_insertions-whiteboard.jpg)
 
 
 <!-- ********************* -->
-## Challenge: Merge Two Linked Lists.
+## Merge Two Linked Lists.
 Write a function called mergeLists which takes two linked lists as arguments. Zip the two linked lists together into one so that the nodes alternate between the two lists and return a reference to the head of the zipped list. Try and keep additional space down to O(1). You have access to the Node class and all the properties on the Linked List class as well as the methods created in previous challenges.
-### API
+#### API
 ```python
 class LinkList():
     def mergeList(listA, listB):
         # Merge two linked lists
         # BigO = O(n)
 ```
-### TESTS
+#### TESTS
 1. Merge two equal
 2. Merge two unequal
 3. Merge one empty list
 4. Merge two empty lists
 5. Merge a list with just 1 item
-### Whiteboard
+#### Whiteboard
 ![alt_text](https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/data-structures/linked_list/assets/ll_merge-whiteboard.jpg)
 
 
@@ -250,15 +247,15 @@ class LinkList():
 
 
 <!-- ********************* -->
-## Challenge: STACK: implement a stack data structure (LIFO)
-### API
+## STACK Data Structure (LIFO)
+#### API
 ```python
 class Stack():
     def push(val) -> bool:
     def pop() -> str:
     def peek() -> str:
 ```
-### TESTS
+#### TESTS
 - [x] push onto a stack
 - [x] push multiple values onto a stack
 - [x] pop off the stack
@@ -268,8 +265,8 @@ class Stack():
 
 
 <!-- ********************* -->
-## Challenge: QUEUE: implement a queue data structure (FIFO)
-### API
+## QUEUE Data Structure (FIFO)
+#### API
 ```python
 class Queue():
 
@@ -282,7 +279,7 @@ class Queue():
     def peek() -> str:
         # Get value from the head of the queue (without removing it)
 ```
-### TESTS
+#### TESTS
 - [x] enqueue into a queue
 - [x] enqueue multiple values into a queue
 - [x] dequeue out of a queue the expected value
@@ -292,9 +289,9 @@ class Queue():
 
 
 <!-- ********************* -->
-## Challenge QUEUE: implement a queue data structure (FIFO), using a Stack as the base data structure
-### API
-```
+## QUEUE: implemented using a Stack as the base data structure
+#### API
+```python
 class PseudoQueue(object):
 
     def __init__(self):
@@ -315,64 +312,73 @@ class PseudoQueue(object):
         # so we are going to unload the first stack, into a temp stack, in order to
         # get at the bottom element of the first, then rebuild it from temp to first-stack
 ```
-### TESTS
+#### TESTS
 - [x] class existence
 - [x] enqueue multiple items
 - [x] dequeue item
 - [x] dequeue multiple items
 - [x] dequeue all until empty
-### Whiteboard
+#### Whiteboard
 ![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/1805a3f00421d5f5f4bc5578e9cfc4522d47e9ba/challenges/queue_with_stacks/assets/whiteboard.jpg)
 
 
 <!-- ********************* -->
-## Challenge: FIFO Animal Shelter
+## Queue Demo: Animal Shelter
 create a class called AnimalShelter which holds only dogs/cats. The shelter operates as first-in / first-out
-### API
-```
+#### API
+```python
 class AnimalType(IntEnum):
+
+
 class Animal(object):
+
     def __init__(self, animaltype : AnimalType):
         # create internal data structs
+
     def serialize(self):
         # return json for obj
+
     def Factory(jsonstr : str): # -> Animal
         # create Animal class Dog|Cat for Json
+
+
 class Cat(Animal):
     def __init__(self):
         # create internal data structs
+
 class Dog(Animal):
     def __init__(self):
         # create internal data structs
+
 class AnimalShelter():
     def __init__(self):
         # create internal data structs
+
     def enqueue(self, animal : Animal):
         # add animal to shelter
+
     def dequeue(self, pref : AnimalType=None) -> Animal:
         # grab animal that has been in queue the longest, optionally provide parameter
 ```
-### TESTS
+#### TESTS
 - [x] class existence
 - [x] enq one
 - [x] enq many
 - [x] deq one (no pref)
 - [x] deq one (with pref)
 - [x] deq until empty
-### STRETCH
-- [ ] deq oldest
 ### Whiteboard
 ![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/SOMEUUID/challenges/fifo_animal_shelter/assets/whiteboard.jpg)
 
 
 <!-- ********************* -->
-## Challenge: Balanced Brackets
+## Stack Demo: Balanced Brackets
 Create a function, which takes in a string and tests it to make sure that any open brackets ('{','(','[') are balanced with their corresponding closing-brackets ('}',')',']').
-### API
-```
+#### API
+```python
 def multi_bracket_validation(input : str) -> boolean:
 ```
-### TESTS
+#### TESTS
 - [x] Balanced
 - [x] Balanced Complicated
 - [x] Balanced extra characters
@@ -382,114 +388,128 @@ def multi_bracket_validation(input : str) -> boolean:
 - [x] Only Open
 - [x] Only Closed
 - [x] Empty
-### Whiteboard
+#### Whiteboard
 ![alt_text](https://github.com/marvincolgin/data-structures-and-algorithms/raw/multi_bracket_validation/challenges/multi_bracket_validation/assets/whiteboard.jpg)
 
 
-# Binary Tree (BT) and Binary Search Tree (BST)
-
 <!-- ********************* -->
-## Data-Structures: Create Binary Tree and Binary Search Tree
-### API
-```
+# Binary Tree (BT) and Binary Search Tree (BST)
+#### API
+```python
 class TraverseMethod(IntEnum):
     # enum class for traversal and processing order
+
+
 class Node:
     # class for nodes within Tree
+
     def __init__(self, value):
         # constructor for creating Node
+
+
 class BinaryTree:
+
     def __init__(self):
         # constructor for creating BinaryTree
+
     def traverse(self, method : TraverseMethod, action_func):
         # visit each node in atree, using a specified method and call action_func() for each node
+
         def _visit(node):
             # recusive function for visiting each node
+
     def returnAsArr(self, method : TraverseMethod):
         # return the enter tree as an array using a specified method
+
 class BinarySearchTree(BinaryTree):
     # class for binary-search-tree
+
     def add(self, new_value):
         # adds new value to the tree
+
         def _find_and_insert(node):
             # recursive method for evaluating a node and calling itself depending on the value
+
     def contains(self, target_value) -> bool:
         # accepts a value, and returns a boolean indicating whether or not the value is in the tree at least once.
+
         def _visit(node):
             # recursive function for isiting each node
 ```
-### TESTS
+#### TESTS
 - [x] instantiate an empty tree
 - [x] instantiate a tree with a single root node
 - [x] add a left child and right child to a single root node
 - [x] return a collection from a preorder traversal
 - [x] return a collection from an inorder traversal
 - [x] return a collection from a postorder traversal
-### Whiteboard
+#### Whiteboard
 None
 
 
 <!-- ********************* -->
-## Challenge: FizzBuzzTree
+## Tree Demo: FizzBuzzTree
 Write a function called FizzBuzzTree which takes a tree as an argument.
 Determine weather or not the value of each node is divisible by 3, 5 or both, and change the value of each of the nodes:
 - [x] value is divisible by 3, replace the value with "Fizz"
 - [x] value is divisible by 5, replace the value with "Buzz"
 - [x] value is divisible by 3 and 5, replace the value with "FizzBuzz"
 - [x] Return the tree with its new values.
-### API
-```
+#### API
+```python
 def fizzBuzzTree(tree: BinaryTree) -> BinaryTree:
     # traverse tree, value = value%3==0 ? 'Fizz, value = value%5==0 ? 'Buzz' (set value to 'FizzBuzz' if both conditions met)
 ```
-### TESTS
+#### TESTS
 - [x] empty tree
 - [x] None that trigger
 - [x] All that trigger FizzBuzz
-### whiteboard
+#### whiteboard
 ![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/be06edcb4417bd0d1a66896bb24b9339ac6ea962/challenges/fizz_buzz_tree/assets/whiteboard.jpg)
 
 
 <!-- ********************* -->
-## Challenge: Breadth-first Binary Tree Traversal.
+## Breadth-first Traversal.
 - [x] breadth first traversal method which takes a Binary Tree as its unique input.
 - [x] print every node encountered
-### API
-```
+#### API
+```python
 def breadth_first(tree, action_func):
 ```
-### TESTS
+#### TESTS
 - [x] empty tree
 - [x] null tree object
 - [x] tree of nodes
-### whiteboard
+#### whiteboard
 ![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/breadth_first/challenges/breadth_first/assets/whiteboard.jpg)
 
 
 <!-- ********************* -->
-## Challenge: Find the Maximum Value in a Binary Tree
+## Binary Tree Demo: Find the Maximum Value in a Binary Tree
 - [x] function called find_maximum_value which takes binary tree as its only input
-### API
-```
+#### API
+```python
 def find_max(tree : BinaryTree) -> (bool,int):
 ```
-### TESTS
+#### TESTS
 - [x] find max
 - [x] empty tree
 - [x] tree == None
-### whiteboard
+#### whiteboard
 ![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/c7e136b9fcf6c8522eb6d74643e65a4b8fb83c4e/challenges/find_maximum_binary_tree/assets/whiteboard.jpg)
 
-## Algorith: Bubble Sort
+
+<!-- ********************* -->
+## Bubble Sort
 - [x] code sort func
 - [x] tests
 - [x] blog post
-### API
-```
+#### API
+```python
 def bubble_sort(arr):
     # BigO == n^2
 ```
-### TESTS
+#### TESTS
 - [x] func exists
 - [x] sort 5
 - [x] all same
@@ -498,16 +518,16 @@ def bubble_sort(arr):
 
 
 <!-- ********************* -->
-## Algorithm: Insertion Sort
+## Insertion Sort
 - [x] code sort func
 - [x] tests
 - [x] blog post
-### API
-```
+#### API
+```python
 def insertion_sort(arr):
     # BigO = O(2n)
 ```
-### TESTS
+#### TESTS
 - [x] func exists
 - [x] sort 5
 - [x] all same
@@ -516,23 +536,25 @@ def insertion_sort(arr):
 
 
 <!-- ********************* -->
-## Algorithm: Merge Sort
+## Merge Sort
 - [x] code sort func
 - [x] tests
 - [x] blog post
-### API
-```
+#### API
+```python
 def merge_sort(arr):
     # BigO (n log n)
     # :: log n, as this is a divide algo
     # :: n, as we need to merge the halfs back
+
 def merge_split(arr):
     # actual merge_sort function, without error handling
     # :: recursivily called
+
 def merge_array(arr, left, right):
     # combine left and right sides
 ```
-### TESTS
+#### TESTS
 - [x] func exists
 - [x] sort 5
 - [x] all same
@@ -541,18 +563,18 @@ def merge_array(arr, left, right):
 
 
 <!-- ********************* -->
-## Algorithm: Quick Sort
+## Quick Sort
 - [x] code sort func
 - [x] tests
 - [x] blog post
-### API
-```
+#### API
+```python
 def quick_sort(arr):
     # BigO (n log n)
     # :: log n, as this is a divide algo
     # :: n, as we need to merge the halfs back
 ```
-### TESTS
+#### TESTS
 - [x] func exists
 - [x] sort 5
 - [x] all same
@@ -565,8 +587,8 @@ def quick_sort(arr):
 - [x] Implement Hash Table
 - [x] TESTS
 - [x] Docs
-### API
-```
+#### API
+```python
 class HashTable():
 
     def __init__(self, hashtableSize = 1024):
@@ -599,7 +621,7 @@ class HashTable():
     def contains(self, name) -> bool:
         # returns true|false if the name is in the hashtable
 ```
-### TESTS
+#### TESTS
 - [x] add
 - [x] contains
 - [x] not-contains
@@ -610,89 +632,91 @@ class HashTable():
 
 
 <!-- ********************* -->
-## Challenge: Repeated Words
+## Repeated Words
 repeated_words(): search the longstr for complete words, return the first word that has more than one occurrence
 - [x] Branch Created
 - [x] Function Created
 - [x] Tests
 - [x] Docs
-### API
-```
+#### API
+```python
 def repeated_word(longstr: str) -> str:
     # search the longstr for complete words
     # return the first word that has more than
     # one occurrence
     # BigO Time==O(n) Space==O(n*1.3)
 ```
-### TESTS
+#### TESTS
 - [x] Sample Text #1
 - [x] Sample Text #2
 - [x] Sample Text #3
-### whiteboard
+#### whiteboard
 ![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/repeated_word/challenges/repeated_word/assets/whiteboard.jpg)
 
 
 <!-- ********************* -->
-### Challenge: Tree Intersection
+### Tree Intersection
 tree_intersection(): given two binary-trees, return an array containing shared values
 - [x] Branch Created
 - [x] Function Created
 - [x] Tests
 - [x] Docs
 - [x] Pep8 Code Styling
-```
+```python
 def tree_intersection(tree1, tree2: BinaryTree) -> list:
     # return an array with all the values in both tree1 and tree2
     # BigO Time==O(2n)  Space==0(1.3n) 30% for hashtable
     # assumption: No Duplicates within Trees
 ```
-### TESTS
+#### TESTS
 - [x] Func / Empty Trees
 - [x] Invalid Params
 - [x] All Matches
 - [x] No Matches
 - [x] Some Matching
-### whiteboard
+#### whiteboard
 ![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/tree_intersection/challenges/tree_intersection/assets/whiteboard.jpg)
 
 
 <!-- ********************* -->
-## Challenge: Left Join
+## Left Join
 left_join(): given two hash-tables, return a list of all items from the first h1 and the value that exists in h2, if no value exists return None
 - [x] LEFT JOINs two hashmaps into a single data structure.
 - [x] 1st param is hashmap with words and synonyms
 - [x] 2nd param is hashmap with words and antonyms
 - [x] Combine the key and corresponding values (if they exist) into a new data structure according to LEFT JOIN logic.
 - [X] Code Styling: PEP8
-```
+```python
 def left_join(h1, h2: HashTable) -> list:
     # perform a left-join on h1 against h2
     # - returns a list of dict:{word,syntonym,antonym)
     # - BigO time==O(n) space==0(n)
     # -      worst: time==O(3n)
 ```
-### TeSTS
+#### TeSTS
 - [x] Func / Input Validation
 - [x] 2 rec, 1 with value in 2nd hashtable
 - [x] Full Sample
-### Whiteboard
+#### Whiteboard
 ![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/left_join/challenges/left_join/assets/whiteboard.jpg)
 
 
 <!-- ********************* -->
 ## Data Structure: Graphs
-### Features
+#### Features
 - [x] Add Vertex
 - [x] Add Edge
 - [x] Get Neighbors
 - [x] Get Vertexes
 - [x] Get Length
-### API
-```
+#### API
+```python
 class Vertex:
     def __init__(self, value: Any):
+
 class Edge:
     def __init__(self, vertex: Vertex, weight=0):
+
 class Graph:
     def __init__(self):
     def __len__(self) -> int:
@@ -702,7 +726,7 @@ class Graph:
     def get_vertexes(self) -> Optional[List[Vertex]]:
     def breadth_first(self, root, action_func):
 ```
-### TESTS
+#### TESTS
 - [x] Node can be successfully added to the graph
 - [x] An edge can be successfully added to the graph
 - [x] A collection of all nodes can be properly retrieved from the graph
@@ -711,19 +735,19 @@ class Graph:
 - [x] The proper size is returned, representing the number of nodes in the graph
 - [x] A graph with only one node and edge can be properly returned
 - [x] An empty graph properly returns null
-### Whiteboard
+#### Whiteboard
 ![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/graph-day2/data-structures/graph/assets/whiteboard.jpg)
 
 
 <!-- ********************* -->
-## Challenge: Graphs, Get Edges
+## Graphs, Get Edges
 Overall: Identify if a given path exists through the Graph where path is a given list of values
 Use Case: Given a complete Graph data-structure, containing a variety of Vertexes/Edges containing city-names and costs, (Flight Routes) and a list of cities (Flight Plan), return True|False if the flight-plan can be performed and the cost.
 - [x] Function
 - [x] Docs
 - [x] Tests
-### API
-```
+#### API
+```python
 def get_edges(graph: Graph, path_ro: List) -> Tuple[bool, float]:
     # identify if a given path exists through the Graph
     # where path is a given list of values
@@ -731,12 +755,12 @@ def get_edges(graph: Graph, path_ro: List) -> Tuple[bool, float]:
     # BigO time==O(V+P*E) .. where p is len(path_ro)
     # BigO space==O(1)
 ```
-### TESTS
+#### TESTS
 - [x] Invalid Input: Graph
 - [x] Invalid Input: List
 - [x] Flight-Plan with valid Flight-Route
 - [x] Flight-Plan with invalid Flight-Route
-### Whiteboard
+#### Whiteboard
 ![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/get-edges/challenges/get_edges/assets/whiteboard.jpg)
 
 
@@ -745,11 +769,11 @@ def get_edges(graph: Graph, path_ro: List) -> Tuple[bool, float]:
 Graph: Depth-First Traversal.
 - [x] breadth first traversal method which takes a Binary Tree as its unique input.
 - [x] print every node encountered
-```
+```python
 def depth_first_recursive(self, root: Vertex, action_func: Any) -> None:
 def depth_first(self, root: Vertex, action_func: Any) -> None:
 ```
-### TESTS
+#### TESTS
 - [x] empty tree
 - [x] null tree object
 - [x] tree of nodes
