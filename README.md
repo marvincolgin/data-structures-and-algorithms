@@ -1,3 +1,110 @@
+# Data Structures and Algorithms
+Written in Python by Vin Colgin Summer 2019
+
+Table of Contents:
+<!--ts-->
+   * [Data Structures and Algorithms](#data-structures-and-algorithms)
+   * [Array/Linked Lists](#arraylinked-lists)
+      * [Challenge: Reverse an Array](#challenge-reverse-an-array)
+         * [Approach &amp; Efficiency](#approach--efficiency)
+         * [Solution](#solution)
+      * [Challenge: Insert and Shift Array](#challenge-insert-and-shift-array)
+         * [Solution](#solution-1)
+      * [Challenge: Array Binary Search](#challenge-array-binary-search)
+         * [Solution](#solution-2)
+      * [Challenge: Singly Linked List](#challenge-singly-linked-list)
+                  * [Big O analysis:](#big-o-analysis)
+                  * [API](#api)
+      * [Challenge: Linked List insertions.](#challenge-linked-list-insertions)
+         * [API](#api-1)
+         * [TESTS](#tests)
+         * [Whiteboard](#whiteboard)
+      * [Challenge: Linked List find Kth from end.](#challenge-linked-list-find-kth-from-end)
+         * [API](#api-2)
+         * [TESTS](#tests-1)
+         * [Whiteboard](#whiteboard-1)
+      * [Challenge: Merge Two Linked Lists.](#challenge-merge-two-linked-lists)
+         * [API](#api-3)
+         * [TESTS](#tests-2)
+         * [Whiteboard](#whiteboard-2)
+   * [Stacks and Queues](#stacks-and-queues)
+      * [Challenge: STACK: implement a stack data structure (LIFO)](#challenge-stack-implement-a-stack-data-structure-lifo)
+         * [API](#api-4)
+         * [TESTS](#tests-3)
+      * [Challenge: QUEUE: implement a queue data structure (FIFO)](#challenge-queue-implement-a-queue-data-structure-fifo)
+         * [API](#api-5)
+         * [TESTS](#tests-4)
+      * [Challenge QUEUE: implement a queue data structure (FIFO), using a Stack as the base data structure](#challenge-queue-implement-a-queue-data-structure-fifo-using-a-stack-as-the-base-data-structure)
+         * [API](#api-6)
+         * [TESTS](#tests-5)
+         * [Whiteboard](#whiteboard-3)
+      * [Challenge: FIFO Animal Shelter](#challenge-fifo-animal-shelter)
+         * [API](#api-7)
+         * [TESTS](#tests-6)
+         * [STRETCH](#stretch)
+         * [Whiteboard](#whiteboard-4)
+      * [Challenge: Balanced Brackets](#challenge-balanced-brackets)
+         * [API](#api-8)
+         * [TESTS](#tests-7)
+         * [Whiteboard](#whiteboard-5)
+   * [Binary Tree (BT) and Binary Search Tree (BST)](#binary-tree-bt-and-binary-search-tree-bst)
+      * [Data-Structures: Create Binary Tree and Binary Search Tree](#data-structures-create-binary-tree-and-binary-search-tree)
+         * [API](#api-9)
+         * [TESTS](#tests-8)
+         * [Whiteboard](#whiteboard-6)
+      * [Challenge: FizzBuzzTree](#challenge-fizzbuzztree)
+         * [API](#api-10)
+         * [TESTS](#tests-9)
+         * [whiteboard](#whiteboard-7)
+      * [Challenge: Breadth-first Binary Tree Traversal.](#challenge-breadth-first-binary-tree-traversal)
+         * [API](#api-11)
+         * [TESTS](#tests-10)
+         * [whiteboard](#whiteboard-8)
+      * [Challenge: Find the Maximum Value in a Binary Tree](#challenge-find-the-maximum-value-in-a-binary-tree)
+         * [API](#api-12)
+         * [TESTS](#tests-11)
+         * [whiteboard](#whiteboard-9)
+      * [Algorith: Bubble Sort](#algorith-bubble-sort)
+         * [API](#api-13)
+         * [TESTS](#tests-12)
+      * [Algorithm: Insertion Sort](#algorithm-insertion-sort)
+         * [API](#api-14)
+         * [TESTS](#tests-13)
+      * [Algorithm: Merge Sort](#algorithm-merge-sort)
+         * [API](#api-15)
+         * [TESTS](#tests-14)
+      * [Algorithm: Quick Sort](#algorithm-quick-sort)
+         * [API](#api-16)
+         * [TESTS](#tests-15)
+      * [Data-Structure: Hash Table](#data-structure-hash-table)
+         * [API](#api-17)
+         * [TESTS](#tests-16)
+      * [Challenge: Repeated Words](#challenge-repeated-words)
+         * [API](#api-18)
+         * [TESTS](#tests-17)
+         * [whiteboard](#whiteboard-10)
+         * [Challenge: Tree Intersection](#challenge-tree-intersection)
+         * [TESTS](#tests-18)
+         * [whiteboard](#whiteboard-11)
+      * [Challenge: Left Join](#challenge-left-join)
+         * [TeSTS](#tests-19)
+         * [Whiteboard](#whiteboard-12)
+      * [Data Structure: Graphs](#data-structure-graphs)
+         * [Features](#features)
+         * [API](#api-19)
+         * [TESTS](#tests-20)
+         * [Whiteboard](#whiteboard-13)
+      * [Challenge: Graphs, Get Edges](#challenge-graphs-get-edges)
+         * [API](#api-20)
+         * [TESTS](#tests-21)
+         * [Whiteboard](#whiteboard-14)
+      * [Challenge](#challenge)
+         * [TESTS](#tests-22)
+
+<!-- Added by: mmc, at: Fri Sep  6 21:27:56 PDT 2019 -->
+
+<!--te-->
+
 # Array/Linked Lists
 
 
@@ -28,35 +135,42 @@ Divide and Conquer! Look at the middle element, is it the middle element? Return
 
 <!-- ********************* -->
 ## Challenge: Singly Linked List
-Linked-Lists (singly) is a dynamic data-structure which resembles a length of chain, where the entire length of chain is the list and the individual links of the chain are nodes. A singlarly linked list is only traversable in one direction, but utilizing a head element that points to the first node in the list, the second node in the list points to the next link in the chain, and finally the last element in the list points to "none"
+<!-- Linked-Lists (singly) is a dynamic data-structure which resembles a length of chain, where the entire length of chain is the list and the individual links of the chain are nodes. A singlarly linked list is only traversable in one direction, but utilizing a head element that points to the first node in the list, the second node in the list points to the next link in the chain, and finally the last element in the list points to "none"
+
 ### Tasks
 Create a Node class that has properties for the value stored in the Node, and a pointer to the next Node.
 Within your LinkedList class, include a head property. Upon instantiation, an empty Linked List should be created.
 Define a method called insert which takes any value as an argument and adds a new node with that value to the head of the list with an O(1) Time performance.
 Define a method called includes which takes any value as an argument and returns a boolean result depending on whether that value exists as a Node's value somewhere within the list.
 Define a method called <strike>toString (or __str__ in Python)</strike>.toJSON which takes in no arguments and returns a string representing all the values in the Linked List.
-### Approach & Efficiency
-My implementation of the link list comprises of two objects, LinkList and LinkNode, written in Python.
-``
+-->
 ### Big O analysis:
+```
 .insert() == O(1)
 .count() == O(n)
 .includes() == O(n)
-### API
 ```
-ListList
+### API
+```python
+class LinkList()
+
     def __init__(self):
         # constructor
+
     def toJSON(self):
         # dump object to JSON and return as String
+
     def insert(self, value):
         # insert value at the head of the list
+
     def includes(self, value):
         # traverse list and determine if a value exists
         # return bool
+
     def count(self):
         # count the number of nodes and return count
-ListNode
+
+class ListNode()
     def __init__(self, value, next=None, prev=None):
          # constructor
 ```
@@ -66,24 +180,28 @@ ListNode
 ## Challenge: Linked List insertions.
 Modify the LinkedList class to include additional API functions for the insertion of data.
 ### API
-```
-.append(value)
-    # adds a new node with the given value to the end of the list
-    # BigO == O(n)
-.insertBefore(value, newVal)
-    # add a new node with the given newValue immediately before the first value node
-    # BigO == O(n)
-.insertAfter(value, newVal)
-    # add a new node with the given newValue immediately after the first value node
-    # BigO == O(n)
+```python
+class LinkList()
+
+    def append(value):
+        # adds a new node with the given value to the end of the list
+        # BigO == O(n)
+
+    def insertBefore(value, newVal):
+        # add a new node with the given newValue immediately before the first value node
+        # BigO == O(n)
+
+    def insertAfter(value, newVal):
+        # add a new node with the given newValue immediately after the first value node
+        # BigO == O(n)
 ```
 ### TESTS
-1. Can successfully add a node to the end of the linked list
-2. Can successfully add multiple nodes to the end of a linked list
-3. Can successfully insert a node before a node located i the middle of a linked list
-4. Can successfully insert a node before the first node of a linked list
-5. Can successfully insert after a node in the middle of the linked list
-6. Can successfully insert a node after the last node of the linked list
+- [x] add a node to the end of the linked list
+- [x] add multiple nodes to the end of a linked list
+- [x] insert a node before a node located i the middle of a linked list
+- [x] insert a node before the first node of a linked list
+- [x] insert after a node in the middle of the linked list
+- [x] insert a node after the last node of the linked list
 ### Whiteboard
 ![alt_text](https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/data-structures/linked_list/assets/linked_lists-ll_insertions-whiteboard.jpg)
 
@@ -92,17 +210,18 @@ Modify the LinkedList class to include additional API functions for the insertio
 ## Challenge: Linked List find Kth from end.
 Write a function that takes a number, k, as a parameter and returns the node's value for the kth element from end of list.
 ### API
-```
-.kthFromEnd(k)
-    # finds the Kth element from the end of the list and returns value for node
-    # BigO == O(n)
+```python
+class LinkList():
+    def kthFromEnd(k):
+        # finds the Kth element from the end of the list and returns value for node
+        # BigO == O(n)
 ```
 ### TESTS
-1. Where k is greater than the length of the linked list
-2. Where k and the length of the list are the same
-3. Where k is not a positive integer
-4. Where the linked list is of a size 1
-5. "Happy Path" where k is not at the end, but somewhere in the middle of the linked list
+- [x] Where k is greater than the length of the linked list
+- [x] Where k and the length of the list are the same
+- [x] Where k is not a positive integer
+- [x] Where the linked list is of a size 1
+- [x] "Happy Path" where k is not at the end, but somewhere in the middle of the linked list
 ### Whiteboard
 ![alt_text](https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/data-structures/linked_list/assets/linked_lists-ll_insertions-whiteboard.jpg)
 
@@ -111,10 +230,11 @@ Write a function that takes a number, k, as a parameter and returns the node's v
 ## Challenge: Merge Two Linked Lists.
 Write a function called mergeLists which takes two linked lists as arguments. Zip the two linked lists together into one so that the nodes alternate between the two lists and return a reference to the head of the zipped list. Try and keep additional space down to O(1). You have access to the Node class and all the properties on the Linked List class as well as the methods created in previous challenges.
 ### API
-```
-mergeList(listA, listB)
-    # Merge two linked lists
-    # BigO = O(n)
+```python
+class LinkList():
+    def mergeList(listA, listB):
+        # Merge two linked lists
+        # BigO = O(n)
 ```
 ### TESTS
 1. Merge two equal
@@ -132,10 +252,11 @@ mergeList(listA, listB)
 <!-- ********************* -->
 ## Challenge: STACK: implement a stack data structure (LIFO)
 ### API
-```
-.push(val) -> bool:
-.pop() -> str:
-.peek() -> str:
+```python
+class Stack():
+    def push(val) -> bool:
+    def pop() -> str:
+    def peek() -> str:
 ```
 ### TESTS
 - [x] push onto a stack
@@ -149,13 +270,17 @@ mergeList(listA, listB)
 <!-- ********************* -->
 ## Challenge: QUEUE: implement a queue data structure (FIFO)
 ### API
-```
-.enqueue(val) -> bool:
-    # Add a value to the queue
-.dequeue(val) -> bool:
-    # Remove entry from queue with a given value
-.peek() -> str:
-    # Get value from the head of the queue (without removing it)
+```python
+class Queue():
+
+    def enqueue(val) -> bool:
+        # Add a value to the queue
+
+    def dequeue(val) -> bool:
+        # Remove entry from queue with a given value
+
+    def peek() -> str:
+        # Get value from the head of the queue (without removing it)
 ```
 ### TESTS
 - [x] enqueue into a queue
