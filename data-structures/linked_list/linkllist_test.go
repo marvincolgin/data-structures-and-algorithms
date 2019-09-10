@@ -254,27 +254,35 @@ func TestInsertBefore(t *testing.T) {
 
 }
 
+func TestInsertAfter(t *testing.T) {
+	var list LinkList
+	var expected, actual string
+
+	list = HelperInsertBefore()
+	list.InsertAfter("3", "5")
+	expected = "2,3,5,1"
+	actual = list.toStr()
+	if expected != actual {
+		t.Error("InsertAfter(), expected:", expected, " actual:", actual)
+	}
+
+	list = HelperInsertBefore()
+	list.InsertAfter("2", "5")
+	expected = "2,5,3,1"
+	actual = list.toStr()
+	if expected != actual {
+		t.Error("InsertAfter(), expected:", expected, " actual:", actual)
+	}
+
+	list = HelperInsertBefore()
+	actualBool := list.InsertAfter("4", "5")
+	expectedBool := false
+	if expectedBool != actualBool {
+		t.Error("InsertAfter(), expectedBool:", expectedBool, " actualBool:", actualBool)
+	}
+}
+
 /*
-def test_insertAfter():
-    ll = helper_insertBefore()
-    ll.insertAfter('3', '5')
-    expected = '2,3,5,1'
-    actual = ll.toStr()
-    assert expected == actual
-
-    ll = helper_insertBefore()
-    ll.insertAfter('2', '5')
-    expected = '2,5,3,1'
-    actual = ll.toStr()
-    assert expected == actual
-
-    ll = helper_insertBefore()
-    actual = ll.insertAfter('4', '5')
-    expected = False
-    assert expected == actual
-    # @TODO: Assignment wanted me to raise an exception
-    # @ I've worked way too long on this, but this is how...
-    # self.assertRaises(SomeCoolException, mymod.myfunc)
 
 
 def helper_kthFromEnd():
