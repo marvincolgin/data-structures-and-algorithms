@@ -30,6 +30,12 @@ func (list *LinkList) Init() {
 	list.head = nil
 }
 
+// toJSON will output the string in JSON format
+func (list *LinkList) toJSON() string {
+	// @TODO Get a module for this
+	return ""
+}
+
 // toStr dump list to string
 func (list *LinkList) toStr() string {
 
@@ -55,6 +61,56 @@ func (list *LinkList) toStr() string {
 
 	return buf
 }
+
+// Insert a value into the link list
+func (list *LinkList) Insert(value interface{}) bool {
+	node := LinkNode{value: value}
+	node.next = list.head
+	list.head = &node
+	return true
+}
+
+/*
+   def insert(self, value):
+       # insert value at the head of the list
+       node = LinkNode(value, self.head)
+       node.next = self.head
+       self.head = node
+
+   def get(self, value):  # -> Any:
+       # traverse list and determine if a value exist
+
+       cur = self.head
+       while cur is not None:
+           if self.comparison_func is not None:
+               if self.comparison_func(cur.value, value):
+                   return cur.value
+           else:
+               if cur.value == value:
+                   return cur.value
+           cur = cur.next
+
+       raise Exception('Not found.')
+
+   def includes(self, value):
+       # traverse list and determine if a value exists
+       # return bool
+       ret = False
+       cur = self.head
+       while cur is not None:
+
+           if self.comparison_func is not None:
+               if self.comparison_func(cur.value, value):
+                   ret = True
+                   break
+           else:
+               if cur.value == value:
+                   ret = True
+                   break
+
+           cur = cur.next
+       return ret
+*/
 
 // Count the number of items
 func (list *LinkList) Count() int {
@@ -90,3 +146,134 @@ func (list *LinkList) Append(value interface{}) bool {
 
 	return true
 }
+
+/*
+   def peekHead(self) -> [bool, str]:
+       retStr = ''
+       retBool = False
+       if self.head is not None:
+           retStr = self.head.value
+           retBool = True
+       return [retBool, retStr]
+
+
+   def remove(self, value) -> bool:
+       # removes a node from a list, given a specific value
+       # BigO == O(n*2) ... I could eliminate self.includes(), but I think it's more readable
+       # NOTE: only the first one found will be removed
+
+       ret = False
+       if self.includes(value):
+           prev, cur = None, self.head
+           while cur is not None:
+
+               found = False
+               if self.comparison_func is not None:
+                   if self.comparison_func(cur.value, value):
+                       found = True
+               elif cur.value == value:
+                   found = True
+
+               if found:
+                   if prev is None:
+                       self.head = cur.next
+                   else:
+                       prev.next = cur.next
+                   ret = True
+                   break
+
+               prev = cur
+               cur = cur.next
+
+       return ret
+
+   def insertBefore(self, targetVal: int, newVal: str, afterInstead=False):
+       # add a new node with the given newValue immediately BEFORE the node containg targetVal
+       # note: this bevahoir can be modified by the bool afterInstead
+       # BigO == O(n)
+
+       # walk the list to find it or the end
+       found = False
+       prev, cur = None, self.head
+       while cur is not None:
+           if cur.value == targetVal:
+               found = True
+               break
+           prev = cur
+           cur = cur.next
+
+       # if found, put it in the chain, as a link right before the node containing value
+       if found:
+           node = LinkNode(newVal)
+           if afterInstead:
+               node.next = cur.next
+               cur.next = node
+           else:
+               node.next = cur
+               if prev is None:  # edge-case, if the targetVal is first node
+                   self.head = node
+               else:
+                   prev.next = node
+
+       return found
+
+   def insertAfter(self, targetVal: int, newVal: str):
+       # add a new node with the given newValue immediately AFTER the node containg targetVal
+       # BigO == O(n)
+       return self.insertBefore(targetVal, newVal, True)
+
+   def kthFromEnd(self, k):
+       # finds the Kth element from the end of the list and returns value for node
+       # BigO == O(n)
+
+       # Only positive integers
+       if k < 0:
+           raise AssertionError(f'WAIT!!! You must pass a positive integer, k:[{k}]')
+
+       ptrA = self.head
+       ptrB = self.head
+
+       # Walk ptrA out to "K" elements
+       tooSmall = False
+       c = 0
+       while c < k-1:
+           if ptrA.next is None:
+               tooSmall = True
+               break
+           ptrA = ptrA.next
+           c += 1
+       if tooSmall:
+           raise AssertionError(f'WAIT!!! There are not enough elements in the link list for k:[{k}].')
+
+       # Walk ptrA and ptrB out to the end of the list
+       # ptrB will point to our requested node
+       # note: for short lengths where the value is found before k elements, we are going to skip walking
+       # ptrB until the difference between it and ptrA is "k"
+       while ptrA.next is not None:
+           ptrA = ptrA.next
+           if c >= k:
+               ptrB = ptrB.next
+           c += 1
+
+       return ptrB.value
+
+
+   def mergeList(self, listA, listB):
+       # Merge two lists
+       # BigO == O(n)
+
+       ptrA = listA.head
+       ptrB = listB.head
+
+       while ptrA is not None or ptrB is not None:
+           if ptrA is not None:
+               prev = ptrA
+               ptrA = ptrA.next
+               prev.next = ptrB
+           if ptrB is not None:
+               prev = ptrB
+               ptrB = ptrB.next
+               prev.next = ptrA
+
+       return listA
+*/
