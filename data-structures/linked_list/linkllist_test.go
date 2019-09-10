@@ -209,43 +209,52 @@ func TestPeekHeadEmpty(t *testing.T) {
 	}
 }
 
+func HelperInsertBefore() LinkList {
+	list := LinkList{}
+	list.Insert("1")
+	list.Insert("3")
+	list.Insert("2")
+	return list
+}
+
+func TestInsertBefore(t *testing.T) {
+	var list LinkList
+	var expected, actual string
+
+	list = HelperInsertBefore()
+	list.InsertBefore("3", "4", false)
+	expected = "2,4,3,1"
+	actual = list.toStr()
+	if expected != actual {
+		t.Error("InsertBefore(), expected:", expected, " actual:", actual)
+	}
+
+	list = HelperInsertBefore()
+	list.InsertBefore("1", "5", false)
+	expected = "2,3,5,1"
+	actual = list.toStr()
+	if expected != actual {
+		t.Error("InsertBefore(), expected:", expected, " actual:", actual)
+	}
+
+	list = HelperInsertBefore()
+	list.InsertBefore("2", "5", false)
+	expected = "5,2,3,1"
+	actual = list.toStr()
+	if expected != actual {
+		t.Error("InsertBefore(), expected:", expected, " actual:", actual)
+	}
+
+	list = HelperInsertBefore()
+	actualBool := list.InsertBefore("4", "5", false)
+	expectedBool := false
+	if expectedBool != actualBool {
+		t.Error("InsertBefore(), expectedBool:", expectedBool, " actualBool:", actualBool)
+	}
+
+}
+
 /*
-def helper_insertBefore():
-    ll = LinkList()
-    ll.insert('1')
-    ll.insert('3')
-    ll.insert('2')
-    return ll
-
-
-def test_insertBefore():
-    ll = helper_insertBefore()
-    ll.insertBefore('3', '4')
-    expected = '2,4,3,1'
-    actual = ll.toStr()
-    assert expected == actual
-
-    ll = helper_insertBefore()
-    ll.insertBefore('1', '5')
-    expected = '2,3,5,1'
-    actual = ll.toStr()
-    assert expected == actual
-
-    ll = helper_insertBefore()
-    ll.insertBefore('2', '5')
-    expected = '5,2,3,1'
-    actual = ll.toStr()
-    assert expected == actual
-
-    ll = helper_insertBefore()
-    actual = ll.insertBefore('4', '5')
-    expected = False
-    assert expected == actual
-    # @TODO: Assignment wanted me to raise an exception
-    # @ I've worked way too long on this, but this is how...
-    # self.assertRaises(SomeCoolException, mymod.myfunc)
-
-
 def test_insertAfter():
     ll = helper_insertBefore()
     ll.insertAfter('3', '5')

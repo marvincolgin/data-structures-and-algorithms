@@ -206,6 +206,42 @@ func (list *LinkList) PeekHead() (bool, interface{}) {
 	return retBool, retVal
 }
 
+// InsertBefore add a new node with the given newValue immediately BEFORE the node containg targetVal
+func (list *LinkList) InsertBefore(targetVal, newVal interface{}, afterInstead bool) bool {
+	// # note: this bevahoir can be modified by the bool afterInstead
+	// # BigO == O(n)
+
+	// walk the list to find it or the end
+	found := false
+	prev, cur := (*LinkNode)(nil), list.head
+	for cur != nil {
+		if cur.value == targetVal {
+			found = true
+			break
+		}
+		prev = cur
+		cur = cur.next
+	}
+
+	// # if found, put it in the chain, as a link right before the node containing value
+	if found {
+		node := LinkNode{value: newVal}
+		if afterInstead {
+			node.next = cur.next
+			cur.next = &node
+		} else {
+			node.next = cur
+			if prev == nil { // edge-case, if the targetVal is first node
+				list.head = &node
+			} else {
+				prev.next = &node
+			}
+		}
+	}
+
+	return found
+}
+
 /*
 
    def insertBefore(self, targetVal: int, newVal: str, afterInstead=False):
