@@ -1,8 +1,10 @@
 package linklist
 
-//import (
-//	"fmt"
-//)
+import (
+	"fmt"
+	"os"
+	"strings"
+)
 
 // LinkNode this is the internal object for individual link-nodes
 type LinkNode struct {
@@ -33,28 +35,29 @@ func (list *LinkList) toStr() string {
 
 	// # c,cnt are limiters to make sure we don't go run away
 	// # yes, we need cnt=self.count() and not -1, as we walk off list
-	c, cnt := 0, self.count()
+	c, cnt := 0, list.Count()
 	buf := ""
-	ptr := self.head
-	for ptr != nil
-		s := ptr.value
-		buf = buf + s + ','
+	ptr := list.head
+	for ptr != nil {
+		s := fmt.Sprintf("%v", ptr.value)
+		buf = buf + s + ","
 		ptr = ptr.next
-		c += 1
+		c++
 		if c > cnt {
-			raise AssertionError(f"WAIT!!! Forever Loop!\nRecursive LinkList/Node\nbuf:[{buf}]")
+			fmt.Fprintf(os.Stderr, "WAIT!!! Forever Loop!\nRecursive LinkList/Node\nbuf:[{buf}]")
+			os.Exit(1)
 		}
+	}
 
-	if buf.endswith(',') {
-		buf = buf[:-1]
+	if strings.HasSuffix(buf, ",") {
+		buf = buf[:len(buf)-1]
 	}
 
 	return buf
 }
 
-
-// ListCount the number of items
-func (list *LinkList) ListCount() int {
+// Count the number of items
+func (list *LinkList) Count() int {
 	cur := list.head
 
 	c := 0

@@ -1,6 +1,7 @@
 package linklist
 
 import (
+	"fmt"
 	"testing"
 )
 
@@ -14,8 +15,8 @@ func TestNode(t *testing.T) {
 
 func TestCountEmpty(t *testing.T) {
 	list := LinkList{}
-	if list.ListCount() != 0 {
-		t.Error("list != 0, actual:", list.ListCount())
+	if list.Count() != 0 {
+		t.Error("list != 0, actual:", list.Count())
 	}
 }
 
@@ -27,30 +28,59 @@ func TestAppend(t *testing.T) {
 		t.Error("list.head is nil")
 	}
 
-	if list.ListCount() != 1 {
-		t.Error("list.count() != 1, actual:", list.ListCount())
+	if list.Count() != 1 {
+		t.Error("list.count() != 1, actual:", list.Count())
 	}
 }
 
 func TestAppendMany(t *testing.T) {
 	list := LinkList{}
-	list.Append('0')
-	list.Append('1')
-	list.Append('2')
-	list.Append('3')
-	list.Append('4')
-	list.Append('5')
-	list.Append('6')
-	list.Append('7')
-	list.Append('8')
-	list.Append('9')
+	list.Append("0")
+	list.Append("1")
+	list.Append("2")
+	list.Append("3")
+	list.Append("4")
+	list.Append("5")
+	list.Append("6")
+	list.Append("7")
+	list.Append("8")
+	list.Append("9")
 
-	if list.ListCount() != 10 {
-		t.Error("list.count()!=10, actual:", list.ListCount())
+	fmt.Print(list.toStr())
+
+	if list.Count() != 10 {
+		t.Error("list.count()!=10, actual:", list.Count())
 	}
 
-	if list.head.value != '9' {
-		t.Error("value!=9, actual:", list.head.value)
+	if list.head.value != "0" {
+		t.Error("value!=0, actual:", list.head.value)
+	}
+	if list.head.next.value != "1" {
+		t.Error("value!=1, actual:", list.head.next.value)
+	}
+	if list.head.next.next.value != "2" {
+		t.Error("value!=2, actual:", list.head.next.next.value)
+	}
+	if list.head.next.next.next.value != "3" {
+		t.Error("value!=3, actual:", list.head.next.next.next.value)
+	}
+	if list.head.next.next.next.next.value != "4" {
+		t.Error("value!=4, actual:", list.head.next.next.next.next.value)
+	}
+	if list.head.next.next.next.next.next.value != "5" {
+		t.Error("value!=5, actual:", list.head.next.next.next.next.next.value)
+	}
+	if list.head.next.next.next.next.next.next.value != "6" {
+		t.Error("value!=6, actual:", list.head.next.next.next.next.next.next.value)
+	}
+	if list.head.next.next.next.next.next.next.next.value != "7" {
+		t.Error("value!=7, actual:", list.head.next.next.next.next.next.next.next.value)
+	}
+	if list.head.next.next.next.next.next.next.next.next.value != "8" {
+		t.Error("value!=8, actual:", list.head.next.next.next.next.next.next.next.next.value)
+	}
+	if list.head.next.next.next.next.next.next.next.next.next.value != "9" {
+		t.Error("value!=9, actual:", list.head.next.next.next.next.next.next.next.next.next.value)
 	}
 
 	/*
