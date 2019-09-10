@@ -191,8 +191,16 @@ func TestRemove(t *testing.T) {
 }
 
 func TestPeekHead(t *testing.T) {
-	list :=
+	list := HelperInsertMany()
+	retBool, retStr := list.PeekHead()
+	if !retBool {
+		t.Error("PeekHead() failed.")
+	}
+	if retStr != "9" {
+		t.Error("PeekHead() did not return \"9\"")
+	}
 }
+
 /*
 def test_peekHead():
     ll = LinkList()
