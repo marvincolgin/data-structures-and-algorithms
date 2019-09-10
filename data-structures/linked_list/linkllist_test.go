@@ -1,6 +1,7 @@
 package linklist
 
 import (
+	"fmt"
 	"testing"
 )
 
@@ -282,80 +283,95 @@ func TestInsertAfter(t *testing.T) {
 	}
 }
 
+func HelperKthFromEnd() LinkList {
+	list := LinkList{}
+	list.Insert("2")
+	list.Insert("8")
+	list.Insert("3")
+	list.Insert("1")
+	return list
+}
+
+func TestKthFromEnd(t *testing.T) {
+	list := HelperKthFromEnd()
+	var actual, expected string
+	var actualBool, expectedBool bool
+
+	actual = fmt.Sprintf("%v", list.KthFromEnd(0))
+	expected = "2"
+	if expected != actual {
+		t.Error("KthFromEnd(), expected:", expected, " actual:", actual)
+	}
+
+	// "Happy Path" where k is not at the end, but somewhere in the middle of the linked list
+	actual = fmt.Sprintf("%v", list.KthFromEnd(2))
+	expected = "3"
+	if expected != actual {
+		t.Error("KthFromEnd(), expected:", expected, " actual:", actual)
+	}
+
+	// # Where k and the length of the list are the same
+	actualBool = list.KthFromEnd(5).(bool)
+	expectedBool = false
+	if expectedBool != actualBool {
+		t.Error("KthFromEnd(), expectedBool:", expectedBool, " actualBool:", actualBool)
+	}
+
+	// # Where k is not a positive integer
+	actualBool = list.KthFromEnd(-1).(bool)
+	expectedBool = false
+	if expectedBool != actualBool {
+		t.Error("KthFromEnd(), expectedBool:", expectedBool, " actualBool:", actualBool)
+	}
+}
+
+func TestKthFromEnd_OneLinkList(t *testing.T) {
+	list := LinkList{}
+	list.Insert("blah")
+
+	// Where the linked list is of a size 1
+	actual := list.KthFromEnd(0).(string)
+	expected := "blah"
+	if expected != actual {
+		t.Error("KthFromEnd(), expected:", expected, " actual:", actual)
+	}
+}
+
 /*
-
-
-def helper_kthFromEnd():
-    ll = LinkList()
-    ll.insert("2")
-    ll.insert("8")
-    ll.insert("3")
-    ll.insert("1")
-    return ll
-
-
-def test_kthFromEnd():
-    ll = helper_kthFromEnd()
-    print(ll.toStr())
-
-    actual = ll.kthFromEnd(0)
-    expected = "2"
-    assert actual == expected
-
-    # "Happy Path" where k is not at the end, but somewhere in the middle of the linked list
-    actual = ll.kthFromEnd(2)
-    expected = "3"
-    assert actual == expected
-
-    # Where k and the length of the list are the same
-    with pytest.raises(AssertionError):
-        assert(ll.kthFromEnd(5))
-
-    # Where k is not a positive integer
-    with pytest.raises(AssertionError):
-        assert(ll.kthFromEnd(-1))
-
-
-def test_kthFromEnd_OneLinkList():
-    ll = LinkList()
-    ll.insert("blah")
-
-    #Where the linked list is of a size 1
-    actual = ll.kthFromEnd(0)
-    expected = "blah"
-    assert actual == expected
-
-
 def test_kthFromEnd_Exception():
     ll = helper_kthFromEnd()
 
     # TEST: Where k is greater than the length of the linked list
     with pytest.raises(AssertionError):
         assert(ll.kthFromEnd(6))
-
-
-def test_ll_merge():
-
-    # @TODO: TEST: Merge two unequal
-    # @TODO: TEST: Merge one empty list
-    # @TODO: TEST: Merge two empty lists
-    # @TODO: TEST: Merge a list with just 1 item
-
-    listA = LinkList()
-    listA.Insert('apple')
-    listA.Insert('bannana')
-    listA.Insert('orange')
-
-    listB = LinkList()
-    listB.Insert('cheerios')
-    listB.Insert('frosted flakes')
-    listB.Insert('wheaties')
-
-    listA.mergeList(listA, listB)
-
-    expected = 'apple,cheerios,bannana,frosted flakes,orange,wheaties'
-    actual = listA.toStr()
-
-    assert expected == actual
-
 */
+
+func TestLinkListMerge(t *testing.T) {
+
+	// # @TODO: TEST: Merge two unequal
+	// # @TODO: TEST: Merge one empty list
+	// # @TODO: TEST: Merge two empty lists
+	// # @TODO: TEST: Merge a list with just 1 item
+
+	listA := LinkList{}
+	listA.Insert("apple")
+	listA.Insert("bannana")
+	listA.Insert("orange")
+
+	listB := LinkList{}
+	listB.Insert("cheerios")
+	listB.Insert("frosted flakes")
+	listB.Insert("wheaties")
+
+	listA.MergeList(listA, listB)
+
+	// @TODO: Interesting, it's in a different order than in python
+	// -- expected := "apple,cheerios,bannana,frosted flakes,orange,wheaties"
+	expected := "orange,wheaties,bannana,frosted flakes,apple,cheerios"
+	actual := listA.toStr()
+
+	if expected != actual {
+		listA.MergeList(listA, listB)
+		t.Error("MergeList(), expected:", expected, " actual:", actual)
+	}
+}

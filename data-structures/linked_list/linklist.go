@@ -248,65 +248,72 @@ func (list *LinkList) InsertAfter(targetVal, newVal interface{}) bool {
 	return list.InsertBefore(targetVal, newVal, true)
 }
 
-/*
+// KthFromEnd finds the Kth element from the end of the list and returns value for node
+func (list *LinkList) KthFromEnd(k int) interface{} {
+	// BigO == O(n)
 
-   def insertAfter(self, targetVal: int, newVal: str):
-       # add a new node with the given newValue immediately AFTER the node containg targetVal
-       # BigO == O(n)
-       return self.insertBefore(targetVal, newVal, True)
+	// Only positive integers
+	if k < 0 {
+		// @TODO return tuple
+		// raise AssertionError(f'WAIT!!! You must pass a positive integer, k:[{k}]')
+		return false
+	}
 
-   def kthFromEnd(self, k):
-       # finds the Kth element from the end of the list and returns value for node
-       # BigO == O(n)
+	ptrA := list.head
+	ptrB := list.head
 
-       # Only positive integers
-       if k < 0:
-           raise AssertionError(f'WAIT!!! You must pass a positive integer, k:[{k}]')
+	// Walk ptrA out to "K" elements
+	tooSmall := false
+	c := 0
+	for c < k-1 {
+		if ptrA.next == nil {
+			tooSmall = true
+			break
+		}
+		ptrA = ptrA.next
+		c = c + 1
+	}
+	if tooSmall {
+		// @TODO return tuple
+		// raise AssertionError(f'WAIT!!! There are not enough elements in the link list for k:[{k}].')
+		return false
+	}
 
-       ptrA = self.head
-       ptrB = self.head
+	// Walk ptrA and ptrB out to the end of the list
+	// ptrB will point to our requested node
+	// note: for short lengths where the value is found before k elements, we are going to skip walking
+	// ptrB until the difference between it and ptrA is "k"
+	for ptrA.next != nil {
+		ptrA = ptrA.next
+		if c >= k {
+			ptrB = ptrB.next
+		}
+		c = c + 1
+	}
 
-       # Walk ptrA out to "K" elements
-       tooSmall = False
-       c = 0
-       while c < k-1:
-           if ptrA.next is None:
-               tooSmall = True
-               break
-           ptrA = ptrA.next
-           c += 1
-       if tooSmall:
-           raise AssertionError(f'WAIT!!! There are not enough elements in the link list for k:[{k}].')
+	return ptrB.value
+}
 
-       # Walk ptrA and ptrB out to the end of the list
-       # ptrB will point to our requested node
-       # note: for short lengths where the value is found before k elements, we are going to skip walking
-       # ptrB until the difference between it and ptrA is "k"
-       while ptrA.next is not None:
-           ptrA = ptrA.next
-           if c >= k:
-               ptrB = ptrB.next
-           c += 1
+// MergeList two lists together (zipper)
+func (list *LinkList) MergeList(listA, listB LinkList) LinkList {
+	// BigO == O(n)
 
-       return ptrB.value
+	ptrA := listA.head
+	ptrB := listB.head
 
+	var prev *LinkNode
+	for ptrA != nil || ptrB != nil {
+		if ptrA != nil {
+			prev = ptrA
+			ptrA = ptrA.next
+			prev.next = ptrB
+		}
+		if ptrB != nil {
+			prev = ptrB
+			ptrB = ptrB.next
+			prev.next = ptrA
+		}
+	}
 
-   def mergeList(self, listA, listB):
-       # Merge two lists
-       # BigO == O(n)
-
-       ptrA = listA.head
-       ptrB = listB.head
-
-       while ptrA is not None or ptrB is not None:
-           if ptrA is not None:
-               prev = ptrA
-               ptrA = ptrA.next
-               prev.next = ptrB
-           if ptrB is not None:
-               prev = ptrB
-               ptrB = ptrB.next
-               prev.next = ptrA
-
-       return listA
-*/
+	return listA
+}
