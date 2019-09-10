@@ -98,45 +98,26 @@ func (list *LinkList) Includes(value interface{}) bool {
 	return retVal
 }
 
-/*       ret = False
-    cur = self.head
-    while cur is not None:
-
-        if self.comparison_func is not None:
-            if self.comparison_func(cur.value, value):
-                ret = True
-                break
-        else:
-            if cur.value == value:
-                ret = True
-                break
-
-        cur = cur.next
-
-
-    return ret   def insert(self, value):
-    # insert value at the head of the list
-    node = LinkNode(value, self.head)
-    node.next = self.head
-    self.head = node
-
-def get(self, value):  # -> Any:
-    # traverse list and determine if a value exist
-
-    cur = self.head
-    while cur is not None:
-        if self.comparison_func is not None:
-            if self.comparison_func(cur.value, value):
-                return cur.value
-        else:
-            if cur.value == value:
-                return cur.value
-        cur = cur.next
-
-    raise Exception('Not found.')
-
-
-*/
+// Get will traverse the list and determine if a value exists
+func (list *LinkList) Get(value interface{}) interface{} {
+	// @TODO: make this return a tuple with error-code
+	cur := list.head
+	for cur != nil {
+		/*
+			if list.comparison_func != nil {
+				if list.comparison_func(cur.value, value) {
+					return cur.value
+				}
+			} else {
+		*/
+		if cur.value == value {
+			return cur.value
+		}
+		//		}
+		cur = cur.next
+	}
+	return false
+}
 
 // Count the number of items
 func (list *LinkList) Count() int {
@@ -173,16 +154,48 @@ func (list *LinkList) Append(value interface{}) bool {
 	return true
 }
 
+// Remove a node from a list, given a specific value
+func (list *LinkList) Remove(value interface{}) bool {
+	// BigO == O(n*2) ... I could eliminate self.includes(), but I think it's more readable
+	// NOTE: only the first one found will be removed
+
+	retVal := false
+	if list.Includes(value) {
+		//prev, cur = (LinkNode *)(nil), list.head
+		prev, cur := (*LinkNode)(nil), list.head
+
+		for cur != nil {
+
+			found := false
+			// if list.comparison_func != nil {
+			// 	if self.comparison_func(cur.value, value):
+			// 		found = True
+			// } else  {
+			if cur.value == value {
+				found = true
+			}
+			// }
+
+			if found {
+				if prev == nil {
+					list.head = cur.next
+				} else {
+					prev.next = cur.next
+				}
+				retVal = true
+				break
+			}
+
+			prev = cur
+			cur = cur.next
+		}
+
+	}
+
+	return retVal
+}
+
 /*
-   def peekHead(self) -> [bool, str]:
-       retStr = ''
-       retBool = False
-       if self.head is not None:
-           retStr = self.head.value
-           retBool = True
-       return [retBool, retStr]
-
-
    def remove(self, value) -> bool:
        # removes a node from a list, given a specific value
        # BigO == O(n*2) ... I could eliminate self.includes(), but I think it's more readable
@@ -212,6 +225,15 @@ func (list *LinkList) Append(value interface{}) bool {
                cur = cur.next
 
        return ret
+
+   def peekHead(self) -> [bool, str]:
+       retStr = ''
+       retBool = False
+       if self.head is not None:
+           retStr = self.head.value
+           retBool = True
+       return [retBool, retStr]
+
 
    def insertBefore(self, targetVal: int, newVal: str, afterInstead=False):
        # add a new node with the given newValue immediately BEFORE the node containg targetVal

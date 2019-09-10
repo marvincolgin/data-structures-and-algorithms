@@ -161,23 +161,14 @@ func TestIncludes(t *testing.T) {
 	}
 }
 
+func TestIncludesNotFound(t *testing.T) {
+	list := HelperInsertMany()
+	if list.Includes("five") {
+		t.Error(".Includes(\"five\")==true, actual:", list.Includes("five"))
+	}
+}
+
 /*
-def test_includes():
-    ll = LinkList()
-    helper_insert_many(ll)
-    expected = True
-    actual = ll.includes('5')
-    assert expected == actual
-
-
-def test_includes_notfound():
-    ll = LinkList()
-    helper_insert_many(ll)
-    expected = False
-    actual = ll.includes('five')
-    assert expected == actual
-
-
 def test_toJSON():
     # Dump the LinkList to JSON and compare to what it should be
     ll = LinkList()
@@ -187,18 +178,19 @@ def test_toJSON():
     print(actual)
     print(expected)
     assert expected == actual
+*/
 
+func TestRemove(t *testing.T) {
+	list := HelperInsertMany()
+	if list.Remove("5") != true {
+		t.Error("Remove(\"5\") failed")
+	}
+	if list.Count() != 9 {
+		t.Error("Count()!=9")
+	}
+}
 
-def test_append():
-    ll = LinkList()
-    ll.insert('2')
-    ll.insert('3')
-    ll.insert('1')
-    ll.Insert('5')
-    expected = '1,3,2,5'
-    actual = ll.toStr()
-    assert expected == actual
-
+/*
 def test_remove():
     ll = LinkList()
     helper_insert_many(ll)
