@@ -107,7 +107,7 @@ class ListNode()
          # constructor
 ```
 *API: Golang*
-```
+```golang
 type LinkNode struct {
     value interface{}
 	next  *LinkNode
@@ -132,7 +132,8 @@ func (list *LinkList) PeekHead() (bool, interface{}) {
 func (list *LinkList) InsertBefore(targetVal, newVal interface{}, afterInstead bool) bool {
 func (list *LinkList) InsertAfter(targetVal, newVal interface{}) bool {
 func (list *LinkList) KthFromEnd(k int) interface{} {
-func (list *LinkList) MergeList(listA, listB LinkList) LinkList {```
+func (list *LinkList) MergeList(listA, listB LinkList) LinkList {
+```
 
 
 <!-- ********************* -->
