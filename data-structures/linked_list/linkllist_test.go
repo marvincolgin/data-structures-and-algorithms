@@ -190,16 +190,10 @@ func TestRemove(t *testing.T) {
 	}
 }
 
+func TestPeekHead(t *testing.T) {
+	list :=
+}
 /*
-def test_remove():
-    ll = LinkList()
-    helper_insert_many(ll)
-    actual = ll.remove('5')
-    expected = True
-    assert actual == expected
-    assert ll.count() == 9
-
-
 def test_peekHead():
     ll = LinkList()
     helper_insert_many(ll)
