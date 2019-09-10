@@ -28,6 +28,31 @@ func (list *LinkList) Init() {
 	list.head = nil
 }
 
+// toStr dump list to string
+func (list *LinkList) toStr() string {
+
+	// # c,cnt are limiters to make sure we don't go run away
+	// # yes, we need cnt=self.count() and not -1, as we walk off list
+	c, cnt := 0, self.count()
+	buf := ""
+	ptr := self.head
+	for ptr != nil
+		s := ptr.value
+		buf = buf + s + ','
+		ptr = ptr.next
+		c += 1
+		if c > cnt {
+			raise AssertionError(f"WAIT!!! Forever Loop!\nRecursive LinkList/Node\nbuf:[{buf}]")
+		}
+
+	if buf.endswith(',') {
+		buf = buf[:-1]
+	}
+
+	return buf
+}
+
+
 // ListCount the number of items
 func (list *LinkList) ListCount() int {
 	cur := list.head
