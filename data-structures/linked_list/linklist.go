@@ -208,15 +208,6 @@ func (list *LinkList) PeekHead() (bool, interface{}) {
 
 /*
 
-   def peekHead(self) -> [bool, str]:
-       retStr = ''
-       retBool = False
-       if self.head is not None:
-           retStr = self.head.value
-           retBool = True
-       return [retBool, retStr]
-
-
    def insertBefore(self, targetVal: int, newVal: str, afterInstead=False):
        # add a new node with the given newValue immediately BEFORE the node containg targetVal
        # note: this bevahoir can be modified by the bool afterInstead
