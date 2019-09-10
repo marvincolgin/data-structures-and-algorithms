@@ -99,7 +99,7 @@ func TestInsertOne(t *testing.T) {
 	}
 }
 
-func TestInsertMany(t *testing.T) {
+func HelperInsertMany() LinkList {
 	list := LinkList{}
 	list.Insert("0")
 	list.Insert("1")
@@ -111,6 +111,12 @@ func TestInsertMany(t *testing.T) {
 	list.Insert("7")
 	list.Insert("8")
 	list.Insert("9")
+	return list
+}
+
+func TestInsertMany(t *testing.T) {
+
+	list := HelperInsertMany()
 
 	if list.Count() != 10 {
 		t.Error("list.count()!=10, actual:", list.Count())
@@ -148,24 +154,14 @@ func TestInsertMany(t *testing.T) {
 	}
 }
 
+func TestIncludes(t *testing.T) {
+	list := HelperInsertMany()
+	if !list.Includes("5") {
+		t.Error(".Includes(\"5\") != true, actual:", list.Includes("5"))
+	}
+}
+
 /*
-def test_insert_many():
-    ll = LinkList()
-    helper_insert_many(ll)
-    assert ll.count() == 10
-    assert ll.head.value == '9'
-    assert ll.head.next.value == '8'
-    assert ll.head.next.next.value == '7'
-    assert ll.head.next.next.next.value == '6'
-    assert ll.head.next.next.next.next.value == '5'
-    assert ll.head.next.next.next.next.next.value == '4'
-    assert ll.head.next.next.next.next.next.next.value == '3'
-    assert ll.head.next.next.next.next.next.next.next.value == '2'
-    assert ll.head.next.next.next.next.next.next.next.next.value == '1'
-    assert ll.head.next.next.next.next.next.next.next.next.next.value == '0'
-    assert ll.head.next.next.next.next.next.next.next.next.next.next is None
-
-
 def test_includes():
     ll = LinkList()
     helper_insert_many(ll)

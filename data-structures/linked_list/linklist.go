@@ -23,11 +23,13 @@ func (node *LinkNode) Init(value interface{}) {
 // LinkList is the internal data-structure
 type LinkList struct {
 	head *LinkNode
+	// @TODO: comparison_func func
 }
 
 // Init constructor
-func (list *LinkList) Init() {
+func (list *LinkList) Init( /* @TODO: comparison_func=nil */ ) {
 	list.head = nil
+	// @TODO: self.comparison_func = comparison_func
 }
 
 // toJSON will output the string in JSON format
@@ -70,46 +72,70 @@ func (list *LinkList) Insert(value interface{}) bool {
 	return true
 }
 
-/*
-   def insert(self, value):
-       # insert value at the head of the list
-       node = LinkNode(value, self.head)
-       node.next = self.head
-       self.head = node
+// Includes tests to see if a value exists
+func (list *LinkList) Includes(value interface{}) bool {
+	retVal := false
 
-   def get(self, value):  # -> Any:
-       # traverse list and determine if a value exist
+	cur := list.head
+	for cur != nil {
+		/*
+			if list.comparison_func != nil {
+				if list.comparison_func(cur.value, value) {
+					retVal = true
+					break
+				}
+			} else {
+		*/
+		if cur.value == value {
+			retVal = true
+			break
+		}
+		/*
+			} */
+		cur = cur.next
+	}
 
-       cur = self.head
-       while cur is not None:
-           if self.comparison_func is not None:
-               if self.comparison_func(cur.value, value):
-                   return cur.value
-           else:
-               if cur.value == value:
-                   return cur.value
-           cur = cur.next
+	return retVal
+}
 
-       raise Exception('Not found.')
+/*       ret = False
+    cur = self.head
+    while cur is not None:
 
-   def includes(self, value):
-       # traverse list and determine if a value exists
-       # return bool
-       ret = False
-       cur = self.head
-       while cur is not None:
+        if self.comparison_func is not None:
+            if self.comparison_func(cur.value, value):
+                ret = True
+                break
+        else:
+            if cur.value == value:
+                ret = True
+                break
 
-           if self.comparison_func is not None:
-               if self.comparison_func(cur.value, value):
-                   ret = True
-                   break
-           else:
-               if cur.value == value:
-                   ret = True
-                   break
+        cur = cur.next
 
-           cur = cur.next
-       return ret
+
+    return ret   def insert(self, value):
+    # insert value at the head of the list
+    node = LinkNode(value, self.head)
+    node.next = self.head
+    self.head = node
+
+def get(self, value):  # -> Any:
+    # traverse list and determine if a value exist
+
+    cur = self.head
+    while cur is not None:
+        if self.comparison_func is not None:
+            if self.comparison_func(cur.value, value):
+                return cur.value
+        else:
+            if cur.value == value:
+                return cur.value
+        cur = cur.next
+
+    raise Exception('Not found.')
+
+
 */
 
 // Count the number of items
