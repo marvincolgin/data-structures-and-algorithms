@@ -46,7 +46,7 @@ My implementation of the link list comprises of two objects, LinkList and LinkNo
 .count() == O(n)
 .includes() == O(n)
 
-## API
+## API: Python
 ListList
     def __init__(self):
         # constructor
@@ -63,6 +63,33 @@ ListNode
     def __init__(self, value, next=None, prev=None):
         # constructor
 ```
+*API: Golang*
+```
+type LinkNode struct {
+    value interface{}
+	next  *LinkNode
+	prev  *LinkNode
+}
+func (node *LinkNode) Init(value interface{}) {
+    head *LinkNode
+	// @TODO: comparison_func func
+}
+
+type LinkList struct {
+func (list *LinkList) Init( /* @TODO: comparison_func=nil */ ) {
+func (list *LinkList) toJSON() string {
+func (list *LinkList) toStr() string {
+func (list *LinkList) Insert(value interface{}) bool {
+func (list *LinkList) Includes(value interface{}) bool {
+func (list *LinkList) Get(value interface{}) interface{} {
+func (list *LinkList) Count() int {
+func (list *LinkList) Append(value interface{}) bool {
+func (list *LinkList) Remove(value interface{}) bool {
+func (list *LinkList) PeekHead() (bool, interface{}) {
+func (list *LinkList) InsertBefore(targetVal, newVal interface{}, afterInstead bool) bool {
+func (list *LinkList) InsertAfter(targetVal, newVal interface{}) bool {
+func (list *LinkList) KthFromEnd(k int) interface{} {
+func (list *LinkList) MergeList(listA, listB LinkList) LinkList {```
 
 ## Challenge
 Linked List insertions. Modify the LinkedList class to include additional API functions for the insertion of data.
