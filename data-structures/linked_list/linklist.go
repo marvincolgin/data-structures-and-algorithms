@@ -215,6 +215,7 @@ func (list *LinkList) InsertBefore(targetVal, newVal interface{}, afterInstead b
 	found := false
 	prev, cur := (*LinkNode)(nil), list.head
 	for cur != nil {
+		// @TODO convert to use comparison_func()
 		if cur.value == targetVal {
 			found = true
 			break
