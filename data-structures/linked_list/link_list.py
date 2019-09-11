@@ -38,6 +38,7 @@ class LinkList():
 
     def toStr(self):
         # dump list as simple text-list
+        # @TODO This is broken, ever since I made LinkNode hold variant, but TEST use string
 
         # c,cnt are limiters to make sure we don't go run away
         # yes, we need cnt=self.count() and not -1, as we walk off list
@@ -196,6 +197,13 @@ class LinkList():
         # add a new node with the given newValue immediately AFTER the node containg targetVal
         # BigO == O(n)
         return self.insertBefore(targetVal, newVal, True)
+
+    def traverse(self, action_func):
+        # traverse the linklist and call the action_func with the value
+        cur = self.head
+        while cur:
+            action_func(cur.value)
+            cur = cur.next
 
     def kthFromEnd(self, k):
         # finds the Kth element from the end of the list and returns value for node
