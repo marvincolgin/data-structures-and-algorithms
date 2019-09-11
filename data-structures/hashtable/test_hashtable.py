@@ -75,5 +75,18 @@ def test_collision():
     assert ht.get('spam') == 'spammy stuff'
     assert ht.get('maps') == 'mappy stuff'
 
-
-
+def test_export_keys():
+    ht = HashTable()
+    for x in range(10):
+        ht.add(str(x), 1)
+    actual = ht.export_keys()
+    expected = []
+    for x in range(10):
+        dict = {
+            'name': str(x),
+            'value': 1
+        }
+        expected.append(dict)
+    actual = sorted(actual, key = lambda i: i['name']) 
+    expected = sorted(expected, key = lambda i: i['name']) 
+    assert expected == actual

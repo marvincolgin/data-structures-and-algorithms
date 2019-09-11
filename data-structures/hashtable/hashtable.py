@@ -125,3 +125,16 @@ class HashTable():
             return True
         except ValueError:
             return False
+
+    def export_keys(self) -> list:
+        # exports a list of all the keys in hashtable
+
+        retArr = []
+        def touch_node(value):
+            retArr.append(value)
+
+        for linklist in self._data:
+            if linklist:
+                linklist.traverse(touch_node)
+
+        return retArr
