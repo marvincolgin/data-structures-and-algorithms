@@ -73,7 +73,7 @@ def test_toJSON():
     ll = LinkList()
     helper_insert_many(ll)
     actual = ll.toJSON()
-    expected = """{ "head": { "value": "9", "next": { "value": "8", "next": { "value": "7", "next": { "value": "6", "next": { "value": "5", "next": { "value": "4", "next": { "value": "3", "next": { "value": "2", "next": { "value": "1", "next": { "value": "0", "next": null, "prev": null }, "prev": null }, "prev": null }, "prev": null }, "prev": null }, "prev": null }, "prev": null }, "prev": null }, "prev": null }, "prev": null } }"""
+    expected = """{ "head": { "value": "9", "next": { "value": "8", "next": { "value": "7", "next": { "value": "6", "next": { "value": "5", "next": { "value": "4", "next": { "value": "3", "next": { "value": "2", "next": { "value": "1", "next": { "value": "0", "next": null, "prev": null }, "prev": null }, "prev": null }, "prev": null }, "prev": null }, "prev": null }, "prev": null }, "prev": null }, "prev": null }, "prev": null }, "comparison_func": null }"""
     print(actual)
     print(expected)
     assert expected == actual
@@ -173,6 +173,17 @@ def test_insertAfter():
     # @ I've worked way too long on this, but this is how...
     # self.assertRaises(SomeCoolException, mymod.myfunc)
 
+
+def test_traverse():
+    actual = []
+    def visit(value):
+        actual.append(value)
+    ll = LinkList()
+    helper_insert_many(ll)
+    ll.traverse(visit)
+    expected = ['9', '8', '7', '6', '5', '4', '3', '2', '1', '0']
+    assert actual == expected
+    
 
 def helper_kthFromEnd():
     ll = LinkList()
