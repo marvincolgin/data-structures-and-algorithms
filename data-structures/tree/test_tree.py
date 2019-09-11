@@ -1,6 +1,6 @@
 import pytest
 import random
-from tree import TraverseMethod, BinaryTree, Node, BinarySearchTree
+from tree import TraverseMethod, BinaryTree, Node, BinarySearchTree, ComparisonSign
 
 
 def test_exists():
@@ -84,6 +84,50 @@ def test_not_contains():
     tree = BinarySearchTree()
     tree.add(50)
     assert not tree.contains(150)
+
+def test_comparison_func_default():
+    tree = BinarySearchTree()
+    tree.add('1')
+    tree.add('11')
+    tree.add('111')
+    tree.add('2')
+    tree.add('22')
+    tree.add('222')
+    tree.add('3')
+    tree.add('33')
+    tree.add('333')
+    expected = [ '1', '11', '111', '2', '22', '222', '3', '33', '333']
+    actual = tree.returnAsArr(TraverseMethod.IN_ORDER)
+    assert expected == actual
+
+def test_comparison_func_userdef():
+
+    def comparison_func(val1, val2, CS : ComparisonSign):
+        # default comparison function
+
+        print(f'comp() val1:[{val1}] val2:[{val2}] cs:[{CS}]')
+
+        if CS == ComparisonSign.EQUAL:
+            return int(val1) == int(val2)
+        if CS == ComparisonSign.LESS:
+            return int(val1) < int(val2)
+        if CS == ComparisonSign.GREATER:
+            return int(val1) > int(val2)
+        return False  # Never get here
+
+    tree = BinarySearchTree(comparison_func)
+    tree.add('1')
+    tree.add('11')
+    tree.add('111')
+    tree.add('2')
+    tree.add('22')
+    tree.add('222')
+    tree.add('3')
+    tree.add('33')
+    tree.add('333')
+    expected = [ '1', '2', '3', '11', '22', '33', '111', '222', '333' ]
+    actual = tree.returnAsArr(TraverseMethod.IN_ORDER)
+    assert expected == actual
 
 def test_add_X_random():
 

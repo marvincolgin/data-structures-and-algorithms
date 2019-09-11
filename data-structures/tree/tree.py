@@ -7,6 +7,11 @@ class TraverseMethod(IntEnum):
     PRE_ORDER = 2
     POST_ORDER = 3
 
+class ComparisonSign(IntEnum):
+    # enum class for comparisons, gt, lt and equal
+    LESS = 1
+    GREATER = 2
+    EQUAL = 3
 
 class Node:
     # class for nodes within Tree
@@ -83,18 +88,44 @@ class BinaryTree:
 class BinarySearchTree(BinaryTree):
     # class for binary-search-tree
 
+    comparison_func = None
+
+    def comparison_func_default(self, val1, val2, CS : ComparisonSign):
+        # default comparison function
+
+        print(f'comp_default() val1:[{val1}] val2:[{val2}] cs:[{CS}]')
+
+        if CS == ComparisonSign.EQUAL:
+            return val1 == val2
+        if CS == ComparisonSign.LESS:
+            return val1 < val2
+        if CS == ComparisonSign.GREATER:
+            return val1 > val2
+        return False  # Never get here
+
+    def __init__(self, comparison_func=None):
+        BinaryTree.__init__(self)
+
+        if comparison_func:
+            self.comparison_func = comparison_func
+        else:
+            self.comparison_func = self.comparison_func_default
+
     def add(self, new_value):
         # adds new value to the tree
 
         def _find_and_insert(node):
             # recursive method for evaluating a node and calling itself depending on the value
 
-            if node.value > new_value:
+            if self.comparison_func(node.value, new_value, ComparisonSign.GREATER):
+                # if node.value > new_value:
                 if node.left is None:
                     node.left = Node(new_value)
                 else:
                     _find_and_insert(node.left)
-            if node.value < new_value:
+
+            if self.comparison_func(node.value, new_value, ComparisonSign.LESS):
+                # if node.value < new_value:
                 if node.right is None:
                     node.right = Node(new_value)
                 else:
@@ -111,14 +142,17 @@ class BinarySearchTree(BinaryTree):
         def _visit(node):
             # recursive function for isiting each node
 
-            if node.value == target_value:
+            if self.comparison_func(node.value, target_value, ComparisonSign.EQUAL):
+                # if node.value == target_value:
                 return True
-            if node.value > target_value:
+            if self.comparison_func(node.value, target_value, ComparisonSign.GREATER):
+                # if node.value > target_value:
                 if node.left is None:
                     return False
                 else:
                     _visit(node.left)
-            if node.value < target_value:
+            if self.comparison_func(node.value, target_value, ComparisonSign.LESS):
+                # if node.value < target_value:
                 if node.right is None:
                     return False
                 else:
