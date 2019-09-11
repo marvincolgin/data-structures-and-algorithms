@@ -1,4 +1,4 @@
-from __future__ import annotations
+# ZEIT::Now has issues... from __future__ import annotations
 from enum import IntEnum
 
 class TraverseMethod(IntEnum):
@@ -64,7 +64,8 @@ class BinaryTree:
         return(result)
 
     @staticmethod
-    def find_max(tree : BinaryTree) -> (bool,int):
+    # arg:tree should have type-hinting, but ZEIT::now has issues with Python 3.6
+    def find_max(tree) -> (bool,int):
         # return the largest integer in treee
 
         retBool = False
@@ -92,8 +93,6 @@ class BinarySearchTree(BinaryTree):
 
     def comparison_func_default(self, val1, val2, CS : ComparisonSign):
         # default comparison function
-
-        print(f'comp_default() val1:[{val1}] val2:[{val2}] cs:[{CS}]')
 
         if CS == ComparisonSign.EQUAL:
             return val1 == val2
