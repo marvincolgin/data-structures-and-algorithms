@@ -66,23 +66,24 @@ Divide and Conquer! Look at the middle element, is it the middle element? Return
 
 
 <!-- ********************* -->
-## Singly Linked List
-<!-- Linked-Lists (singly) is a dynamic data-structure which resembles a length of chain, where the entire length of chain is the list and the individual links of the chain are nodes. A singlarly linked list is only traversable in one direction, but utilizing a head element that points to the first node in the list, the second node in the list points to the next link in the chain, and finally the last element in the list points to "none"
+## Data Struct: Singly Linked List
+Linked-Lists (singly) are dynamic data-structures which resembles a length of chain, where the entire length of chain is the list and the individual links of the chain are nodes. A singlarly linked list is only traversable in one direction, but utilizing a head element that points to the first node in the list, the second node in the list points to the next link in the chain, and finally the last element in the list points to "none"
 
 ### Tasks
-Create a Node class that has properties for the value stored in the Node, and a pointer to the next Node.
-Within your LinkedList class, include a head property. Upon instantiation, an empty Linked List should be created.
-Define a method called insert which takes any value as an argument and adds a new node with that value to the head of the list with an O(1) Time performance.
-Define a method called includes which takes any value as an argument and returns a boolean result depending on whether that value exists as a Node's value somewhere within the list.
-Define a method called <strike>toString (or __str__ in Python)</strike>.toJSON which takes in no arguments and returns a string representing all the values in the Linked List.
--->
+- [x] Create a Node class with properties for the value stored and 'next'.
+- [x] Create ahead property, nulled upon creation and set upon Insert().
+- [x] Insert(value) method which adds a new node with that value to the head of the list with an O(1) Time performance.
+- [x] Includes(value) method which returns a boolean if value exists within list.
+- [x] Define <strike>toString (or __str__ in Python)</strike>.toJSON which returns a string representation
+
 *Big O analysis:*
 ```
 .insert() == O(1)
 .count() == O(n)
 .includes() == O(n)
 ```
-*API*
+*API: Python*
+Python: <a href="///marvincolgin/data-structures-and-algorithms/blob/master/data-structures/linked_list/link_list.py">Source Code</a>
 ```python
 class LinkList()
 
@@ -107,7 +108,8 @@ class ListNode()
          # constructor
 ```
 *API: Golang*
-```golang
+Golang <a href="///marvincolgin/data-structures-and-algorithms/blob/master/data-structures/linked_list/linklist.go">Source Code</a>
+```
 type LinkNode struct {
     value interface{}
 	next  *LinkNode
@@ -121,7 +123,7 @@ func (node *LinkNode) Init(value interface{}) {
 type LinkList struct {
 	head *LinkNode
 	// @TODO: comparison_func func
-}    
+}
 func (list *LinkList) Init( /* @TODO: comparison_func=nil */ ) {}
 func (list *LinkList) toJSON() string {}
 func (list *LinkList) toStr() string {}
