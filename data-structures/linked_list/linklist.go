@@ -195,37 +195,18 @@ func (list *LinkList) Remove(value interface{}) bool {
 	return retVal
 }
 
+// Peek a value from the front of the list
+func (list *LinkList) Peek() (bool, interface{}) {
+	retVal := interface{}(nil)
+	retBool := false
+	if list.head != nil {
+		retVal = list.head.value
+		retBool = true
+	}
+	return retBool, retVal
+}
+
 /*
-   def remove(self, value) -> bool:
-       # removes a node from a list, given a specific value
-       # BigO == O(n*2) ... I could eliminate self.includes(), but I think it's more readable
-       # NOTE: only the first one found will be removed
-
-       ret = False
-       if self.includes(value):
-           prev, cur = None, self.head
-           while cur is not None:
-
-               found = False
-               if self.comparison_func is not None:
-                   if self.comparison_func(cur.value, value):
-                       found = True
-               elif cur.value == value:
-                   found = True
-
-               if found:
-                   if prev is None:
-                       self.head = cur.next
-                   else:
-                       prev.next = cur.next
-                   ret = True
-                   break
-
-               prev = cur
-               cur = cur.next
-
-       return ret
-
    def peekHead(self) -> [bool, str]:
        retStr = ''
        retBool = False

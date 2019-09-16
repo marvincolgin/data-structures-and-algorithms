@@ -191,19 +191,17 @@ func TestRemove(t *testing.T) {
 }
 
 func TestPeekHead(t *testing.T) {
-	list :=
+	list := HelperInsertMany()
+	retBool, retVal := list.Peek()
+	if !retBool {
+		t.Error("Peek() failed")
+	}
+	if retVal != "9" {
+		t.Error("Peek()!=9")
+	}
 }
+
 /*
-def test_peekHead():
-    ll = LinkList()
-    helper_insert_many(ll)
-    expectedStr = "9"
-    expectedBool = True
-    actualBool,actualStr = ll.peekHead()
-    assert expectedStr == actualStr
-    assert expectedBool == actualBool
-
-
 def test_peekHead_empty():
     ll = LinkList()
     expectedStr = ""
