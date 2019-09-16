@@ -249,14 +249,12 @@ func (list *LinkList) InsertAfter(targetVal, newVal interface{}) bool {
 }
 
 // KthFromEnd finds the Kth element from the end of the list and returns value for node
-func (list *LinkList) KthFromEnd(k int) interface{} {
+func (list *LinkList) KthFromEnd(k int) (bool, interface{}) {
 	// BigO == O(n)
 
 	// Only positive integers
 	if k < 0 {
-		// @TODO return tuple
-		// raise AssertionError(f'WAIT!!! You must pass a positive integer, k:[{k}]')
-		return false
+		return false, interface{}(nil)
 	}
 
 	ptrA := list.head
@@ -274,9 +272,7 @@ func (list *LinkList) KthFromEnd(k int) interface{} {
 		c = c + 1
 	}
 	if tooSmall {
-		// @TODO return tuple
-		// raise AssertionError(f'WAIT!!! There are not enough elements in the link list for k:[{k}].')
-		return false
+		return false, interface{}(nil)
 	}
 
 	// Walk ptrA and ptrB out to the end of the list
@@ -291,7 +287,7 @@ func (list *LinkList) KthFromEnd(k int) interface{} {
 		c = c + 1
 	}
 
-	return ptrB.value
+	return true, ptrB.value
 }
 
 // MergeList two lists together (zipper)
