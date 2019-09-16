@@ -195,9 +195,9 @@ func (list *LinkList) Remove(value interface{}) bool {
 	return retVal
 }
 
-// PeekHead take a look at the first-most element in List
-func (list *LinkList) PeekHead() (bool, interface{}) {
-	var retVal interface{}
+// Peek a value from the front of the list
+func (list *LinkList) Peek() (bool, interface{}) {
+	retVal := interface{}(nil)
 	retBool := false
 	if list.head != nil {
 		retVal = list.head.value
@@ -250,14 +250,12 @@ func (list *LinkList) InsertAfter(targetVal, newVal interface{}) bool {
 }
 
 // KthFromEnd finds the Kth element from the end of the list and returns value for node
-func (list *LinkList) KthFromEnd(k int) interface{} {
+func (list *LinkList) KthFromEnd(k int) (bool, interface{}) {
 	// BigO == O(n)
 
 	// Only positive integers
 	if k < 0 {
-		// @TODO return tuple
-		// raise AssertionError(f'WAIT!!! You must pass a positive integer, k:[{k}]')
-		return false
+		return false, interface{}(nil)
 	}
 
 	ptrA := list.head
@@ -275,9 +273,7 @@ func (list *LinkList) KthFromEnd(k int) interface{} {
 		c = c + 1
 	}
 	if tooSmall {
-		// @TODO return tuple
-		// raise AssertionError(f'WAIT!!! There are not enough elements in the link list for k:[{k}].')
-		return false
+		return false, interface{}(nil)
 	}
 
 	// Walk ptrA and ptrB out to the end of the list
@@ -292,7 +288,7 @@ func (list *LinkList) KthFromEnd(k int) interface{} {
 		c = c + 1
 	}
 
-	return ptrB.value
+	return true, ptrB.value
 }
 
 // MergeList two lists together (zipper)

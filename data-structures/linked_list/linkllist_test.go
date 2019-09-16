@@ -193,20 +193,23 @@ func TestRemove(t *testing.T) {
 
 func TestPeekHead(t *testing.T) {
 	list := HelperInsertMany()
-	retBool, retVal := list.PeekHead()
+	retBool, retVal := list.Peek()
 	if !retBool {
-		t.Error("PeekHead() failed.")
+		t.Error("Peek() failed")
 	}
 	if retVal != "9" {
-		t.Error("PeekHead() did not return \"9\"")
+		t.Error("Peek()!=9")
 	}
 }
 
 func TestPeekHeadEmpty(t *testing.T) {
 	list := LinkList{}
-	retBool, _ := list.PeekHead()
+	retBool, retVal := list.Peek()
 	if retBool {
-		t.Error("PeekHead() should not return TRUE.")
+		t.Error("Peek() should have returned False")
+	}
+	if retVal != nil {
+		t.Error("Peek() should have returned retVal==nil")
 	}
 }
 
@@ -294,33 +297,34 @@ func HelperKthFromEnd() LinkList {
 
 func TestKthFromEnd(t *testing.T) {
 	list := HelperKthFromEnd()
-	var actual, expected string
-	var actualBool, expectedBool bool
 
-	actual = fmt.Sprintf("%v", list.KthFromEnd(0))
-	expected = "2"
-	if expected != actual {
-		t.Error("KthFromEnd(), expected:", expected, " actual:", actual)
+	actualBool, actualVal := list.KthFromEnd(0)
+	actualVal = fmt.Sprintf("%v", actualVal)
+	expectedBool := true
+	expectedVal := "2"
+	if expectedVal != actualVal {
+		t.Error("KthFromEnd(), expectedVal:", expectedVal, " actualVal:", actualVal)
 	}
 
 	// "Happy Path" where k is not at the end, but somewhere in the middle of the linked list
-	actual = fmt.Sprintf("%v", list.KthFromEnd(2))
-	expected = "3"
-	if expected != actual {
-		t.Error("KthFromEnd(), expected:", expected, " actual:", actual)
+	actualBool, actualVal = list.KthFromEnd(2)
+	actualVal = fmt.Sprintf("%v", actualVal)
+	expectedVal = "3"
+	if expectedVal != actualVal {
+		t.Error("KthFromEnd(), expectedVal:", expectedVal, " actualVal:", actualVal)
 	}
 
 	// # Where k and the length of the list are the same
-	actualBool = list.KthFromEnd(5).(bool)
+	actualBool, _ = list.KthFromEnd(5)
 	expectedBool = false
-	if expectedBool != actualBool {
+	if expectedVal != actualVal {
 		t.Error("KthFromEnd(), expectedBool:", expectedBool, " actualBool:", actualBool)
 	}
 
 	// # Where k is not a positive integer
-	actualBool = list.KthFromEnd(-1).(bool)
+	actualBool, _ = list.KthFromEnd(-1)
 	expectedBool = false
-	if expectedBool != actualBool {
+	if expectedVal != actualVal {
 		t.Error("KthFromEnd(), expectedBool:", expectedBool, " actualBool:", actualBool)
 	}
 }
@@ -330,21 +334,18 @@ func TestKthFromEnd_OneLinkList(t *testing.T) {
 	list.Insert("blah")
 
 	// Where the linked list is of a size 1
-	actual := list.KthFromEnd(0).(string)
-	expected := "blah"
-	if expected != actual {
-		t.Error("KthFromEnd(), expected:", expected, " actual:", actual)
+	actualBool, actualVal := list.KthFromEnd(0)
+
+	expectedBool := true
+	expectedVal := "blah"
+
+	if expectedBool != actualBool {
+		t.Error("KthFromEnd(), expectedBool:", expectedBool, " actualBool:", expectedBool)
+	}
+	if expectedVal != actualVal {
+		t.Error("KthFromEnd(), expectedVal:", expectedVal, " actualVal:", actualVal)
 	}
 }
-
-/*
-def test_kthFromEnd_Exception():
-    ll = helper_kthFromEnd()
-
-    # TEST: Where k is greater than the length of the linked list
-    with pytest.raises(AssertionError):
-        assert(ll.kthFromEnd(6))
-*/
 
 func TestLinkListMerge(t *testing.T) {
 
