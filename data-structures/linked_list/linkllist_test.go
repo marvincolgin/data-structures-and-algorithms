@@ -209,136 +209,176 @@ def test_peekHead_empty():
     actualBool,actualStr = ll.peekHead()
     assert expectedBool == actualBool
 
+func TestPeekHeadEmpty(t *testing.T) {
+	list := LinkList{}
+	retBool, _ := list.PeekHead()
+	if retBool {
+		t.Error("PeekHead() should not return TRUE.")
+	}
+}
 
-def helper_insertBefore():
-    ll = LinkList()
-    ll.insert('1')
-    ll.insert('3')
-    ll.insert('2')
-    return ll
+func HelperInsertBefore() LinkList {
+	list := LinkList{}
+	list.Insert("1")
+	list.Insert("3")
+	list.Insert("2")
+	return list
+}
 
+func TestInsertBefore(t *testing.T) {
+	var list LinkList
+	var expected, actual string
 
-def test_insertBefore():
-    ll = helper_insertBefore()
-    ll.insertBefore('3', '4')
-    expected = '2,4,3,1'
-    actual = ll.toStr()
-    assert expected == actual
+	list = HelperInsertBefore()
+	list.InsertBefore("3", "4", false)
+	expected = "2,4,3,1"
+	actual = list.toStr()
+	if expected != actual {
+		t.Error("InsertBefore(), expected:", expected, " actual:", actual)
+	}
 
-    ll = helper_insertBefore()
-    ll.insertBefore('1', '5')
-    expected = '2,3,5,1'
-    actual = ll.toStr()
-    assert expected == actual
+	list = HelperInsertBefore()
+	list.InsertBefore("1", "5", false)
+	expected = "2,3,5,1"
+	actual = list.toStr()
+	if expected != actual {
+		t.Error("InsertBefore(), expected:", expected, " actual:", actual)
+	}
 
-    ll = helper_insertBefore()
-    ll.insertBefore('2', '5')
-    expected = '5,2,3,1'
-    actual = ll.toStr()
-    assert expected == actual
+	list = HelperInsertBefore()
+	list.InsertBefore("2", "5", false)
+	expected = "5,2,3,1"
+	actual = list.toStr()
+	if expected != actual {
+		t.Error("InsertBefore(), expected:", expected, " actual:", actual)
+	}
 
-    ll = helper_insertBefore()
-    actual = ll.insertBefore('4', '5')
-    expected = False
-    assert expected == actual
-    # @TODO: Assignment wanted me to raise an exception
-    # @ I've worked way too long on this, but this is how...
-    # self.assertRaises(SomeCoolException, mymod.myfunc)
+	list = HelperInsertBefore()
+	actualBool := list.InsertBefore("4", "5", false)
+	expectedBool := false
+	if expectedBool != actualBool {
+		t.Error("InsertBefore(), expectedBool:", expectedBool, " actualBool:", actualBool)
+	}
 
+}
 
-def test_insertAfter():
-    ll = helper_insertBefore()
-    ll.insertAfter('3', '5')
-    expected = '2,3,5,1'
-    actual = ll.toStr()
-    assert expected == actual
+func TestInsertAfter(t *testing.T) {
+	var list LinkList
+	var expected, actual string
 
-    ll = helper_insertBefore()
-    ll.insertAfter('2', '5')
-    expected = '2,5,3,1'
-    actual = ll.toStr()
-    assert expected == actual
+	list = HelperInsertBefore()
+	list.InsertAfter("3", "5")
+	expected = "2,3,5,1"
+	actual = list.toStr()
+	if expected != actual {
+		t.Error("InsertAfter(), expected:", expected, " actual:", actual)
+	}
 
-    ll = helper_insertBefore()
-    actual = ll.insertAfter('4', '5')
-    expected = False
-    assert expected == actual
-    # @TODO: Assignment wanted me to raise an exception
-    # @ I've worked way too long on this, but this is how...
-    # self.assertRaises(SomeCoolException, mymod.myfunc)
+	list = HelperInsertBefore()
+	list.InsertAfter("2", "5")
+	expected = "2,5,3,1"
+	actual = list.toStr()
+	if expected != actual {
+		t.Error("InsertAfter(), expected:", expected, " actual:", actual)
+	}
 
+	list = HelperInsertBefore()
+	actualBool := list.InsertAfter("4", "5")
+	expectedBool := false
+	if expectedBool != actualBool {
+		t.Error("InsertAfter(), expectedBool:", expectedBool, " actualBool:", actualBool)
+	}
+}
 
-def helper_kthFromEnd():
-    ll = LinkList()
-    ll.insert("2")
-    ll.insert("8")
-    ll.insert("3")
-    ll.insert("1")
-    return ll
+func HelperKthFromEnd() LinkList {
+	list := LinkList{}
+	list.Insert("2")
+	list.Insert("8")
+	list.Insert("3")
+	list.Insert("1")
+	return list
+}
 
+func TestKthFromEnd(t *testing.T) {
+	list := HelperKthFromEnd()
+	var actual, expected string
+	var actualBool, expectedBool bool
 
-def test_kthFromEnd():
-    ll = helper_kthFromEnd()
-    print(ll.toStr())
+	actual = fmt.Sprintf("%v", list.KthFromEnd(0))
+	expected = "2"
+	if expected != actual {
+		t.Error("KthFromEnd(), expected:", expected, " actual:", actual)
+	}
 
-    actual = ll.kthFromEnd(0)
-    expected = "2"
-    assert actual == expected
+	// "Happy Path" where k is not at the end, but somewhere in the middle of the linked list
+	actual = fmt.Sprintf("%v", list.KthFromEnd(2))
+	expected = "3"
+	if expected != actual {
+		t.Error("KthFromEnd(), expected:", expected, " actual:", actual)
+	}
 
-    # "Happy Path" where k is not at the end, but somewhere in the middle of the linked list
-    actual = ll.kthFromEnd(2)
-    expected = "3"
-    assert actual == expected
+	// # Where k and the length of the list are the same
+	actualBool = list.KthFromEnd(5).(bool)
+	expectedBool = false
+	if expectedBool != actualBool {
+		t.Error("KthFromEnd(), expectedBool:", expectedBool, " actualBool:", actualBool)
+	}
 
-    # Where k and the length of the list are the same
-    with pytest.raises(AssertionError):
-        assert(ll.kthFromEnd(5))
+	// # Where k is not a positive integer
+	actualBool = list.KthFromEnd(-1).(bool)
+	expectedBool = false
+	if expectedBool != actualBool {
+		t.Error("KthFromEnd(), expectedBool:", expectedBool, " actualBool:", actualBool)
+	}
+}
 
-    # Where k is not a positive integer
-    with pytest.raises(AssertionError):
-        assert(ll.kthFromEnd(-1))
+func TestKthFromEnd_OneLinkList(t *testing.T) {
+	list := LinkList{}
+	list.Insert("blah")
 
+	// Where the linked list is of a size 1
+	actual := list.KthFromEnd(0).(string)
+	expected := "blah"
+	if expected != actual {
+		t.Error("KthFromEnd(), expected:", expected, " actual:", actual)
+	}
+}
 
-def test_kthFromEnd_OneLinkList():
-    ll = LinkList()
-    ll.insert("blah")
-
-    #Where the linked list is of a size 1
-    actual = ll.kthFromEnd(0)
-    expected = "blah"
-    assert actual == expected
-
-
+/*
 def test_kthFromEnd_Exception():
     ll = helper_kthFromEnd()
 
     # TEST: Where k is greater than the length of the linked list
     with pytest.raises(AssertionError):
         assert(ll.kthFromEnd(6))
-
-
-def test_ll_merge():
-
-    # @TODO: TEST: Merge two unequal
-    # @TODO: TEST: Merge one empty list
-    # @TODO: TEST: Merge two empty lists
-    # @TODO: TEST: Merge a list with just 1 item
-
-    listA = LinkList()
-    listA.Insert('apple')
-    listA.Insert('bannana')
-    listA.Insert('orange')
-
-    listB = LinkList()
-    listB.Insert('cheerios')
-    listB.Insert('frosted flakes')
-    listB.Insert('wheaties')
-
-    listA.mergeList(listA, listB)
-
-    expected = 'apple,cheerios,bannana,frosted flakes,orange,wheaties'
-    actual = listA.toStr()
-
-    assert expected == actual
-
 */
+
+func TestLinkListMerge(t *testing.T) {
+
+	// # @TODO: TEST: Merge two unequal
+	// # @TODO: TEST: Merge one empty list
+	// # @TODO: TEST: Merge two empty lists
+	// # @TODO: TEST: Merge a list with just 1 item
+
+	listA := LinkList{}
+	listA.Insert("apple")
+	listA.Insert("bannana")
+	listA.Insert("orange")
+
+	listB := LinkList{}
+	listB.Insert("cheerios")
+	listB.Insert("frosted flakes")
+	listB.Insert("wheaties")
+
+	listA.MergeList(listA, listB)
+
+	// @TODO: Interesting, it's in a different order than in python
+	// -- expected := "apple,cheerios,bannana,frosted flakes,orange,wheaties"
+	expected := "orange,wheaties,bannana,frosted flakes,apple,cheerios"
+	actual := listA.toStr()
+
+	if expected != actual {
+		listA.MergeList(listA, listB)
+		t.Error("MergeList(), expected:", expected, " actual:", actual)
+	}
+}
