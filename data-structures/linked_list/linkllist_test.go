@@ -201,6 +201,17 @@ func TestPeekHead(t *testing.T) {
 	}
 }
 
+func TestPeekHeadEmpty(t *testing.T) {
+	list := LinkList{}
+	retBool, retVal := list.Peek()
+	if retBool {
+		t.Error("Peek() should have returned False")
+	}
+	if retVal != nil {
+		t.Error("Peek() should have returned retVal==nil")
+	}
+}
+
 /*
 def test_peekHead_empty():
     ll = LinkList()
