@@ -1,16 +1,14 @@
 Data Structures and Algorithms
-Written in Python by Vin Colgin Summer 2019
+Written in Python/Golang
+Vin Colgin Summer 2019
 
 Table of Contents:
 <!--ts-->
    * [Array/Linked Lists](#arraylinked-lists)
-      * [Reverse an Array](#reverse-an-array)
-      * [Insert and Shift Array](#insert-and-shift-array)
-      * [Array Binary Search](#array-binary-search)
-      * [Singly Linked List](#singly-linked-list)
-      * [Linked List insertions.](#linked-list-insertions)
-      * [Linked List find Kth from end.](#linked-list-find-kth-from-end)
-      * [Merge Two Linked Lists.](#merge-two-linked-lists)
+      * [Data Struct: Singly Linked List](#data-struct-singly-linked-list)
+      * [Challenge: Reverse an Array](#challenge-reverse-an-array)
+      * [Challenge: Insert and Shift Array](#challenge-insert-and-shift-array)
+      * [Challenge: Array Binary Search](#challenge-array-binary-search)
    * [Stacks and Queues](#stacks-and-queues)
       * [STACK Data Structure (LIFO)](#stack-data-structure-lifo)
       * [QUEUE Data Structure (FIFO)](#queue-data-structure-fifo)
@@ -33,43 +31,17 @@ Table of Contents:
       * [Graphs, Get Edges](#graphs-get-edges)
       * [Graph: Depth-First Traversal.](#graph-depth-first-traversal)
 
-<!-- Added by: mmc, at: Sat Sep  7 15:24:20 PDT 2019 -->
+<!-- Added by: mmc, at: Mon Sep 16 13:44:41 PDT 2019 -->
 
 <!--te-->
 
 # Array/Linked Lists
 
-
-<!-- ********************* -->
-## Reverse an Array
-Create a function, which reverses an array/linked-list, as passed via a parameter and pass the new array back as the `return()` for the function.
-*Approach & Efficiency*
-My initial approach was to utilize the `list.insert()` and `list.pop()` to rebuild the list in reverse order. However, my white boarding partner showed me a more pythonic method utilizing slices with a -1 stride.
-*Solution*
-Two solutions were used, one that utilizes a while() loop and is destructive on the inbound array. The second is "pythonic" and utilizes an index slice and a -1 stride.
-
-
-<!-- ********************* -->
-## Insert and Shift Array
-Write a function which takes in an array and the value to be added. Without utilizing any of the built-in methods available to your language, return an array with the new value added at the middle index.
-*Solution*
-Create an index into the array where the value will be inserted, utilize slice and .append/.extend to construct a return array
-![alt_text](https://github.com/marvincolgin/data-structures-and-algorythms/blob/array_shift/challenges/array_shift/assets/whiteboard.jpg)
-
-
-<!-- ********************* -->
-## Array Binary Search
-Write a function which takes in an array and the value to be searched. Return -1 if the value is not found, otherwise return the index (0 based). Incoming array is sorted.
-*Solution*
-Divide and Conquer! Look at the middle element, is it the middle element? Return. If not, create a new middle from either the smaller side or larger side. Repeat.
-![alt_text](https://github.com/marvincolgin/data-structures-and-algorythms/blob/array_binary_search/challenges/array_binary_search/assets/whiteboard.jpg)
-
-
 <!-- ********************* -->
 ## Data Struct: Singly Linked List
 Linked-Lists (singly) are dynamic data-structures which resembles a length of chain, where the entire length of chain is the list and the individual links of the chain are nodes. A singlarly linked list is only traversable in one direction, but utilizing a head element that points to the first node in the list, the second node in the list points to the next link in the chain, and finally the last element in the list points to "none"
 
-### Tasks
+*Features:*
 - [x] Create a Node class with properties for the value stored and 'next'.
 - [x] Create ahead property, nulled upon creation and set upon Insert().
 - [x] Insert(value) method which adds a new node with that value to the head of the list with an O(1) Time performance.
@@ -83,7 +55,7 @@ Linked-Lists (singly) are dynamic data-structures which resembles a length of ch
 .includes() == O(n)
 ```
 *API: Python*
-Python: <a href="///marvincolgin/data-structures-and-algorithms/blob/master/data-structures/linked_list/link_list.py">Source Code</a>
+<a href="https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/data-structures/linked_list/link_list.py">Source Code</a>
 ```python
 class LinkList()
 
@@ -103,12 +75,24 @@ class LinkList()
     def count(self):
         # count the number of nodes and return count
 
+    def append(value):
+        # adds a new node with the given value to the end of the list
+        # BigO == O(n)
+
+    def insertBefore(value, newVal):
+        # add a new node with the given newValue immediately before the first value node
+        # BigO == O(n)
+
+    def insertAfter(value, newVal):
+        # add a new node with the given newValue immediately after the first value node
+        # BigO == O(n)
+
 class ListNode()
     def __init__(self, value, next=None, prev=None):
          # constructor
 ```
 *API: Golang*
-Golang <a href="///marvincolgin/data-structures-and-algorithms/blob/master/data-structures/linked_list/linklist.go">Source Code</a>
+<a href="https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/data-structures/linked_list/linklist.go">Source Code</a>
 ```
 type LinkNode struct {
     value interface{}
@@ -124,94 +108,59 @@ type LinkList struct {
 	head *LinkNode
 	// @TODO: comparison_func func
 }
-func (list *LinkList) Init( /* @TODO: comparison_func=nil */ ) {}
-func (list *LinkList) toJSON() string {}
-func (list *LinkList) toStr() string {}
-func (list *LinkList) Insert(value interface{}) bool {}
-func (list *LinkList) Includes(value interface{}) bool {}
-func (list *LinkList) Get(value interface{}) interface{} {}
-func (list *LinkList) Count() int {}
-func (list *LinkList) Append(value interface{}) bool {}
-func (list *LinkList) Remove(value interface{}) bool {}
-func (list *LinkList) PeekHead() (bool, interface{}) {}
-func (list *LinkList) InsertBefore(targetVal, newVal interface{}, afterInstead bool) bool {}
-func (list *LinkList) InsertAfter(targetVal, newVal interface{}) bool {}
-func (list *LinkList) KthFromEnd(k int) interface{} {}
-func (list *LinkList) MergeList(listA, listB LinkList) LinkList {}
+func (list *LinkList) Init()
+func (list *LinkList) toJSON() string
+func (list *LinkList) toStr() string
+func (list *LinkList) Insert(value interface{}) bool
+func (list *LinkList) Includes(value interface{}) bool
+func (list *LinkList) Get(value interface{}) interface{}
+func (list *LinkList) Count() int
+func (list *LinkList) Append(value interface{}) bool
+func (list *LinkList) Remove(value interface{}) bool
+func (list *LinkList) Peek() (bool, interface{})
+func (list *LinkList) InsertBefore(targetVal, newVal interface{}, afterInstead bool) bool
+func (list *LinkList) InsertAfter(targetVal, newVal interface{}) bool
+func (list *LinkList) KthFromEnd(k int) (bool, interface{})
+func (list *LinkList) MergeList(listA, listB LinkList) LinkList
+
 ```
 
-
-<!-- ********************* -->
-## Linked List insertions.
-Modify the LinkedList class to include additional API functions for the insertion of data.
-*API*
-```python
-class LinkList()
-
-    def append(value):
-        # adds a new node with the given value to the end of the list
-        # BigO == O(n)
-
-    def insertBefore(value, newVal):
-        # add a new node with the given newValue immediately before the first value node
-        # BigO == O(n)
-
-    def insertAfter(value, newVal):
-        # add a new node with the given newValue immediately after the first value node
-        # BigO == O(n)
-```
-*Tests*
-- [x] add a node to the end of the linked list
-- [x] add multiple nodes to the end of a linked list
-- [x] insert a node before a node located i the middle of a linked list
-- [x] insert a node before the first node of a linked list
-- [x] insert after a node in the middle of the linked list
-- [x] insert a node after the last node of the linked list
-
-*Whiteboard*
+*Linked List: Insert(): Whiteboard*
 ![alt_text](https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/data-structures/linked_list/assets/linked_lists-ll_insertions-whiteboard.jpg)
 
 
-<!-- ********************* -->
-## Linked List find Kth from end.
-Write a function that takes a number, k, as a parameter and returns the node's value for the kth element from end of list.
-*API*
-```python
-class LinkList():
-    def kthFromEnd(k):
-        # finds the Kth element from the end of the list and returns value for node
-        # BigO == O(n)
-```
-*Tests*
-- [x] Where k is greater than the length of the linked list
-- [x] Where k and the length of the list are the same
-- [x] Where k is not a positive integer
-- [x] Where the linked list is of a size 1
-- [x] "Happy Path" where k is not at the end, but somewhere in the middle of the linked list
-
-*Whiteboard*
+*Linked List: KthFromEnd(): Whiteboard*
 ![alt_text](https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/data-structures/linked_list/assets/linked_lists-ll_insertions-whiteboard.jpg)
 
 
-<!-- ********************* -->
-## Merge Two Linked Lists.
+*Linked List: MergeList(): Whiteboard*
 Write a function called mergeLists which takes two linked lists as arguments. Zip the two linked lists together into one so that the nodes alternate between the two lists and return a reference to the head of the zipped list. Try and keep additional space down to O(1). You have access to the Node class and all the properties on the Linked List class as well as the methods created in previous challenges.
-*API*
-```python
-class LinkList():
-    def mergeList(listA, listB):
-        # Merge two linked lists
-        # BigO = O(n)
-```
-*Tests*
-- [x] Merge two equal
-- [x] Merge two unequal
-- [x] Merge one empty list
-- [x] Merge two empty lists
-- [x] Merge a list with just 1 item
-
-*Whiteboard*
 ![alt_text](https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/data-structures/linked_list/assets/ll_merge-whiteboard.jpg)
+
+<!-- ********************* -->
+## Challenge: Reverse an Array
+Create a function, which reverses an array/linked-list, as passed via a parameter and pass the new array back as the `return()` for the function.
+*Approach & Efficiency*
+My initial approach was to utilize the `list.insert()` and `list.pop()` to rebuild the list in reverse order. However, my white boarding partner showed me a more pythonic method utilizing slices with a -1 stride.
+*Solution*
+Two solutions were used, one that utilizes a while() loop and is destructive on the inbound array. The second is "pythonic" and utilizes an index slice and a -1 stride.
+
+
+<!-- ********************* -->
+## Challenge: Insert and Shift Array
+Write a function which takes in an array and the value to be added. Without utilizing any of the built-in methods available to your language, return an array with the new value added at the middle index.
+*Solution*
+Create an index into the array where the value will be inserted, utilize slice and .append/.extend to construct a return array
+![alt_text](https://github.com/marvincolgin/data-structures-and-algorythms/blob/array_shift/challenges/array_shift/assets/whiteboard.jpg)
+
+
+<!-- ********************* -->
+## Challenge: Array Binary Search
+Write a function which takes in an array and the value to be searched. Return -1 if the value is not found, otherwise return the index (0 based). Incoming array is sorted.
+*Solution*
+Divide and Conquer! Look at the middle element, is it the middle element? Return. If not, create a new middle from either the smaller side or larger side. Repeat.
+![alt_text](https://github.com/marvincolgin/data-structures-and-algorythms/blob/array_binary_search/challenges/array_binary_search/assets/whiteboard.jpg)
+
 
 
 # Stacks and Queues
