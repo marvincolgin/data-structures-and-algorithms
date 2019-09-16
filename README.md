@@ -9,6 +9,9 @@ Table of Contents:
 <!--ts-->
    * [Array/Linked Lists](#arraylinked-lists)
       * [Data Struct: Singly Linked List](#data-struct-singly-linked-list)
+         * [API: Python](#api-python)
+         * [API: Golang](#api-golang)
+         * [Whiteboards](#whiteboards)
       * [Challenge: Reverse an Array](#challenge-reverse-an-array)
       * [Challenge: Insert and Shift Array](#challenge-insert-and-shift-array)
       * [Challenge: Array Binary Search](#challenge-array-binary-search)
@@ -34,7 +37,7 @@ Table of Contents:
       * [Graphs, Get Edges](#graphs-get-edges)
       * [Graph: Depth-First Traversal.](#graph-depth-first-traversal)
 
-<!-- Added by: mmc, at: Mon Sep 16 13:44:41 PDT 2019 -->
+<!-- Added by: mmc, at: Mon Sep 16 13:50:40 PDT 2019 -->
 
 <!--te-->
 
@@ -115,15 +118,16 @@ func (list *LinkList) MergeList(listA, listB LinkList) LinkList
 
 ```
 
-*Linked List: Insert(): Whiteboard*
+### Whiteboards
+*Insert()*
 ![alt_text](https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/data-structures/linked_list/assets/linked_lists-ll_insertions-whiteboard.jpg)
 
 
-*Linked List: KthFromEnd(): Whiteboard*
+*KthFromEnd()*
 ![alt_text](https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/data-structures/linked_list/assets/linked_lists-ll_insertions-whiteboard.jpg)
 
 
-*Linked List: MergeList(): Whiteboard*
+*MergeList()*
 ![alt_text](https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/data-structures/linked_list/assets/ll_merge-whiteboard.jpg)
 
 <!-- ********************* -->
