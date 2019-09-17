@@ -1,6 +1,5 @@
 from link_list import LinkList, LinkNode
 import pytest
-import ll_merge.ll_merge
 
 
 def helper_insert_many(ll):
@@ -183,7 +182,7 @@ def test_traverse():
     ll.traverse(visit)
     expected = ['9', '8', '7', '6', '5', '4', '3', '2', '1', '0']
     assert actual == expected
-    
+
 
 def helper_kthFromEnd():
     ll = LinkList()
