@@ -41,13 +41,14 @@ Table of Contents:
 
 <!--te-->
 
-# Array/Linked Lists
+# Data Structures
+## Array/Linked Lists
 
 <!-- ********************* -->
-## Data Struct: Singly Linked List
+### Data Struct: Singly Linked List
 Linked-Lists (singly) are dynamic data-structures which resembles a length of chain, where the entire length of chain is the list and the individual links of the chain are nodes. A singlarly linked list is only traversable in one direction, but utilizing a head element that points to the first node in the list, the second node in the list points to the next link in the chain, and finally the last element in the list points to "none"
 
-### API: Python
+#### API: Python
 <a href="https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/data-structures/linked_list/link_list.py">Source Code</a>
 ```python
 class LinkList()
@@ -84,7 +85,7 @@ class ListNode()
     def __init__(self, value, next=None, prev=None):
          # constructor
 ```
-### API: Golang
+#### API: Golang
 <a href="https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/golang/src/linklist">Source Code</a>
 ```golang
 type LinkNode struct {
@@ -118,7 +119,7 @@ func (list *LinkList) MergeList(listA, listB LinkList) LinkList
 
 ```
 
-### Whiteboards
+#### Whiteboards
 *Insert()*
 ![alt_text](https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/data-structures/linked_list/assets/linked_lists-ll_insertions-whiteboard.jpg)
 
@@ -131,7 +132,7 @@ func (list *LinkList) MergeList(listA, listB LinkList) LinkList
 ![alt_text](https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/data-structures/linked_list/assets/ll_merge-whiteboard.jpg)
 
 <!-- ********************* -->
-## Challenge: Reverse an Array
+### Challenge: Reverse an Array
 Create a function, which reverses an array/linked-list, as passed via a parameter and pass the new array back as the `return()` for the function.
 *Approach & Efficiency*
 My initial approach was to utilize the `list.insert()` and `list.pop()` to rebuild the list in reverse order. However, my white boarding partner showed me a more pythonic method utilizing slices with a -1 stride.
@@ -140,7 +141,7 @@ Two solutions were used, one that utilizes a while() loop and is destructive on 
 
 
 <!-- ********************* -->
-## Challenge: Insert and Shift Array
+### Challenge: Insert and Shift Array
 Write a function which takes in an array and the value to be added. Without utilizing any of the built-in methods available to your language, return an array with the new value added at the middle index.
 *Solution*
 Create an index into the array where the value will be inserted, utilize slice and .append/.extend to construct a return array
@@ -148,7 +149,7 @@ Create an index into the array where the value will be inserted, utilize slice a
 
 
 <!-- ********************* -->
-## Challenge: Array Binary Search
+### Challenge: Array Binary Search
 Write a function which takes in an array and the value to be searched. Return -1 if the value is not found, otherwise return the index (0 based). Incoming array is sorted.
 *Solution*
 Divide and Conquer! Look at the middle element, is it the middle element? Return. If not, create a new middle from either the smaller side or larger side. Repeat.
@@ -156,19 +157,19 @@ Divide and Conquer! Look at the middle element, is it the middle element? Return
 
 
 
-# Stacks and Queues
+## Stacks and Queues
 
 
 <!-- ********************* -->
-## STACK Data Structure (LIFO)
-### API: Python
+### STACK Data Structure (LIFO)
+#### API: Python
 ```python
 class Stack():
     def push(val) -> bool:
     def pop() -> str:
     def peek() -> str:
 ```
-### API: Golang
+#### API: Golang
 <a href="https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/golang/src/linklist">Source Code</a>
 ``` golang
 // Stack implementation of LIFO
@@ -194,8 +195,8 @@ https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/golan
 
 
 <!-- ********************* -->
-## QUEUE Data Structure (FIFO)
-*API*
+### QUEUE Data Structure (FIFO)
+#### API: Python
 ```python
 class Queue():
 
