@@ -22,46 +22,68 @@ Table of Contents:
          * [API](#api)
       * [Binary Search Tree (BST)](#binary-search-tree-bst)
          * [API](#api-1)
-   * [Challenges](#challenges)
+      * [Hash Table](#hash-table)
+         * [API](#api-2)
+      * [Graphs](#graphs)
+         * [API](#api-3)
+         * [Whiteboard](#whiteboard)
+         * [Challenges](#challenges)
+            * [Get Graph Edges](#get-graph-edges)
+            * [API](#api-4)
+            * [Whiteboard](#whiteboard-1)
+         * [Depth-First Traversal](#depth-first-traversal)
+            * [API](#api-5)
+   * [Challenges](#challenges-1)
       * [Array: Reverse](#array-reverse)
          * [Source: Python](#source-python)
-         * [Whiteboard](#whiteboard)
+         * [Whiteboard](#whiteboard-2)
       * [Array: Insert and Shift](#array-insert-and-shift)
          * [Source: Python](#source-python-1)
-         * [Whiteboard](#whiteboard-1)
+         * [Whiteboard](#whiteboard-3)
       * [Array: Binary Search](#array-binary-search)
          * [Source: Python](#source-python-2)
-         * [Whiteboard](#whiteboard-2)
-      * [Queue: Animal Shelter](#queue-animal-shelter)
-         * [API](#api-2)
-         * [Whiteboard*](#whiteboard-3)
-      * [Stack: Balanced Brackets](#stack-balanced-brackets)
-         * [API](#api-3)
          * [Whiteboard](#whiteboard-4)
-      * [BinaryTree: Breadth-first Traversal](#binarytree-breadth-first-traversal)
-         * [API](#api-4)
-         * [whiteboard](#whiteboard-5)
-      * [BinaryTree: Find the Maximum Value](#binarytree-find-the-maximum-value)
-         * [API](#api-5)
-         * [Whiteboard](#whiteboard-6)
-      * [BinaryTree: FizzBuzzTree](#binarytree-fizzbuzztree)
+      * [Queue: Animal Shelter](#queue-animal-shelter)
          * [API](#api-6)
+         * [Whiteboard](#whiteboard-5)
+      * [Stack: Balanced Brackets](#stack-balanced-brackets)
+         * [API](#api-7)
+         * [Whiteboard](#whiteboard-6)
+      * [BinaryTree: Breadth-first Traversal](#binarytree-breadth-first-traversal)
+         * [API](#api-8)
          * [whiteboard](#whiteboard-7)
+      * [BinaryTree: Find the Maximum Value](#binarytree-find-the-maximum-value)
+         * [API](#api-9)
+         * [Whiteboard](#whiteboard-8)
+      * [BinaryTree: FizzBuzzTree](#binarytree-fizzbuzztree)
+         * [API](#api-10)
+         * [whiteboard](#whiteboard-9)
+      * [Hash Table: Repeated Words](#hash-table-repeated-words)
+         * [API](#api-11)
+         * [Whiteboard](#whiteboard-10)
+      * [Binary Tree: Tree Intersection](#binary-tree-tree-intersection)
+         * [API](#api-12)
+         * [Whiteboard](#whiteboard-11)
+      * [Hash Table: Left Join](#hash-table-left-join)
+         * [API](#api-13)
+         * [Whiteboard](#whiteboard-12)
+   * [Algorithms](#algorithms)
       * [Bubble Sort](#bubble-sort)
+         * [API](#api-14)
       * [Insertion Sort](#insertion-sort)
+         * [API](#api-15)
       * [Merge Sort](#merge-sort)
+         * [API](#api-16)
       * [Quick Sort](#quick-sort)
-      * [Data-Structure: Hash Table](#data-structure-hash-table)
-      * [Repeated Words](#repeated-words)
-      * [Tree Intersection](#tree-intersection)
-      * [Left Join](#left-join)
-      * [Data Structure: Graphs](#data-structure-graphs)
-      * [Graphs, Get Edges](#graphs-get-edges)
-      * [Graph: Depth-First Traversal.](#graph-depth-first-traversal)
+         * [API](#api-17)
 
-<!-- Added by: mmc, at: Thu Sep 19 12:40:35 PDT 2019 -->
+<!-- Added by: mmc, at: Thu Sep 19 14:47:11 PDT 2019 -->
 
 <!--te-->
+
+
+<!-- ********************* -->
+<!-- ********************* -->
 
 # Data Structures
 
@@ -295,9 +317,143 @@ class BinarySearchTree(BinaryTree):
 *Whiteboard*
 None
 
+<!-- ********************* -->
+##  Hash Table
+- [x] Implement Hash Table
+- [x] TESTS
+- [x] Docs
+### API
+```python
+class HashTable():
+
+    def __init__(self, hashtableSize = 1024):
+        # create with hashTableSize
+
+    def _makePayload(self, name, value):
+        # return dict of name/value pair
+
+    def _makeHash(self, name) -> int:
+        # create a hash based on the name to be added to hashtable
+        # this is a silly hash, as it's just for experiment and
+        # gives us the ability to easily create collisions. Live
+        # code should use something more sophisticated
+
+    def _getHashIndex(self, hash: int) -> int:
+        # get the index into the hash-table for a given hash value
+
+    def _hashtable_compare_func(self, payload1, payload2) -> bool:
+        # func passed to LinkList compare
+
+    def add(self, name, value):
+        # accepts name/value pair and adds them to the hashtable
+        # if there are collisions, then they will be handled
+        # by using a linked-list
+
+    def get(self, name):
+        # returns value in hashtable for a given name
+        # if the value is not found, and exception will be raised
+
+    def contains(self, name) -> bool:
+        # returns true|false if the name is in the hashtable
+```
+*Tests*
+- [x] add
+- [x] contains
+- [x] not-contains
+- [x] hash deterministic
+- [x] hash in range
+- [x] hash diff value for diff keys
+- [x] collisions
 
 
+<!-- ********************* -->
+<!-- ********************* -->
+
+
+## Graphs
+*Features*
+- [x] Add Vertex
+- [x] Add Edge
+- [x] Get Neighbors
+- [x] Get Vertexes
+- [x] Get Length
+### API
+```python
+class Vertex:
+    def __init__(self, value: Any):
+
+class Edge:
+    def __init__(self, vertex: Vertex, weight=0):
+
+class Graph:
+    def __init__(self):
+    def __len__(self) -> int:
+    def add_vertex(self, value) -> Vertex:
+    def add_edge(self, vert1: Vertex, vert2: Vertex, weight=0.0):
+    def get_neighbors(self, vertex: Vertex) -> List[Edge]:
+    def get_vertexes(self) -> Optional[List[Vertex]]:
+    def breadth_first(self, root, action_func):
+```
+*Tests*
+- [x] Node can be successfully added to the graph
+- [x] An edge can be successfully added to the graph
+- [x] A collection of all nodes can be properly retrieved from the graph
+- [x] All appropriate neighbors can be retrieved from the graph
+- [x] Neighbors are returned with the weight between nodes included
+- [x] The proper size is returned, representing the number of nodes in the graph
+- [x] A graph with only one node and edge can be properly returned
+- [x] An empty graph properly returns null
+
+### Whiteboard
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/graph-day2/data-structures/graph/assets/whiteboard.jpg)
+
+### Challenges
+
+#### Get Graph Edges
+Overall: Identify if a given path exists through the Graph where path is a given list of values
+Use Case: Given a complete Graph data-structure, containing a variety of Vertexes/Edges containing city-names and costs, (Flight Routes) and a list of cities (Flight Plan), return True|False if the flight-plan can be performed and the cost.
+- [x] Function
+- [x] Docs
+- [x] Tests
+#### API
+```python
+def get_edges(graph: Graph, path_ro: List) -> Tuple[bool, float]:
+    # identify if a given path exists through the Graph
+    # where path is a given list of values
+    # @path_ro will be treated as read-only
+    # BigO time==O(V+P*E) .. where p is len(path_ro)
+    # BigO space==O(1)
+```
+*Tests*
+- [x] Invalid Input: Graph
+- [x] Invalid Input: List
+- [x] Flight-Plan with valid Flight-Route
+- [x] Flight-Plan with invalid Flight-Route
+
+#### Whiteboard
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/get-edges/challenges/get_edges/assets/whiteboard.jpg)
+
+
+<!-- ********************* -->
+### Depth-First Traversal
+- [x] breadth first traversal method which takes a Binary Tree as its unique input.
+- [x] print every node encountered
+#### API
+```python
+def depth_first_recursive(self, root: Vertex, action_func: Any) -> None:
+def depth_first(self, root: Vertex, action_func: Any) -> None:
+```
+*Tests*
+- [x] empty tree
+- [x] null tree object
+- [x] tree of nodes
+
+
+
+<!-- ********************* -->
+<!-- ********************* -->
 # Challenges
+
 
 <!-- ********************* -->
 ## Array: Reverse
@@ -397,7 +553,7 @@ class AnimalShelter():
 - [x] deq one (with pref)
 - [x] deq until empty
 
-### Whiteboard*
+### Whiteboard
 ![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/master/challenges/fifo_animal_shelter/assets/whiteboard.jpg)
 
 
@@ -477,9 +633,84 @@ def fizzBuzzTree(tree: BinaryTree) -> BinaryTree:
 ![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/be06edcb4417bd0d1a66896bb24b9339ac6ea962/challenges/fizz_buzz_tree/assets/whiteboard.jpg)
 
 
+<!-- ********************* -->
+## Hash Table: Repeated Words
+repeated_words(): search the longstr for complete words, return the first word that has more than one occurrence
+- [x] Branch Created
+- [x] Function Created
+- [x] Tests
+- [x] Docs
+### API
+```python
+def repeated_word(longstr: str) -> str:
+    # search the longstr for complete words
+    # return the first word that has more than
+    # one occurrence
+    # BigO Time==O(n) Space==O(n*1.3)
+```
+*Tests*
+- [x] Sample Text #1
+- [x] Sample Text #2
+- [x] Sample Text #3
+
+### Whiteboard
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/repeated_word/challenges/repeated_word/assets/whiteboard.jpg)
+
+
+<!-- ********************* -->
+## Binary Tree: Tree Intersection
+tree_intersection(): given two binary-trees, return an array containing shared values
+- [x] Branch Created
+- [x] Function Created
+- [x] Tests
+- [x] Docs
+- [x] Pep8 Code Styling
+### API
+```python
+def tree_intersection(tree1, tree2: BinaryTree) -> list:
+    # return an array with all the values in both tree1 and tree2
+    # BigO Time==O(2n)  Space==0(1.3n) 30% for hashtable
+    # assumption: No Duplicates within Trees
+```
+*Tests*
+- [x] Func / Empty Trees
+- [x] Invalid Params
+- [x] All Matches
+- [x] No Matches
+- [x] Some Matching
+
+### Whiteboard
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/tree_intersection/challenges/tree_intersection/assets/whiteboard.jpg)
+
+
+<!-- ********************* -->
+## Hash Table: Left Join
+left_join(): given two hash-tables, return a list of all items from the first h1 and the value that exists in h2, if no value exists return None
+- [x] LEFT JOINs two hashmaps into a single data structure.
+- [x] 1st param is hashmap with words and synonyms
+- [x] 2nd param is hashmap with words and antonyms
+- [x] Combine the key and corresponding values (if they exist) into a new data structure according to LEFT JOIN logic.
+- [X] Code Styling: PEP8
+### API
+```python
+def left_join(h1, h2: HashTable) -> list:
+    # perform a left-join on h1 against h2
+    # - returns a list of dict:{word,syntonym,antonym)
+    # - BigO time==O(n) space==0(n)
+    # -      worst: time==O(3n)
+```
+*Tests*
+- [x] Func / Input Validation
+- [x] 2 rec, 1 with value in 2nd hashtable
+- [x] Full Sample
+
+### Whiteboard
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/left_join/challenges/left_join/assets/whiteboard.jpg)
 
 
 
+
+# Algorithms
 
 
 <!-- ********************* -->
@@ -487,7 +718,7 @@ def fizzBuzzTree(tree: BinaryTree) -> BinaryTree:
 - [x] code sort func
 - [x] tests
 - [x] blog post
-*API*
+### API
 ```python
 def bubble_sort(arr):
     # BigO == n^2
@@ -505,7 +736,7 @@ def bubble_sort(arr):
 - [x] code sort func
 - [x] tests
 - [x] blog post
-*API*
+### API
 ```python
 def insertion_sort(arr):
     # BigO = O(2n)
@@ -523,7 +754,7 @@ def insertion_sort(arr):
 - [x] code sort func
 - [x] tests
 - [x] blog post
-*API*
+### API
 ```python
 def merge_sort(arr):
     # BigO (n log n)
@@ -550,7 +781,7 @@ def merge_array(arr, left, right):
 - [x] code sort func
 - [x] tests
 - [x] blog post
-*API*
+### API
 ```python
 def quick_sort(arr):
     # BigO (n log n)
@@ -565,203 +796,3 @@ def quick_sort(arr):
 - [x] sort 1000 random
 
 
-<!-- ********************* -->
-## Data-Structure: Hash Table
-- [x] Implement Hash Table
-- [x] TESTS
-- [x] Docs
-*API*
-```python
-class HashTable():
-
-    def __init__(self, hashtableSize = 1024):
-        # create with hashTableSize
-
-    def _makePayload(self, name, value):
-        # return dict of name/value pair
-
-    def _makeHash(self, name) -> int:
-        # create a hash based on the name to be added to hashtable
-        # this is a silly hash, as it's just for experiment and
-        # gives us the ability to easily create collisions. Live
-        # code should use something more sophisticated
-
-    def _getHashIndex(self, hash: int) -> int:
-        # get the index into the hash-table for a given hash value
-
-    def _hashtable_compare_func(self, payload1, payload2) -> bool:
-        # func passed to LinkList compare
-
-    def add(self, name, value):
-        # accepts name/value pair and adds them to the hashtable
-        # if there are collisions, then they will be handled
-        # by using a linked-list
-
-    def get(self, name):
-        # returns value in hashtable for a given name
-        # if the value is not found, and exception will be raised
-
-    def contains(self, name) -> bool:
-        # returns true|false if the name is in the hashtable
-```
-*Tests*
-- [x] add
-- [x] contains
-- [x] not-contains
-- [x] hash deterministic
-- [x] hash in range
-- [x] hash diff value for diff keys
-- [x] collisions
-
-
-<!-- ********************* -->
-## Repeated Words
-repeated_words(): search the longstr for complete words, return the first word that has more than one occurrence
-- [x] Branch Created
-- [x] Function Created
-- [x] Tests
-- [x] Docs
-*API*
-```python
-def repeated_word(longstr: str) -> str:
-    # search the longstr for complete words
-    # return the first word that has more than
-    # one occurrence
-    # BigO Time==O(n) Space==O(n*1.3)
-```
-*Tests*
-- [x] Sample Text #1
-- [x] Sample Text #2
-- [x] Sample Text #3
-
-*Whiteboard*
-![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/repeated_word/challenges/repeated_word/assets/whiteboard.jpg)
-
-
-<!-- ********************* -->
-## Tree Intersection
-tree_intersection(): given two binary-trees, return an array containing shared values
-- [x] Branch Created
-- [x] Function Created
-- [x] Tests
-- [x] Docs
-- [x] Pep8 Code Styling
-*API*
-```python
-def tree_intersection(tree1, tree2: BinaryTree) -> list:
-    # return an array with all the values in both tree1 and tree2
-    # BigO Time==O(2n)  Space==0(1.3n) 30% for hashtable
-    # assumption: No Duplicates within Trees
-```
-*Tests*
-- [x] Func / Empty Trees
-- [x] Invalid Params
-- [x] All Matches
-- [x] No Matches
-- [x] Some Matching
-
-*Whiteboard*
-![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/tree_intersection/challenges/tree_intersection/assets/whiteboard.jpg)
-
-
-<!-- ********************* -->
-## Left Join
-left_join(): given two hash-tables, return a list of all items from the first h1 and the value that exists in h2, if no value exists return None
-- [x] LEFT JOINs two hashmaps into a single data structure.
-- [x] 1st param is hashmap with words and synonyms
-- [x] 2nd param is hashmap with words and antonyms
-- [x] Combine the key and corresponding values (if they exist) into a new data structure according to LEFT JOIN logic.
-- [X] Code Styling: PEP8
-```python
-def left_join(h1, h2: HashTable) -> list:
-    # perform a left-join on h1 against h2
-    # - returns a list of dict:{word,syntonym,antonym)
-    # - BigO time==O(n) space==0(n)
-    # -      worst: time==O(3n)
-```
-*Tests*
-- [x] Func / Input Validation
-- [x] 2 rec, 1 with value in 2nd hashtable
-- [x] Full Sample
-
-*Whiteboard*
-![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/left_join/challenges/left_join/assets/whiteboard.jpg)
-
-
-<!-- ********************* -->
-## Data Structure: Graphs
-*Features*
-- [x] Add Vertex
-- [x] Add Edge
-- [x] Get Neighbors
-- [x] Get Vertexes
-- [x] Get Length
-*API*
-```python
-class Vertex:
-    def __init__(self, value: Any):
-
-class Edge:
-    def __init__(self, vertex: Vertex, weight=0):
-
-class Graph:
-    def __init__(self):
-    def __len__(self) -> int:
-    def add_vertex(self, value) -> Vertex:
-    def add_edge(self, vert1: Vertex, vert2: Vertex, weight=0.0):
-    def get_neighbors(self, vertex: Vertex) -> List[Edge]:
-    def get_vertexes(self) -> Optional[List[Vertex]]:
-    def breadth_first(self, root, action_func):
-```
-*Tests*
-- [x] Node can be successfully added to the graph
-- [x] An edge can be successfully added to the graph
-- [x] A collection of all nodes can be properly retrieved from the graph
-- [x] All appropriate neighbors can be retrieved from the graph
-- [x] Neighbors are returned with the weight between nodes included
-- [x] The proper size is returned, representing the number of nodes in the graph
-- [x] A graph with only one node and edge can be properly returned
-- [x] An empty graph properly returns null
-
-*Whiteboard*
-![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/graph-day2/data-structures/graph/assets/whiteboard.jpg)
-
-
-<!-- ********************* -->
-## Graphs, Get Edges
-Overall: Identify if a given path exists through the Graph where path is a given list of values
-Use Case: Given a complete Graph data-structure, containing a variety of Vertexes/Edges containing city-names and costs, (Flight Routes) and a list of cities (Flight Plan), return True|False if the flight-plan can be performed and the cost.
-- [x] Function
-- [x] Docs
-- [x] Tests
-*API*
-```python
-def get_edges(graph: Graph, path_ro: List) -> Tuple[bool, float]:
-    # identify if a given path exists through the Graph
-    # where path is a given list of values
-    # @path_ro will be treated as read-only
-    # BigO time==O(V+P*E) .. where p is len(path_ro)
-    # BigO space==O(1)
-```
-*Tests*
-- [x] Invalid Input: Graph
-- [x] Invalid Input: List
-- [x] Flight-Plan with valid Flight-Route
-- [x] Flight-Plan with invalid Flight-Route
-
-*Whiteboard*
-![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/get-edges/challenges/get_edges/assets/whiteboard.jpg)
-
-
-<!-- ********************* -->
-## Graph: Depth-First Traversal.
-- [x] breadth first traversal method which takes a Binary Tree as its unique input.
-- [x] print every node encountered
-```python
-def depth_first_recursive(self, root: Vertex, action_func: Any) -> None:
-def depth_first(self, root: Vertex, action_func: Any) -> None:
-```
-*Tests*
-- [x] empty tree
-- [x] null tree object
-- [x] tree of nodes
