@@ -87,6 +87,64 @@ Table of Contents:
 
 # Data Structures
 
+## Arrays
+In Python, arrays are dynamic lists of pointers to memory addresses, Big O Time == 0(1)
+### Challenges
+<!-- ********************* -->
+#### Reverse Elements
+Create a function, which reverses an array/linked-list, as passed via a parameter and pass the new array back as the `return()` for the function.
+*Approach & Efficiency*
+My initial approach was to utilize the `list.insert()` and `list.pop()` to rebuild the list in reverse order. However, my white boarding partner showed me a more pythonic method utilizing slices with a -1 stride.
+*Solution*
+Two solutions were used, one that utilizes a while() loop and is destructive on the inbound array. The second is "pythonic" and utilizes an index slice and a -1 stride.
+#### Source: Python
+<a href="https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/challenges/array_reverse/array_reverse.py">Source Code</a>
+```python
+def reverse_array(orig):
+   """
+      Returns a list in reversed order
+      Mutable?
+   """
+   new = []
+   while len(orig) > 1:
+      new.insert(0, orig[0])
+      orig.pop(0)
+   return new
+
+def reverse_array2(orig):
+   return orig[::-1]
+
+arrOrig = [1,2,3,4,5]
+arrNew = reverse_array2(arrOrig)
+print(arrNew)
+```
+#### Whiteboard
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/master/challenges/array_reverse/assets/whiteboard.jpg)
+
+
+<!-- ********************* -->
+### Insert and Shift Array Elements
+Write a function which takes in an array and the value to be added. Without utilizing any of the built-in methods available to your language, return an array with the new value added at the middle index.
+*Solution*
+Create an index into the array where the value will be inserted, utilize slice and .append/.extend to construct a return array
+#### Source: Python
+<a href="https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/challenges/array_shift/array_shift.py">Source Code</a>
+#### Whiteboard
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/master/challenges/array_shift/assets/whiteboard.jpg)
+
+
+<!-- ********************* -->
+### Binary Search
+Write a function which takes in an array and the value to be searched. Return -1 if the value is not found, otherwise return the index (0 based). Incoming array is sorted.
+*Solution*
+Divide and Conquer! Look at the middle element, is it the middle element? Return. If not, create a new middle from either the smaller side or larger side. Repeat.
+#### Source: Python
+<a href="https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/challenges/array_binary_search/array_binary_search.py">Source Code</a>
+#### Whiteboard
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/master/challenges/array_binary_search/assets/whiteboard.jpg)
+
+
+
 ## Singly Linked Lists
 Linked-Lists (singly) are dynamic data-structures which resembles a length of chain, where the entire length of chain is the list and the individual links of the chain are nodes. A singlarly linked list is only traversable in one direction, but utilizing a head element that points to the first node in the list, the second node in the list points to the next link in the chain, and finally the last element in the list points to "none"
 
@@ -453,60 +511,6 @@ def depth_first(self, root: Vertex, action_func: Any) -> None:
 <!-- ********************* -->
 <!-- ********************* -->
 # Challenges
-
-
-<!-- ********************* -->
-## Array: Reverse
-Create a function, which reverses an array/linked-list, as passed via a parameter and pass the new array back as the `return()` for the function.
-*Approach & Efficiency*
-My initial approach was to utilize the `list.insert()` and `list.pop()` to rebuild the list in reverse order. However, my white boarding partner showed me a more pythonic method utilizing slices with a -1 stride.
-*Solution*
-Two solutions were used, one that utilizes a while() loop and is destructive on the inbound array. The second is "pythonic" and utilizes an index slice and a -1 stride.
-### Source: Python
-<a href="https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/challenges/array_reverse/array_reverse.py">Source Code</a>
-```python
-def reverse_array(orig):
-   """
-      Returns a list in reversed order
-      Mutable?
-   """
-   new = []
-   while len(orig) > 1:
-      new.insert(0, orig[0])
-      orig.pop(0)
-   return new
-
-def reverse_array2(orig):
-   return orig[::-1]
-
-arrOrig = [1,2,3,4,5]
-arrNew = reverse_array2(arrOrig)
-print(arrNew)
-```
-### Whiteboard
-![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/master/challenges/array_reverse/assets/whiteboard.jpg)
-
-
-<!-- ********************* -->
-## Array: Insert and Shift
-Write a function which takes in an array and the value to be added. Without utilizing any of the built-in methods available to your language, return an array with the new value added at the middle index.
-*Solution*
-Create an index into the array where the value will be inserted, utilize slice and .append/.extend to construct a return array
-### Source: Python
-<a href="https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/challenges/array_shift/array_shift.py">Source Code</a>
-### Whiteboard
-![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/master/challenges/array_shift/assets/whiteboard.jpg)
-
-
-<!-- ********************* -->
-## Array: Binary Search
-Write a function which takes in an array and the value to be searched. Return -1 if the value is not found, otherwise return the index (0 based). Incoming array is sorted.
-*Solution*
-Divide and Conquer! Look at the middle element, is it the middle element? Return. If not, create a new middle from either the smaller side or larger side. Repeat.
-### Source: Python
-<a href="https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/challenges/array_binary_search/array_binary_search.py">Source Code</a>
-### Whiteboard
-![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/master/challenges/array_binary_search/assets/whiteboard.jpg)
 
 
 <!-- ********************* -->
