@@ -15,6 +15,13 @@ Table of Contents:
       * [Stack (LIFO)](#stack-lifo)
          * [API: Python](#api-python-1)
          * [API: Golang](#api-golang-1)
+      * [Queue (FIFO)](#queue-fifo)
+         * [API: Python using Link-List](#api-python-using-link-list)
+         * [API: Python using Stack](#api-python-using-stack)
+      * [Binary Tree (BT)](#binary-tree-bt)
+         * [API](#api)
+      * [Binary Search Tree (BST)](#binary-search-tree-bst)
+         * [API](#api-1)
    * [Challenges](#challenges)
       * [Array: Reverse](#array-reverse)
          * [Source: Python](#source-python)
@@ -25,15 +32,21 @@ Table of Contents:
       * [Array: Binary Search](#array-binary-search)
          * [Source: Python](#source-python-2)
          * [Whiteboard](#whiteboard-2)
-         * [QUEUE Data Structure (FIFO)](#queue-data-structure-fifo)
-            * [API: Python](#api-python-2)
-      * [QUEUE: implemented using a Stack as the base data structure](#queue-implemented-using-a-stack-as-the-base-data-structure)
-      * [Demo: Animal Shelter](#demo-animal-shelter)
-      * [Demo: Balanced Brackets](#demo-balanced-brackets)
-   * [Binary Tree (BT) and Binary Search Tree (BST)](#binary-tree-bt-and-binary-search-tree-bst)
-      * [Demo: FizzBuzzTree](#demo-fizzbuzztree)
-      * [Breadth-first Traversal.](#breadth-first-traversal)
-      * [Demo: Find the Maximum Value](#demo-find-the-maximum-value)
+      * [Queue: Animal Shelter](#queue-animal-shelter)
+         * [API](#api-2)
+         * [Whiteboard*](#whiteboard-3)
+      * [Stack: Balanced Brackets](#stack-balanced-brackets)
+         * [API](#api-3)
+         * [Whiteboard](#whiteboard-4)
+      * [BinaryTree: Breadth-first Traversal](#binarytree-breadth-first-traversal)
+         * [API](#api-4)
+         * [whiteboard](#whiteboard-5)
+      * [BinaryTree: Find the Maximum Value](#binarytree-find-the-maximum-value)
+         * [API](#api-5)
+         * [Whiteboard](#whiteboard-6)
+      * [BinaryTree: FizzBuzzTree](#binarytree-fizzbuzztree)
+         * [API](#api-6)
+         * [whiteboard](#whiteboard-7)
       * [Bubble Sort](#bubble-sort)
       * [Insertion Sort](#insertion-sort)
       * [Merge Sort](#merge-sort)
@@ -46,11 +59,12 @@ Table of Contents:
       * [Graphs, Get Edges](#graphs-get-edges)
       * [Graph: Depth-First Traversal.](#graph-depth-first-traversal)
 
-<!-- Added by: mmc, at: Thu Sep 19 12:21:22 PDT 2019 -->
+<!-- Added by: mmc, at: Thu Sep 19 12:40:35 PDT 2019 -->
 
 <!--te-->
 
 # Data Structures
+
 ## Singly Linked Lists
 Linked-Lists (singly) are dynamic data-structures which resembles a length of chain, where the entire length of chain is the list and the individual links of the chain are nodes. A singlarly linked list is only traversable in one direction, but utilizing a head element that points to the first node in the list, the second node in the list points to the next link in the chain, and finally the last element in the list points to "none"
 
@@ -135,8 +149,9 @@ func (list *LinkList) MergeList(listA, listB LinkList) LinkList
 *MergeList()*
 ![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/master/data-structures/linked_list/assets/ll_merge-whiteboard.jpg)
 
+
 ## Stack (LIFO)
-<!-- ********************* -->
+
 ### API: Python
 ```python
 class Stack():
@@ -158,7 +173,6 @@ func (stack *Stack) Pop() (bool, interface{})
 func (stack *Stack) Push(val interface{}) bool
 func (stack *Stack) Peek() (bool, interface{})
 ```
-https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/golang/src/linklist
 
 *Tests*
 - [x] push onto a stack
@@ -169,6 +183,117 @@ https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/golan
 - [x] instantiate an empty stack
 
 
+## Queue (FIFO)
+### API: Python using Link-List
+```python
+class Queue():
+
+    def enqueue(val) -> bool:
+        # Add a value to the queue
+
+    def dequeue(val) -> bool:
+        # Remove entry from queue with a given value
+
+    def peek() -> str:
+        # Get value from the head of the queue (without removing it)
+```
+*Tests*
+- [x] enqueue into a queue
+- [x] enqueue multiple values into a queue
+- [x] dequeue out of a queue the expected value
+- [x] peek into a queue, seeing the expected value
+- [x] empty a queue after multiple dequeues
+- [x] instantiate an empty queue
+
+### API: Python using Stack
+```python
+class PseudoQueue(object):
+
+    def __init__(self):
+        # create Stack for internal data-struct
+
+    def count(self):
+        # pass through method to underlying data struct
+        # BigO == O(n)
+
+    def enqueue(self, val: str) -> bool:
+        # enqeue a value at the end queue
+        # BigO == O(1)
+
+    def dequeue(self) -> (str, bool):
+        # dequeue from head of queue
+        # BigO == O(n)
+        # Algo: use a second stack, as we need the bottom element on the first stack
+        # so we are going to unload the first stack, into a temp stack, in order to
+        # get at the bottom element of the first, then rebuild it from temp to first-stack
+```
+*Tests*
+- [x] class existence
+- [x] enqueue multiple items
+- [x] dequeue item
+- [x] dequeue multiple items
+- [x] dequeue all until empty
+
+*Whiteboard*
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/1805a3f00421d5f5f4bc5578e9cfc4522d47e9ba/challenges/queue_with_stacks/assets/whiteboard.jpg)
+
+
+<!-- ********************* -->
+## Binary Tree (BT)
+### API
+```python
+class TraverseMethod(IntEnum):
+    # enum class for traversal and processing order
+
+class Node:
+    # class for nodes within Tree
+
+    def __init__(self, value):
+        # constructor for creating Node
+
+class BinaryTree:
+
+    def __init__(self):
+        # constructor for creating BinaryTree
+
+    def traverse(self, method : TraverseMethod, action_func):
+        # visit each node in atree, using a specified method and call action_func() for each node
+
+        def _visit(node):
+            # recusive function for visiting each node
+
+    def returnAsArr(self, method : TraverseMethod):
+        # return the enter tree as an array using a specified method
+```
+
+## Binary Search Tree (BST)
+### API
+```python
+class BinarySearchTree(BinaryTree):
+    # class for binary-search-tree
+
+    def add(self, new_value):
+        # adds new value to the tree
+
+        def _find_and_insert(node):
+            # recursive method for evaluating a node and calling itself depending on the value
+
+    def contains(self, target_value) -> bool:
+        # accepts a value, and returns a boolean indicating whether or not the value is in the tree at least once.
+
+        def _visit(node):
+            # recursive function for isiting each node
+```
+*Tests*
+- [x] instantiate an empty tree
+- [x] instantiate a tree with a single root node
+- [x] add a left child and right child to a single root node
+- [x] return a collection from a preorder traversal
+- [x] return a collection from an inorder traversal
+- [x] return a collection from a postorder traversal
+
+*Whiteboard*
+None
 
 
 
@@ -228,75 +353,12 @@ Divide and Conquer! Look at the middle element, is it the middle element? Return
 ![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/master/challenges/array_binary_search/assets/whiteboard.jpg)
 
 
-
-
-
 <!-- ********************* -->
-### QUEUE Data Structure (FIFO)
-#### API: Python
-```python
-class Queue():
-
-    def enqueue(val) -> bool:
-        # Add a value to the queue
-
-    def dequeue(val) -> bool:
-        # Remove entry from queue with a given value
-
-    def peek() -> str:
-        # Get value from the head of the queue (without removing it)
-```
-*Tests*
-- [x] enqueue into a queue
-- [x] enqueue multiple values into a queue
-- [x] dequeue out of a queue the expected value
-- [x] peek into a queue, seeing the expected value
-- [x] empty a queue after multiple dequeues
-- [x] instantiate an empty queue
-
-
-<!-- ********************* -->
-## QUEUE: implemented using a Stack as the base data structure
-*API*
-```python
-class PseudoQueue(object):
-
-    def __init__(self):
-        # create Stack for internal data-struct
-
-    def count(self):
-        # pass through method to underlying data struct
-        # BigO == O(n)
-
-    def enqueue(self, val: str) -> bool:
-        # enqeue a value at the end queue
-        # BigO == O(1)
-
-    def dequeue(self) -> (str, bool):
-        # dequeue from head of queue
-        # BigO == O(n)
-        # Algo: use a second stack, as we need the bottom element on the first stack
-        # so we are going to unload the first stack, into a temp stack, in order to
-        # get at the bottom element of the first, then rebuild it from temp to first-stack
-```
-*Tests*
-- [x] class existence
-- [x] enqueue multiple items
-- [x] dequeue item
-- [x] dequeue multiple items
-- [x] dequeue all until empty
-
-*Whiteboard*
-![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/1805a3f00421d5f5f4bc5578e9cfc4522d47e9ba/challenges/queue_with_stacks/assets/whiteboard.jpg)
-
-
-<!-- ********************* -->
-## Demo: Animal Shelter
+## Queue: Animal Shelter
 create a class called AnimalShelter which holds only dogs/cats. The shelter operates as first-in / first-out
-*API*
+### API
 ```python
 class AnimalType(IntEnum):
-
 
 class Animal(object):
 
@@ -308,7 +370,6 @@ class Animal(object):
 
     def Factory(jsonstr : str): # -> Animal
         # create Animal class Dog|Cat for Json
-
 
 class Cat(Animal):
     def __init__(self):
@@ -336,14 +397,14 @@ class AnimalShelter():
 - [x] deq one (with pref)
 - [x] deq until empty
 
-*Whiteboard*
-![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/SOMEUUID/challenges/fifo_animal_shelter/assets/whiteboard.jpg)
+### Whiteboard*
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/master/challenges/fifo_animal_shelter/assets/whiteboard.jpg)
 
 
 <!-- ********************* -->
-## Demo: Balanced Brackets
+## Stack: Balanced Brackets
 Create a function, which takes in a string and tests it to make sure that any open brackets ('{','(','[') are balanced with their corresponding closing-brackets ('}',')',']').
-*API*
+### API
 ```python
 def multi_bracket_validation(input : str) -> boolean:
 ```
@@ -358,75 +419,51 @@ def multi_bracket_validation(input : str) -> boolean:
 - [x] Only Closed
 - [x] Empty
 
-*Whiteboard*
+### Whiteboard
 ![alt_text](https://github.com/marvincolgin/data-structures-and-algorithms/raw/multi_bracket_validation/challenges/multi_bracket_validation/assets/whiteboard.jpg)
 
-
 <!-- ********************* -->
-# Binary Tree (BT) and Binary Search Tree (BST)
-*API*
+## BinaryTree: Breadth-first Traversal
+- [x] breadth first traversal method which takes a Binary Tree as its unique input.
+- [x] print every node encountered
+### API
 ```python
-class TraverseMethod(IntEnum):
-    # enum class for traversal and processing order
-
-
-class Node:
-    # class for nodes within Tree
-
-    def __init__(self, value):
-        # constructor for creating Node
-
-
-class BinaryTree:
-
-    def __init__(self):
-        # constructor for creating BinaryTree
-
-    def traverse(self, method : TraverseMethod, action_func):
-        # visit each node in atree, using a specified method and call action_func() for each node
-
-        def _visit(node):
-            # recusive function for visiting each node
-
-    def returnAsArr(self, method : TraverseMethod):
-        # return the enter tree as an array using a specified method
-
-class BinarySearchTree(BinaryTree):
-    # class for binary-search-tree
-
-    def add(self, new_value):
-        # adds new value to the tree
-
-        def _find_and_insert(node):
-            # recursive method for evaluating a node and calling itself depending on the value
-
-    def contains(self, target_value) -> bool:
-        # accepts a value, and returns a boolean indicating whether or not the value is in the tree at least once.
-
-        def _visit(node):
-            # recursive function for isiting each node
+def breadth_first(tree, action_func):
 ```
 *Tests*
-- [x] instantiate an empty tree
-- [x] instantiate a tree with a single root node
-- [x] add a left child and right child to a single root node
-- [x] return a collection from a preorder traversal
-- [x] return a collection from an inorder traversal
-- [x] return a collection from a postorder traversal
+- [x] empty tree
+- [x] null tree object
+- [x] tree of nodes
 
-*Whiteboard*
-None
+### whiteboard
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/breadth_first/challenges/breadth_first/assets/whiteboard.jpg)
 
 
 <!-- ********************* -->
-## Demo: FizzBuzzTree
+## BinaryTree: Find the Maximum Value
+- [x] function called find_maximum_value which takes binary tree as its only input
+### API
+```python
+def find_max(tree : BinaryTree) -> (bool,int):
+```
+*Tests*
+- [x] find max
+- [x] empty tree
+- [x] tree == None
+
+### Whiteboard
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/c7e136b9fcf6c8522eb6d74643e65a4b8fb83c4e/challenges/find_maximum_binary_tree/assets/whiteboard.jpg)
+
+
+<!-- ********************* -->
+## BinaryTree: FizzBuzzTree
 Write a function called FizzBuzzTree which takes a tree as an argument.
 Determine weather or not the value of each node is divisible by 3, 5 or both, and change the value of each of the nodes:
 - [x] value is divisible by 3, replace the value with "Fizz"
 - [x] value is divisible by 5, replace the value with "Buzz"
 - [x] value is divisible by 3 and 5, replace the value with "FizzBuzz"
 - [x] Return the tree with its new values.
-*API*
+### API
 ```python
 def fizzBuzzTree(tree: BinaryTree) -> BinaryTree:
     # traverse tree, value = value%3==0 ? 'Fizz, value = value%5==0 ? 'Buzz' (set value to 'FizzBuzz' if both conditions met)
@@ -436,41 +473,13 @@ def fizzBuzzTree(tree: BinaryTree) -> BinaryTree:
 - [x] None that trigger
 - [x] All that trigger FizzBuzz
 
-*whiteboard*
+### whiteboard
 ![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/be06edcb4417bd0d1a66896bb24b9339ac6ea962/challenges/fizz_buzz_tree/assets/whiteboard.jpg)
 
 
-<!-- ********************* -->
-## Breadth-first Traversal.
-- [x] breadth first traversal method which takes a Binary Tree as its unique input.
-- [x] print every node encountered
-*API*
-```python
-def breadth_first(tree, action_func):
-```
-*Tests*
-- [x] empty tree
-- [x] null tree object
-- [x] tree of nodes
-
-*whiteboard*
-![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/breadth_first/challenges/breadth_first/assets/whiteboard.jpg)
 
 
-<!-- ********************* -->
-## Demo: Find the Maximum Value
-- [x] function called find_maximum_value which takes binary tree as its only input
-*API*
-```python
-def find_max(tree : BinaryTree) -> (bool,int):
-```
-*Tests*
-- [x] find max
-- [x] empty tree
-- [x] tree == None
 
-*Whiteboard*
-![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/c7e136b9fcf6c8522eb6d74643e65a4b8fb83c4e/challenges/find_maximum_binary_tree/assets/whiteboard.jpg)
 
 
 <!-- ********************* -->
