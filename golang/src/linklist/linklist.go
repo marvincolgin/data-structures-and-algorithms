@@ -161,7 +161,6 @@ func (list *LinkList) Remove(value interface{}) bool {
 
 	retVal := false
 	if list.Includes(value) {
-		//prev, cur = (LinkNode *)(nil), list.head
 		prev, cur := (*LinkNode)(nil), list.head
 
 		for cur != nil {
