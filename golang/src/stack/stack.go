@@ -20,12 +20,12 @@ func (stack *Stack) Count() int {
 }
 
 // Pop an item from the front of the stack
-func (stack *Stack) Pop() interface{} {
+func (stack *Stack) Pop() (bool, interface{}) {
 	b, val := stack._data.Peek()
 	if b {
 		stack._data.Remove(val)
 	}
-	return val
+	return b, val
 }
 
 // Push an item to top of Stack
@@ -34,37 +34,7 @@ func (stack *Stack) Push(val interface{}) bool {
 	return true
 }
 
-/*
-    def push(self, val: object) -> bool:
-        self._data.insert(val)
-        return True
-
-    def peek(self) -> [bool, object]:
-        return self._data.peekHead()
-
-
-# *********************************
-class Queue():
-
-    def __init__(self):
-        self._data = LinkList()
-
-    def count(self) -> int:
-        return self._data.count()
-
-    def toStr(self) -> str:
-        return self._data.toStr()
-
-    def enqueue(self, val) -> bool:
-        # Add a value to the queue
-        return self._data.append(val)
-
-    def dequeue(self, val) -> bool:
-        # Remove entry from queue with a given value
-        # NOTE: will only remove the first element found with val
-        return self._data.remove(val)
-
-    def peek(self) -> [bool, object]:
-        # Get value from the head of the queue (without removing it)
-        return self._data.peekHead()
-*/
+// Peek an item at top of Stack
+func (stack *Stack) Peek() (bool, interface{}) {
+	return stack._data.Peek()
+}

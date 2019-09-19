@@ -1,6 +1,7 @@
 package stack
 
 import (
+	"fmt"
 	"reflect"
 	"testing"
 )
@@ -8,7 +9,7 @@ import (
 func HelperStackAddLots() Stack {
 	stack := Stack{}
 	stack.Push("pao de queijo")
-	stack.Push("pappa sandwidh")
+	stack.Push("pappa sandwich")
 	stack.Push("banana")
 	return stack
 }
@@ -20,56 +21,85 @@ func TestCanCreate(t *testing.T) {
 	}
 }
 
-/*
-func TestNode(t *testing.T) {
+func TestPush(t *testing.T) {
+	stack := Stack{}
+	stack.Push("pao de queijo")
+	ab, as := stack.Peek()
+	eb, es := true, "pao de queijo"
 
-	node := LinkNode{value: "test"}
-	if node.value != "test" {
-		t.Error("node.value shuold be 'test', but it is ", node.value)
+	if ab != eb {
+		t.Error("TestPush(), actual:", ab, " expected:", eb)
+	}
+
+	if as != es {
+		t.Error("TestPush(), actual:", as, " expected:", es)
 	}
 }
-*/
+
+func TestCount(t *testing.T) {
+	stack := HelperStackAddLots()
+	ai := stack.Count()
+	ei := 3
+	if ai != ei {
+		t.Error("TestCount(), actual:", ai, " expected:", ei)
+	}
+}
+
+func TestPop(t *testing.T) {
+	stack := HelperStackAddLots()
+	eb, es := true, "banana"
+	ab, as := stack.Pop()
+	if as != es {
+		t.Error("TestPop(), actual:", as, " expected:", es)
+	}
+	if ab != eb {
+		t.Error("TestPop(), actual:", ab, " expected:", eb)
+	}
+
+	ei := 2
+	ai := stack.Count()
+	if ai != ei {
+		t.Error("TestPop(), actual:", ai, " expected:", ei)
+	}
+}
+
+func TestPopEmpty(t *testing.T) {
+	stack := HelperStackAddLots()
+
+	// Pop all of the items
+	for i := 0; i < stack.Count()+5; i++ {
+		// eb, es := false, interface{}(nil)
+		// ab, as := stack.Pop()
+
+		ab, val := stack.Pop()
+		as := fmt.Sprintf("%v", val)
+
+		eb := true
+		es := ""
+		if i == 0 {
+			es = "banana"
+		} else if i == 1 {
+			es = "pappa sandwich"
+		} else if i == 2 {
+			es = "pao de queijo"
+		} else {
+			// This is going past the number in the list
+			eb = false
+			es = ""
+		}
+
+		if ab != eb {
+			t.Error("TestPop(), actual:", ab, " expected:", eb)
+		}
+		if as != es {
+			t.Error("TestPop(), actual:", as, " expected:", es)
+		}
+
+	}
+
+}
 
 /*
-def test_stack_cancreate():
-    # STACK: instantiate an empty stack
-    stack = Stack()
-    expected = True
-    actual = isinstance(stack, Stack)
-    assert expected == actual
-
-
-def test_stack_classexists():
-    assert Stack()
-
-
-def test_stack_push():
-    # STACK: push onto a stack
-    stack = Stack()
-    stack.push('pao de queijo')
-    actualBool, actualStr = stack.peek()
-    expectedBool, expectedStr = True, 'pao de queijo'
-    assert actualBool == expectedBool
-    assert actualStr == expectedStr
-
-
-def test_stack_push_lots():
-    # STACK: push multiple values onto a stack
-    stack = helper_stack_addlots()
-    expected = 3
-    actual = stack.count()
-    assert expected == actual
-
-
-def test_stack_pop():
-    # STACK: pop off the stack
-    stack = helper_stack_addlots()
-    expected = 'banana'
-    actual = stack.pop()
-    assert expected == actual
-    assert stack.count() == 2
-
-
 def test_stack_empty_after_pops():
     # STACK: empty a stack after multiple pops
     stack = helper_stack_addlots()
@@ -93,92 +123,4 @@ def test_stack_peek():
     actualBool, actualStr = stack.peek()
     assert actualBool == expectedBool
     assert actualStr == expectedStr
-
-
-def test_queue_classexists():
-    assert Queue
-
-
-def test_queue_cancreate():
-    q = Queue()
-    expected = True
-    actual = isinstance(q, Queue)
-    assert expected == actual
-
-
-def helper_queue_enqueue_lots():
-    q = Queue()
-    q.enqueue('pao de queijo')
-    q.enqueue('pappa sandwidh')
-    q.enqueue('banana')
-    q.enqueue('crackers')
-    q.enqueue('strawberries')
-    q.enqueue('chocolate chips')
-    return q
-
-
-def test_queue_enqueue():
-    # enqueue into a queue
-    q = Queue()
-    q.enqueue('pao de queijo')
-    assert q.count() == 1
-
-
-def test_queue_enqueue_lots():
-    # enqueue multiple values into a queue
-    q = helper_queue_enqueue_lots()
-    assert q.count() == 6
-
-
-def test_queue_dequeue_success():
-    # dequeue out of a queue the expected value
-    q = helper_queue_enqueue_lots()
-    expected = True
-    actual = q.dequeue("banana")
-    assert expected == actual
-
-    expected = 5
-    actual = q.count()
-    assert expected == actual
-
-
-def test_queue_dequeue_error():
-    # dequeue out of a queue the expected value
-    q = helper_queue_enqueue_lots()
-    expected = False
-    actual = q.dequeue("somethingyouwontfind")
-    assert expected == actual
-
-    expected = 6
-    actual = q.count()
-    assert expected == actual
-
-
-def test_queue_peek():
-    # peek into a queue, seeing the expected value
-    q = helper_queue_enqueue_lots()
-    actualBool, actualStr = q.peek()
-    expectedBool = True
-    assert actualBool == expectedBool
-    expected = 'pao de queijo'
-    assert expected == actualStr
-
-
-def test_queue_peek_empty():
-    # peek into a queue, seeing the expected value
-    q = Queue()
-    actualBool, actualStr = q.peek()
-    expectedBool = False
-    assert actualBool == expectedBool
-    expected = ''
-    assert expected == actualStr
-
-
-def test_queue_dequeue_untilempty():
-    # empty a queue after multiple dequeues
-    q = helper_queue_enqueue_lots()
-    arr = q.toStr().split(',')
-    for x in arr:
-        q.dequeue(x)
-    assert q.count() == 0
 */

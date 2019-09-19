@@ -5,6 +5,38 @@ import (
 	"testing"
 )
 
+func HelperInsertMany() LinkList {
+	list := LinkList{}
+	list.Insert("0")
+	list.Insert("1")
+	list.Insert("2")
+	list.Insert("3")
+	list.Insert("4")
+	list.Insert("5")
+	list.Insert("6")
+	list.Insert("7")
+	list.Insert("8")
+	list.Insert("9")
+	return list
+}
+
+func HelperInsertBefore() LinkList {
+	list := LinkList{}
+	list.Insert("1")
+	list.Insert("3")
+	list.Insert("2")
+	return list
+}
+
+func HelperKthFromEnd() LinkList {
+	list := LinkList{}
+	list.Insert("2")
+	list.Insert("8")
+	list.Insert("3")
+	list.Insert("1")
+	return list
+}
+
 func TestNode(t *testing.T) {
 
 	node := LinkNode{value: "test"}
@@ -98,21 +130,6 @@ func TestInsertOne(t *testing.T) {
 	if list.head.value != "1" {
 		t.Error("list.head.valye != 1, actual:", list.head.value)
 	}
-}
-
-func HelperInsertMany() LinkList {
-	list := LinkList{}
-	list.Insert("0")
-	list.Insert("1")
-	list.Insert("2")
-	list.Insert("3")
-	list.Insert("4")
-	list.Insert("5")
-	list.Insert("6")
-	list.Insert("7")
-	list.Insert("8")
-	list.Insert("9")
-	return list
 }
 
 func TestInsertMany(t *testing.T) {
@@ -213,14 +230,6 @@ func TestPeekHeadEmpty(t *testing.T) {
 	}
 }
 
-func HelperInsertBefore() LinkList {
-	list := LinkList{}
-	list.Insert("1")
-	list.Insert("3")
-	list.Insert("2")
-	return list
-}
-
 func TestInsertBefore(t *testing.T) {
 	var list LinkList
 	var expected, actual string
@@ -284,15 +293,6 @@ func TestInsertAfter(t *testing.T) {
 	if expectedBool != actualBool {
 		t.Error("InsertAfter(), expectedBool:", expectedBool, " actualBool:", actualBool)
 	}
-}
-
-func HelperKthFromEnd() LinkList {
-	list := LinkList{}
-	list.Insert("2")
-	list.Insert("8")
-	list.Insert("3")
-	list.Insert("1")
-	return list
 }
 
 func TestKthFromEnd(t *testing.T) {
