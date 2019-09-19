@@ -85,8 +85,8 @@ class ListNode()
          # constructor
 ```
 ### API: Golang
-<a href="https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/data-structures/linked_list/linklist.go">Source Code</a>
-```
+<a href="https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/golang/src/linklist">Source Code</a>
+```golang
 type LinkNode struct {
     value interface{}
 	next  *LinkNode
@@ -161,13 +161,29 @@ Divide and Conquer! Look at the middle element, is it the middle element? Return
 
 <!-- ********************* -->
 ## STACK Data Structure (LIFO)
-*API*
+### API: Python
 ```python
 class Stack():
     def push(val) -> bool:
     def pop() -> str:
     def peek() -> str:
 ```
+### API: Golang
+<a href="https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/golang/src/linklist">Source Code</a>
+``` golang
+// Stack implementation of LIFO
+type Stack struct {
+	_data linklist.LinkList
+}
+
+func (stack *Stack) Init()
+func (stack *Stack) Count() int
+func (stack *Stack) Pop() (bool, interface{})
+func (stack *Stack) Push(val interface{}) bool
+func (stack *Stack) Peek() (bool, interface{})
+```
+https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/golang/src/linklist
+
 *Tests*
 - [x] push onto a stack
 - [x] push multiple values onto a stack
