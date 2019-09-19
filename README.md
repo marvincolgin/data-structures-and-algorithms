@@ -8,6 +8,17 @@ Vin Colgin Summer 2019
 Table of Contents:
 <!--ts-->
    * [Data Structures](#data-structures)
+      * [Arrays](#arrays)
+         * [Challenges](#challenges)
+            * [Reverse Elements](#reverse-elements)
+               * [Source: Python](#source-python)
+               * [Whiteboard](#whiteboard)
+            * [Insert and Shift Array Elements](#insert-and-shift-array-elements)
+               * [Source: Python](#source-python-1)
+               * [Whiteboard](#whiteboard-1)
+            * [Binary Search](#binary-search)
+               * [Source: Python](#source-python-2)
+               * [Whiteboard](#whiteboard-2)
       * [Singly Linked Lists](#singly-linked-lists)
          * [API: Python](#api-python)
          * [API: Golang](#api-golang)
@@ -15,58 +26,52 @@ Table of Contents:
       * [Stack (LIFO)](#stack-lifo)
          * [API: Python](#api-python-1)
          * [API: Golang](#api-golang-1)
+         * [Challenges](#challenges-1)
+            * [Balanced Brackets](#balanced-brackets)
+               * [API](#api)
+               * [Whiteboard](#whiteboard-3)
       * [Queue (FIFO)](#queue-fifo)
          * [API: Python using Link-List](#api-python-using-link-list)
          * [API: Python using Stack](#api-python-using-stack)
+         * [Challenges](#challenges-2)
+            * [Queue: Animal Shelter](#queue-animal-shelter)
+               * [API](#api-1)
+               * [Whiteboard](#whiteboard-4)
       * [Binary Tree (BT)](#binary-tree-bt)
-         * [API](#api)
-      * [Binary Search Tree (BST)](#binary-search-tree-bst)
-         * [API](#api-1)
-      * [Hash Table](#hash-table)
          * [API](#api-2)
-      * [Graphs](#graphs)
-         * [API](#api-3)
-         * [Whiteboard](#whiteboard)
-         * [Challenges](#challenges)
-            * [Get Graph Edges](#get-graph-edges)
-            * [API](#api-4)
-            * [Whiteboard](#whiteboard-1)
-         * [Depth-First Traversal](#depth-first-traversal)
-            * [API](#api-5)
-   * [Challenges](#challenges-1)
-      * [Array: Reverse](#array-reverse)
-         * [Source: Python](#source-python)
-         * [Whiteboard](#whiteboard-2)
-      * [Array: Insert and Shift](#array-insert-and-shift)
-         * [Source: Python](#source-python-1)
-         * [Whiteboard](#whiteboard-3)
-      * [Array: Binary Search](#array-binary-search)
-         * [Source: Python](#source-python-2)
-         * [Whiteboard](#whiteboard-4)
-      * [Queue: Animal Shelter](#queue-animal-shelter)
-         * [API](#api-6)
-         * [Whiteboard](#whiteboard-5)
-      * [Stack: Balanced Brackets](#stack-balanced-brackets)
+         * [Challenges](#challenges-3)
+            * [Breadth-first Traversal](#breadth-first-traversal)
+               * [API](#api-3)
+               * [whiteboard](#whiteboard-5)
+            * [Find the Maximum Value](#find-the-maximum-value)
+               * [API](#api-4)
+               * [Whiteboard](#whiteboard-6)
+            * [FizzBuzzTree](#fizzbuzztree)
+               * [API](#api-5)
+               * [whiteboard](#whiteboard-7)
+            * [Tree Intersection](#tree-intersection)
+               * [API](#api-6)
+               * [Whiteboard](#whiteboard-8)
+      * [Binary Search Tree (BST)](#binary-search-tree-bst)
          * [API](#api-7)
-         * [Whiteboard](#whiteboard-6)
-      * [BinaryTree: Breadth-first Traversal](#binarytree-breadth-first-traversal)
+      * [Hash Table](#hash-table)
          * [API](#api-8)
-         * [whiteboard](#whiteboard-7)
-      * [BinaryTree: Find the Maximum Value](#binarytree-find-the-maximum-value)
-         * [API](#api-9)
-         * [Whiteboard](#whiteboard-8)
-      * [BinaryTree: FizzBuzzTree](#binarytree-fizzbuzztree)
-         * [API](#api-10)
-         * [whiteboard](#whiteboard-9)
-      * [Hash Table: Repeated Words](#hash-table-repeated-words)
+         * [Challenges](#challenges-4)
+            * [Hash Table: Repeated Words](#hash-table-repeated-words)
+               * [API](#api-9)
+               * [Whiteboard](#whiteboard-9)
+            * [Hash Table: Left Join](#hash-table-left-join)
+               * [API](#api-10)
+               * [Whiteboard](#whiteboard-10)
+      * [Graphs](#graphs)
          * [API](#api-11)
-         * [Whiteboard](#whiteboard-10)
-      * [Binary Tree: Tree Intersection](#binary-tree-tree-intersection)
-         * [API](#api-12)
          * [Whiteboard](#whiteboard-11)
-      * [Hash Table: Left Join](#hash-table-left-join)
-         * [API](#api-13)
-         * [Whiteboard](#whiteboard-12)
+         * [Challenges](#challenges-5)
+            * [Get Graph Edges](#get-graph-edges)
+               * [API](#api-12)
+               * [Whiteboard](#whiteboard-12)
+            * [Depth-First Traversal](#depth-first-traversal)
+               * [API](#api-13)
    * [Algorithms](#algorithms)
       * [Bubble Sort](#bubble-sort)
          * [API](#api-14)
@@ -77,7 +82,7 @@ Table of Contents:
       * [Quick Sort](#quick-sort)
          * [API](#api-17)
 
-<!-- Added by: mmc, at: Thu Sep 19 14:47:11 PDT 2019 -->
+<!-- Added by: mmc, at: Thu Sep 19 15:00:32 PDT 2019 -->
 
 <!--te-->
 
@@ -97,7 +102,7 @@ Create a function, which reverses an array/linked-list, as passed via a paramete
 My initial approach was to utilize the `list.insert()` and `list.pop()` to rebuild the list in reverse order. However, my white boarding partner showed me a more pythonic method utilizing slices with a -1 stride.
 *Solution*
 Two solutions were used, one that utilizes a while() loop and is destructive on the inbound array. The second is "pythonic" and utilizes an index slice and a -1 stride.
-#### Source: Python
+##### Source: Python
 <a href="https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/challenges/array_reverse/array_reverse.py">Source Code</a>
 ```python
 def reverse_array(orig):
@@ -118,31 +123,34 @@ arrOrig = [1,2,3,4,5]
 arrNew = reverse_array2(arrOrig)
 print(arrNew)
 ```
-#### Whiteboard
+##### Whiteboard
 ![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/master/challenges/array_reverse/assets/whiteboard.jpg)
 
 
 <!-- ********************* -->
-### Insert and Shift Array Elements
+#### Insert and Shift Array Elements
 Write a function which takes in an array and the value to be added. Without utilizing any of the built-in methods available to your language, return an array with the new value added at the middle index.
 *Solution*
 Create an index into the array where the value will be inserted, utilize slice and .append/.extend to construct a return array
-#### Source: Python
+##### Source: Python
 <a href="https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/challenges/array_shift/array_shift.py">Source Code</a>
-#### Whiteboard
+##### Whiteboard
 ![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/master/challenges/array_shift/assets/whiteboard.jpg)
 
 
 <!-- ********************* -->
-### Binary Search
+#### Binary Search
 Write a function which takes in an array and the value to be searched. Return -1 if the value is not found, otherwise return the index (0 based). Incoming array is sorted.
 *Solution*
 Divide and Conquer! Look at the middle element, is it the middle element? Return. If not, create a new middle from either the smaller side or larger side. Repeat.
-#### Source: Python
+##### Source: Python
 <a href="https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/challenges/array_binary_search/array_binary_search.py">Source Code</a>
-#### Whiteboard
+##### Whiteboard
 ![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/master/challenges/array_binary_search/assets/whiteboard.jpg)
 
+
+<!-- ********************* -->
+<!-- ********************* -->
 
 
 ## Singly Linked Lists
@@ -262,6 +270,30 @@ func (stack *Stack) Peek() (bool, interface{})
 - [x] peek the next item on the stack
 - [x] instantiate an empty stack
 
+### Challenges
+
+<!-- ********************* -->
+#### Balanced Brackets
+Create a function, which takes in a string and tests it to make sure that any open brackets ('{','(','[') are balanced with their corresponding closing-brackets ('}',')',']').
+##### API
+```python
+def multi_bracket_validation(input : str) -> boolean:
+```
+*Tests*
+- [x] Balanced
+- [x] Balanced Complicated
+- [x] Balanced extra characters
+- [x] Balanced nested
+- [x] Balanced alternating
+- [x] Unbalanced
+- [x] Only Open
+- [x] Only Closed
+- [x] Empty
+
+##### Whiteboard
+![alt_text](https://github.com/marvincolgin/data-structures-and-algorithms/raw/multi_bracket_validation/challenges/multi_bracket_validation/assets/whiteboard.jpg)
+
+
 
 ## Queue (FIFO)
 ### API: Python using Link-List
@@ -318,6 +350,59 @@ class PseudoQueue(object):
 ![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/1805a3f00421d5f5f4bc5578e9cfc4522d47e9ba/challenges/queue_with_stacks/assets/whiteboard.jpg)
 
 
+### Challenges
+
+
+<!-- ********************* -->
+#### Queue: Animal Shelter
+create a class called AnimalShelter which holds only dogs/cats. The shelter operates as first-in / first-out
+##### API
+```python
+class AnimalType(IntEnum):
+
+class Animal(object):
+
+    def __init__(self, animaltype : AnimalType):
+        # create internal data structs
+
+    def serialize(self):
+        # return json for obj
+
+    def Factory(jsonstr : str): # -> Animal
+        # create Animal class Dog|Cat for Json
+
+class Cat(Animal):
+    def __init__(self):
+        # create internal data structs
+
+class Dog(Animal):
+    def __init__(self):
+        # create internal data structs
+
+class AnimalShelter():
+    def __init__(self):
+        # create internal data structs
+
+    def enqueue(self, animal : Animal):
+        # add animal to shelter
+
+    def dequeue(self, pref : AnimalType=None) -> Animal:
+        # grab animal that has been in queue the longest, optionally provide parameter
+```
+*Tests*
+- [x] class existence
+- [x] enq one
+- [x] enq many
+- [x] deq one (no pref)
+- [x] deq one (with pref)
+- [x] deq until empty
+
+##### Whiteboard
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/master/challenges/fifo_animal_shelter/assets/whiteboard.jpg)
+
+
+
+
 <!-- ********************* -->
 ## Binary Tree (BT)
 ### API
@@ -345,6 +430,87 @@ class BinaryTree:
     def returnAsArr(self, method : TraverseMethod):
         # return the enter tree as an array using a specified method
 ```
+### Challenges
+
+<!-- ********************* -->
+#### Breadth-first Traversal
+- [x] breadth first traversal method which takes a Binary Tree as its unique input.
+- [x] print every node encountered
+##### API
+```python
+def breadth_first(tree, action_func):
+```
+*Tests*
+- [x] empty tree
+- [x] null tree object
+- [x] tree of nodes
+
+##### whiteboard
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/breadth_first/challenges/breadth_first/assets/whiteboard.jpg)
+
+
+<!-- ********************* -->
+#### Find the Maximum Value
+- [x] function called find_maximum_value which takes binary tree as its only input
+##### API
+```python
+def find_max(tree : BinaryTree) -> (bool,int):
+```
+*Tests*
+- [x] find max
+- [x] empty tree
+- [x] tree == None
+
+##### Whiteboard
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/c7e136b9fcf6c8522eb6d74643e65a4b8fb83c4e/challenges/find_maximum_binary_tree/assets/whiteboard.jpg)
+
+
+<!-- ********************* -->
+#### FizzBuzzTree
+Write a function called FizzBuzzTree which takes a tree as an argument.
+Determine weather or not the value of each node is divisible by 3, 5 or both, and change the value of each of the nodes:
+- [x] value is divisible by 3, replace the value with "Fizz"
+- [x] value is divisible by 5, replace the value with "Buzz"
+- [x] value is divisible by 3 and 5, replace the value with "FizzBuzz"
+- [x] Return the tree with its new values.
+##### API
+```python
+def fizzBuzzTree(tree: BinaryTree) -> BinaryTree:
+    # traverse tree, value = value%3==0 ? 'Fizz, value = value%5==0 ? 'Buzz' (set value to 'FizzBuzz' if both conditions met)
+```
+*Tests*
+- [x] empty tree
+- [x] None that trigger
+- [x] All that trigger FizzBuzz
+
+##### whiteboard
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/be06edcb4417bd0d1a66896bb24b9339ac6ea962/challenges/fizz_buzz_tree/assets/whiteboard.jpg)
+
+<!-- ********************* -->
+#### Tree Intersection
+tree_intersection(): given two binary-trees, return an array containing shared values
+- [x] Branch Created
+- [x] Function Created
+- [x] Tests
+- [x] Docs
+- [x] Pep8 Code Styling
+##### API
+```python
+def tree_intersection(tree1, tree2: BinaryTree) -> list:
+    # return an array with all the values in both tree1 and tree2
+    # BigO Time==O(2n)  Space==0(1.3n) 30% for hashtable
+    # assumption: No Duplicates within Trees
+```
+*Tests*
+- [x] Func / Empty Trees
+- [x] Invalid Params
+- [x] All Matches
+- [x] No Matches
+- [x] Some Matching
+
+##### Whiteboard
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/tree_intersection/challenges/tree_intersection/assets/whiteboard.jpg)
+
 
 ## Binary Search Tree (BST)
 ### API
@@ -374,6 +540,9 @@ class BinarySearchTree(BinaryTree):
 
 *Whiteboard*
 None
+
+
+
 
 <!-- ********************* -->
 ##  Hash Table
@@ -422,6 +591,57 @@ class HashTable():
 - [x] hash in range
 - [x] hash diff value for diff keys
 - [x] collisions
+
+### Challenges
+
+<!-- ********************* -->
+#### Repeated Words
+repeated_words(): search the longstr for complete words, return the first word that has more than one occurrence
+- [x] Branch Created
+- [x] Function Created
+- [x] Tests
+- [x] Docs
+##### API
+```python
+def repeated_word(longstr: str) -> str:
+    # search the longstr for complete words
+    # return the first word that has more than
+    # one occurrence
+    # BigO Time==O(n) Space==O(n*1.3)
+```
+*Tests*
+- [x] Sample Text #1
+- [x] Sample Text #2
+- [x] Sample Text #3
+
+##### Whiteboard
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/repeated_word/challenges/repeated_word/assets/whiteboard.jpg)
+
+
+<!-- ********************* -->
+#### Left Join
+left_join(): given two hash-tables, return a list of all items from the first h1 and the value that exists in h2, if no value exists return None
+- [x] LEFT JOINs two hashmaps into a single data structure.
+- [x] 1st param is hashmap with words and synonyms
+- [x] 2nd param is hashmap with words and antonyms
+- [x] Combine the key and corresponding values (if they exist) into a new data structure according to LEFT JOIN logic.
+- [X] Code Styling: PEP8
+##### API
+```python
+def left_join(h1, h2: HashTable) -> list:
+    # perform a left-join on h1 against h2
+    # - returns a list of dict:{word,syntonym,antonym)
+    # - BigO time==O(n) space==0(n)
+    # -      worst: time==O(3n)
+```
+*Tests*
+- [x] Func / Input Validation
+- [x] 2 rec, 1 with value in 2nd hashtable
+- [x] Full Sample
+
+##### Whiteboard
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/left_join/challenges/left_join/assets/whiteboard.jpg)
+
 
 
 <!-- ********************* -->
@@ -473,7 +693,7 @@ Use Case: Given a complete Graph data-structure, containing a variety of Vertexe
 - [x] Function
 - [x] Docs
 - [x] Tests
-#### API
+##### API
 ```python
 def get_edges(graph: Graph, path_ro: List) -> Tuple[bool, float]:
     # identify if a given path exists through the Graph
@@ -488,15 +708,15 @@ def get_edges(graph: Graph, path_ro: List) -> Tuple[bool, float]:
 - [x] Flight-Plan with valid Flight-Route
 - [x] Flight-Plan with invalid Flight-Route
 
-#### Whiteboard
+##### Whiteboard
 ![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/get-edges/challenges/get_edges/assets/whiteboard.jpg)
 
 
 <!-- ********************* -->
-### Depth-First Traversal
+#### Depth-First Traversal
 - [x] breadth first traversal method which takes a Binary Tree as its unique input.
 - [x] print every node encountered
-#### API
+##### API
 ```python
 def depth_first_recursive(self, root: Vertex, action_func: Any) -> None:
 def depth_first(self, root: Vertex, action_func: Any) -> None:
@@ -505,211 +725,6 @@ def depth_first(self, root: Vertex, action_func: Any) -> None:
 - [x] empty tree
 - [x] null tree object
 - [x] tree of nodes
-
-
-
-<!-- ********************* -->
-<!-- ********************* -->
-# Challenges
-
-
-<!-- ********************* -->
-## Queue: Animal Shelter
-create a class called AnimalShelter which holds only dogs/cats. The shelter operates as first-in / first-out
-### API
-```python
-class AnimalType(IntEnum):
-
-class Animal(object):
-
-    def __init__(self, animaltype : AnimalType):
-        # create internal data structs
-
-    def serialize(self):
-        # return json for obj
-
-    def Factory(jsonstr : str): # -> Animal
-        # create Animal class Dog|Cat for Json
-
-class Cat(Animal):
-    def __init__(self):
-        # create internal data structs
-
-class Dog(Animal):
-    def __init__(self):
-        # create internal data structs
-
-class AnimalShelter():
-    def __init__(self):
-        # create internal data structs
-
-    def enqueue(self, animal : Animal):
-        # add animal to shelter
-
-    def dequeue(self, pref : AnimalType=None) -> Animal:
-        # grab animal that has been in queue the longest, optionally provide parameter
-```
-*Tests*
-- [x] class existence
-- [x] enq one
-- [x] enq many
-- [x] deq one (no pref)
-- [x] deq one (with pref)
-- [x] deq until empty
-
-### Whiteboard
-![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/master/challenges/fifo_animal_shelter/assets/whiteboard.jpg)
-
-
-<!-- ********************* -->
-## Stack: Balanced Brackets
-Create a function, which takes in a string and tests it to make sure that any open brackets ('{','(','[') are balanced with their corresponding closing-brackets ('}',')',']').
-### API
-```python
-def multi_bracket_validation(input : str) -> boolean:
-```
-*Tests*
-- [x] Balanced
-- [x] Balanced Complicated
-- [x] Balanced extra characters
-- [x] Balanced nested
-- [x] Balanced alternating
-- [x] Unbalanced
-- [x] Only Open
-- [x] Only Closed
-- [x] Empty
-
-### Whiteboard
-![alt_text](https://github.com/marvincolgin/data-structures-and-algorithms/raw/multi_bracket_validation/challenges/multi_bracket_validation/assets/whiteboard.jpg)
-
-<!-- ********************* -->
-## BinaryTree: Breadth-first Traversal
-- [x] breadth first traversal method which takes a Binary Tree as its unique input.
-- [x] print every node encountered
-### API
-```python
-def breadth_first(tree, action_func):
-```
-*Tests*
-- [x] empty tree
-- [x] null tree object
-- [x] tree of nodes
-
-### whiteboard
-![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/breadth_first/challenges/breadth_first/assets/whiteboard.jpg)
-
-
-<!-- ********************* -->
-## BinaryTree: Find the Maximum Value
-- [x] function called find_maximum_value which takes binary tree as its only input
-### API
-```python
-def find_max(tree : BinaryTree) -> (bool,int):
-```
-*Tests*
-- [x] find max
-- [x] empty tree
-- [x] tree == None
-
-### Whiteboard
-![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/c7e136b9fcf6c8522eb6d74643e65a4b8fb83c4e/challenges/find_maximum_binary_tree/assets/whiteboard.jpg)
-
-
-<!-- ********************* -->
-## BinaryTree: FizzBuzzTree
-Write a function called FizzBuzzTree which takes a tree as an argument.
-Determine weather or not the value of each node is divisible by 3, 5 or both, and change the value of each of the nodes:
-- [x] value is divisible by 3, replace the value with "Fizz"
-- [x] value is divisible by 5, replace the value with "Buzz"
-- [x] value is divisible by 3 and 5, replace the value with "FizzBuzz"
-- [x] Return the tree with its new values.
-### API
-```python
-def fizzBuzzTree(tree: BinaryTree) -> BinaryTree:
-    # traverse tree, value = value%3==0 ? 'Fizz, value = value%5==0 ? 'Buzz' (set value to 'FizzBuzz' if both conditions met)
-```
-*Tests*
-- [x] empty tree
-- [x] None that trigger
-- [x] All that trigger FizzBuzz
-
-### whiteboard
-![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/be06edcb4417bd0d1a66896bb24b9339ac6ea962/challenges/fizz_buzz_tree/assets/whiteboard.jpg)
-
-
-<!-- ********************* -->
-## Hash Table: Repeated Words
-repeated_words(): search the longstr for complete words, return the first word that has more than one occurrence
-- [x] Branch Created
-- [x] Function Created
-- [x] Tests
-- [x] Docs
-### API
-```python
-def repeated_word(longstr: str) -> str:
-    # search the longstr for complete words
-    # return the first word that has more than
-    # one occurrence
-    # BigO Time==O(n) Space==O(n*1.3)
-```
-*Tests*
-- [x] Sample Text #1
-- [x] Sample Text #2
-- [x] Sample Text #3
-
-### Whiteboard
-![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/repeated_word/challenges/repeated_word/assets/whiteboard.jpg)
-
-
-<!-- ********************* -->
-## Binary Tree: Tree Intersection
-tree_intersection(): given two binary-trees, return an array containing shared values
-- [x] Branch Created
-- [x] Function Created
-- [x] Tests
-- [x] Docs
-- [x] Pep8 Code Styling
-### API
-```python
-def tree_intersection(tree1, tree2: BinaryTree) -> list:
-    # return an array with all the values in both tree1 and tree2
-    # BigO Time==O(2n)  Space==0(1.3n) 30% for hashtable
-    # assumption: No Duplicates within Trees
-```
-*Tests*
-- [x] Func / Empty Trees
-- [x] Invalid Params
-- [x] All Matches
-- [x] No Matches
-- [x] Some Matching
-
-### Whiteboard
-![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/tree_intersection/challenges/tree_intersection/assets/whiteboard.jpg)
-
-
-<!-- ********************* -->
-## Hash Table: Left Join
-left_join(): given two hash-tables, return a list of all items from the first h1 and the value that exists in h2, if no value exists return None
-- [x] LEFT JOINs two hashmaps into a single data structure.
-- [x] 1st param is hashmap with words and synonyms
-- [x] 2nd param is hashmap with words and antonyms
-- [x] Combine the key and corresponding values (if they exist) into a new data structure according to LEFT JOIN logic.
-- [X] Code Styling: PEP8
-### API
-```python
-def left_join(h1, h2: HashTable) -> list:
-    # perform a left-join on h1 against h2
-    # - returns a list of dict:{word,syntonym,antonym)
-    # - BigO time==O(n) space==0(n)
-    # -      worst: time==O(3n)
-```
-*Tests*
-- [x] Func / Input Validation
-- [x] 2 rec, 1 with value in 2nd hashtable
-- [x] Full Sample
-
-### Whiteboard
-![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/left_join/challenges/left_join/assets/whiteboard.jpg)
 
 
 
