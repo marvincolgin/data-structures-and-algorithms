@@ -1,94 +1,228 @@
-Data Structures and Algorithms
+**Algorithms and Data Structures**
 
-Written in Python/Golang
+*Written in Python/Golang*
 
-Vin Colgin Summer 2019
+Vin Colgin (Summer 2019)
+
+https://github.com/marvincolgin
+
+https://linkedin.com/in/mcolgin
 
 
-Table of Contents:
+
+**Table of Contents:**
 <!--ts-->
+   * [Algorithms](#algorithms)
+      * [Bubble Sort](#bubble-sort)
+         * [API](#api)
+         * [Source](#source)
+         * [Tests](#tests)
+      * [Insertion Sort](#insertion-sort)
+         * [API](#api-1)
+         * [Source](#source-1)
+         * [Tests](#tests-1)
+      * [Merge Sort](#merge-sort)
+         * [API](#api-2)
+         * [Source](#source-2)
+         * [Tests](#tests-2)
+      * [Quick Sort](#quick-sort)
+         * [API](#api-3)
+         * [Source](#source-3)
+         * [Tests](#tests-3)
    * [Data Structures](#data-structures)
       * [Arrays](#arrays)
          * [Challenges](#challenges)
             * [Reverse Elements](#reverse-elements)
+            * [API](#api-4)
                * [Source: Python](#source-python)
                * [Whiteboard](#whiteboard)
             * [Insert and Shift Array Elements](#insert-and-shift-array-elements)
-               * [Source: Python](#source-python-1)
+               * [Source](#source-4)
                * [Whiteboard](#whiteboard-1)
             * [Binary Search](#binary-search)
-               * [Source: Python](#source-python-2)
+               * [Source](#source-5)
                * [Whiteboard](#whiteboard-2)
       * [Singly Linked Lists](#singly-linked-lists)
          * [API: Python](#api-python)
+         * [Source: Python](#source-python-1)
          * [API: Golang](#api-golang)
+         * [Source: Golang](#source-golang)
          * [Whiteboards](#whiteboards)
       * [Stack (LIFO)](#stack-lifo)
          * [API: Python](#api-python-1)
+         * [Source: Python](#source-python-2)
          * [API: Golang](#api-golang-1)
+         * [Source: Golang](#source-golang-1)
          * [Challenges](#challenges-1)
             * [Balanced Brackets](#balanced-brackets)
-               * [API](#api)
+               * [API](#api-5)
+               * [Source](#source-6)
                * [Whiteboard](#whiteboard-3)
       * [Queue (FIFO)](#queue-fifo)
          * [API: Python using Link-List](#api-python-using-link-list)
+         * [Source](#source-7)
          * [API: Python using Stack](#api-python-using-stack)
+         * [Source:](#source-8)
          * [Challenges](#challenges-2)
             * [Queue: Animal Shelter](#queue-animal-shelter)
-               * [API](#api-1)
+               * [API](#api-6)
+               * [Source](#source-9)
                * [Whiteboard](#whiteboard-4)
       * [Binary Tree (BT)](#binary-tree-bt)
-         * [API](#api-2)
+         * [API](#api-7)
+         * [Source](#source-10)
          * [Challenges](#challenges-3)
             * [Breadth-first Traversal](#breadth-first-traversal)
-               * [API](#api-3)
+               * [API](#api-8)
+         * [Source](#source-11)
                * [whiteboard](#whiteboard-5)
             * [Find the Maximum Value](#find-the-maximum-value)
-               * [API](#api-4)
+               * [API](#api-9)
+               * [Source](#source-12)
                * [Whiteboard](#whiteboard-6)
             * [FizzBuzzTree](#fizzbuzztree)
-               * [API](#api-5)
+               * [API](#api-10)
+               * [Source](#source-13)
                * [whiteboard](#whiteboard-7)
             * [Tree Intersection](#tree-intersection)
-               * [API](#api-6)
+               * [API](#api-11)
+               * [Source](#source-14)
                * [Whiteboard](#whiteboard-8)
       * [Binary Search Tree (BST)](#binary-search-tree-bst)
-         * [API](#api-7)
+         * [API](#api-12)
+         * [Source](#source-15)
+         * [Whiteboard](#whiteboard-9)
       * [Hash Table](#hash-table)
-         * [API](#api-8)
+         * [API](#api-13)
+         * [Source](#source-16)
          * [Challenges](#challenges-4)
-            * [Hash Table: Repeated Words](#hash-table-repeated-words)
-               * [API](#api-9)
-               * [Whiteboard](#whiteboard-9)
-            * [Hash Table: Left Join](#hash-table-left-join)
-               * [API](#api-10)
+            * [Repeated Words](#repeated-words)
+               * [API](#api-14)
+               * [Source](#source-17)
                * [Whiteboard](#whiteboard-10)
+            * [Left Join](#left-join)
+               * [API](#api-15)
+               * [Source](#source-18)
+               * [Whiteboard](#whiteboard-11)
       * [Graphs](#graphs)
-         * [API](#api-11)
-         * [Whiteboard](#whiteboard-11)
+         * [API](#api-16)
+         * [Source](#source-19)
+         * [Whiteboard](#whiteboard-12)
          * [Challenges](#challenges-5)
             * [Get Graph Edges](#get-graph-edges)
-               * [API](#api-12)
-               * [Whiteboard](#whiteboard-12)
+               * [API](#api-17)
+               * [Source](#source-20)
+               * [Whiteboard](#whiteboard-13)
             * [Depth-First Traversal](#depth-first-traversal)
-               * [API](#api-13)
-   * [Algorithms](#algorithms)
-      * [Bubble Sort](#bubble-sort)
-         * [API](#api-14)
-      * [Insertion Sort](#insertion-sort)
-         * [API](#api-15)
-      * [Merge Sort](#merge-sort)
-         * [API](#api-16)
-      * [Quick Sort](#quick-sort)
-         * [API](#api-17)
+               * [API](#api-18)
+               * [Source](#source-21)
 
-<!-- Added by: mmc, at: Thu Sep 19 15:00:32 PDT 2019 -->
+<!-- Added by: mmc, at: Thu Sep 19 15:23:14 PDT 2019 -->
 
 <!--te-->
 
 
 <!-- ********************* -->
 <!-- ********************* -->
+
+
+# Algorithms
+
+
+<!-- ********************* -->
+## Bubble Sort
+- [x] code sort func
+- [x] tests
+- [x] blog post
+### API
+```python
+def bubble_sort(arr):
+    # BigO == n^2
+```
+### Source
+https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/algorithms/bubble_sort
+
+### Tests
+- [x] func exists
+- [x] sort 5
+- [x] all same
+- [x] sort zero array
+- [x] sort 1000 random
+
+
+<!-- ********************* -->
+## Insertion Sort
+- [x] code sort func
+- [x] tests
+- [x] blog post
+### API
+```python
+def insertion_sort(arr):
+    # BigO = O(2n)
+```
+### Source
+https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/algorithms/insertion_sort
+
+### Tests
+- [x] func exists
+- [x] sort 5
+- [x] all same
+- [x] sort zero array
+- [x] sort 1000 random
+
+
+<!-- ********************* -->
+## Merge Sort
+- [x] code sort func
+- [x] tests
+- [x] blog post
+### API
+```python
+def merge_sort(arr):
+    # BigO (n log n)
+    # :: log n, as this is a divide algo
+    # :: n, as we need to merge the halfs back
+
+def merge_split(arr):
+    # actual merge_sort function, without error handling
+    # :: recursivily called
+
+def merge_array(arr, left, right):
+    # combine left and right sides
+```
+### Source
+https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/algorithms/merge_sort
+
+### Tests
+- [x] func exists
+- [x] sort 5
+- [x] all same
+- [x] sort zero array
+- [x] sort 1000 random
+
+
+<!-- ********************* -->
+## Quick Sort
+- [x] code sort func
+- [x] tests
+- [x] blog post
+### API
+```python
+def quick_sort(arr):
+    # BigO (n log n)
+    # :: log n, as this is a divide algo
+    # :: n, as we need to merge the halfs back
+```
+### Source
+https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/algorithms/quick_sort
+
+### Tests
+- [x] func exists
+- [x] sort 5
+- [x] all same
+- [x] sort zero array
+- [x] sort 1000 random
+
 
 # Data Structures
 
@@ -102,8 +236,7 @@ Create a function, which reverses an array/linked-list, as passed via a paramete
 My initial approach was to utilize the `list.insert()` and `list.pop()` to rebuild the list in reverse order. However, my white boarding partner showed me a more pythonic method utilizing slices with a -1 stride.
 *Solution*
 Two solutions were used, one that utilizes a while() loop and is destructive on the inbound array. The second is "pythonic" and utilizes an index slice and a -1 stride.
-##### Source: Python
-<a href="https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/challenges/array_reverse/array_reverse.py">Source Code</a>
+#### API
 ```python
 def reverse_array(orig):
    """
@@ -123,6 +256,9 @@ arrOrig = [1,2,3,4,5]
 arrNew = reverse_array2(arrOrig)
 print(arrNew)
 ```
+##### Source: Python
+https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/challenges/array_reverse/array_reverse.py
+
 ##### Whiteboard
 ![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/master/challenges/array_reverse/assets/whiteboard.jpg)
 
@@ -132,8 +268,9 @@ print(arrNew)
 Write a function which takes in an array and the value to be added. Without utilizing any of the built-in methods available to your language, return an array with the new value added at the middle index.
 *Solution*
 Create an index into the array where the value will be inserted, utilize slice and .append/.extend to construct a return array
-##### Source: Python
-<a href="https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/challenges/array_shift/array_shift.py">Source Code</a>
+##### Source
+https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/challenges/array_shift/array_shift.py
+
 ##### Whiteboard
 ![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/master/challenges/array_shift/assets/whiteboard.jpg)
 
@@ -143,8 +280,9 @@ Create an index into the array where the value will be inserted, utilize slice a
 Write a function which takes in an array and the value to be searched. Return -1 if the value is not found, otherwise return the index (0 based). Incoming array is sorted.
 *Solution*
 Divide and Conquer! Look at the middle element, is it the middle element? Return. If not, create a new middle from either the smaller side or larger side. Repeat.
-##### Source: Python
-<a href="https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/challenges/array_binary_search/array_binary_search.py">Source Code</a>
+##### Source
+https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/challenges/array_binary_search/array_binary_search.py
+
 ##### Whiteboard
 ![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/master/challenges/array_binary_search/assets/whiteboard.jpg)
 
@@ -157,7 +295,6 @@ Divide and Conquer! Look at the middle element, is it the middle element? Return
 Linked-Lists (singly) are dynamic data-structures which resembles a length of chain, where the entire length of chain is the list and the individual links of the chain are nodes. A singlarly linked list is only traversable in one direction, but utilizing a head element that points to the first node in the list, the second node in the list points to the next link in the chain, and finally the last element in the list points to "none"
 
 ### API: Python
-<a href="https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/data-structures/linked_list/link_list.py">Source Code</a>
 ```python
 class LinkList()
 
@@ -193,8 +330,10 @@ class ListNode()
     def __init__(self, value, next=None, prev=None):
          # constructor
 ```
+### Source: Python
+https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/data-structures/linked_list
+
 ### API: Golang
-<a href="https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/golang/src/linklist">Source Code</a>
 ```golang
 type LinkNode struct {
     value interface{}
@@ -224,8 +363,10 @@ func (list *LinkList) InsertBefore(targetVal, newVal interface{}, afterInstead b
 func (list *LinkList) InsertAfter(targetVal, newVal interface{}) bool
 func (list *LinkList) KthFromEnd(k int) (bool, interface{})
 func (list *LinkList) MergeList(listA, listB LinkList) LinkList
-
 ```
+### Source: Golang
+https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/golang/src/linklist
+
 
 ### Whiteboards
 *Insert()*
@@ -247,8 +388,10 @@ class Stack():
     def pop() -> str:
     def peek() -> str:
 ```
+### Source: Python
+https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/data-structures/stacks_and_queues
+
 ### API: Golang
-<a href="https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/golang/src/linklist">Source Code</a>
 ``` golang
 // Stack implementation of LIFO
 type Stack struct {
@@ -261,6 +404,8 @@ func (stack *Stack) Pop() (bool, interface{})
 func (stack *Stack) Push(val interface{}) bool
 func (stack *Stack) Peek() (bool, interface{})
 ```
+### Source: Golang
+<a href="https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/golang/src/linklist">Source Code</a>
 
 *Tests*
 - [x] push onto a stack
@@ -279,6 +424,9 @@ Create a function, which takes in a string and tests it to make sure that any op
 ```python
 def multi_bracket_validation(input : str) -> boolean:
 ```
+##### Source
+https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/challenges/multi_bracket_validation
+
 *Tests*
 - [x] Balanced
 - [x] Balanced Complicated
@@ -309,6 +457,9 @@ class Queue():
     def peek() -> str:
         # Get value from the head of the queue (without removing it)
 ```
+### Source
+https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/data-structures/stacks_and_queues
+
 *Tests*
 - [x] enqueue into a queue
 - [x] enqueue multiple values into a queue
@@ -339,6 +490,9 @@ class PseudoQueue(object):
         # so we are going to unload the first stack, into a temp stack, in order to
         # get at the bottom element of the first, then rebuild it from temp to first-stack
 ```
+### Source:
+https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/data-structures/stacks_and_queues
+
 *Tests*
 - [x] class existence
 - [x] enqueue multiple items
@@ -389,6 +543,9 @@ class AnimalShelter():
     def dequeue(self, pref : AnimalType=None) -> Animal:
         # grab animal that has been in queue the longest, optionally provide parameter
 ```
+##### Source
+https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/challenges/fifo_animal_shelter
+
 *Tests*
 - [x] class existence
 - [x] enq one
@@ -399,8 +556,6 @@ class AnimalShelter():
 
 ##### Whiteboard
 ![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/master/challenges/fifo_animal_shelter/assets/whiteboard.jpg)
-
-
 
 
 <!-- ********************* -->
@@ -430,6 +585,9 @@ class BinaryTree:
     def returnAsArr(self, method : TraverseMethod):
         # return the enter tree as an array using a specified method
 ```
+### Source
+https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/data-structures/tree
+
 ### Challenges
 
 <!-- ********************* -->
@@ -440,6 +598,9 @@ class BinaryTree:
 ```python
 def breadth_first(tree, action_func):
 ```
+### Source
+https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/data-structures/tree
+
 *Tests*
 - [x] empty tree
 - [x] null tree object
@@ -456,6 +617,9 @@ def breadth_first(tree, action_func):
 ```python
 def find_max(tree : BinaryTree) -> (bool,int):
 ```
+##### Source
+https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/challenges/find_maximum_binary_tree
+
 *Tests*
 - [x] find max
 - [x] empty tree
@@ -478,6 +642,9 @@ Determine weather or not the value of each node is divisible by 3, 5 or both, an
 def fizzBuzzTree(tree: BinaryTree) -> BinaryTree:
     # traverse tree, value = value%3==0 ? 'Fizz, value = value%5==0 ? 'Buzz' (set value to 'FizzBuzz' if both conditions met)
 ```
+##### Source
+https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/challenges/fizz_buzz_tree
+
 *Tests*
 - [x] empty tree
 - [x] None that trigger
@@ -501,6 +668,9 @@ def tree_intersection(tree1, tree2: BinaryTree) -> list:
     # BigO Time==O(2n)  Space==0(1.3n) 30% for hashtable
     # assumption: No Duplicates within Trees
 ```
+##### Source
+https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/challenges/tree_intersection
+
 *Tests*
 - [x] Func / Empty Trees
 - [x] Invalid Params
@@ -530,6 +700,9 @@ class BinarySearchTree(BinaryTree):
         def _visit(node):
             # recursive function for isiting each node
 ```
+### Source
+https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/data-structures/tree
+
 *Tests*
 - [x] instantiate an empty tree
 - [x] instantiate a tree with a single root node
@@ -538,7 +711,7 @@ class BinarySearchTree(BinaryTree):
 - [x] return a collection from an inorder traversal
 - [x] return a collection from a postorder traversal
 
-*Whiteboard*
+### Whiteboard
 None
 
 
@@ -583,6 +756,9 @@ class HashTable():
     def contains(self, name) -> bool:
         # returns true|false if the name is in the hashtable
 ```
+### Source
+https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/data-structures/hashtable
+
 *Tests*
 - [x] add
 - [x] contains
@@ -609,6 +785,9 @@ def repeated_word(longstr: str) -> str:
     # one occurrence
     # BigO Time==O(n) Space==O(n*1.3)
 ```
+##### Source
+https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/challenges/repeated_word
+
 *Tests*
 - [x] Sample Text #1
 - [x] Sample Text #2
@@ -634,6 +813,9 @@ def left_join(h1, h2: HashTable) -> list:
     # - BigO time==O(n) space==0(n)
     # -      worst: time==O(3n)
 ```
+##### Source
+https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/challenges/left_join
+
 *Tests*
 - [x] Func / Input Validation
 - [x] 2 rec, 1 with value in 2nd hashtable
@@ -672,6 +854,9 @@ class Graph:
     def get_vertexes(self) -> Optional[List[Vertex]]:
     def breadth_first(self, root, action_func):
 ```
+### Source
+https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/data-structures/graph
+
 *Tests*
 - [x] Node can be successfully added to the graph
 - [x] An edge can be successfully added to the graph
@@ -702,6 +887,9 @@ def get_edges(graph: Graph, path_ro: List) -> Tuple[bool, float]:
     # BigO time==O(V+P*E) .. where p is len(path_ro)
     # BigO space==O(1)
 ```
+##### Source
+https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/challenges/get_edges
+
 *Tests*
 - [x] Invalid Input: Graph
 - [x] Invalid Input: List
@@ -721,97 +909,11 @@ def get_edges(graph: Graph, path_ro: List) -> Tuple[bool, float]:
 def depth_first_recursive(self, root: Vertex, action_func: Any) -> None:
 def depth_first(self, root: Vertex, action_func: Any) -> None:
 ```
+##### Source
+https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/data-structures/graph/graph.py#L93
+
 *Tests*
 - [x] empty tree
 - [x] null tree object
 - [x] tree of nodes
-
-
-
-
-# Algorithms
-
-
-<!-- ********************* -->
-## Bubble Sort
-- [x] code sort func
-- [x] tests
-- [x] blog post
-### API
-```python
-def bubble_sort(arr):
-    # BigO == n^2
-```
-*Tests*
-- [x] func exists
-- [x] sort 5
-- [x] all same
-- [x] sort zero array
-- [x] sort 1000 random
-
-
-<!-- ********************* -->
-## Insertion Sort
-- [x] code sort func
-- [x] tests
-- [x] blog post
-### API
-```python
-def insertion_sort(arr):
-    # BigO = O(2n)
-```
-*Tests*
-- [x] func exists
-- [x] sort 5
-- [x] all same
-- [x] sort zero array
-- [x] sort 1000 random
-
-
-<!-- ********************* -->
-## Merge Sort
-- [x] code sort func
-- [x] tests
-- [x] blog post
-### API
-```python
-def merge_sort(arr):
-    # BigO (n log n)
-    # :: log n, as this is a divide algo
-    # :: n, as we need to merge the halfs back
-
-def merge_split(arr):
-    # actual merge_sort function, without error handling
-    # :: recursivily called
-
-def merge_array(arr, left, right):
-    # combine left and right sides
-```
-*Tests*
-- [x] func exists
-- [x] sort 5
-- [x] all same
-- [x] sort zero array
-- [x] sort 1000 random
-
-
-<!-- ********************* -->
-## Quick Sort
-- [x] code sort func
-- [x] tests
-- [x] blog post
-### API
-```python
-def quick_sort(arr):
-    # BigO (n log n)
-    # :: log n, as this is a divide algo
-    # :: n, as we need to merge the halfs back
-```
-*Tests*
-- [x] func exists
-- [x] sort 5
-- [x] all same
-- [x] sort zero array
-- [x] sort 1000 random
-
 
