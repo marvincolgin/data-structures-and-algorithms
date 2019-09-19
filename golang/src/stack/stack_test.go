@@ -21,7 +21,7 @@ func TestCanCreate(t *testing.T) {
 	}
 }
 
-func TestPush(t *testing.T) {
+func TestPushAndPeek(t *testing.T) {
 	stack := Stack{}
 	stack.Push("pao de queijo")
 	ab, as := stack.Peek()
@@ -67,9 +67,7 @@ func TestPopEmpty(t *testing.T) {
 	stack := HelperStackAddLots()
 
 	// Pop all of the items
-	for i := 0; i < stack.Count()+5; i++ {
-		// eb, es := false, interface{}(nil)
-		// ab, as := stack.Pop()
+	for i, len := 0, stack.Count(); i < len; i++ {
 
 		ab, val := stack.Pop()
 		as := fmt.Sprintf("%v", val)
@@ -83,9 +81,7 @@ func TestPopEmpty(t *testing.T) {
 		} else if i == 2 {
 			es = "pao de queijo"
 		} else {
-			// This is going past the number in the list
-			eb = false
-			es = ""
+			t.Error("TestPop(), we should never be here i:", i, " len:", len)
 		}
 
 		if ab != eb {
@@ -94,33 +90,21 @@ func TestPopEmpty(t *testing.T) {
 		if as != es {
 			t.Error("TestPop(), actual:", as, " expected:", es)
 		}
-
 	}
 
+	// Make sure it's reporting 0 for count
+	len := stack.Count()
+	if len != 0 {
+		t.Error("TestPop(), len!=0, len:", len)
+	}
+
+	// Pop one more to test error
+	eb, ev := false, interface{}(nil)
+	ab, av := stack.Pop()
+	if ab != eb {
+		t.Error("TestPop(), actual:", ab, " expected:", eb)
+	}
+	if av != ev {
+		t.Error("TestPop(), actual:", av, " expected:", ev)
+	}
 }
-
-/*
-def test_stack_empty_after_pops():
-    # STACK: empty a stack after multiple pops
-    stack = helper_stack_addlots()
-    for x in range(stack.count()-1):
-        stack.pop()
-    expected = 1
-    actual = stack.count()
-    assert expected == actual
-
-    stack.pop()
-    actual = stack.count()
-    expected = 0
-    assert expected == actual
-
-
-def test_stack_peek():
-    # STACK: peek the next item on the stack
-    stack = helper_stack_addlots()
-    expectedBool = True
-    expectedStr = 'banana'
-    actualBool, actualStr = stack.peek()
-    assert actualBool == expectedBool
-    assert actualStr == expectedStr
-*/
