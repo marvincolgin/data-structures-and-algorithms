@@ -7,17 +7,26 @@ Vin Colgin Summer 2019
 
 Table of Contents:
 <!--ts-->
-   * [Array/Linked Lists](#arraylinked-lists)
-      * [Data Struct: Singly Linked List](#data-struct-singly-linked-list)
+   * [Data Structures](#data-structures)
+      * [Singly Linked Lists](#singly-linked-lists)
          * [API: Python](#api-python)
          * [API: Golang](#api-golang)
          * [Whiteboards](#whiteboards)
-      * [Challenge: Reverse an Array](#challenge-reverse-an-array)
-      * [Challenge: Insert and Shift Array](#challenge-insert-and-shift-array)
-      * [Challenge: Array Binary Search](#challenge-array-binary-search)
-   * [Stacks and Queues](#stacks-and-queues)
-      * [STACK Data Structure (LIFO)](#stack-data-structure-lifo)
-      * [QUEUE Data Structure (FIFO)](#queue-data-structure-fifo)
+      * [Stack (LIFO)](#stack-lifo)
+         * [API: Python](#api-python-1)
+         * [API: Golang](#api-golang-1)
+   * [Challenges](#challenges)
+      * [Array: Reverse](#array-reverse)
+         * [Source: Python](#source-python)
+         * [Whiteboard](#whiteboard)
+      * [Array: Insert and Shift](#array-insert-and-shift)
+         * [Source: Python](#source-python-1)
+         * [Whiteboard](#whiteboard-1)
+      * [Array: Binary Search](#array-binary-search)
+         * [Source: Python](#source-python-2)
+         * [Whiteboard](#whiteboard-2)
+         * [QUEUE Data Structure (FIFO)](#queue-data-structure-fifo)
+            * [API: Python](#api-python-2)
       * [QUEUE: implemented using a Stack as the base data structure](#queue-implemented-using-a-stack-as-the-base-data-structure)
       * [Demo: Animal Shelter](#demo-animal-shelter)
       * [Demo: Balanced Brackets](#demo-balanced-brackets)
@@ -37,18 +46,15 @@ Table of Contents:
       * [Graphs, Get Edges](#graphs-get-edges)
       * [Graph: Depth-First Traversal.](#graph-depth-first-traversal)
 
-<!-- Added by: mmc, at: Mon Sep 16 13:50:40 PDT 2019 -->
+<!-- Added by: mmc, at: Thu Sep 19 12:21:22 PDT 2019 -->
 
 <!--te-->
 
 # Data Structures
-## Array/Linked Lists
-
-<!-- ********************* -->
-### Data Struct: Singly Linked List
+## Singly Linked Lists
 Linked-Lists (singly) are dynamic data-structures which resembles a length of chain, where the entire length of chain is the list and the individual links of the chain are nodes. A singlarly linked list is only traversable in one direction, but utilizing a head element that points to the first node in the list, the second node in the list points to the next link in the chain, and finally the last element in the list points to "none"
 
-#### API: Python
+### API: Python
 <a href="https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/data-structures/linked_list/link_list.py">Source Code</a>
 ```python
 class LinkList()
@@ -85,7 +91,7 @@ class ListNode()
     def __init__(self, value, next=None, prev=None):
          # constructor
 ```
-#### API: Golang
+### API: Golang
 <a href="https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/golang/src/linklist">Source Code</a>
 ```golang
 type LinkNode struct {
@@ -119,57 +125,26 @@ func (list *LinkList) MergeList(listA, listB LinkList) LinkList
 
 ```
 
-#### Whiteboards
+### Whiteboards
 *Insert()*
-![alt_text](https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/data-structures/linked_list/assets/linked_lists-ll_insertions-whiteboard.jpg)
-
-
-*KthFromEnd()*
-![alt_text](https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/data-structures/linked_list/assets/linked_lists-ll_insertions-whiteboard.jpg)
-
-
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/master/data-structures/linked_list/assets/linked_lists-ll_insertions-whiteboard.jpg)
+*KthFromEnd(): Iterative Approach*
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/master/data-structures/linked_list/assets/ll_kth_from_end-whiteboard.jpg)
+*KthFromEnd(): Recursive Approach*
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/master/data-structures/linked_list/assets/ll_kth_from_end-whiteboard-recursive.jpg)
 *MergeList()*
-![alt_text](https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/data-structures/linked_list/assets/ll_merge-whiteboard.jpg)
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/master/data-structures/linked_list/assets/ll_merge-whiteboard.jpg)
 
+## Stack (LIFO)
 <!-- ********************* -->
-### Challenge: Reverse an Array
-Create a function, which reverses an array/linked-list, as passed via a parameter and pass the new array back as the `return()` for the function.
-*Approach & Efficiency*
-My initial approach was to utilize the `list.insert()` and `list.pop()` to rebuild the list in reverse order. However, my white boarding partner showed me a more pythonic method utilizing slices with a -1 stride.
-*Solution*
-Two solutions were used, one that utilizes a while() loop and is destructive on the inbound array. The second is "pythonic" and utilizes an index slice and a -1 stride.
-
-
-<!-- ********************* -->
-### Challenge: Insert and Shift Array
-Write a function which takes in an array and the value to be added. Without utilizing any of the built-in methods available to your language, return an array with the new value added at the middle index.
-*Solution*
-Create an index into the array where the value will be inserted, utilize slice and .append/.extend to construct a return array
-![alt_text](https://github.com/marvincolgin/data-structures-and-algorythms/blob/array_shift/challenges/array_shift/assets/whiteboard.jpg)
-
-
-<!-- ********************* -->
-### Challenge: Array Binary Search
-Write a function which takes in an array and the value to be searched. Return -1 if the value is not found, otherwise return the index (0 based). Incoming array is sorted.
-*Solution*
-Divide and Conquer! Look at the middle element, is it the middle element? Return. If not, create a new middle from either the smaller side or larger side. Repeat.
-![alt_text](https://github.com/marvincolgin/data-structures-and-algorythms/blob/array_binary_search/challenges/array_binary_search/assets/whiteboard.jpg)
-
-
-
-## Stacks and Queues
-
-
-<!-- ********************* -->
-### STACK Data Structure (LIFO)
-#### API: Python
+### API: Python
 ```python
 class Stack():
     def push(val) -> bool:
     def pop() -> str:
     def peek() -> str:
 ```
-#### API: Golang
+### API: Golang
 <a href="https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/golang/src/linklist">Source Code</a>
 ``` golang
 // Stack implementation of LIFO
@@ -192,6 +167,68 @@ https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/golan
 - [x] empty a stack after multiple pops
 - [x] peek the next item on the stack
 - [x] instantiate an empty stack
+
+
+
+
+
+# Challenges
+
+<!-- ********************* -->
+## Array: Reverse
+Create a function, which reverses an array/linked-list, as passed via a parameter and pass the new array back as the `return()` for the function.
+*Approach & Efficiency*
+My initial approach was to utilize the `list.insert()` and `list.pop()` to rebuild the list in reverse order. However, my white boarding partner showed me a more pythonic method utilizing slices with a -1 stride.
+*Solution*
+Two solutions were used, one that utilizes a while() loop and is destructive on the inbound array. The second is "pythonic" and utilizes an index slice and a -1 stride.
+### Source: Python
+<a href="https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/challenges/array_reverse/array_reverse.py">Source Code</a>
+```python
+def reverse_array(orig):
+   """
+      Returns a list in reversed order
+      Mutable?
+   """
+   new = []
+   while len(orig) > 1:
+      new.insert(0, orig[0])
+      orig.pop(0)
+   return new
+
+def reverse_array2(orig):
+   return orig[::-1]
+
+arrOrig = [1,2,3,4,5]
+arrNew = reverse_array2(arrOrig)
+print(arrNew)
+```
+### Whiteboard
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/master/challenges/array_reverse/assets/whiteboard.jpg)
+
+
+<!-- ********************* -->
+## Array: Insert and Shift
+Write a function which takes in an array and the value to be added. Without utilizing any of the built-in methods available to your language, return an array with the new value added at the middle index.
+*Solution*
+Create an index into the array where the value will be inserted, utilize slice and .append/.extend to construct a return array
+### Source: Python
+<a href="https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/challenges/array_shift/array_shift.py">Source Code</a>
+### Whiteboard
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/master/challenges/array_shift/assets/whiteboard.jpg)
+
+
+<!-- ********************* -->
+## Array: Binary Search
+Write a function which takes in an array and the value to be searched. Return -1 if the value is not found, otherwise return the index (0 based). Incoming array is sorted.
+*Solution*
+Divide and Conquer! Look at the middle element, is it the middle element? Return. If not, create a new middle from either the smaller side or larger side. Repeat.
+### Source: Python
+<a href="https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/challenges/array_binary_search/array_binary_search.py">Source Code</a>
+### Whiteboard
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/master/challenges/array_binary_search/assets/whiteboard.jpg)
+
+
+
 
 
 <!-- ********************* -->
