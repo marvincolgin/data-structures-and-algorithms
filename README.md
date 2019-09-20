@@ -55,13 +55,6 @@ def bubble_sort(arr):
 ```
 Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/algorithms/bubble_sort)
 
-*Tests*
-- [x] func exists
-- [x] sort 5
-- [x] all same
-- [x] sort zero array
-- [x] sort 1000 random
-
 ---
 
 ## Insertion Sort
@@ -70,13 +63,6 @@ def insertion_sort(arr):
     # BigO = O(2n)
 ```
 Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/algorithms/insertion_sort)
-
-*Tests*
-- [x] func exists
-- [x] sort 5
-- [x] all same
-- [x] sort zero array
-- [x] sort 1000 random
 
 ---
 
@@ -96,13 +82,6 @@ def merge_array(arr, left, right):
 ```
 Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/algorithms/merge_sort)
 
-*Tests*
-- [x] func exists
-- [x] sort 5
-- [x] all same
-- [x] sort zero array
-- [x] sort 1000 random
-
 ---
 
 ## Quick Sort
@@ -113,14 +92,6 @@ def quick_sort(arr):
     # :: n, as we need to merge the halfs back
 ```
 Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/algorithms/quick_sort)
-
-*Tests*
-- [x] func exists
-- [x] sort 5
-- [x] all same
-- [x] sort zero array
-- [x] sort 1000 random
-
 
 # Data Structures
 
@@ -283,14 +254,6 @@ func (stack *Stack) Peek() (bool, interface{})
 ```
 Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/golang/src/linklist)
 
-*Tests*
-- [x] push onto a stack
-- [x] push multiple values onto a stack
-- [x] pop off the stack
-- [x] empty a stack after multiple pops
-- [x] peek the next item on the stack
-- [x] instantiate an empty stack
-
 ---
 
 ### Balanced Brackets
@@ -299,17 +262,6 @@ Create a function, which takes in a string and tests it to make sure that any op
 def multi_bracket_validation(input : str) -> boolean:
 ```
 Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/challenges/multi_bracket_validation)
-
-*Tests*
-- [x] Balanced
-- [x] Balanced Complicated
-- [x] Balanced extra characters
-- [x] Balanced nested
-- [x] Balanced alternating
-- [x] Unbalanced
-- [x] Only Open
-- [x] Only Closed
-- [x] Empty
 
 *Whiteboard*
 ![alt_text](https://github.com/marvincolgin/data-structures-and-algorithms/raw/multi_bracket_validation/challenges/multi_bracket_validation/assets/whiteboard.jpg)
@@ -331,14 +283,6 @@ class Queue():
         # Get value from the head of the queue (without removing it)
 ```
 Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/data-structures/stacks_and_queues)
-
-*Tests*
-- [x] enqueue into a queue
-- [x] enqueue multiple values into a queue
-- [x] dequeue out of a queue the expected value
-- [x] peek into a queue, seeing the expected value
-- [x] empty a queue after multiple dequeues
-- [x] instantiate an empty queue
 
 *Python using Stack*
 ```python
@@ -363,13 +307,6 @@ class PseudoQueue(object):
         # get at the bottom element of the first, then rebuild it from temp to first-stack
 ```
 Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/data-structures/stacks_and_queues)
-
-*Tests*
-- [x] class existence
-- [x] enqueue multiple items
-- [x] dequeue item
-- [x] dequeue multiple items
-- [x] dequeue all until empty
 
 *Whiteboard*
 ![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/1805a3f00421d5f5f4bc5578e9cfc4522d47e9ba/challenges/queue_with_stacks/assets/whiteboard.jpg)
@@ -412,14 +349,6 @@ class AnimalShelter():
 ```
 Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/challenges/fifo_animal_shelter)
 
-*Tests*
-- [x] class existence
-- [x] enq one
-- [x] enq many
-- [x] deq one (no pref)
-- [x] deq one (with pref)
-- [x] deq until empty
-
 *Whiteboard*
 ![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/master/challenges/fifo_animal_shelter/assets/whiteboard.jpg)
 
@@ -455,17 +384,11 @@ Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/
 ---
 
 ### Breadth-first Traversal
-- [x] breadth first traversal method which takes a Binary Tree as its unique input.
-- [x] print every node encountered
+Breadth first traversal method which takes a Binary Tree as its unique input.
 ```python
 def breadth_first(tree, action_func):
 ```
 Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/data-structures/tree)
-
-*Tests*
-- [x] empty tree
-- [x] null tree object
-- [x] tree of nodes
 
 *whiteboard*
 ![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/breadth_first/challenges/breadth_first/assets/whiteboard.jpg)
@@ -473,16 +396,11 @@ Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/
 ---
 
 ### Find the Maximum Value
-- [x] function called find_maximum_value which takes binary tree as its only input
+Function called find_maximum_value which takes binary tree as its only input
 ```python
 def find_max(tree : BinaryTree) -> (bool,int):
 ```
 Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/challenges/find_maximum_binary_tree)
-
-*Tests*
-- [x] find max
-- [x] empty tree
-- [x] tree == None
 
 *Whiteboard*
 ![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/c7e136b9fcf6c8522eb6d74643e65a4b8fb83c4e/challenges/find_maximum_binary_tree/assets/whiteboard.jpg)
@@ -502,11 +420,6 @@ def fizzBuzzTree(tree: BinaryTree) -> BinaryTree:
 ```
 Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/challenges/fizz_buzz_tree)
 
-*Tests*
-- [x] empty tree
-- [x] None that trigger
-- [x] All that trigger FizzBuzz
-
 *Whiteboard*
 ![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/be06edcb4417bd0d1a66896bb24b9339ac6ea962/challenges/fizz_buzz_tree/assets/whiteboard.jpg)
 
@@ -514,12 +427,6 @@ Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/
 
 ### Tree Intersection
 tree_intersection(): given two binary-trees, return an array containing shared values
-*Features*
-- [x] Branch Created
-- [x] Function Created
-- [x] Tests
-- [x] Docs
-- [x] Pep8 Code Styling
 ```python
 def tree_intersection(tree1, tree2: BinaryTree) -> list:
     # return an array with all the values in both tree1 and tree2
@@ -527,13 +434,6 @@ def tree_intersection(tree1, tree2: BinaryTree) -> list:
     # assumption: No Duplicates within Trees
 ```
 Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/challenges/tree_intersection)
-
-*Tests*
-- [x] Func / Empty Trees
-- [x] Invalid Params
-- [x] All Matches
-- [x] No Matches
-- [x] Some Matching
 
 *Whiteboard*
 ![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/tree_intersection/challenges/tree_intersection/assets/whiteboard.jpg)
@@ -559,20 +459,9 @@ class BinarySearchTree(BinaryTree):
 ```
 Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/data-structures/tree)
 
-*Tests*
-- [x] instantiate an empty tree
-- [x] instantiate a tree with a single root node
-- [x] add a left child and right child to a single root node
-- [x] return a collection from a preorder traversal
-- [x] return a collection from an inorder traversal
-- [x] return a collection from a postorder traversal
-
 ---
 
 ##  Hash Table
-- [x] Implement Hash Table
-- [x] TESTS
-- [x] Docs
 ```python
 class HashTable():
 
@@ -609,23 +498,10 @@ class HashTable():
 *Source*
 https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/data-structures/hashtable
 
-*Tests*
-- [x] add
-- [x] contains
-- [x] not-contains
-- [x] hash deterministic
-- [x] hash in range
-- [x] hash diff value for diff keys
-- [x] collisions
-
 ---
 
 ### Repeated Words
 repeated_words(): search the longstr for complete words, return the first word that has more than one occurrence
-- [x] Branch Created
-- [x] Function Created
-- [x] Tests
-- [x] Docs
 ```python
 def repeated_word(longstr: str) -> str:
     # search the longstr for complete words
@@ -634,11 +510,6 @@ def repeated_word(longstr: str) -> str:
     # BigO Time==O(n) Space==O(n*1.3)
 ```
 Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/challenges/repeated_word)
-
-*Tests*
-- [x] Sample Text #1
-- [x] Sample Text #2
-- [x] Sample Text #3
 
 *Whiteboard*
 ![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/repeated_word/challenges/repeated_word/assets/whiteboard.jpg)
@@ -661,23 +532,12 @@ def left_join(h1, h2: HashTable) -> list:
 ```
 Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/challenges/left_join)
 
-*Tests*
-- [x] Func / Input Validation
-- [x] 2 rec, 1 with value in 2nd hashtable
-- [x] Full Sample
-
 *Whiteboard*
 ![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/left_join/challenges/left_join/assets/whiteboard.jpg)
 
 ---
 
 ## Graphs
-*Features*
-- [x] Add Vertex
-- [x] Add Edge
-- [x] Get Neighbors
-- [x] Get Vertexes
-- [x] Get Length
 ```python
 class Vertex:
     def __init__(self, value: Any):
@@ -696,16 +556,6 @@ class Graph:
 ```
 Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/data-structures/graph)
 
-*Tests*
-- [x] Node can be successfully added to the graph
-- [x] An edge can be successfully added to the graph
-- [x] A collection of all nodes can be properly retrieved from the graph
-- [x] All appropriate neighbors can be retrieved from the graph
-- [x] Neighbors are returned with the weight between nodes included
-- [x] The proper size is returned, representing the number of nodes in the graph
-- [x] A graph with only one node and edge can be properly returned
-- [x] An empty graph properly returns null
-
 *Whiteboard*
 ![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/graph-day2/data-structures/graph/assets/whiteboard.jpg)
 
@@ -714,9 +564,6 @@ Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/
 ### Get Graph Edges
 Overall: Identify if a given path exists through the Graph where path is a given list of values
 Use Case: Given a complete Graph data-structure, containing a variety of Vertexes/Edges containing city-names and costs, (Flight Routes) and a list of cities (Flight Plan), return True|False if the flight-plan can be performed and the cost.
-- [x] Function
-- [x] Docs
-- [x] Tests
 ```python
 def get_edges(graph: Graph, path_ro: List) -> Tuple[bool, float]:
     # identify if a given path exists through the Graph
@@ -726,12 +573,6 @@ def get_edges(graph: Graph, path_ro: List) -> Tuple[bool, float]:
     # BigO space==O(1)
 ```
 Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/challenges/get_edges)
-
-*Tests*
-- [x] Invalid Input: Graph
-- [x] Invalid Input: List
-- [x] Flight-Plan with valid Flight-Route
-- [x] Flight-Plan with invalid Flight-Route
 
 *Whiteboard*
 ![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/get-edges/challenges/get_edges/assets/whiteboard.jpg)
@@ -746,8 +587,3 @@ def depth_first_recursive(self, root: Vertex, action_func: Any) -> None:
 def depth_first(self, root: Vertex, action_func: Any) -> None:
 ```
 Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/data-structures/graph/graph.py#L93)
-
-*Tests*
-- [x] empty tree
-- [x] null tree object
-- [x] tree of nodes
