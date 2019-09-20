@@ -40,7 +40,7 @@ https://linkedin.com/in/mcolgin
          * [Get Graph Edges](#get-graph-edges)
          * [Depth-First Traversal](#depth-first-traversal)
 
-<!-- Added by: mmc, at: Thu Sep 19 21:10:19 PDT 2019 -->
+<!-- Added by: mmc, at: Thu Sep 19 21:35:00 PDT 2019 -->
 
 <!--te-->
 
