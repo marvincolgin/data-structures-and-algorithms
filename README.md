@@ -1,6 +1,6 @@
 **Algorithms and Data Structures**
 
-*Written in Python/Golang*
+*Written in Python* (Golang:WIP)
 
 Vin Colgin (Summer 2019)
 
