@@ -273,6 +273,34 @@ class LinkList {
       }
    }
 
+   // MergeList two lists together (zipper)
+   // @param listA: LinkList
+   // @param listB: LinkList
+   // @retval LinkList
+   mergeList(listA, listB) {
+      // BigO == O(n)
+
+      let ptrA = listA.head
+      let ptrB = listB.head
+
+      let prev = null
+      while ( (ptrA != null) || (ptrB != null) ) {
+         if (ptrA != null) {
+            prev = ptrA
+            ptrA = ptrA.next
+            prev.next = ptrB
+         }
+         if (ptrB != null) {
+            prev = ptrB
+            ptrB = ptrB.next
+            prev.next = ptrA
+         }
+      }
+
+      return listA
+   }
+
+
 }
 
 module.exports.LinkNode = LinkNode

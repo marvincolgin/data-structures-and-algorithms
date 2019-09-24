@@ -215,6 +215,28 @@ describe('new linklist()', function() {
    })
 
 
+   it ('listMerge()', function() {
+
+      // # @TODO: TEST: Merge two unequal
+      // # @TODO: TEST: Merge one empty list
+      // # @TODO: TEST: Merge two empty lists
+      // # @TODO: TEST: Merge a list with just 1 item
+
+      listA = new LinkList()
+      listA.insert('apple')
+      listA.insert('bannana')
+      listA.insert('orange')
+
+      listB = new LinkList()
+      listB.insert('cheerios')
+      listB.insert('frosted flakes')
+      listB.insert('wheaties')
+
+      listA.mergeList(listA, listB)
+
+      expect(listA.toStr()).to.be.equal('orange,wheaties,bannana,frosted flakes,apple,cheerios')
+   })
+
 })
 
 
@@ -229,37 +251,4 @@ def test_toJSON():
     print(actual)
     print(expected)
     assert expected == actual
-*/
-
-/*
-
-func TestLinkListMerge(t *testing.T) {
-
-	// # @TODO: TEST: Merge two unequal
-	// # @TODO: TEST: Merge one empty list
-	// # @TODO: TEST: Merge two empty lists
-	// # @TODO: TEST: Merge a list with just 1 item
-
-	listA := LinkList{}
-	listA.Insert('apple')
-	listA.Insert('bannana')
-	listA.Insert('orange')
-
-	listB := LinkList{}
-	listB.Insert('cheerios')
-	listB.Insert('frosted flakes')
-	listB.Insert('wheaties')
-
-	listA.MergeList(listA, listB)
-
-	// @TODO: Interesting, it's in a different order than in python
-	// -- expected := 'apple,cheerios,bannana,frosted flakes,orange,wheaties'
-	expected := 'orange,wheaties,bannana,frosted flakes,apple,cheerios'
-	actual := listA.toStr()
-
-	if expected != actual {
-		listA.MergeList(listA, listB)
-		t.Error('MergeList(), expected:', expected, ' actual:', actual)
-	}
-}
 */
