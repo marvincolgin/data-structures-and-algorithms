@@ -1,5 +1,5 @@
 // LinkNode this is the internal object for individual link-nodes
-module.exports = class LinkNode {
+class LinkNode {
 
 	constructor(value) {
 		this.value = value;
@@ -10,7 +10,7 @@ module.exports = class LinkNode {
 }
 
 // LinkList is the internal data-structure
-module.exports = class LinkList {
+class LinkList {
 
 	constructor() {
 		this.head = null;
@@ -30,6 +30,31 @@ module.exports = class LinkList {
 	   return c
    }
 
+   // Append a value into LinkList
+   // @retval bool
+   append(value) {
+
+      // Walk to end of list
+      let prev = null;
+      let cur = this.head;
+      while (cur != null) {
+         prev = cur
+         cur = cur.next
+      }
+
+      // create the node and add it to the end
+      let node = new LinkNode(value)
+
+      if (prev == null) {
+         this.head = node
+      } else {
+         prev.next = node
+      }
+
+      return true
+   }
 
 }
 
+module.exports.LinkNode = LinkNode
+module.exports.LinkList = LinkList

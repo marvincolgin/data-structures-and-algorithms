@@ -1,8 +1,8 @@
 var chai = require('chai');
 var expect = chai.expect; // we are using the "expect" style of Chai
 
-var LinkNode = require('./linklist')
-var LinkList = require('./linklist')
+var LinkNode = require('./linklist').LinkNode
+var LinkList = require('./linklist').LinkList
 
 describe('linknode', function() {
    it('Can Create', function() {
@@ -18,7 +18,14 @@ describe('linklist', function() {
    it('Can Count (Empty)', function() {
       //linklist = new LinkList()
       expect(new LinkList().count()).to.be.equal(0)
+   })
 
+   it('Can Append()', function () {
+      linklist = new LinkList()
+      linklist.append('1')
+      expect(linklist.head).to.not.be.null
+
+      expect(linklist.count()).to.be.equal(1)
    })
 })
 
