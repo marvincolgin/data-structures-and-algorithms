@@ -173,6 +173,45 @@ class LinkList {
       return retVal
    }
 
+   // InsertBefore add a new node with the given newValue immediately BEFORE the node containg targetVal
+   // @afterInsert: bool
+   // @retval: bool
+   insertBefore(targetVal, newVal, afterInstead)  {
+      // # note: this bevahoir can be modified by the bool afterInstead
+      // # BigO == O(n)
+
+      // walk the list to find it or the end
+      let found = false
+      let prev = null
+      let cur = this.head
+      while (cur != null) {
+         // @TODO convert to use comparison_func()
+         if (cur.value == targetVal) {
+            found = true
+            break
+         }
+         prev = cur
+         cur = cur.next
+      }
+
+      // # if found, put it in the chain, as a link right before the node containing value
+      if (found) {
+         let node = new LinkNode(newVal)
+         if (afterInstead) {
+            node.next = cur.next
+            cur.next = node
+         } else {
+            node.next = cur
+            if (prev == null) { // edge-case, if the targetVal is first node
+               this.head = node
+            } else {
+               prev.next = node
+            }
+         }
+      }
+
+      return found
+   }
 
 }
 

@@ -23,18 +23,18 @@ function HelperInsertMany() {
 
 function HelperInsertBefore() {
 	list = new LinkList()
-	list.Insert('1')
-	list.Insert('3')
-	list.Insert('2')
+	list.insert('1')
+	list.insert('3')
+	list.insert('2')
 	return list
 }
 
 function HelperKthFromEnd() {
 	list = new LinkList()
-	list.Insert('2')
-	list.Insert('8')
-	list.Insert('3')
-	list.Insert('1')
+	list.insert('2')
+	list.insert('8')
+	list.insert('3')
+	list.insert('1')
 	return list
 }
 
@@ -151,43 +151,23 @@ describe('new linklist()', function() {
       expect(list.count()).to.be.equal(9)
    })
 
-/*
    it ('insertBefore()', function() {
       list = HelperInsertBefore()
       list.insertBefore('3', '4', false)
-
-      expected = '2,4,3,1'
-      actual = list.toStr()
-      if expected != actual {
-         t.Error('InsertBefore(), expected:', expected, ' actual:', actual)
-      }
+      expect(list.toStr()).to.be.equal('2,4,3,1')
 
       list = HelperInsertBefore()
-      list.InsertBefore('1', '5', false)
-      expected = '2,3,5,1'
-      actual = list.toStr()
-      if expected != actual {
-         t.Error('InsertBefore(), expected:', expected, ' actual:', actual)
-      }
+      list.insertBefore('1', '5', false)
+      expect(list.toStr()).to.be.equal('2,3,5,1')
 
       list = HelperInsertBefore()
-      list.InsertBefore('2', '5', false)
-      expected = '5,2,3,1'
-      actual = list.toStr()
-      if expected != actual {
-         t.Error('InsertBefore(), expected:', expected, ' actual:', actual)
-      }
+      list.insertBefore('2', '5', false)
+      expect(list.toStr()).to.be.equal('5,2,3,1')
 
       list = HelperInsertBefore()
-      actualBool := list.InsertBefore('4', '5', false)
-      expectedBool := false
-      if expectedBool != actualBool {
-         t.Error('InsertBefore(), expectedBool:', expectedBool, ' actualBool:', actualBool)
-      }
+      expect(list.insertBefore('4', '5', false)).to.be.false
 
    })
-}
-*/
 
 })
 
