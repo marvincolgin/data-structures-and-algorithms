@@ -4,6 +4,23 @@ var expect = chai.expect; // we are using the 'expect' style of Chai
 var LinkNode = require('./linklist').LinkNode
 var LinkList = require('./linklist').LinkList
 
+
+function HelperInsertMany() {
+	list = new LinkList()
+	list.insert('0')
+	list.insert('1')
+	list.insert('2')
+	list.insert('3')
+	list.insert('4')
+	list.insert('5')
+	list.insert('6')
+	list.insert('7')
+	list.insert('8')
+	list.insert('9')
+	return (list)
+}
+
+
 describe('linknode', function() {
    it('Can Create', function() {
       expect(new LinkNode()).to.be.an.instanceof(LinkNode);
@@ -63,25 +80,28 @@ describe('linklist', function() {
       expect(list.head.value).to.be.equal('1')
    })
 
+   it ('Can Insert()::Many', function () {
+      list = HelperInsertMany()
+
+      expect(list.count()).to.be.equal(10)
+
+      expect(list.head.value).to.be.equal('9')
+      expect(list.head.next.value).to.be.equal('8')
+      expect(list.head.next.next.value).to.be.equal('7')
+      expect(list.head.next.next.next.value).to.be.equal('6')
+      expect(list.head.next.next.next.next.value).to.be.equal('5')
+      expect(list.head.next.next.next.next.next.value).to.be.equal('4')
+      expect(list.head.next.next.next.next.next.next.value).to.be.equal('3')
+      expect(list.head.next.next.next.next.next.next.next.value).to.be.equal('2')
+      expect(list.head.next.next.next.next.next.next.next.next.value).to.be.equal('1')
+      expect(list.head.next.next.next.next.next.next.next.next.next.value).to.be.equal('0')
+   })
+
 })
 
 
 
 /*
-func HelperInsertMany() LinkList {
-	list := LinkList{}
-	list.Insert('0')
-	list.Insert('1')
-	list.Insert('2')
-	list.Insert('3')
-	list.Insert('4')
-	list.Insert('5')
-	list.Insert('6')
-	list.Insert('7')
-	list.Insert('8')
-	list.Insert('9')
-	return list
-}
 
 func HelperInsertBefore() LinkList {
 	list := LinkList{}
@@ -98,54 +118,6 @@ func HelperKthFromEnd() LinkList {
 	list.Insert('3')
 	list.Insert('1')
 	return list
-}
-
-func TestNode(t *testing.T) {
-
-	node := LinkNode{value: 'test'}
-	if node.value != 'test' {
-		t.Error('node.value shuold be 'test', but it is ', node.value)
-	}
-}
-
-func TestInsertMany(t *testing.T) {
-
-	list := HelperInsertMany()
-
-	if list.Count() != 10 {
-		t.Error('list.count()!=10, actual:', list.Count())
-	}
-
-	if list.head.value != '9' {
-		t.Error('value!=0, actual:', list.head.value)
-	}
-	if list.head.next.value != '8' {
-		t.Error('value!=8, actual:', list.head.next.value)
-	}
-	if list.head.next.next.value != '7' {
-		t.Error('value!=7, actual:', list.head.next.next.value)
-	}
-	if list.head.next.next.next.value != '6' {
-		t.Error('value!=6, actual:', list.head.next.next.next.value)
-	}
-	if list.head.next.next.next.next.value != '5' {
-		t.Error('value!=5, actual:', list.head.next.next.next.next.value)
-	}
-	if list.head.next.next.next.next.next.value != '4' {
-		t.Error('value!=4, actual:', list.head.next.next.next.next.next.value)
-	}
-	if list.head.next.next.next.next.next.next.value != '3' {
-		t.Error('value!=3, actual:', list.head.next.next.next.next.next.next.value)
-	}
-	if list.head.next.next.next.next.next.next.next.value != '2' {
-		t.Error('value!=2, actual:', list.head.next.next.next.next.next.next.next.value)
-	}
-	if list.head.next.next.next.next.next.next.next.next.value != '1' {
-		t.Error('value!=1, actual:', list.head.next.next.next.next.next.next.next.next.value)
-	}
-	if list.head.next.next.next.next.next.next.next.next.next.value != '0' {
-		t.Error('value!=0, actual:', list.head.next.next.next.next.next.next.next.next.next.value)
-	}
 }
 
 func TestIncludes(t *testing.T) {
