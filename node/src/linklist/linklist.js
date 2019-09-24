@@ -220,6 +220,59 @@ class LinkList {
 	   return list.insertBefore(targetVal, newVal, true)
    }
 
+   // KthFromEnd finds the Kth element from the end of the list and returns value for node
+   // @param k integer
+   // @retval retObj{}
+   kthFromEnd(k) {
+      // BigO == O(n)
+
+      // Only positive integers
+      if (k < 0) {
+         return {
+            retBool: false,
+            retVal: null
+         }
+      }
+
+      let ptrA = this.head
+      let ptrB = this.head
+
+      // Walk ptrA out to "K" elements
+      let tooSmall = false
+      let c = 0
+      while (c < k-1) {
+         if (ptrA.next == null) {
+            tooSmall = true
+            break
+         }
+         ptrA = ptrA.next
+         c = c + 1
+      }
+      if (tooSmall) {
+         return {
+            retBool: false,
+            retVal: null
+         }
+      }
+
+      // Walk ptrA and ptrB out to the end of the list
+      // ptrB will point to our requested node
+      // note: for short lengths where the value is found before k elements, we are going to skip walking
+      // ptrB until the difference between it and ptrA is "k"
+      while (ptrA.next != null) {
+         ptrA = ptrA.next
+         if (c >= k) {
+            ptrB = ptrB.next
+         }
+         c = c + 1
+      }
+
+      return {
+         retBool: true,
+         retVal: ptrB.value
+      }
+   }
+
 }
 
 module.exports.LinkNode = LinkNode

@@ -35,7 +35,7 @@ function HelperKthFromEnd() {
 	list.insert('8')
 	list.insert('3')
 	list.insert('1')
-	return list
+	return (list)
 }
 
 describe('new linknode()', function() {
@@ -182,6 +182,38 @@ describe('new linklist()', function() {
       expect(list.insertAfter('4', '5')).to.be.false
    })
 
+   it ('kthFromEnd()', function() {
+      list = HelperKthFromEnd()
+
+      retObj = list.kthFromEnd(0)
+      expect(retObj.retBool).to.be.true
+      expect(retObj.retVal).to.be.equal('2')
+
+      // 'Happy Path' where k is not at the end, but somewhere in the middle of the linked list
+      retObj = list.kthFromEnd(2)
+      expect(retObj.retBool).to.be.true
+      expect(retObj.retVal).to.be.equal('3')
+
+      // # Where k and the length of the list are the same
+      retObj = list.kthFromEnd(5)
+      expect(retObj.retBool).to.be.false
+
+      // # Where k is not a positive integer
+      retObj = list.kthFromEnd(-1)
+      expect(retObj.retBool).to.be.false
+
+   })
+
+   it ('kthFromEnd()::OneValueInLinkList', function() {
+      list = new LinkList()
+      list.insert('blah')
+
+      // Where the linked list is of a size 1
+      retObj = list.kthFromEnd(0)
+      expect(retObj.retBool).to.be.true
+      expect(retObj.retVal).to.be.equal('blah')
+   })
+
 
 })
 
@@ -200,58 +232,6 @@ def test_toJSON():
 */
 
 /*
-
-func TestKthFromEnd(t *testing.T) {
-	list := HelperKthFromEnd()
-
-	actualBool, actualVal := list.KthFromEnd(0)
-	actualVal = fmt.Sprintf('%v', actualVal)
-	expectedBool := true
-	expectedVal := '2'
-	if expectedVal != actualVal {
-		t.Error('KthFromEnd(), expectedVal:', expectedVal, ' actualVal:', actualVal)
-	}
-
-	// 'Happy Path' where k is not at the end, but somewhere in the middle of the linked list
-	actualBool, actualVal = list.KthFromEnd(2)
-	actualVal = fmt.Sprintf('%v', actualVal)
-	expectedVal = '3'
-	if expectedVal != actualVal {
-		t.Error('KthFromEnd(), expectedVal:', expectedVal, ' actualVal:', actualVal)
-	}
-
-	// # Where k and the length of the list are the same
-	actualBool, _ = list.KthFromEnd(5)
-	expectedBool = false
-	if expectedVal != actualVal {
-		t.Error('KthFromEnd(), expectedBool:', expectedBool, ' actualBool:', actualBool)
-	}
-
-	// # Where k is not a positive integer
-	actualBool, _ = list.KthFromEnd(-1)
-	expectedBool = false
-	if expectedVal != actualVal {
-		t.Error('KthFromEnd(), expectedBool:', expectedBool, ' actualBool:', actualBool)
-	}
-}
-
-func TestKthFromEnd_OneLinkList(t *testing.T) {
-	list := LinkList{}
-	list.Insert('blah')
-
-	// Where the linked list is of a size 1
-	actualBool, actualVal := list.KthFromEnd(0)
-
-	expectedBool := true
-	expectedVal := 'blah'
-
-	if expectedBool != actualBool {
-		t.Error('KthFromEnd(), expectedBool:', expectedBool, ' actualBool:', expectedBool)
-	}
-	if expectedVal != actualVal {
-		t.Error('KthFromEnd(), expectedVal:', expectedVal, ' actualVal:', actualVal)
-	}
-}
 
 func TestLinkListMerge(t *testing.T) {
 
