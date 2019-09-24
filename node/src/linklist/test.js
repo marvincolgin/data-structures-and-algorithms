@@ -42,41 +42,18 @@ describe('linklist', function() {
       list.append('9')
 
       expect(list.count()).to.be.equal(10)
-
-      expect(list.head.value).to.not.be.equal(0)
-      if (list.head.value != '0') {
-         t.Error('value!=0, actual:', list.head.value)
-      }
-      if (list.head.next.value != '1') {
-         t.Error('value!=1, actual:', list.head.next.value)
-      }
-      if (list.head.next.next.value != '2') {
-         t.Error('value!=2, actual:', list.head.next.next.value)
-      }
-      if (list.head.next.next.next.value != '3') {
-         t.Error('value!=3, actual:', list.head.next.next.next.value)
-      }
-      if (list.head.next.next.next.next.value != '4') {
-         t.Error('value!=4, actual:', list.head.next.next.next.next.value)
-      }
-      if (list.head.next.next.next.next.next.value != '5') {
-         t.Error('value!=5, actual:', list.head.next.next.next.next.next.value)
-      }
-      if (list.head.next.next.next.next.next.next.value != '6') {
-         t.Error('value!=6, actual:', list.head.next.next.next.next.next.next.value)
-      }
-      if (list.head.next.next.next.next.next.next.next.value != '7') {
-         t.Error('value!=7, actual:', list.head.next.next.next.next.next.next.next.value)
-      }
-      if (list.head.next.next.next.next.next.next.next.next.value != '8') {
-         t.Error('value!=8, actual:', list.head.next.next.next.next.next.next.next.next.value)
-      }
-      if (list.head.next.next.next.next.next.next.next.next.next.value != '9') {
-         t.Error('value!=9, actual:', list.head.next.next.next.next.next.next.next.next.next.value)
-      }
-
+      expect(list.head.value).to.be.equal('0')
+      expect(list.head.next.value).to.be.equal('1')
+      expect(list.head.next.next.value).to.be.equal('2')
+      expect(list.head.next.next.next.value).to.be.equal('3')
+      expect(list.head.next.next.next.next.value).to.be.equal('4')
+      expect(list.head.next.next.next.next.next.value).to.be.equal('5')
+      expect(list.head.next.next.next.next.next.next.value).to.be.equal('6')
+      expect(list.head.next.next.next.next.next.next.next.value).to.be.equal('7')
+      expect(list.head.next.next.next.next.next.next.next.next.value).to.be.equal('8')
+      expect(list.head.next.next.next.next.next.next.next.next.next.value).to.be.equal('9')
    })
-
+/*
    it('Can Insert()', function () {
    func TestInsertOne(t *testing.T) {
       list := LinkList{}
@@ -94,8 +71,12 @@ describe('linklist', function() {
          t.Error('list.head.valye != 1, actual:', list.head.value)
       }
    }
+*/
+
 
 })
+
+
 
 /*
 func HelperInsertMany() LinkList {
