@@ -169,6 +169,20 @@ describe('new linklist()', function() {
 
    })
 
+   it ('insertAfter()', function() {
+      list = HelperInsertBefore()
+      list.insertAfter('3', '5')
+      expect(list.toStr()).to.be.equal('2,3,5,1')
+
+      list = HelperInsertBefore()
+      list.insertAfter('2', '5')
+      expect(list.toStr()).to.be.equal('2,5,3,1')
+
+      list = HelperInsertBefore()
+      expect(list.insertAfter('4', '5')).to.be.false
+   })
+
+
 })
 
 
@@ -186,34 +200,6 @@ def test_toJSON():
 */
 
 /*
-
-func TestInsertAfter(t *testing.T) {
-	var list LinkList
-	var expected, actual string
-
-	list = HelperInsertBefore()
-	list.InsertAfter('3', '5')
-	expected = '2,3,5,1'
-	actual = list.toStr()
-	if expected != actual {
-		t.Error('InsertAfter(), expected:', expected, ' actual:', actual)
-	}
-
-	list = HelperInsertBefore()
-	list.InsertAfter('2', '5')
-	expected = '2,5,3,1'
-	actual = list.toStr()
-	if expected != actual {
-		t.Error('InsertAfter(), expected:', expected, ' actual:', actual)
-	}
-
-	list = HelperInsertBefore()
-	actualBool := list.InsertAfter('4', '5')
-	expectedBool := false
-	if expectedBool != actualBool {
-		t.Error('InsertAfter(), expectedBool:', expectedBool, ' actualBool:', actualBool)
-	}
-}
 
 func TestKthFromEnd(t *testing.T) {
 	list := HelperKthFromEnd()

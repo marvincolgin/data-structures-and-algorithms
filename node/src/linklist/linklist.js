@@ -176,7 +176,7 @@ class LinkList {
    // InsertBefore add a new node with the given newValue immediately BEFORE the node containg targetVal
    // @afterInsert: bool
    // @retval: bool
-   insertBefore(targetVal, newVal, afterInstead)  {
+   insertBefore(targetVal, newVal, afterInstead=false)  {
       // # note: this bevahoir can be modified by the bool afterInstead
       // # BigO == O(n)
 
@@ -211,6 +211,13 @@ class LinkList {
       }
 
       return found
+   }
+
+   // InsertAfter add a new node with the given newValue immediately AFTER the node containg targetVal
+   // @retval bool
+   insertAfter(targetVal, newVal)  {
+	   // BigO == O(n)
+	   return list.insertBefore(targetVal, newVal, true)
    }
 
 }
