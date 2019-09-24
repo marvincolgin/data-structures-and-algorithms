@@ -2,22 +2,33 @@ var chai = require('chai');
 var expect = chai.expect; // we are using the "expect" style of Chai
 
 var LinkNode = require('./linklist')
+var LinkList = require('./linklist')
 
 describe('linknode', function() {
-  it('Can Create', function() {
+   it('Can Create', function() {
       expect(new LinkNode()).to.be.an.instanceof(LinkNode);
   });
 });
 
+describe('linklist', function() {
+   it('Can Create', function() {
+      expect(new LinkList()).to.be.an.instanceof(LinkList);
+   })
 
+   it('Can Count (Empty)', function() {
+      //linklist = new LinkList()
+      expect(new LinkList().count()).to.be.equal(0)
+
+   })
+})
 
 /*
-package linklist
-
-import (
-	"fmt"
-	"testing"
-)
+func TestCountEmpty(t *testing.T) {
+	list := LinkList{}
+	if list.Count() != 0 {
+		t.Error("list != 0, actual:", list.Count())
+	}
+}
 
 func HelperInsertMany() LinkList {
 	list := LinkList{}
@@ -56,13 +67,6 @@ func TestNode(t *testing.T) {
 	node := LinkNode{value: "test"}
 	if node.value != "test" {
 		t.Error("node.value shuold be 'test', but it is ", node.value)
-	}
-}
-
-func TestCountEmpty(t *testing.T) {
-	list := LinkList{}
-	if list.Count() != 0 {
-		t.Error("list != 0, actual:", list.Count())
 	}
 }
 
