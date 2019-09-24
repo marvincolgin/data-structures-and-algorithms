@@ -129,6 +129,12 @@ describe('new linklist()', function() {
       expect(list.head.next.next.next.next.next.next.next.next.next.value).to.be.equal('0')
    })
 
+   it ('toStr()::many', function() {
+      list = HelperInsertMany()
+
+      expect(list.toStr()).to.be.equal('9,8,7,6,5,4,3,2,1,0')
+   })
+
    it ('includes()==true', function() {
       list = HelperInsertMany()
       expect(list.includes('5')).to.be.true
@@ -144,6 +150,44 @@ describe('new linklist()', function() {
       expect(list.remove('5')).to.be.true
       expect(list.count()).to.be.equal(9)
    })
+
+/*
+   it ('insertBefore()', function() {
+      list = HelperInsertBefore()
+      list.insertBefore('3', '4', false)
+
+      expected = '2,4,3,1'
+      actual = list.toStr()
+      if expected != actual {
+         t.Error('InsertBefore(), expected:', expected, ' actual:', actual)
+      }
+
+      list = HelperInsertBefore()
+      list.InsertBefore('1', '5', false)
+      expected = '2,3,5,1'
+      actual = list.toStr()
+      if expected != actual {
+         t.Error('InsertBefore(), expected:', expected, ' actual:', actual)
+      }
+
+      list = HelperInsertBefore()
+      list.InsertBefore('2', '5', false)
+      expected = '5,2,3,1'
+      actual = list.toStr()
+      if expected != actual {
+         t.Error('InsertBefore(), expected:', expected, ' actual:', actual)
+      }
+
+      list = HelperInsertBefore()
+      actualBool := list.InsertBefore('4', '5', false)
+      expectedBool := false
+      if expectedBool != actualBool {
+         t.Error('InsertBefore(), expectedBool:', expectedBool, ' actualBool:', actualBool)
+      }
+
+   })
+}
+*/
 
 })
 
@@ -162,42 +206,6 @@ def test_toJSON():
 */
 
 /*
-func TestInsertBefore(t *testing.T) {
-	var list LinkList
-	var expected, actual string
-
-	list = HelperInsertBefore()
-	list.InsertBefore('3', '4', false)
-	expected = '2,4,3,1'
-	actual = list.toStr()
-	if expected != actual {
-		t.Error('InsertBefore(), expected:', expected, ' actual:', actual)
-	}
-
-	list = HelperInsertBefore()
-	list.InsertBefore('1', '5', false)
-	expected = '2,3,5,1'
-	actual = list.toStr()
-	if expected != actual {
-		t.Error('InsertBefore(), expected:', expected, ' actual:', actual)
-	}
-
-	list = HelperInsertBefore()
-	list.InsertBefore('2', '5', false)
-	expected = '5,2,3,1'
-	actual = list.toStr()
-	if expected != actual {
-		t.Error('InsertBefore(), expected:', expected, ' actual:', actual)
-	}
-
-	list = HelperInsertBefore()
-	actualBool := list.InsertBefore('4', '5', false)
-	expectedBool := false
-	if expectedBool != actualBool {
-		t.Error('InsertBefore(), expectedBool:', expectedBool, ' actualBool:', actualBool)
-	}
-
-}
 
 func TestInsertAfter(t *testing.T) {
 	var list LinkList

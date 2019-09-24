@@ -17,6 +17,35 @@ class LinkList {
       this.comparison_func = null;
 	}
 
+   // toStr dump list tos string
+   // @retval string
+   toStr() {
+      // # c,cnt are limiters to make sure we don't go run away
+      // # yes, we need cnt=self.count() and not -1, as we walk off list
+      let c = 0
+      let cnt = this.count()
+      let buf = ""
+      let ptr = this.head
+
+      while (ptr != null) {
+         let s = ptr.value  // @TODO type conversion?
+
+         buf = buf + s + ","
+         ptr = ptr.next
+         c++
+         if (c > cnt) {
+            console.log("WAIT!!! Forever Loop!\nRecursive LinkList/Node\nbuf:[{buf}]")
+            process.exit(1)
+         }
+      }
+
+      if (buf.endsWith(',')) {
+         buf = buf.substring(0,buf.length-1)
+      }
+
+      return buf
+   }
+
    // Count the number of items
    // @retval int
    count() {
