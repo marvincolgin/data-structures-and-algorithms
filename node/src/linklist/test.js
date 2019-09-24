@@ -41,10 +41,9 @@ describe('linklist', function() {
       list.append('8')
       list.append('9')
 
-      if (list.count() != 10) {
-         t.Error('list.count()!=10, actual:', list.Count())
-      }
+      expect(list.count()).to.be.equal(10)
 
+      expect(list.head.value).to.not.be.equal(0)
       if (list.head.value != '0') {
          t.Error('value!=0, actual:', list.head.value)
       }
@@ -77,6 +76,24 @@ describe('linklist', function() {
       }
 
    })
+
+   it('Can Insert()', function () {
+   func TestInsertOne(t *testing.T) {
+      list := LinkList{}
+      list.Insert('1')
+
+      if list.head == nil {
+         t.Error('list.head is nil')
+      }
+
+      if list.Count() != 1 {
+         t.Error('list.count() != 1, actual:', list.Count())
+      }
+
+      if list.head.value != '1' {
+         t.Error('list.head.valye != 1, actual:', list.head.value)
+      }
+   }
 
 })
 
@@ -118,23 +135,6 @@ func TestNode(t *testing.T) {
 	node := LinkNode{value: 'test'}
 	if node.value != 'test' {
 		t.Error('node.value shuold be 'test', but it is ', node.value)
-	}
-}
-
-func TestInsertOne(t *testing.T) {
-	list := LinkList{}
-	list.Insert('1')
-
-	if list.head == nil {
-		t.Error('list.head is nil')
-	}
-
-	if list.Count() != 1 {
-		t.Error('list.count() != 1, actual:', list.Count())
-	}
-
-	if list.head.value != '1' {
-		t.Error('list.head.valye != 1, actual:', list.head.value)
 	}
 }
 
