@@ -1,9 +1,9 @@
 // LinkNode this is the internal object for individual link-nodes
-class LinkNode {
+module.exports = class LinkNode {
 	constructor(value) {
 		this.value = value;
-		this.next = nil;
-		this.prev = nil;
+		this.next = null;
+		this.prev = null;
 	 }
 
 }
@@ -12,10 +12,7 @@ class LinkNode {
 class LinkList {
 
 	constructor() {
-		this.head = nil
+		this.head = null;
 	}
 
 }
-
-
-export default class LinkNode{}
