@@ -54,6 +54,16 @@ class LinkList {
       return true
    }
 
+   // Insert a value into the link list
+   // @retval bool
+   insert(value) {
+      let node = new LinkNode(value)
+      node.next = this.head
+      this.head = node
+      return true
+   }
+
+
 }
 
 module.exports.LinkNode = LinkNode

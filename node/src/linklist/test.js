@@ -53,26 +53,15 @@ describe('linklist', function() {
       expect(list.head.next.next.next.next.next.next.next.next.value).to.be.equal('8')
       expect(list.head.next.next.next.next.next.next.next.next.next.value).to.be.equal('9')
    })
-/*
+
    it('Can Insert()', function () {
-   func TestInsertOne(t *testing.T) {
-      list := LinkList{}
-      list.Insert('1')
+      list = new LinkList()
+      list.insert('1')
 
-      if list.head == nil {
-         t.Error('list.head is nil')
-      }
-
-      if list.Count() != 1 {
-         t.Error('list.count() != 1, actual:', list.Count())
-      }
-
-      if list.head.value != '1' {
-         t.Error('list.head.valye != 1, actual:', list.head.value)
-      }
-   }
-*/
-
+      expect(list.head).to.not.be.null
+      expect(list.count()).to.be.equal(1)
+      expect(list.head.value).to.be.equal('1')
+   })
 
 })
 
