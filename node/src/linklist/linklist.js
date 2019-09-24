@@ -31,6 +31,20 @@ class LinkList {
 	   return c
    }
 
+   // Peek a value from the front of the list
+   // @retval obj{retBool:false, retVal:null}
+   peek() {
+      let retObj = {
+         retBool: false,
+         retVal : null
+      }
+      if (this.head != null) {
+         retObj.retBool = true
+         retObj.retVal = this.head.value
+      }
+      return retObj
+   }
+
    // Append a value into LinkList
    // @retval bool
    append(value) {

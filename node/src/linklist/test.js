@@ -50,32 +50,25 @@ describe('new linklist()', function() {
    })
 
    it('count()==0', function() {
-      //linklist = new LinkList()
       expect(new LinkList().count()).to.be.equal(0)
    })
-/*
-func TestPeekHead(t *testing.T) {
-	list := HelperInsertMany()
-	retBool, retVal := list.Peek()
-	if !retBool {
-		t.Error('Peek() failed')
-	}
-	if retVal != '9' {
-		t.Error('Peek()!=9')
-	}
-}
 
-func TestPeekHeadEmpty(t *testing.T) {
-	list := LinkList{}
-	retBool, retVal := list.Peek()
-	if retBool {
-		t.Error('Peek() should have returned False')
-	}
-	if retVal != nil {
-		t.Error('Peek() should have returned retVal==nil')
-	}
-}
-*/
+   it('peek()', function() {
+      list = HelperInsertMany()
+      retObj = list.peek()
+
+      expect(retObj.retBool).to.be.true
+      expect(retObj.retVal).to.be.equal('9')
+   })
+
+   it('peek()::empty', function() {
+      list = new LinkList()
+      retObj = list.peek()
+
+      expect(retObj.retBool).to.be.false
+      expect(retObj.retVal).to.be.null
+   })
+
    it('append()', function () {
       linklist = new LinkList()
       linklist.append('1')
