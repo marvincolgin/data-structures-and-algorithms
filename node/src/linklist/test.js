@@ -21,23 +21,62 @@ function HelperInsertMany() {
 }
 
 
-describe('linknode', function() {
+function HelperInsertBefore() {
+	list = new LinkList()
+	list.Insert('1')
+	list.Insert('3')
+	list.Insert('2')
+	return list
+}
+
+function HelperKthFromEnd() {
+	list = new LinkList()
+	list.Insert('2')
+	list.Insert('8')
+	list.Insert('3')
+	list.Insert('1')
+	return list
+}
+
+describe('new linknode()', function() {
    it('Can Create', function() {
       expect(new LinkNode()).to.be.an.instanceof(LinkNode);
   });
 });
 
-describe('linklist', function() {
+describe('new linklist()', function() {
    it('Can Create', function() {
       expect(new LinkList()).to.be.an.instanceof(LinkList);
    })
 
-   it('Can Count (Empty)', function() {
+   it('count()==0', function() {
       //linklist = new LinkList()
       expect(new LinkList().count()).to.be.equal(0)
    })
+/*
+func TestPeekHead(t *testing.T) {
+	list := HelperInsertMany()
+	retBool, retVal := list.Peek()
+	if !retBool {
+		t.Error('Peek() failed')
+	}
+	if retVal != '9' {
+		t.Error('Peek()!=9')
+	}
+}
 
-   it('Can Append()', function () {
+func TestPeekHeadEmpty(t *testing.T) {
+	list := LinkList{}
+	retBool, retVal := list.Peek()
+	if retBool {
+		t.Error('Peek() should have returned False')
+	}
+	if retVal != nil {
+		t.Error('Peek() should have returned retVal==nil')
+	}
+}
+*/
+   it('append()', function () {
       linklist = new LinkList()
       linklist.append('1')
       expect(linklist.head).to.not.be.null
@@ -45,7 +84,7 @@ describe('linklist', function() {
       expect(linklist.count()).to.be.equal(1)
    })
 
-   it('Can Append() Many', function () {
+   it('append()::many', function () {
       list = new LinkList()
       list.append('0')
       list.append('1')
@@ -71,7 +110,7 @@ describe('linklist', function() {
       expect(list.head.next.next.next.next.next.next.next.next.next.value).to.be.equal('9')
    })
 
-   it('Can Insert()', function () {
+   it('insert()', function () {
       list = new LinkList()
       list.insert('1')
 
@@ -80,7 +119,7 @@ describe('linklist', function() {
       expect(list.head.value).to.be.equal('1')
    })
 
-   it ('Can Insert()::Many', function () {
+   it ('insert()::many', function () {
       list = HelperInsertMany()
 
       expect(list.count()).to.be.equal(10)
@@ -97,43 +136,27 @@ describe('linklist', function() {
       expect(list.head.next.next.next.next.next.next.next.next.next.value).to.be.equal('0')
    })
 
+   it ('includes()==true', function() {
+      list = HelperInsertMany()
+      expect(list.includes('5')).to.be.true
+   })
+
+   it ('includes()==false', function() {
+      list = HelperInsertMany()
+      expect(list.includes('five')).to.be.false
+   })
+
+   it ('remove()', function () {
+      list = HelperInsertMany()
+      expect(list.remove('5')).to.be.true
+      expect(list.count()).to.be.equal(9)
+   })
+
 })
 
 
 
 /*
-
-func HelperInsertBefore() LinkList {
-	list := LinkList{}
-	list.Insert('1')
-	list.Insert('3')
-	list.Insert('2')
-	return list
-}
-
-func HelperKthFromEnd() LinkList {
-	list := LinkList{}
-	list.Insert('2')
-	list.Insert('8')
-	list.Insert('3')
-	list.Insert('1')
-	return list
-}
-
-func TestIncludes(t *testing.T) {
-	list := HelperInsertMany()
-	if !list.Includes('5') {
-		t.Error('.Includes(\'5\') != true, actual:', list.Includes('5'))
-	}
-}
-
-func TestIncludesNotFound(t *testing.T) {
-	list := HelperInsertMany()
-	if list.Includes('five') {
-		t.Error('.Includes(\'five\')==true, actual:', list.Includes('five'))
-	}
-}
-
 def test_toJSON():
     # Dump the LinkList to JSON and compare to what it should be
     ll = LinkList()
@@ -143,39 +166,9 @@ def test_toJSON():
     print(actual)
     print(expected)
     assert expected == actual
+*/
 
-func TestRemove(t *testing.T) {
-	list := HelperInsertMany()
-	if list.Remove('5') != true {
-		t.Error('Remove(\'5\') failed')
-	}
-	if list.Count() != 9 {
-		t.Error('Count()!=9')
-	}
-}
-
-func TestPeekHead(t *testing.T) {
-	list := HelperInsertMany()
-	retBool, retVal := list.Peek()
-	if !retBool {
-		t.Error('Peek() failed')
-	}
-	if retVal != '9' {
-		t.Error('Peek()!=9')
-	}
-}
-
-func TestPeekHeadEmpty(t *testing.T) {
-	list := LinkList{}
-	retBool, retVal := list.Peek()
-	if retBool {
-		t.Error('Peek() should have returned False')
-	}
-	if retVal != nil {
-		t.Error('Peek() should have returned retVal==nil')
-	}
-}
-
+/*
 func TestInsertBefore(t *testing.T) {
 	var list LinkList
 	var expected, actual string

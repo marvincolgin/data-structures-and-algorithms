@@ -14,6 +14,7 @@ class LinkList {
 
 	constructor() {
 		this.head = null;
+      this.comparison_func = null;
 	}
 
    // Count the number of items
@@ -61,6 +62,72 @@ class LinkList {
       node.next = this.head
       this.head = node
       return true
+   }
+
+   // Includes tests to see if a value exists
+   // @retval bool
+   includes(value) {
+      let retVal = false
+
+      let cur = list.head
+      while (cur != null) {
+         if (this.comparison_func != null) {
+            if (this.comparison_func(cur.value, value)) {
+               retVal = true
+               break
+            }
+         } else {
+            if (cur.value == value) {
+               retVal = true
+               break
+            }
+         }
+         cur = cur.next
+      }
+
+      return retVal
+   }
+
+   // Remove a node from a list, given a specific value
+   // @retval bool
+   remove(value) {
+      // BigO == O(n*2) ... I could eliminate self.includes(), but I think it's more readable
+      // NOTE: only the first one found will be removed
+
+      let retVal = false
+      if (this.includes(value)) {
+         let prev = null
+         let cur = this.head
+
+         while (cur != null) {
+
+            let found = false
+            if (this.comparison_func != null) {
+            	if (this.comparison_func(cur.value, value))
+            		found = True
+            } else {
+               if (cur.value == value) {
+                  found = true
+               }
+            }
+
+            if (found) {
+               if (prev == null) {
+                  list.head = cur.next
+               } else {
+                  prev.next = cur.next
+               }
+               retVal = true
+               break
+            }
+
+            prev = cur
+            cur = cur.next
+         }
+
+      }
+
+      return retVal
    }
 
 
