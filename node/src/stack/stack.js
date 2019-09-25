@@ -20,7 +20,7 @@ class Stack {
    pop() {
       let retObj = this._data.peek()
       if (retObj.retBool) {
-         stack._data.remove(val)
+         stack._data.remove(retObj.retVal)
       }
       return retObj
    }
