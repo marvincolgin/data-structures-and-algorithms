@@ -385,7 +385,7 @@ class AnimalShelter():
 Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/challenges/fifo_animal_shelter)
 
 *Whiteboard*
-![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/master/challenges/fifo_animal_shelter/assets/whiteboard.jpg)
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/master/whiteboards/queue-animal_shelter.jpg)
 
 ---
 
@@ -426,7 +426,7 @@ def breadth_first(tree, action_func):
 Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/data-structures/tree)
 
 *whiteboard*
-![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/breadth_first/challenges/breadth_first/assets/whiteboard.jpg)
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/master/whiteboards/binary_tree-breadth_first.jpg)
 
 ---
 
@@ -438,7 +438,7 @@ def find_max(tree : BinaryTree) -> (bool,int):
 Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/challenges/find_maximum_binary_tree)
 
 *Whiteboard*
-![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/c7e136b9fcf6c8522eb6d74643e65a4b8fb83c4e/challenges/find_maximum_binary_tree/assets/whiteboard.jpg)
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/master/binary_tree-find_max_value.jpg)
 
 ---
 
@@ -456,7 +456,7 @@ def fizzBuzzTree(tree: BinaryTree) -> BinaryTree:
 Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/challenges/fizz_buzz_tree)
 
 *Whiteboard*
-![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/be06edcb4417bd0d1a66896bb24b9339ac6ea962/challenges/fizz_buzz_tree/assets/whiteboard.jpg)
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/master/binary_tree-fizzbuzz.jpg)
 
 ---
 
@@ -471,7 +471,7 @@ def tree_intersection(tree1, tree2: BinaryTree) -> list:
 Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/challenges/tree_intersection)
 
 *Whiteboard*
-![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/tree_intersection/challenges/tree_intersection/assets/whiteboard.jpg)
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/master/binary_tree-find_insection_with_two_trees.jpg)
 
 ---
 
@@ -547,7 +547,7 @@ def repeated_word(longstr: str) -> str:
 Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/challenges/repeated_word)
 
 *Whiteboard*
-![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/repeated_word/challenges/repeated_word/assets/whiteboard.jpg)
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/master/whiteboards/hashtable-repeated_word.jpg)
 
 ---
 
@@ -568,7 +568,7 @@ def left_join(h1, h2: HashTable) -> list:
 Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/challenges/left_join)
 
 *Whiteboard*
-![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/left_join/challenges/left_join/assets/whiteboard.jpg)
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/master/whiteboards/hashtable-left_join.jpg)
 
 ---
 
@@ -591,9 +591,6 @@ class Graph:
 ```
 Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/data-structures/graph)
 
-*Whiteboard*
-![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/graph-day2/data-structures/graph/assets/whiteboard.jpg)
-
 ---
 
 ### Get Graph Edges
@@ -610,7 +607,7 @@ def get_edges(graph: Graph, path_ro: List) -> Tuple[bool, float]:
 Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/challenges/get_edges)
 
 *Whiteboard*
-![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/get-edges/challenges/get_edges/assets/whiteboard.jpg)
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/master/whiteboards/graph-get_edges.jpg)
 
 ---
 
@@ -622,3 +619,7 @@ def depth_first_recursive(self, root: Vertex, action_func: Any) -> None:
 def depth_first(self, root: Vertex, action_func: Any) -> None:
 ```
 Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/data-structures/graph/graph.py#L93)
+
+*Whiteboard*
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/master/whiteboard/graph-breadthfirst.jpg)
+
