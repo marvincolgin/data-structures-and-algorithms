@@ -21,18 +21,14 @@ describe('new Stack()', function() {
       stack = new Stack()
       expect(stack.push('pao de queijo')).to.be.true
    })
+
+   it('count()', function() {
+      stack = HelperStackAddLots()
+      expect(stack.count()).to.be.equal(3)
+   })
 })
 
 /*
-func TestCount(t *testing.T) {
-	stack := HelperStackAddLots()
-	ai := stack.Count()
-	ei := 3
-	if ai != ei {
-		t.Error("TestCount(), actual:", ai, " expected:", ei)
-	}
-}
-
 func TestPop(t *testing.T) {
 	stack := HelperStackAddLots()
 	eb, es := true, "banana"
