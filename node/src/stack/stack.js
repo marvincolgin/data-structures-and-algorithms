@@ -18,9 +18,9 @@ class Stack {
    // Pop an item from the front of the stack
    // @retval retObj:{}
    pop() {
-      let retObj = this._data.Peek()
+      let retObj = this._data.peek()
       if (retObj.retBool) {
-         stack._data.Remove(val)
+         stack._data.remove(val)
       }
       return retObj
    }
@@ -29,14 +29,14 @@ class Stack {
    // @param val
    // @retval bool
    push(val) {
-      this._data.Insert(val)
+      this._data.insert(val)
       return true
    }
 
    // Peek an item at top of Stack
    // @retval retObj
    peek() {
-      return stack._data.Peek()
+      return stack._data.peek()
    }
 
 

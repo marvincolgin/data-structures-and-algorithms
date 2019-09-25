@@ -12,40 +12,18 @@ function HelperStackAddLots() {
 	return stack
 }
 
-//s = HelperStackAddLots()
-let s = new Stack()
-console.log(s)
-
 describe('new Stack()', function() {
    it('new stack()', function() {
       expect(new Stack()).to.be.an.instanceof(Stack);
    })
+
+   it('push() && peek()', function() {
+      stack = new Stack()
+      expect(stack.push('pao de queijo')).to.be.true
+   })
 })
 
 /*
-
-func TestCanCreate(t *testing.T) {
-	stack := Stack{}
-	if reflect.TypeOf(stack) != reflect.TypeOf((*Stack)(nil)).Elem() {
-		t.Error("reflect.TypeOf(stack)!='Stack', actual=", reflect.TypeOf(stack))
-	}
-}
-
-func TestPushAndPeek(t *testing.T) {
-	stack := Stack{}
-	stack.Push("pao de queijo")
-	ab, as := stack.Peek()
-	eb, es := true, "pao de queijo"
-
-	if ab != eb {
-		t.Error("TestPush(), actual:", ab, " expected:", eb)
-	}
-
-	if as != es {
-		t.Error("TestPush(), actual:", as, " expected:", es)
-	}
-}
-
 func TestCount(t *testing.T) {
 	stack := HelperStackAddLots()
 	ai := stack.Count()
