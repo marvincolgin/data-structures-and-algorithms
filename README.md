@@ -110,7 +110,8 @@ def reverse_array2(orig):
 Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/challenges/array_reverse/array_reverse.py)
 
 *Whiteboard*
-![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/master/challenges/array_reverse/assets/whiteboard.jpg)
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/master/whiteboards/array-reverse.jpg)
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/master/whiteboards/array-reverse2.jpg)
 
 ---
 
@@ -125,7 +126,7 @@ def insert_shift_array(arr, val):
 Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/challenges/array_shift/array_shift.py)
 
 *Whiteboard*
-![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/master/challenges/array_shift/assets/whiteboard.jpg)
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/master/whiteboards/array-shift.jpg)
 
 ---
 
@@ -139,7 +140,7 @@ def array_binary_search(arr, val):
 Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/blob/master/challenges/array_binary_search/array_binary_search.py)
 
 *Whiteboard*
-![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/master/challenges/array_binary_search/assets/whiteboard.jpg)
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/master/whiteboard/array-binary-search.jpg)
 
 ---
 
@@ -252,13 +253,13 @@ class LinkList {
 
 *Whiteboards*
 _*Insert()*_
-![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/master/data-structures/linked_list/assets/linked_lists-ll_insertions-whiteboard.jpg)
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/master/whiteboards/linked_lists-insertions-whiteboard.jpg)
 _*KthFromEnd(): Iterative Approach*_
-![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/master/data-structures/linked_list/assets/ll_kth_from_end-whiteboard.jpg)
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/master/whiteboards/linked_lists-kth_from_end-whiteboard.jpg)
 _*KthFromEnd(): Recursive Approach*_
-![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/master/data-structures/linked_list/assets/ll_kth_from_end-whiteboard-recursive.jpg)
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/master/whiteboards/linked_lists-kth_from_end-whiteboard-recursive)
 _*MergeList()*_
-![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/master/data-structures/linked_list/assets/ll_merge-whiteboard.jpg)
+![alt_text](https://raw.githubusercontent.com/marvincolgin/data-structures-and-algorithms/master/whiteboards/linked_list-merge-whiteboard)
 
 ---
 
