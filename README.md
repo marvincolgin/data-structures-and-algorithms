@@ -264,16 +264,19 @@ _*MergeList()*_
 
 ## Stack (LIFO)
 
-*Python*
+*API: Python*
+
+Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/data-structures/stacks_and_queues)
 ```python
 class Stack():
     def push(val) -> bool:
     def pop() -> str:
     def peek() -> str:
 ```
-Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/data-structures/stacks_and_queues)
 
-*Golang*
+*API: Golang*
+
+Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/golang/src/linklist)
 ```golang
 // Stack implementation of LIFO
 type Stack struct {
@@ -286,8 +289,21 @@ func (stack *Stack) Pop() (bool, interface{})
 func (stack *Stack) Push(val interface{}) bool
 func (stack *Stack) Peek() (bool, interface{})
 ```
-Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/golang/src/linklist)
 
+*API: Node*
+
+Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/node/src/stack)
+```javascript
+// Stack implementation of LIFO
+class Stack {
+   constructor() {}
+   count() {}
+   pop() {}
+   push(val) {}
+   peek() {)
+}
+
+```
 ---
 
 ### Balanced Brackets
