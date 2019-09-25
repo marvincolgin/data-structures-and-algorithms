@@ -112,7 +112,7 @@ class LinkList {
    includes(value) {
       let retVal = false
 
-      let cur = list.head
+      let cur = this.head
       while (cur != null) {
          if (this.comparison_func != null) {
             if (this.comparison_func(cur.value, value)) {
@@ -156,7 +156,7 @@ class LinkList {
 
             if (found) {
                if (prev == null) {
-                  list.head = cur.next
+                  this.head = cur.next
                } else {
                   prev.next = cur.next
                }
@@ -217,7 +217,7 @@ class LinkList {
    // @retval bool
    insertAfter(targetVal, newVal)  {
 	   // BigO == O(n)
-	   return list.insertBefore(targetVal, newVal, true)
+	   return this.insertBefore(targetVal, newVal, true)
    }
 
    // KthFromEnd finds the Kth element from the end of the list and returns value for node
