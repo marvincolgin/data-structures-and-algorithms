@@ -146,6 +146,9 @@ Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/
 ## Singly Linked Lists
 Linked-Lists (singly) are dynamic data-structures which resembles a length of chain, where the entire length of chain is the list and the individual links of the chain are nodes. A singlarly linked list is only traversable in one direction, but utilizing a head element that points to the first node in the list, the second node in the list points to the next link in the chain, and finally the last element in the list points to "none"
 
+*API: Python*
+
+Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/data-structures/linked_list)
 ```python
 class LinkList()
 
@@ -181,9 +184,12 @@ class ListNode()
     def __init__(self, value, next=None, prev=None):
          # constructor
 ```
-Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/data-structures/linked_list)
+
+---
 
 *API: Golang*
+
+Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/golang/src/linklist)
 ```golang
 type LinkNode struct {
     value interface{}
@@ -214,7 +220,35 @@ func (list *LinkList) InsertAfter(targetVal, newVal interface{}) bool {}
 func (list *LinkList) KthFromEnd(k int) (bool, interface{}) {}
 func (list *LinkList) MergeList(listA, listB LinkList) LinkList {}
 ```
-Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/golang/src/linklist)
+
+---
+
+*API: Node*
+
+Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/node/src/linklist)
+```javascript
+// LinkNode this is the internal object for individual link-nodes
+class LinkNode {
+	constructor(value) {
+}
+
+// LinkList is the internal data-structure
+class LinkList {
+	constructor() {}
+
+   toStr() {}
+   count() {}
+   peek() {}
+   append(value) {}
+   insert(value) {}
+   includes(value) {}
+   remove(value) {}
+   insertBefore(targetVal, newVal, afterInstead=false)  {}
+   insertAfter(targetVal, newVal) {}
+   kthFromEnd(k) {}
+   mergeList(listA, listB) { }
+```
+
 
 *Whiteboards*
 _*Insert()*_
