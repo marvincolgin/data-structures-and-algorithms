@@ -289,11 +289,11 @@ type Stack struct {
 	_data linklist.LinkList
 }
 
-func (stack *Stack) Init()
-func (stack *Stack) Count() int
-func (stack *Stack) Pop() (bool, interface{})
-func (stack *Stack) Push(val interface{}) bool
-func (stack *Stack) Peek() (bool, interface{})
+func (stack *Stack) Init() {}
+func (stack *Stack) Count() int {}
+func (stack *Stack) Pop() (bool, interface{}) {}
+func (stack *Stack) Push(val interface{}) bool {}
+func (stack *Stack) Peek() (bool, interface{}) {}
 ```
 
 *API: Node*
@@ -364,6 +364,45 @@ class PseudoQueue(object):
         # get at the bottom element of the first, then rebuild it from temp to first-stack
 ```
 Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/python/datastructs/stacks_and_queues)
+
+*API: Node*
+```javascript
+class Queue {
+   constructor() {}
+   count() {}
+   toStr() {}
+   enqueue(val) {}
+   dequeue(val) {}
+   peek() {}
+```
+Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/node/src/queue)
+
+*API: Golang*
+```golang
+// Queue implementation of LIFO
+type Queue struct {
+	_data linklist.LinkList
+}
+
+// Init inistantiate the stuct
+func (queue *Queue) Init() {}
+
+// Count the number of items in linklist
+func (queue *Queue) Count() int {}
+
+// ToStr return the Queue as a String
+func (queue *Queue) ToStr() string {}
+
+// Enqueue to add a value to the queue
+func (queue *Queue) Enqueue(val interface{}) bool {}
+
+// Dequeue to remove a specific value from the Qeueue
+func (queue *Queue) Dequeue(val interface{}) bool {}
+
+// Peek at the front value in the Queue
+func (queue *Queue) Peek() (bool, interface{}) {}
+```
+Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/golang/src/queue)
 
 *Whiteboard*
 
