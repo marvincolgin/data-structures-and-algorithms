@@ -38,8 +38,8 @@ func (list *LinkList) toJSON() string {
 	return ""
 }
 
-// toStr dump list tos string
-func (list *LinkList) toStr() string {
+// ToStr dump list tos string
+func (list *LinkList) ToStr() string {
 
 	// # c,cnt are limiters to make sure we don't go run away
 	// # yes, we need cnt=self.count() and not -1, as we walk off list
