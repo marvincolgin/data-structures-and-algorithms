@@ -237,7 +237,7 @@ func TestInsertBefore(t *testing.T) {
 	list = HelperInsertBefore()
 	list.InsertBefore("3", "4", false)
 	expected = "2,4,3,1"
-	actual = list.toStr()
+	actual = list.ToStr()
 	if expected != actual {
 		t.Error("InsertBefore(), expected:", expected, " actual:", actual)
 	}
@@ -245,7 +245,7 @@ func TestInsertBefore(t *testing.T) {
 	list = HelperInsertBefore()
 	list.InsertBefore("1", "5", false)
 	expected = "2,3,5,1"
-	actual = list.toStr()
+	actual = list.ToStr()
 	if expected != actual {
 		t.Error("InsertBefore(), expected:", expected, " actual:", actual)
 	}
@@ -253,7 +253,7 @@ func TestInsertBefore(t *testing.T) {
 	list = HelperInsertBefore()
 	list.InsertBefore("2", "5", false)
 	expected = "5,2,3,1"
-	actual = list.toStr()
+	actual = list.ToStr()
 	if expected != actual {
 		t.Error("InsertBefore(), expected:", expected, " actual:", actual)
 	}
@@ -274,7 +274,7 @@ func TestInsertAfter(t *testing.T) {
 	list = HelperInsertBefore()
 	list.InsertAfter("3", "5")
 	expected = "2,3,5,1"
-	actual = list.toStr()
+	actual = list.ToStr()
 	if expected != actual {
 		t.Error("InsertAfter(), expected:", expected, " actual:", actual)
 	}
@@ -282,7 +282,7 @@ func TestInsertAfter(t *testing.T) {
 	list = HelperInsertBefore()
 	list.InsertAfter("2", "5")
 	expected = "2,5,3,1"
-	actual = list.toStr()
+	actual = list.ToStr()
 	if expected != actual {
 		t.Error("InsertAfter(), expected:", expected, " actual:", actual)
 	}
@@ -369,7 +369,7 @@ func TestLinkListMerge(t *testing.T) {
 	// @TODO: Interesting, it's in a different order than in python
 	// -- expected := "apple,cheerios,bannana,frosted flakes,orange,wheaties"
 	expected := "orange,wheaties,bannana,frosted flakes,apple,cheerios"
-	actual := listA.toStr()
+	actual := listA.ToStr()
 
 	if expected != actual {
 		listA.MergeList(listA, listB)
