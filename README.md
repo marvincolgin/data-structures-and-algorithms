@@ -453,6 +453,9 @@ Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/
 ---
 
 ## Binary Tree (BT)
+
+*API: Python*
+
 ```python
 class TraverseMethod(IntEnum):
     # enum class for traversal and processing order
@@ -478,6 +481,48 @@ class BinaryTree:
         # return the enter tree as an array using a specified method
 ```
 Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/python/datastructs/tree)
+
+*API: Jode*
+
+```javascript
+// enum class for traversal and processing order
+var TraverseMethod = {
+   PRE_ORDER: 1,
+   IN_ORDER: 2,
+   POST_ORDER: 3
+}
+
+// enum class for comparisons, gt, lt and equal
+var ComparisonSign = {
+    LESS: 1,
+    GREATER: 2,
+    EQUAL: 3
+}
+
+// class for nodes within Tree
+class Node {
+   constructor(value) {
+      this.value = value
+      this.left = null
+      this.right = null
+   }
+}
+
+// BinaryTree Implementation
+class BinaryTree {
+   constructor() {}
+   traverse(method, action_func) { }
+   returnAsArr(method) {}
+}
+
+class BinarySearchTree extends BinaryTree {
+   constructor(comparison_func=null) { }
+   comparison_func_default(val1, val2, CS) {}
+   add(new_value) {}
+   contains(target_value) {}
+}
+```
+Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/node/src/tree)
 
 ---
 
