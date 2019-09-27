@@ -61,6 +61,10 @@ def test_contains():
     tree.add(50)
     assert tree.contains(50)
 
+def test_contains_empty():
+    tree = BinarySearchTree()
+    assert tree.contains(50)==False
+
 def test_add_empty():
     tree = BinarySearchTree()
     tree.add("apple")

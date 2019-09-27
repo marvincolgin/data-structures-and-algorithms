@@ -157,5 +157,8 @@ class BinarySearchTree(BinaryTree):
                 else:
                     _visit(node.right)
 
-        return _visit(self.root)
+        if self.root is not None:
+            return _visit(self.root)
+        else:
+            return False
 
