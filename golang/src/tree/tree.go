@@ -38,6 +38,8 @@ func (tree *BinaryTree) Init() {
 // Traverse of BinaryTree
 func (tree *BinaryTree) Traverse(method int, actionFunc func(val interface{})) {
 
+
+! @TODO : stuck here, need to figure out how to call _visit() from within _visit()
 	var _visit = func(node *Node) {
 		if method == TraversalOrderPre {
 			actionFunc(node.Val)
