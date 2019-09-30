@@ -1,49 +1,48 @@
 package datastructs;
 
-import java.util.Vector;
+// @TODO use Vector for Node.value
+// import java.util.Vector;
 
 public class LinkList {
 
    public interface ComparisonFunc{
-      Boolean Compare(Vector v1, Vector v2);
+      Boolean Compare(int v1, int v2);
    }
 
-    public Node head;
+   public Node head;
 
-    // @TODO comparison_func
-    public ComparisonFunc comparisonFunc;
+   // @TODO comparison_func
+   public ComparisonFunc comparisonFunc;
 
-    public LinkList(ComparisonFunc cf) {
-        this.head = null;
-        this.comparisonFunc = cf;
-    }
+   public LinkList(ComparisonFunc cf) {
+      this.head = null;
+      this.comparisonFunc = cf;
+   }
 
-    class Node {
-        public Vector value;
-        public Node next;
+   class Node {
+      public int value;
+      public Node next;
 
-        public Node(Object value) {
-            this.value.add(value);
-            this.next = null;
-        }
-    }
+      public Node(int v) {
+         this.value = v;
+         this.next = null;
+      }
+   }
+
+   public void insert(int value) {
+      Node node = new Node(value);
+      node.next = this.head;
+      this.head = node;
+   }
 }
 
 
 /*
-# **********************************
-class LinkList():
-
-    head = None
-
-    # Function used to compare values (set via constructor)
-    comparison_func = None
-
-    def __init__(self, comparison_func=None):
-        # constructor
-        self.head = None
-        self.comparison_func = comparison_func
-
+    def insert(self, value):
+        # insert value at the head of the list
+        node = LinkNode(value, self.head)
+        node.next = self.head
+        self.head = node
 
     def toJSON(self):
         # dump object to JSON and return as String
@@ -70,12 +69,6 @@ class LinkList():
         if buf.endswith(','):
             buf = buf[:-1]
         return buf
-
-    def insert(self, value):
-        # insert value at the head of the list
-        node = LinkNode(value, self.head)
-        node.next = self.head
-        self.head = node
 
     def get(self, value):  # -> Any:
         # traverse list and determine if a value exist

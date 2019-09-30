@@ -15,13 +15,16 @@ public class LinkListTest {
         LinkList ll = new LinkList(null);
         assertNull(ll.head, "list.head==null");
     }
+    @Test
+    public void testInsert() {
+       Integer val = new Integer(50);
+       assertTrue(val.intValue()==50);
+       LinkList ll = new LinkList(null);
+       ll.insert(val);
+    }
 }
 
 /*
-from link_list import LinkList, LinkNode
-import pytest
-
-
 def helper_insert_many(ll):
     ll.insert('0')
     ll.insert('1')
@@ -33,11 +36,6 @@ def helper_insert_many(ll):
     ll.insert('7')
     ll.insert('8')
     ll.insert('9')
-
-
-def test_class_exists():
-    assert LinkList
-    assert LinkNode
 
 
 def test_count():
