@@ -6,7 +6,7 @@ package datastructs;
 public class LinkList {
 
    public interface ComparisonFunc{
-      Boolean Compare(int v1, int v2);
+      Boolean Compare(String v1, String v2);
    }
 
    public Node head;
@@ -20,29 +20,56 @@ public class LinkList {
    }
 
    class Node {
-      public int value;
+      public String value;
       public Node next;
 
-      public Node(int v) {
+      public Node(String v) {
          this.value = v;
          this.next = null;
       }
    }
 
-   public void insert(int value) {
+   public void insert(String value) {
       Node node = new Node(value);
       node.next = this.head;
       this.head = node;
+   }
+
+   public int count() {
+      int cnt = 0;
+      Node cur = this.head;
+      while (cur != null) {
+         cnt += 1;
+         cur = cur.next;
+      }
+      return cnt;
    }
 }
 
 
 /*
-    def insert(self, value):
-        # insert value at the head of the list
-        node = LinkNode(value, self.head)
-        node.next = self.head
-        self.head = node
+    def count(self):
+        # count the number of nodes and return count
+        cnt = 0
+        cur = self.head
+        while cur is not None:
+            cnt += 1
+            cur = cur.next
+        return cnt
+    def get(self, value):  # -> Any:
+        # traverse list and determine if a value exist
+
+        cur = self.head
+        while cur is not None:
+            if self.comparison_func is not None:
+                if self.comparison_func(cur.value, value):
+                    return cur.value
+            else:
+                if cur.value == value:
+                    return cur.value
+            cur = cur.next
+
+        raise Exception('Not found.')
 
     def toJSON(self):
         # dump object to JSON and return as String
@@ -70,21 +97,6 @@ public class LinkList {
             buf = buf[:-1]
         return buf
 
-    def get(self, value):  # -> Any:
-        # traverse list and determine if a value exist
-
-        cur = self.head
-        while cur is not None:
-            if self.comparison_func is not None:
-                if self.comparison_func(cur.value, value):
-                    return cur.value
-            else:
-                if cur.value == value:
-                    return cur.value
-            cur = cur.next
-
-        raise Exception('Not found.')
-
     def includes(self, value):
         # traverse list and determine if a value exists
         # return bool
@@ -104,14 +116,6 @@ public class LinkList {
             cur = cur.next
         return ret
 
-    def count(self):
-        # count the number of nodes and return count
-        cnt = 0
-        cur = self.head
-        while cur is not None:
-            cnt += 1
-            cur = cur.next
-        return cnt
 
     def append(self, value) -> bool:
         # adds a new node with the given value to the end of the list

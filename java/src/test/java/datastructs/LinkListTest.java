@@ -10,6 +10,20 @@ import datastructs.LinkList;
 
 
 public class LinkListTest {
+   public LinkList helperInsertMany() {
+      LinkList ll = new LinkList(null);
+      ll.insert("0");
+      ll.insert("1");
+      ll.insert("2");
+      ll.insert("3");
+      ll.insert("4");
+      ll.insert("5");
+      ll.insert("6");
+      ll.insert("7");
+      ll.insert("8");
+      ll.insert("9");
+      return ll;
+   }
     @Test
     public void testLinkListEmpty() {
         LinkList ll = new LinkList(null);
@@ -17,41 +31,20 @@ public class LinkListTest {
     }
     @Test
     public void testInsert() {
-       Integer val = new Integer(50);
-       assertTrue(val.intValue()==50);
+       String val = new String("50");
+       assertTrue(val.compareTo("50")==0);
        LinkList ll = new LinkList(null);
        ll.insert(val);
+    }
+    @Test
+    public void testCount() {
+       LinkList ll = this.helperInsertMany();
+       Integer expected = 10;
+       assertTrue(ll.count()==expected, "Count must match expected");
     }
 }
 
 /*
-def helper_insert_many(ll):
-    ll.insert('0')
-    ll.insert('1')
-    ll.insert('2')
-    ll.insert('3')
-    ll.insert('4')
-    ll.insert('5')
-    ll.insert('6')
-    ll.insert('7')
-    ll.insert('8')
-    ll.insert('9')
-
-
-def test_count():
-    ll = LinkList()
-    helper_insert_many(ll)
-    expected = 10
-    actual = ll.count()
-    assert actual == expected
-
-
-def test_insert():
-    ll = LinkList()
-    ll.insert('one')
-    assert ll.head.value == 'one'
-
-
 def test_insert_many():
     ll = LinkList()
     helper_insert_many(ll)
