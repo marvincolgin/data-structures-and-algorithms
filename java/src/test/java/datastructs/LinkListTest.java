@@ -118,53 +118,53 @@ public class LinkListTest {
       String actual;
 
       ll = helperInsertBefore();
-      ll.insertBefore(new String("3"), new String("4"), false);
+      ll.insertBefore(new String("3"), new String("4"));
       actual = ll.toStr();
       assertTrue(actual.compareTo("2,4,3,1")==0);
       ll = null;
 
       ll = helperInsertBefore();
-      ll.insertBefore(new String("1"), new String("5"), false);
+      ll.insertBefore(new String("1"), new String("5"));
       actual = ll.toStr();
       assertTrue(actual.compareTo("2,3,5,1")==0);
       ll = null;
 
       ll = helperInsertBefore();
-      ll.insertBefore(new String("2"), new String("5"), false);
+      ll.insertBefore(new String("2"), new String("5"));
       actual = ll.toStr();
       assertTrue(actual.compareTo("5,2,3,1")==0);
       ll = null;
 
       ll = helperInsertBefore();
-      Boolean ab = ll.insertBefore(new String("4"), new String("5"), false);
+      Boolean ab = ll.insertBefore(new String("4"), new String("5"));
+      assertTrue(ab == false);
+      ll = null;
+   }
+   @Test
+   public void testInsertAfter() {
+      LinkList ll;
+      String actual;
+
+      ll = helperInsertBefore();
+      ll.insertAfter(new String("3"), new String("5"));
+      actual = ll.toStr();
+      assertTrue(actual.compareTo("2,3,5,1")==0);
+      ll = null;
+
+      ll = helperInsertBefore();
+      ll.insertAfter(new String("2"), new String("5"));
+      actual = ll.toStr();
+      assertTrue(actual.compareTo("2,5,3,1")==0);
+      ll = null;
+
+      ll = helperInsertBefore();
+      Boolean ab = ll.insertAfter(new String("4"), new String("5"));
       assertTrue(ab == false);
       ll = null;
    }
 }
 
 /*
-def test_insertAfter():
-    ll = helper_insertBefore()
-    ll.insertAfter('3', '5')
-    expected = '2,3,5,1'
-    actual = ll.toStr()
-    assert expected == actual
-
-    ll = helper_insertBefore()
-    ll.insertAfter('2', '5')
-    expected = '2,5,3,1'
-    actual = ll.toStr()
-    assert expected == actual
-
-    ll = helper_insertBefore()
-    actual = ll.insertAfter('4', '5')
-    expected = False
-    assert expected == actual
-    # @TODO: Assignment wanted me to raise an exception
-    # @ I've worked way too long on this, but this is how...
-    # self.assertRaises(SomeCoolException, mymod.myfunc)
-
-
 def test_traverse():
     actual = []
     def visit(value):

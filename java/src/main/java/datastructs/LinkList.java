@@ -192,7 +192,7 @@ public class LinkList {
       throw new RuntimeException("Not Found, but it has to be found.");
    }
 
-   public Boolean insertBefore(String targetVal, String newVal, Boolean afterInstead) {
+   private Boolean insertBeforeOrAfter(String targetVal, String newVal, Boolean afterInstead) {
       // add a new node with the given newValue immediately BEFORE the node containg targetVal
       // note: this bevahoir can be modified by the bool afterInstead
       // BigO == O(n)
@@ -229,6 +229,14 @@ public class LinkList {
       }
 
       return found;
+   }
+   public Boolean insertBefore(String targetVal, String newVal) {
+      return this.insertBeforeOrAfter(targetVal, newVal, false);
+   }
+   public Boolean insertAfter(String targetVal, String newVal) {
+      // add a new node with the given newValue immediately AFTER the node containg targetVal
+      // BigO == O(n)
+      return this.insertBeforeOrAfter(targetVal, newVal, true);
    }
 }
 /*
