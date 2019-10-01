@@ -172,29 +172,27 @@ public class LinkList {
 
       return retval;
    }
+
+   public String get(String value) {
+      // traverse list and determine if a value exist
+
+      Node cur = this.head;
+      while (cur != null) {
+         if (this.comparisonFunc != null) {
+            // if (this.comparisonFunc(cur.value, value)) {
+            //    return cur.value;
+            // }
+         }
+         else
+         if (cur.value.compareTo(value)==0) {
+            return cur.value;
+         }
+         cur = cur.next;
+      }
+      throw new RuntimeException("Not Found, but it has to be found.");
+   }
 }
 /*
-    def get(self, value):  # -> Any:
-        # traverse list and determine if a value exist
-
-        cur = self.head
-        while cur is not None:
-            if self.comparison_func is not None:
-                if self.comparison_func(cur.value, value):
-                    return cur.value
-            else:
-                if cur.value == value:
-                    return cur.value
-            cur = cur.next
-
-        raise Exception('Not found.')
-
-    def toJSON(self):
-        # dump object to JSON and return as String
-        buf = json.dumps(self, default=lambda o: o.__dict__, indent=0, separators=(',', ': '))
-        buf = buf.replace('\n', ' ').replace('\r', '')
-        return buf
-
     def insertBefore(self, targetVal: int, newVal: str, afterInstead=False):
         # add a new node with the given newValue immediately BEFORE the node containg targetVal
         # note: this bevahoir can be modified by the bool afterInstead
@@ -310,4 +308,13 @@ if __name__ == "__main__":
     actual = listA.toStr()
 
     print(f'actual:[{actual}]')
+
+
+    def toJSON(self):
+        # dump object to JSON and return as String
+        buf = json.dumps(self, default=lambda o: o.__dict__, indent=0, separators=(',', ': '))
+        buf = buf.replace('\n', ' ').replace('\r', '')
+        return buf
+
+
 */

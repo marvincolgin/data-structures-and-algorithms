@@ -98,19 +98,15 @@ public class LinkListTest {
       assertTrue(ll.remove("5")==true);
       assertTrue(ll.count()==9);
    }
+   @Test
+   public void testGet() {
+      LinkList ll = this.helperInsertMany();
+      String actual = ll.get("5");
+      assertTrue(actual.compareTo(new String("5"))==0);
+   }
 }
 
 /*
-
-def test_remove():
-    ll = LinkList()
-    helper_insert_many(ll)
-    actual = ll.remove('5')
-    expected = True
-    assert actual == expected
-    assert ll.count() == 9
-
-
 def helper_insertBefore():
     ll = LinkList()
     ll.insert('1')
