@@ -92,6 +92,12 @@ public class LinkListTest {
       String r = ll.toStr();
       assertTrue(r.compareTo("1,3,2,5")==0);
    }
+   @Test
+   public void testRemove() {
+      LinkList ll = this.helperInsertMany();
+      assertTrue(ll.remove("5")==true);
+      assertTrue(ll.count()==9);
+   }
 }
 
 /*

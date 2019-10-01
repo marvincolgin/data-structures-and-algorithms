@@ -106,7 +106,7 @@ public class LinkList {
       if (buf.endsWith(",")) {
          buf = buf.substring(0, buf.length()-1);
       }
-      System.out.print(buf);
+
       return buf;
    }
 
@@ -130,30 +130,50 @@ public class LinkList {
 
       return true;
    }
+
+   public Boolean remove(String value) {
+      // removes a node from a list, given a specific value
+      // BigO == O(n*2) ... I could eliminate self.includes(), but I think it's more readable
+      // NOTE: only the first one found will be removed
+
+      Boolean retval = false;
+      if (this.includes(value)) {
+
+         Node prev = null;
+         Node cur = this.head;
+
+         while (cur != null) {
+
+            Boolean found = false;
+            if (this.comparisonFunc != null) {
+               // if (this.comparisonFunc(cur.value, value)) {
+               //    found = true;
+               // }
+            }
+            else
+            if (cur.value.compareTo(value)==0) {
+               found = true;
+            }
+
+            if (found) {
+               if (prev == null) {
+                  this.head = cur.next;
+               } else {
+                  prev.next = cur.next;
+               }
+               retval = true;
+               break;
+            }
+
+            prev = cur;
+            cur = cur.next;
+         }
+      }
+
+      return retval;
+   }
 }
-
-
 /*
-    def append(self, value) -> bool:
-        # adds a new node with the given value to the end of the list
-        # BigO == O(n)
-
-        # walk to end of list
-        prev, cur = None, self.head
-        while cur is not None:
-            prev = cur
-            cur = cur.next
-
-        # create the node and add it to the end
-        node = LinkNode(value, None)
-        if (prev == None):
-            self.head = node
-        else:
-            prev.next = node
-
-        return True
-
-
     def get(self, value):  # -> Any:
         # traverse list and determine if a value exist
 
@@ -174,36 +194,6 @@ public class LinkList {
         buf = json.dumps(self, default=lambda o: o.__dict__, indent=0, separators=(',', ': '))
         buf = buf.replace('\n', ' ').replace('\r', '')
         return buf
-
-    def remove(self, value) -> bool:
-        # removes a node from a list, given a specific value
-        # BigO == O(n*2) ... I could eliminate self.includes(), but I think it's more readable
-        # NOTE: only the first one found will be removed
-
-        ret = False
-        if self.includes(value):
-            prev, cur = None, self.head
-            while cur is not None:
-
-                found = False
-                if self.comparison_func is not None:
-                    if self.comparison_func(cur.value, value):
-                        found = True
-                elif cur.value == value:
-                    found = True
-
-                if found:
-                    if prev is None:
-                        self.head = cur.next
-                    else:
-                        prev.next = cur.next
-                    ret = True
-                    break
-
-                prev = cur
-                cur = cur.next
-
-        return ret
 
     def insertBefore(self, targetVal: int, newVal: str, afterInstead=False):
         # add a new node with the given newValue immediately BEFORE the node containg targetVal
