@@ -1,7 +1,10 @@
 package datastructs;
 
+import java.util.function.BiFunction;
+import java.util.function.Consumer;
+
 // @TODO use Vector for Node.value
-// import java.util.Vector;
+// @TODO use comparisonFunc() and make tests for Vector
 
 public class LinkList {
 
@@ -14,16 +17,15 @@ public class LinkList {
          this.retVal = v;
       }
    }
-   public interface ComparisonFunc{
-      Boolean Compare(String v1, String v2);
-   }
 
    public Node head;
 
-   // @TODO comparison_func
-   public ComparisonFunc comparisonFunc;
+   private BiFunction<String, String, Boolean> comparisonFunc;
+   public void setComparisonFunc(BiFunction f) {
+      this.comparisonFunc = f;
+   }
 
-   public LinkList(ComparisonFunc cf) {
+   public LinkList(BiFunction cf) {
       this.head = null;
       this.comparisonFunc = cf;
    }
@@ -60,10 +62,10 @@ public class LinkList {
 
       while (cur != null) {
          if (this.comparisonFunc != null) {
-            // if (this.comparisonFunc(cur.value, value)) {
-            //    retval = true;
-            //    break;
-            // }
+            if (this.comparisonFunc.apply(cur.value, value)) {
+               retval = true;
+               break;
+            }
          }
          else {
             if (cur.value.compareTo(value) == 0) {
@@ -146,9 +148,9 @@ public class LinkList {
 
             Boolean found = false;
             if (this.comparisonFunc != null) {
-               // if (this.comparisonFunc(cur.value, value)) {
-               //    found = true;
-               // }
+               if (this.comparisonFunc.apply(cur.value, value)) {
+                  found = true;
+               }
             }
             else
             if (cur.value.compareTo(value)==0) {
@@ -179,9 +181,9 @@ public class LinkList {
       Node cur = this.head;
       while (cur != null) {
          if (this.comparisonFunc != null) {
-            // if (this.comparisonFunc(cur.value, value)) {
-            //    return cur.value;
-            // }
+            if (this.comparisonFunc.apply(cur.value, value)) {
+               return cur.value;
+            }
          }
          else
          if (cur.value.compareTo(value)==0) {
@@ -238,15 +240,17 @@ public class LinkList {
       // BigO == O(n)
       return this.insertBeforeOrAfter(targetVal, newVal, true);
    }
+   public void traverse(Consumer actionFunc) {
+      // traverse the linklist and call the action_func with the value
+      Node cur = this.head;
+      while (cur != null) {
+         actionFunc.accept(cur.value);
+         cur = cur.next;
+      }
+   }
 }
 /*
-    def insertAfter(self, targetVal: int, newVal: str):
-        # add a new node with the given newValue immediately AFTER the node containg targetVal
-        # BigO == O(n)
-        return self.insertBefore(targetVal, newVal, True)
-
     def traverse(self, action_func):
-        # traverse the linklist and call the action_func with the value
         cur = self.head
         while cur:
             action_func(cur.value)

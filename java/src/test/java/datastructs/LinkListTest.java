@@ -5,6 +5,10 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.beans.Transient;
+import java.util.function.BiFunction;
+import java.util.function.Consumer;
+import java.util.concurrent.atomic.AtomicReference;
+import java.util.function.BiConsumer;
 
 import datastructs.LinkList;
 
@@ -162,20 +166,34 @@ public class LinkListTest {
       assertTrue(ab == false);
       ll = null;
    }
+   private BiFunction<String, String, Boolean> _customCompare = (s1, s2) -> {
+      Boolean retval = (s1.compareTo(s2)==0);
+      return retval;
+   };
+   @Test
+   public void testTraverse() {
+      LinkList ll = this.helperInsertMany();
+
+      String[] actual;
+      actual = new String[ll.count()];
+
+      AtomicReference<Integer> idx = new AtomicReference<>();
+      idx.set(0);
+
+      Consumer<String> _visit = (value) -> {
+         actual[idx.get()] = value;
+         idx.set(idx.get()+1);
+      };
+
+      ll.traverse(_visit);
+
+      String[] expected = {"9", "8", "7", "6", "5", "4", "3", "2", "1", "0"};
+      assertArrayEquals(actual, expected);
+   }
+
 }
 
 /*
-def test_traverse():
-    actual = []
-    def visit(value):
-        actual.append(value)
-    ll = LinkList()
-    helper_insert_many(ll)
-    ll.traverse(visit)
-    expected = ['9', '8', '7', '6', '5', '4', '3', '2', '1', '0']
-    assert actual == expected
-
-
 def helper_kthFromEnd():
     ll = LinkList()
     ll.insert("2")
