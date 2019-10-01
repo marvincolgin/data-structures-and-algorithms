@@ -175,10 +175,12 @@ public class LinkListTest {
       assertTrue(ab == false);
       ll = null;
    }
+
    private BiFunction<String, String, Boolean> _customCompare = (s1, s2) -> {
       Boolean retval = (s1.compareTo(s2)==0);
       return retval;
    };
+
    @Test
    public void testTraverse() {
       LinkList ll = this.helperInsertMany();
@@ -199,6 +201,8 @@ public class LinkListTest {
       String[] expected = {"9", "8", "7", "6", "5", "4", "3", "2", "1", "0"};
       assertArrayEquals(actual, expected);
    }
+
+   @Test
    void testKthFromEnd() {
       String actual;
       LinkList ll = helperKthFromEnd();
@@ -220,6 +224,8 @@ public class LinkListTest {
          ll.kthFromEnd(-1);
       });
    }
+
+   @Test
    void testKthFromEndOneLinkList() {
       LinkList ll = new LinkList(null);
       ll.insert("blah");
@@ -228,6 +234,8 @@ public class LinkListTest {
       String actual = ll.kthFromEnd(0);
       assertTrue(actual.compareTo("blah")==0);
    }
+
+   @Test
    void testKthFromEndException() {
       String actual;
       LinkList ll = helperKthFromEnd();
@@ -237,32 +245,34 @@ public class LinkListTest {
          ll.kthFromEnd(6);
       });
    }
+
+   @Test
+   void testMerge() {
+      // @TODO: TEST: Merge two unequal
+      // @TODO: TEST: Merge one empty list
+      // @TODO: TEST: Merge two empty lists
+      // @TODO: TEST: Merge a list with just 1 item
+
+      LinkList listA = new LinkList(null);
+      listA.append("apple");
+      listA.append("bannana");
+      listA.append("orange");
+
+      LinkList listB = new LinkList(null);
+      listB.append("cheerios");
+      listB.append("frosted flakes");
+      listB.append("wheaties");
+
+      listA.mergeList(listA, listB);
+
+      String actual;
+      actual = listA.toStr();
+
+      assertTrue(actual.compareTo("apple,cheerios,bannana,frosted flakes,orange,wheaties")==0);
+   }
 }
 
 /*
-def test_ll_merge():
-
-    # @TODO: TEST: Merge two unequal
-    # @TODO: TEST: Merge one empty list
-    # @TODO: TEST: Merge two empty lists
-    # @TODO: TEST: Merge a list with just 1 item
-
-    listA = LinkList()
-    listA.append('apple')
-    listA.append('bannana')
-    listA.append('orange')
-
-    listB = LinkList()
-    listB.append('cheerios')
-    listB.append('frosted flakes')
-    listB.append('wheaties')
-
-    listA.mergeList(listA, listB)
-
-    expected = 'apple,cheerios,bannana,frosted flakes,orange,wheaties'
-    actual = listA.toStr()
-
-    assert expected == actual
 def test_toJSON():
     # Dump the LinkList to JSON and compare to what it should be
     ll = LinkList()

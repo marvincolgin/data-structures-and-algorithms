@@ -232,14 +232,17 @@ public class LinkList {
 
       return found;
    }
+
    public Boolean insertBefore(String targetVal, String newVal) {
       return this.insertBeforeOrAfter(targetVal, newVal, false);
    }
+
    public Boolean insertAfter(String targetVal, String newVal) {
       // add a new node with the given newValue immediately AFTER the node containg targetVal
       // BigO == O(n)
       return this.insertBeforeOrAfter(targetVal, newVal, true);
    }
+
    public void traverse(Consumer actionFunc) {
       // traverse the linklist and call the action_func with the value
       Node cur = this.head;
@@ -248,6 +251,7 @@ public class LinkList {
          cur = cur.next;
       }
    }
+
    public String kthFromEnd(int k) {
       // finds the Kth element from the end of the list and returns value for node
       // BigO == O(n)
@@ -289,88 +293,28 @@ public class LinkList {
 
       return ptrB.value;
    }
+
+   public LinkList mergeList(LinkList listA, LinkList listB) {
+      // Merge two lists
+      // BigO == O(n)
+
+      Node prev = null;
+      Node ptrA = listA.head;
+      Node ptrB = listB.head;
+
+      while ( (ptrA != null) || (ptrB != null) ) {
+         if (ptrA != null) {
+            prev = ptrA;
+            ptrA = ptrA.next;
+            prev.next = ptrB;
+         }
+         if (ptrB != null) {
+            prev = ptrB;
+            ptrB = ptrB.next;
+            prev.next = ptrA;
+         }
+      }
+
+      return listA;
+   }
 }
-/*
-    def kthFromEnd(self, k):
-        # finds the Kth element from the end of the list and returns value for node
-        # BigO == O(n)
-
-        # Only positive integers
-        if k < 0:
-            raise AssertionError(f'WAIT!!! You must pass a positive integer, k:[{k}]')
-
-        ptrA = self.head
-        ptrB = self.head
-
-        # Walk ptrA out to "K" elements
-        tooSmall = False
-        c = 0
-        while c < k-1:
-            if ptrA.next is None:
-                tooSmall = True
-                break
-            ptrA = ptrA.next
-            c += 1
-        if tooSmall:
-            raise AssertionError(f'WAIT!!! There are not enough elements in the link list for k:[{k}].')
-
-        # Walk ptrA and ptrB out to the end of the list
-        # ptrB will point to our requested node
-        # note: for short lengths where the value is found before k elements, we are going to skip walking
-        # ptrB until the difference between it and ptrA is "k"
-        while ptrA.next is not None:
-            ptrA = ptrA.next
-            if c >= k:
-                ptrB = ptrB.next
-            c += 1
-
-        return ptrB.value
-
-
-    def mergeList(self, listA, listB):
-        # Merge two lists
-        # BigO == O(n)
-
-        ptrA = listA.head
-        ptrB = listB.head
-
-        while ptrA is not None or ptrB is not None:
-            if ptrA is not None:
-                prev = ptrA
-                ptrA = ptrA.next
-                prev.next = ptrB
-            if ptrB is not None:
-                prev = ptrB
-                ptrB = ptrB.next
-                prev.next = ptrA
-
-        return listA
-
-
-if __name__ == "__main__":
-
-    listA = LinkList()
-    listA.append('apple')
-    listA.append('bannana')
-    listA.append('orange')
-
-    listB = LinkList()
-    listB.append('cheerios')
-    listB.append('frosted flakes')
-    listB.append('wheaties')
-
-    expected = 'apple,cheerios,bannan,frosted flakes,orange,wheaties'
-    listA.mergeList(listA, listB)
-    actual = listA.toStr()
-
-    print(f'actual:[{actual}]')
-
-
-    def toJSON(self):
-        # dump object to JSON and return as String
-        buf = json.dumps(self, default=lambda o: o.__dict__, indent=0, separators=(',', ': '))
-        buf = buf.replace('\n', ' ').replace('\r', '')
-        return buf
-
-
-*/
