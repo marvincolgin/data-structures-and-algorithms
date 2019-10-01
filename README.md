@@ -1,6 +1,6 @@
 **Algorithms and Data Structures**
 
-*Written in Python* (WIP:Golang/NodeJS)
+*Written in Python, Golang, Node and Java*
 
 Vin Colgin (Summer/Fall 2019)
 
