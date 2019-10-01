@@ -38,9 +38,10 @@ func (tree *BinaryTree) Init() {
 // Traverse of BinaryTree
 func (tree *BinaryTree) Traverse(method int, actionFunc func(val interface{})) {
 
+	///! @TODO : stuck here, need to figure out how to call _visit() from within _visit()
+	var _visit func(node *Node)
 
-! @TODO : stuck here, need to figure out how to call _visit() from within _visit()
-	var _visit = func(node *Node) {
+	_visit = func(node *Node) {
 		if method == TraversalOrderPre {
 			actionFunc(node.Val)
 		}
@@ -85,42 +86,6 @@ func (tree *BinaryTree) ReturnAsArr(method int) []interface{} {
 /*
 
 class BinaryTree:
-
-
-    def traverse(self, method : TraverseMethod, action_func):
-        # visit each node in atree, using a specified method and call action_func() for each node
-
-        def _visit(node):
-            # recusive function for visiting each node
-
-            if method == TraverseMethod.PRE_ORDER:
-                action_func(node)
-
-            if node.left:
-                _visit(node.left)
-
-            if method == TraverseMethod.IN_ORDER:
-                action_func(node)
-
-            if node.right:
-                _visit(node.right)
-
-            if method == TraverseMethod.POST_ORDER:
-                action_func(node)
-
-        _visit(self.root)
-
-    def returnAsArr(self, method : TraverseMethod):
-        # return the enter tree as an array using a specified method
-
-        result = []
-
-        def action_func(node):
-            result.append(node.value)
-
-        self.traverse(method, action_func)
-        return(result)
-
     @staticmethod
     # arg:tree should have type-hinting, but ZEIT::now has issues with Python 3.6
     def find_max(tree) -> (bool,int):

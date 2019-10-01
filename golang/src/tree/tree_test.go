@@ -51,7 +51,37 @@ func TestTraversePre(t *testing.T) {
 	}
 
 	if !reflect.DeepEqual(expected, actualAsInt) {
-		t.Error("TestEnqueue(), actualAsInt:", actualAsInt, " expected:", expected)
+		t.Error("TestTraversePre(), actualAsInt:", actualAsInt, " expected:", expected)
+	}
+}
+
+func TestTraverseIn(t *testing.T) {
+	tree := HelperAddLots()
+	expected := []int{6, 8, 7, 9, 2, 1, 4, 3, 5}
+	actual := tree.ReturnAsArr(TraversalOrderIn)
+
+	actualAsInt := make([]int, len(actual))
+	for i := range actual {
+		actualAsInt[i] = actual[i].(int)
+	}
+
+	if !reflect.DeepEqual(expected, actualAsInt) {
+		t.Error("TestTraverseIn(), actualAsInt:", actualAsInt, " expected:", expected)
+	}
+}
+
+func TestTraversePost(t *testing.T) {
+	tree := HelperAddLots()
+	expected := []int{8, 9, 7, 6, 2, 4, 5, 3, 1}
+	actual := tree.ReturnAsArr(TraversalOrderPost)
+
+	actualAsInt := make([]int, len(actual))
+	for i := range actual {
+		actualAsInt[i] = actual[i].(int)
+	}
+
+	if !reflect.DeepEqual(expected, actualAsInt) {
+		t.Error("TestTraversePost(), actualAsInt:", actualAsInt, " expected:", expected)
 	}
 }
 
@@ -61,33 +91,6 @@ func TestContains(t *testing.T) {
 	tree.Add(50)
 	ab := tree.Contains(50)
 	eb := true
-}
-*
-
-/*
-def test_pre_order(tree):
-    expected = [ 1, 2, 6, 7, 8, 9, 3, 4, 5 ]
-    actual = tree.returnAsArr(TraverseMethod.PRE_ORDER)
-    assert expected == actual
-
-
-def test_in_order(tree):
-    expected = [ 6, 8, 7, 9, 2, 1, 4, 3, 5 ]
-    actual = tree.returnAsArr(TraverseMethod.IN_ORDER)
-    assert expected == actual
-
-def test_post_order(tree):
-    expected = [ 8, 9, 7, 6, 2, 4, 5, 3, 1 ]
-    actual = tree.returnAsArr(TraverseMethod.POST_ORDER)
-    assert expected == actual
-func TestEnqueue(t *testing.T) {
-	q := Queue{}
-	q.Enqueue("pao de queijo")
-	ai := q.Count()
-	ei := 1
-	if ai != ei {
-		t.Error("TestEnqueue(), actual:", ai, " expected:", ei)
-	}
 }
 */
 /*
