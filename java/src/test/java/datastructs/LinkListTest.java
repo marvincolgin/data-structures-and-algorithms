@@ -82,29 +82,19 @@ public class LinkListTest {
       assertTrue(retobj.retBool==false);
       assertTrue(retobj.retVal==null);
    }
+   @Test
+   public void testAppend() {
+      LinkList ll = new LinkList(null);
+      ll.insert("2");
+      ll.insert("3");
+      ll.insert("1");
+      ll.append("5");
+      String r = ll.toStr();
+      assertTrue(r.compareTo("1,3,2,5")==0);
+   }
 }
 
 /*
-def test_append():
-    ll = LinkList()
-    ll.insert('2')
-    ll.insert('3')
-    ll.insert('1')
-    ll.append('5')
-    expected = '1,3,2,5'
-    actual = ll.toStr()
-    assert expected == actual
-
-def test_toJSON():
-    # Dump the LinkList to JSON and compare to what it should be
-    ll = LinkList()
-    helper_insert_many(ll)
-    actual = ll.toJSON()
-    expected = """{ "head": { "value": "9", "next": { "value": "8", "next": { "value": "7", "next": { "value": "6", "next": { "value": "5", "next": { "value": "4", "next": { "value": "3", "next": { "value": "2", "next": { "value": "1", "next": { "value": "0", "next": null, "prev": null }, "prev": null }, "prev": null }, "prev": null }, "prev": null }, "prev": null }, "prev": null }, "prev": null }, "prev": null }, "prev": null }, "comparison_func": null }"""
-    print(actual)
-    print(expected)
-    assert expected == actual
-
 
 def test_remove():
     ll = LinkList()
@@ -256,6 +246,16 @@ def test_ll_merge():
     actual = listA.toStr()
 
     assert expected == actual
+def test_toJSON():
+    # Dump the LinkList to JSON and compare to what it should be
+    ll = LinkList()
+    helper_insert_many(ll)
+    actual = ll.toJSON()
+    expected = """{ "head": { "value": "9", "next": { "value": "8", "next": { "value": "7", "next": { "value": "6", "next": { "value": "5", "next": { "value": "4", "next": { "value": "3", "next": { "value": "2", "next": { "value": "1", "next": { "value": "0", "next": null, "prev": null }, "prev": null }, "prev": null }, "prev": null }, "prev": null }, "prev": null }, "prev": null }, "prev": null }, "prev": null }, "prev": null }, "comparison_func": null }"""
+    print(actual)
+    print(expected)
+    assert expected == actual
+
 
 
 */

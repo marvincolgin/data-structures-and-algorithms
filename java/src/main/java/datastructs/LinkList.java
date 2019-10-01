@@ -87,10 +87,73 @@ public class LinkList {
 
       return retobj;
    }
+
+   public String toStr() {
+      int c = 0;
+      int cnt = this.count();
+
+      String buf = new String("");
+      Node cur = this.head;
+      while (cur != null) {
+         buf = buf + cur.value + ",";
+         c += 1;
+         cur = cur.next;
+         if (c > cnt) {
+            throw new RuntimeException("c > cnt");
+         }
+      }
+
+      if (buf.endsWith(",")) {
+         buf = buf.substring(0, buf.length()-1);
+      }
+      System.out.print(buf);
+      return buf;
+   }
+
+   public Boolean append(String value) {
+      Node prev = null;
+      Node cur = this.head;
+
+      // walk to end of list
+      while (cur != null) {
+         prev = cur;
+         cur = cur.next;
+      }
+
+      // create the node and add it to the end
+      Node node = new Node(value);
+      if (prev == null) {
+         this.head = node;
+      } else {
+         prev.next = node;
+      }
+
+      return true;
+   }
 }
 
 
 /*
+    def append(self, value) -> bool:
+        # adds a new node with the given value to the end of the list
+        # BigO == O(n)
+
+        # walk to end of list
+        prev, cur = None, self.head
+        while cur is not None:
+            prev = cur
+            cur = cur.next
+
+        # create the node and add it to the end
+        node = LinkNode(value, None)
+        if (prev == None):
+            self.head = node
+        else:
+            prev.next = node
+
+        return True
+
+
     def get(self, value):  # -> Any:
         # traverse list and determine if a value exist
 
@@ -111,46 +174,6 @@ public class LinkList {
         buf = json.dumps(self, default=lambda o: o.__dict__, indent=0, separators=(',', ': '))
         buf = buf.replace('\n', ' ').replace('\r', '')
         return buf
-
-    def toStr(self):
-        # dump list as simple text-list
-        # @TODO This is broken, ever since I made LinkNode hold variant, but TEST use string
-
-        # c,cnt are limiters to make sure we don't go run away
-        # yes, we need cnt=self.count() and not -1, as we walk off list
-        c, cnt = 0, self.count()
-        buf = ''
-        ptr = self.head
-        while ptr is not None:
-            buf = buf + ptr.value + ','
-            ptr = ptr.next
-            c += 1
-            if (c > cnt):
-                raise AssertionError(f'WAIT!!! Forever Loop!\nRecursive LinkList/Node\nbuf:[{buf}]')
-
-        if buf.endswith(','):
-            buf = buf[:-1]
-        return buf
-
-
-    def append(self, value) -> bool:
-        # adds a new node with the given value to the end of the list
-        # BigO == O(n)
-
-        # walk to end of list
-        prev, cur = None, self.head
-        while cur is not None:
-            prev = cur
-            cur = cur.next
-
-        # create the node and add it to the end
-        node = LinkNode(value, None)
-        if (prev == None):
-            self.head = node
-        else:
-            prev.next = node
-
-        return True
 
     def remove(self, value) -> bool:
         # removes a node from a list, given a specific value
