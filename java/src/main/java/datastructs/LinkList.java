@@ -5,6 +5,15 @@ package datastructs;
 
 public class LinkList {
 
+   public class RetObj {
+      public Boolean retBool;
+      public String retVal;
+
+      public RetObj(Boolean b, String v) {
+         this.retBool = b;
+         this.retVal = v;
+      }
+   }
    public interface ComparisonFunc{
       Boolean Compare(String v1, String v2);
    }
@@ -44,18 +53,44 @@ public class LinkList {
       }
       return cnt;
    }
+
+   public Boolean includes(String value) {
+      Boolean retval = false;
+      Node cur = this.head;
+
+      while (cur != null) {
+         if (this.comparisonFunc != null) {
+            // if (this.comparisonFunc(cur.value, value)) {
+            //    retval = true;
+            //    break;
+            // }
+         }
+         else {
+            if (cur.value.compareTo(value) == 0) {
+               retval = true;
+               break;
+            }
+         }
+         cur = cur.next;
+      }
+
+      return retval;
+   }
+
+   public RetObj peek() {
+      RetObj retobj = new RetObj(false, null);
+
+      if (this.head != null) {
+         retobj.retBool = true;
+         retobj.retVal = this.head.value;
+      }
+
+      return retobj;
+   }
 }
 
 
 /*
-    def count(self):
-        # count the number of nodes and return count
-        cnt = 0
-        cur = self.head
-        while cur is not None:
-            cnt += 1
-            cur = cur.next
-        return cnt
     def get(self, value):  # -> Any:
         # traverse list and determine if a value exist
 
@@ -97,25 +132,6 @@ public class LinkList {
             buf = buf[:-1]
         return buf
 
-    def includes(self, value):
-        # traverse list and determine if a value exists
-        # return bool
-        ret = False
-        cur = self.head
-        while cur is not None:
-
-            if self.comparison_func is not None:
-                if self.comparison_func(cur.value, value):
-                    ret = True
-                    break
-            else:
-                if cur.value == value:
-                    ret = True
-                    break
-
-            cur = cur.next
-        return ret
-
 
     def append(self, value) -> bool:
         # adds a new node with the given value to the end of the list
@@ -135,15 +151,6 @@ public class LinkList {
             prev.next = node
 
         return True
-
-    def peekHead(self) -> [bool, str]:
-        retStr = ''
-        retBool = False
-        if self.head is not None:
-            retStr = self.head.value
-            retBool = True
-        return [retBool, retStr]
-
 
     def remove(self, value) -> bool:
         # removes a node from a list, given a specific value

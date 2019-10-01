@@ -10,6 +10,7 @@ import datastructs.LinkList;
 
 
 public class LinkListTest {
+
    public LinkList helperInsertMany() {
       LinkList ll = new LinkList(null);
       ll.insert("0");
@@ -24,59 +25,75 @@ public class LinkListTest {
       ll.insert("9");
       return ll;
    }
-    @Test
-    public void testLinkListEmpty() {
-        LinkList ll = new LinkList(null);
-        assertNull(ll.head, "list.head==null");
-    }
-    @Test
-    public void testInsert() {
-       String val = new String("50");
-       assertTrue(val.compareTo("50")==0);
-       LinkList ll = new LinkList(null);
-       ll.insert(val);
-    }
-    @Test
-    public void testCount() {
-       LinkList ll = this.helperInsertMany();
-       Integer expected = 10;
-       assertTrue(ll.count()==expected, "Count must match expected");
-    }
+
+   @Test
+   public void testLinkListEmpty() {
+      LinkList ll = new LinkList(null);
+      assertNull(ll.head, "list.head==null");
+   }
+   @Test
+   public void testInsert() {
+      String val = new String("50");
+      assertTrue(val.compareTo("50")==0);
+      LinkList ll = new LinkList(null);
+      ll.insert(val);
+   }
+   @Test
+   public void testCount() {
+      LinkList ll = this.helperInsertMany();
+      Integer expected = 10;
+      assertTrue(ll.count()==expected, "Count must match expected");
+   }
+   @Test
+   public void testInsertMany() {
+      LinkList ll = this.helperInsertMany();
+      assertTrue(ll.head.value.compareTo("9")==0);
+      assertTrue(ll.head.next.value.compareTo("8")==0);
+      assertTrue(ll.head.next.next.value.compareTo("7")==0);
+      assertTrue(ll.head.next.next.next.value.compareTo("6")==0);
+      assertTrue(ll.head.next.next.next.next.value.compareTo("5")==0);
+      assertTrue(ll.head.next.next.next.next.next.value.compareTo("4")==0);
+      assertTrue(ll.head.next.next.next.next.next.next.value.compareTo("3")==0);
+      assertTrue(ll.head.next.next.next.next.next.next.next.value.compareTo("2")==0);
+      assertTrue(ll.head.next.next.next.next.next.next.next.next.value.compareTo("1")==0);
+      assertTrue(ll.head.next.next.next.next.next.next.next.next.next.value.compareTo("0")==0);
+   }
+   @Test
+   public void testIncludes() {
+      LinkList ll = this.helperInsertMany();
+      assertTrue(ll.includes("5"));
+   }
+   @Test
+   public void testIncludesNotFound() {
+      LinkList ll = this.helperInsertMany();
+      assertFalse(ll.includes("five"));
+   }
+   @Test
+   public void testPeek() {
+      LinkList ll = this.helperInsertMany();
+      LinkList.RetObj retobj = ll.peek();
+      assertTrue(retobj.retBool==true);
+      assertTrue(retobj.retVal.compareTo("9")==0);
+   }
+   @Test
+   public void testPeekEmpty() {
+      LinkList ll = new LinkList(null);
+      LinkList.RetObj retobj = ll.peek();
+      assertTrue(retobj.retBool==false);
+      assertTrue(retobj.retVal==null);
+   }
 }
 
 /*
-def test_insert_many():
+def test_append():
     ll = LinkList()
-    helper_insert_many(ll)
-    assert ll.count() == 10
-    assert ll.head.value == '9'
-    assert ll.head.next.value == '8'
-    assert ll.head.next.next.value == '7'
-    assert ll.head.next.next.next.value == '6'
-    assert ll.head.next.next.next.next.value == '5'
-    assert ll.head.next.next.next.next.next.value == '4'
-    assert ll.head.next.next.next.next.next.next.value == '3'
-    assert ll.head.next.next.next.next.next.next.next.value == '2'
-    assert ll.head.next.next.next.next.next.next.next.next.value == '1'
-    assert ll.head.next.next.next.next.next.next.next.next.next.value == '0'
-    assert ll.head.next.next.next.next.next.next.next.next.next.next is None
-
-
-def test_includes():
-    ll = LinkList()
-    helper_insert_many(ll)
-    expected = True
-    actual = ll.includes('5')
+    ll.insert('2')
+    ll.insert('3')
+    ll.insert('1')
+    ll.append('5')
+    expected = '1,3,2,5'
+    actual = ll.toStr()
     assert expected == actual
-
-
-def test_includes_notfound():
-    ll = LinkList()
-    helper_insert_many(ll)
-    expected = False
-    actual = ll.includes('five')
-    assert expected == actual
-
 
 def test_toJSON():
     # Dump the LinkList to JSON and compare to what it should be
@@ -89,16 +106,6 @@ def test_toJSON():
     assert expected == actual
 
 
-def test_append():
-    ll = LinkList()
-    ll.insert('2')
-    ll.insert('3')
-    ll.insert('1')
-    ll.append('5')
-    expected = '1,3,2,5'
-    actual = ll.toStr()
-    assert expected == actual
-
 def test_remove():
     ll = LinkList()
     helper_insert_many(ll)
@@ -106,24 +113,6 @@ def test_remove():
     expected = True
     assert actual == expected
     assert ll.count() == 9
-
-
-def test_peekHead():
-    ll = LinkList()
-    helper_insert_many(ll)
-    expectedStr = "9"
-    expectedBool = True
-    actualBool,actualStr = ll.peekHead()
-    assert expectedStr == actualStr
-    assert expectedBool == actualBool
-
-
-def test_peekHead_empty():
-    ll = LinkList()
-    expectedStr = ""
-    expectedBool = False
-    actualBool,actualStr = ll.peekHead()
-    assert expectedBool == actualBool
 
 
 def helper_insertBefore():
