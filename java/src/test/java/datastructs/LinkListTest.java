@@ -210,7 +210,6 @@ public class LinkListTest {
       actual = ll.kthFromEnd(2);
       assertTrue(actual.compareTo("3")==0);
 
-
       // Where k and the length of the list are the same
       assertThrows(RuntimeException.class, () -> {
          ll.kthFromEnd(5);
@@ -221,27 +220,26 @@ public class LinkListTest {
          ll.kthFromEnd(-1);
       });
    }
+   void testKthFromEndOneLinkList() {
+      LinkList ll = new LinkList(null);
+      ll.insert("blah");
+
+      // Where the linked list is of a size 1
+      String actual = ll.kthFromEnd(0);
+      assertTrue(actual.compareTo("blah")==0);
+   }
+   void testKthFromEndException() {
+      String actual;
+      LinkList ll = helperKthFromEnd();
+
+      // Where k is not a positive integer
+      assertThrows(RuntimeException.class, () -> {
+         ll.kthFromEnd(6);
+      });
+   }
 }
 
 /*
-def test_kthFromEnd_OneLinkList():
-    ll = LinkList()
-    ll.insert("blah")
-
-    #Where the linked list is of a size 1
-    actual = ll.kthFromEnd(0)
-    expected = "blah"
-    assert actual == expected
-
-
-def test_kthFromEnd_Exception():
-    ll = helper_kthFromEnd()
-
-    # TEST: Where k is greater than the length of the linked list
-    with pytest.raises(AssertionError):
-        assert(ll.kthFromEnd(6))
-
-
 def test_ll_merge():
 
     # @TODO: TEST: Merge two unequal
