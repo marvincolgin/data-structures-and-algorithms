@@ -38,6 +38,15 @@ public class LinkListTest {
       return ll;
    }
 
+   public LinkList helperKthFromEnd() {
+      LinkList ll = new LinkList(null);
+      ll.insert("2");
+      ll.insert("8");
+      ll.insert("3");
+      ll.insert("1");
+      return ll;
+   }
+
    @Test
    public void testLinkListEmpty() {
       LinkList ll = new LinkList(null);
@@ -190,41 +199,31 @@ public class LinkListTest {
       String[] expected = {"9", "8", "7", "6", "5", "4", "3", "2", "1", "0"};
       assertArrayEquals(actual, expected);
    }
+   void testKthFromEnd() {
+      String actual;
+      LinkList ll = helperKthFromEnd();
 
+      actual = ll.kthFromEnd(0);
+      assertTrue(actual.compareTo("2")==0);
+
+      // "Happy Path" where k is not at the end, but somewhere in the middle of the linked list
+      actual = ll.kthFromEnd(2);
+      assertTrue(actual.compareTo("3")==0);
+
+
+      // Where k and the length of the list are the same
+      assertThrows(RuntimeException.class, () -> {
+         ll.kthFromEnd(5);
+      });
+
+      // Where k is not a positive integer
+      assertThrows(RuntimeException.class, () -> {
+         ll.kthFromEnd(-1);
+      });
+   }
 }
 
 /*
-def helper_kthFromEnd():
-    ll = LinkList()
-    ll.insert("2")
-    ll.insert("8")
-    ll.insert("3")
-    ll.insert("1")
-    return ll
-
-
-def test_kthFromEnd():
-    ll = helper_kthFromEnd()
-    print(ll.toStr())
-
-    actual = ll.kthFromEnd(0)
-    expected = "2"
-    assert actual == expected
-
-    # "Happy Path" where k is not at the end, but somewhere in the middle of the linked list
-    actual = ll.kthFromEnd(2)
-    expected = "3"
-    assert actual == expected
-
-    # Where k and the length of the list are the same
-    with pytest.raises(AssertionError):
-        assert(ll.kthFromEnd(5))
-
-    # Where k is not a positive integer
-    with pytest.raises(AssertionError):
-        assert(ll.kthFromEnd(-1))
-
-
 def test_kthFromEnd_OneLinkList():
     ll = LinkList()
     ll.insert("blah")
@@ -275,7 +274,4 @@ def test_toJSON():
     print(actual)
     print(expected)
     assert expected == actual
-
-
-
 */

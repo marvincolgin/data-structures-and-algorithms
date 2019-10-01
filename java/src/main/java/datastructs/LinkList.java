@@ -248,14 +248,49 @@ public class LinkList {
          cur = cur.next;
       }
    }
+   public String kthFromEnd(int k) {
+      // finds the Kth element from the end of the list and returns value for node
+      // BigO == O(n)
+
+      // Only positive integers
+      if (k < 0) {
+         throw new RuntimeException(String.format("WAIT!!! You must pass a positive integer, k:[%d]", k));
+      }
+
+      Node ptrA = this.head;
+      Node ptrB = this.head;
+
+      // Walk ptrA out to "K" elements
+      Boolean tooSmall = false;
+      int c = 0;
+      while (c < k-1) {
+         if (ptrA.next == null) {
+            tooSmall = true;
+            break;
+         }
+         ptrA = ptrA.next;
+         c += 1;
+      }
+      if (tooSmall) {
+         throw new RuntimeException(String.format("WAIT!!! There are not enough elements in the link list for k:[%d].", k));
+      }
+
+      // Walk ptrA and ptrB out to the end of the list
+      // ptrB will point to our requested node
+      // note: for short lengths where the value is found before k elements, we are going to skip walking
+      // ptrB until the difference between it and ptrA is "k"
+      while (ptrA.next != null) {
+         ptrA = ptrA.next;
+         if (c >= k) {
+            ptrB = ptrB.next;
+         }
+         c += 1;
+      }
+
+      return ptrB.value;
+   }
 }
 /*
-    def traverse(self, action_func):
-        cur = self.head
-        while cur:
-            action_func(cur.value)
-            cur = cur.next
-
     def kthFromEnd(self, k):
         # finds the Kth element from the end of the list and returns value for node
         # BigO == O(n)
