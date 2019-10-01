@@ -26,6 +26,14 @@ public class LinkListTest {
       return ll;
    }
 
+   public LinkList helperInsertBefore() {
+      LinkList ll = new LinkList(null);
+      ll.insert("1");
+      ll.insert("3");
+      ll.insert("2");
+      return ll;
+   }
+
    @Test
    public void testLinkListEmpty() {
       LinkList ll = new LinkList(null);
@@ -104,45 +112,37 @@ public class LinkListTest {
       String actual = ll.get("5");
       assertTrue(actual.compareTo(new String("5"))==0);
    }
+   @Test
+   public void testInsertBefore() {
+      LinkList ll;
+      String actual;
+
+      ll = helperInsertBefore();
+      ll.insertBefore(new String("3"), new String("4"), false);
+      actual = ll.toStr();
+      assertTrue(actual.compareTo("2,4,3,1")==0);
+      ll = null;
+
+      ll = helperInsertBefore();
+      ll.insertBefore(new String("1"), new String("5"), false);
+      actual = ll.toStr();
+      assertTrue(actual.compareTo("2,3,5,1")==0);
+      ll = null;
+
+      ll = helperInsertBefore();
+      ll.insertBefore(new String("2"), new String("5"), false);
+      actual = ll.toStr();
+      assertTrue(actual.compareTo("5,2,3,1")==0);
+      ll = null;
+
+      ll = helperInsertBefore();
+      Boolean ab = ll.insertBefore(new String("4"), new String("5"), false);
+      assertTrue(ab == false);
+      ll = null;
+   }
 }
 
 /*
-def helper_insertBefore():
-    ll = LinkList()
-    ll.insert('1')
-    ll.insert('3')
-    ll.insert('2')
-    return ll
-
-
-def test_insertBefore():
-    ll = helper_insertBefore()
-    ll.insertBefore('3', '4')
-    expected = '2,4,3,1'
-    actual = ll.toStr()
-    assert expected == actual
-
-    ll = helper_insertBefore()
-    ll.insertBefore('1', '5')
-    expected = '2,3,5,1'
-    actual = ll.toStr()
-    assert expected == actual
-
-    ll = helper_insertBefore()
-    ll.insertBefore('2', '5')
-    expected = '5,2,3,1'
-    actual = ll.toStr()
-    assert expected == actual
-
-    ll = helper_insertBefore()
-    actual = ll.insertBefore('4', '5')
-    expected = False
-    assert expected == actual
-    # @TODO: Assignment wanted me to raise an exception
-    # @ I've worked way too long on this, but this is how...
-    # self.assertRaises(SomeCoolException, mymod.myfunc)
-
-
 def test_insertAfter():
     ll = helper_insertBefore()
     ll.insertAfter('3', '5')

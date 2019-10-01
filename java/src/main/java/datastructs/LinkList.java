@@ -191,38 +191,47 @@ public class LinkList {
       }
       throw new RuntimeException("Not Found, but it has to be found.");
    }
+
+   public Boolean insertBefore(String targetVal, String newVal, Boolean afterInstead) {
+      // add a new node with the given newValue immediately BEFORE the node containg targetVal
+      // note: this bevahoir can be modified by the bool afterInstead
+      // BigO == O(n)
+
+      // walk the list to find it or the end
+      Boolean found = false;
+      Node prev = null;
+      Node cur = this.head;
+
+      while (cur != null) {
+         if (cur.value.compareTo(targetVal)==0) {
+            found = true;
+            break;
+         }
+         prev = cur;
+         cur = cur.next;
+      }
+
+      // if found, put it in the chain, as a link right before the node containing value
+      if (found) {
+         Node node = new Node(newVal);
+         if (afterInstead) {
+            node.next = cur.next;
+            cur.next = node;
+         } else {
+            node.next = cur;
+            if (prev == null) { // edge-case, if the targetVal is first node
+               this.head = node;
+
+            } else {
+               prev.next = node;
+            }
+         }
+      }
+
+      return found;
+   }
 }
 /*
-    def insertBefore(self, targetVal: int, newVal: str, afterInstead=False):
-        # add a new node with the given newValue immediately BEFORE the node containg targetVal
-        # note: this bevahoir can be modified by the bool afterInstead
-        # BigO == O(n)
-
-        # walk the list to find it or the end
-        found = False
-        prev, cur = None, self.head
-        while cur is not None:
-            if cur.value == targetVal:
-                found = True
-                break
-            prev = cur
-            cur = cur.next
-
-        # if found, put it in the chain, as a link right before the node containing value
-        if found:
-            node = LinkNode(newVal)
-            if afterInstead:
-                node.next = cur.next
-                cur.next = node
-            else:
-                node.next = cur
-                if prev is None:  # edge-case, if the targetVal is first node
-                    self.head = node
-                else:
-                    prev.next = node
-
-        return found
-
     def insertAfter(self, targetVal: int, newVal: str):
         # add a new node with the given newValue immediately AFTER the node containg targetVal
         # BigO == O(n)
