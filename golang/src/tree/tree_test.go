@@ -105,6 +105,30 @@ func TestAddSmaller(t *testing.T) {
 	if ai != ei {
 		t.Error("TestAddSmaller(), ai:", ai, " expected:", ei)
 	}
+
+	ai = tree.root.left.Val
+	ei = 25
+	if ai != ei {
+		t.Error("TestAddSmaller(), ai:", ai, " expected:", ei)
+	}
+}
+
+func TestAddLarger(t *testing.T) {
+	tree := NewBinaryTree(nil)
+	tree.Add(50)
+	tree.Add(75)
+
+	ai := tree.root.Val
+	ei := 50
+	if ai != ei {
+		t.Error("TestAddLarger(), ai:", ai, " expected:", ei)
+	}
+
+	ai = tree.root.right.Val
+	ei = 75
+	if ai != ei {
+		t.Error("TestAddLarger(), ai:", ai, " expected:", ei)
+	}
 }
 
 /*
@@ -117,13 +141,6 @@ func TestContains(t *testing.T) {
 def test_contains_empty():
     tree = BinarySearchTree()
     assert tree.contains(50)==False
-
-def test_add_larger():
-    tree = BinarySearchTree()
-    tree.add(50)
-    tree.add(75)
-    assert tree.root.value == 50
-    assert tree.root.right.value == 75
 
 def test_not_contains():
     tree = BinarySearchTree()
