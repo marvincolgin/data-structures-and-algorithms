@@ -115,7 +115,7 @@ func (tree *BinaryTree) findAndInsert(node *Node, newValue interface{}) {
 
 	if tree.comparisonFunc(node.Val, newValue, ComparisonSignGreater) {
 		if node.left == nil {
-			node.left = Node(newValue)
+			node.left = &Node{newValue, nil, nil}
 		} else {
 			tree.findAndInsert(node.left, newValue)
 		}
@@ -123,7 +123,7 @@ func (tree *BinaryTree) findAndInsert(node *Node, newValue interface{}) {
 
 	if tree.comparisonFunc(node.Val, newValue, ComparisonSignLess) {
 		if node.right == nil {
-			node.right = Node(newValue)
+			node.right = &Node{newValue, nil, nil}
 		} else {
 			tree.findAndInsert(node.right, newValue)
 		}
