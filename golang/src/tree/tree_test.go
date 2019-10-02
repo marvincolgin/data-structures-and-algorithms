@@ -49,7 +49,7 @@ func TestTraversePre(t *testing.T) {
 	}
 
 	if !reflect.DeepEqual(expected, actualAsInt) {
-		t.Error("TestTraversePre(), actualAsInt:", actualAsInt, " expected:", expected)
+		t.Error("TestTraversePre(), actual:", actualAsInt, " expected:", expected)
 	}
 }
 
@@ -64,7 +64,7 @@ func TestTraverseIn(t *testing.T) {
 	}
 
 	if !reflect.DeepEqual(expected, actualAsInt) {
-		t.Error("TestTraverseIn(), actualAsInt:", actualAsInt, " expected:", expected)
+		t.Error("TestTraverseIn(), actual:", actualAsInt, " expected:", expected)
 	}
 }
 
@@ -79,7 +79,7 @@ func TestTraversePost(t *testing.T) {
 	}
 
 	if !reflect.DeepEqual(expected, actualAsInt) {
-		t.Error("TestTraversePost(), actualAsInt:", actualAsInt, " expected:", expected)
+		t.Error("TestTraversePost(), actual:", actualAsInt, " expected:", expected)
 	}
 }
 
@@ -91,7 +91,7 @@ func TestAddRoot(t *testing.T) {
 	es := "apple"
 
 	if as != es {
-		t.Error("TestAdd(), as:", as, " expected:", es)
+		t.Error("TestAdd(), actual:", as, " expected:", es)
 	}
 }
 
@@ -103,13 +103,13 @@ func TestAddSmaller(t *testing.T) {
 	ai := tree.root.Val
 	ei := 50
 	if ai != ei {
-		t.Error("TestAddSmaller(), ai:", ai, " expected:", ei)
+		t.Error("TestAddSmaller(), actual:", ai, " expected:", ei)
 	}
 
 	ai = tree.root.left.Val
 	ei = 25
 	if ai != ei {
-		t.Error("TestAddSmaller(), ai:", ai, " expected:", ei)
+		t.Error("TestAddSmaller(), actual:", ai, " expected:", ei)
 	}
 }
 
@@ -121,32 +121,46 @@ func TestAddLarger(t *testing.T) {
 	ai := tree.root.Val
 	ei := 50
 	if ai != ei {
-		t.Error("TestAddLarger(), ai:", ai, " expected:", ei)
+		t.Error("TestAddLarger(), actual:", ai, " expected:", ei)
 	}
 
 	ai = tree.root.right.Val
 	ei = 75
 	if ai != ei {
-		t.Error("TestAddLarger(), ai:", ai, " expected:", ei)
+		t.Error("TestAddLarger(), actual:", ai, " expected:", ei)
+	}
+}
+
+func TestContains(t *testing.T) {
+	tree := NewBinaryTree(nil)
+	tree.Add(50)
+	ab := tree.Contains(50)
+	eb := true
+	if ab != eb {
+		t.Error("TestContains(), actual:", ab, " expected:", eb)
+	}
+}
+
+func TestContainsEmpty(t *testing.T) {
+	tree := NewBinaryTree(nil)
+	ab := tree.Contains(50)
+	eb := false
+	if ab != eb {
+		t.Error("TestContainsEmpty(), actual:", ab, " expected:", eb)
+	}
+}
+
+func TestContainsNotFound(t *testing.T) {
+	tree := NewBinaryTree(nil)
+	tree.Add(50)
+	ab := tree.Contains(150)
+	eb := false
+	if ab != eb {
+		t.Error("TestContainsEmpty(), actual:", ab, " expected:", eb)
 	}
 }
 
 /*
-func TestContains(t *testing.T) {
-	tree := BinaryTree{}
-	tree.Add(50)
-	ab := tree.Contains(50)
-	eb := true
-}
-def test_contains_empty():
-    tree = BinarySearchTree()
-    assert tree.contains(50)==False
-
-def test_not_contains():
-    tree = BinarySearchTree()
-    tree.add(50)
-    assert not tree.contains(150)
-
 def test_comparison_func_default():
     tree = BinarySearchTree()
     tree.add('1')
