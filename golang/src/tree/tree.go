@@ -25,14 +25,27 @@ type Node struct {
 	right *Node
 }
 
+// Init of Node
+func (node *Node) Init(val interface{}) {
+	node.Val = val
+	node.left = nil
+	node.right = nil
+}
+
 // BinaryTree implementation
 type BinaryTree struct {
-	root *Node
+	root           *Node
+	comparisonFunc func(val1 interface{}, val2 interface{}, CS int) bool
 }
 
 // Init of Binary Tree
-func (tree *BinaryTree) Init() {
+func (tree *BinaryTree) Init(comparisonFunc func(val1 interface{}, val2 interface{}, CS int) bool) {
 	tree.root = nil
+	if comparisonFunc == nil {
+		tree.comparisonFunc = tree.comparisonFuncDefault
+	} else {
+		tree.comparisonFunc = comparisonFunc
+	}
 }
 
 // Traverse of BinaryTree
@@ -83,56 +96,47 @@ func (tree *BinaryTree) ReturnAsArr(method int) []interface{} {
 	return retval
 }
 
+// comparison_func_default is the default of comparing values
+func (tree *BinaryTree) comparisonFuncDefault(val1 interface{}, val2 interface{}, CS int) bool {
+	if CS == ComparisonSignEqual {
+		return val1.(int) == val2.(int)
+	} else if CS == ComparisonSignLess {
+		return val1.(int) < val2.(int)
+	} else if CS == ComparisonSignGreater {
+		return val1.(int) > val2.(int)
+	} else {
+		return false
+	}
+}
+
+// findAndInsert
+func (tree *BinaryTree) findAndInsert(node *Node, newValue interface{}) {
+	// recursive method for evaluating a node and calling itself depending on the value
+
+	if tree.comparisonFunc(node.Val, newValue, ComparisonSignGreater) {
+		if node.left == nil {
+			node.left = Node(newValue)
+		} else {
+			tree.findAndInsert(node.left, newValue)
+		}
+	}
+
+	if tree.comparisonFunc(node.Val, newValue, ComparisonSignLess) {
+		if node.right == nil {
+			node.right = Node(newValue)
+		} else {
+			tree.findAndInsert(node.right, newValue)
+		}
+	}
+}
+
+// Add a value to the Tree
+func (tree *BinaryTree) Add(newValue interface{}) {
+
+}
+
 /*
-
-class BinaryTree:
-    @staticmethod
-    # arg:tree should have type-hinting, but ZEIT::now has issues with Python 3.6
-    def find_max(tree) -> (bool,int):
-        # return the largest integer in treee
-
-        retBool = False
-        retVal  = -1
-
-
-        def action_func(node):
-            nonlocal retVal
-            if node.value > retVal:
-                retVal = node.value
-
-        if tree and tree.root:
-            retBool = True
-            retVal = tree.root.value
-
-            tree.traverse(TraverseMethod.IN_ORDER, action_func)
-
-        return retBool, retVal
-
-
 class BinarySearchTree(BinaryTree):
-    # class for binary-search-tree
-
-    comparison_func = None
-
-    def comparison_func_default(self, val1, val2, CS : ComparisonSign):
-        # default comparison function
-
-        if CS == ComparisonSign.EQUAL:
-            return val1 == val2
-        if CS == ComparisonSign.LESS:
-            return val1 < val2
-        if CS == ComparisonSign.GREATER:
-            return val1 > val2
-        return False  # Never get here
-
-    def __init__(self, comparison_func=None):
-        BinaryTree.__init__(self)
-
-        if comparison_func:
-            self.comparison_func = comparison_func
-        else:
-            self.comparison_func = self.comparison_func_default
-
     def add(self, new_value):
         # adds new value to the tree
 
