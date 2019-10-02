@@ -6,16 +6,15 @@ import (
 )
 
 func HelperAddLots() BinaryTree {
-
-	one := Node{1, nil, nil}
-	two := Node{2, nil, nil}
-	three := Node{3, nil, nil}
-	four := Node{4, nil, nil}
-	five := Node{5, nil, nil}
-	six := Node{6, nil, nil}
-	seven := Node{7, nil, nil}
-	eight := Node{8, nil, nil}
-	nine := Node{9, nil, nil}
+	one := NewNode(1)
+	two := NewNode(2)
+	three := NewNode(3)
+	four := NewNode(4)
+	five := NewNode(5)
+	six := NewNode(6)
+	seven := NewNode(7)
+	eight := NewNode(8)
+	nine := NewNode(9)
 
 	one.left = &two
 	one.right = &three
@@ -26,15 +25,14 @@ func HelperAddLots() BinaryTree {
 	seven.left = &eight
 	seven.right = &nine
 
-	retval := BinaryTree{}
+	retval := NewBinaryTree(nil)
 	retval.root = &one
 
 	return retval
-
 }
 
 func TestCanCreate(t *testing.T) {
-	tree := BinaryTree{}
+	tree := NewBinaryTree(nil)
 	if reflect.TypeOf(tree) != reflect.TypeOf((*BinaryTree)(nil)).Elem() {
 		t.Error("TestCanCreate() reflect.TypeOf(tree)!='BinaryTree', actual=", reflect.TypeOf(tree))
 	}
@@ -85,6 +83,30 @@ func TestTraversePost(t *testing.T) {
 	}
 }
 
+func TestAddRoot(t *testing.T) {
+	tree := NewBinaryTree(nil)
+	tree.Add("apple")
+
+	as := tree.root.Val
+	es := "apple"
+
+	if as != es {
+		t.Error("TestAdd(), as:", as, " expected:", es)
+	}
+}
+
+func TestAddSmaller(t *testing.T) {
+	tree := NewBinaryTree(nil)
+	tree.Add(50)
+	tree.Add(25)
+
+	ai := tree.root.Val
+	ei := 50
+	if ai != ei {
+		t.Error("TestAddSmaller(), ai:", ai, " expected:", ei)
+	}
+}
+
 /*
 func TestContains(t *testing.T) {
 	tree := BinaryTree{}
@@ -92,24 +114,9 @@ func TestContains(t *testing.T) {
 	ab := tree.Contains(50)
 	eb := true
 }
-*/
-/*
-
 def test_contains_empty():
     tree = BinarySearchTree()
     assert tree.contains(50)==False
-
-def test_add_empty():
-    tree = BinarySearchTree()
-    tree.add("apple")
-    assert tree.root.value == "apple"
-
-def test_add_smaller():
-    tree = BinarySearchTree()
-    tree.add(50)
-    tree.add(25)
-    assert tree.root.value == 50
-    assert tree.root.left.value == 25
 
 def test_add_larger():
     tree = BinarySearchTree()

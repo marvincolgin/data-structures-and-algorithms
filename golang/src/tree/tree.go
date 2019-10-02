@@ -1,5 +1,10 @@
 package tree
 
+import (
+	"fmt"
+	"os"
+)
+
 const (
 	// TraversalOrderPre left->middle->right order
 	TraversalOrderPre = iota
@@ -25,11 +30,9 @@ type Node struct {
 	right *Node
 }
 
-// Init of Node
-func (node *Node) Init(val interface{}) {
-	node.Val = val
-	node.left = nil
-	node.right = nil
+// NewNode constructor for Node
+func NewNode(val interface{}) Node {
+	return Node{val, nil, nil}
 }
 
 // BinaryTree implementation
@@ -38,14 +41,15 @@ type BinaryTree struct {
 	comparisonFunc func(val1 interface{}, val2 interface{}, CS int) bool
 }
 
-// Init of Binary Tree
-func (tree *BinaryTree) Init(comparisonFunc func(val1 interface{}, val2 interface{}, CS int) bool) {
-	tree.root = nil
+// NewBinaryTree of Binary Tree
+func NewBinaryTree(comparisonFunc func(val1 interface{}, val2 interface{}, CS int) bool) BinaryTree {
+	t := BinaryTree{nil, nil}
 	if comparisonFunc == nil {
-		tree.comparisonFunc = tree.comparisonFuncDefault
+		t.comparisonFunc = t.comparisonFuncDefault
 	} else {
-		tree.comparisonFunc = comparisonFunc
+		t.comparisonFunc = comparisonFunc
 	}
+	return t
 }
 
 // Traverse of BinaryTree
@@ -112,6 +116,10 @@ func (tree *BinaryTree) comparisonFuncDefault(val1 interface{}, val2 interface{}
 // findAndInsert
 func (tree *BinaryTree) findAndInsert(node *Node, newValue interface{}) {
 	// recursive method for evaluating a node and calling itself depending on the value
+	if tree.comparisonFunc == nil {
+		fmt.Printf("ERROR! tree.comparisonFunc==nil")
+		os.Exit(99)
+	}
 
 	if tree.comparisonFunc(node.Val, newValue, ComparisonSignGreater) {
 		if node.left == nil {
@@ -133,25 +141,26 @@ func (tree *BinaryTree) findAndInsert(node *Node, newValue interface{}) {
 // Add a value to the Tree
 func (tree *BinaryTree) Add(newValue interface{}) {
 
+	if tree.root == nil {
+		node := Node{newValue, (*Node)(nil), (*Node)(nil)}
+		tree.root = &node
+	} else {
+		tree.findAndInsert(tree.root, newValue)
+	}
+
 }
 
 /*
 class BinarySearchTree(BinaryTree):
-    def add(self, new_value):
-        # adds new value to the tree
-
         def _find_and_insert(node):
-            # recursive method for evaluating a node and calling itself depending on the value
 
             if self.comparison_func(node.value, new_value, ComparisonSign.GREATER):
-                # if node.value > new_value:
                 if node.left is None:
                     node.left = Node(new_value)
                 else:
                     _find_and_insert(node.left)
 
             if self.comparison_func(node.value, new_value, ComparisonSign.LESS):
-                # if node.value < new_value:
                 if node.right is None:
                     node.right = Node(new_value)
                 else:
