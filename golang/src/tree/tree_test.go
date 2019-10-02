@@ -6,15 +6,15 @@ import (
 )
 
 func HelperAddLots() BinaryTree {
-	one := NewNode(1)
-	two := NewNode(2)
-	three := NewNode(3)
-	four := NewNode(4)
-	five := NewNode(5)
-	six := NewNode(6)
-	seven := NewNode(7)
-	eight := NewNode(8)
-	nine := NewNode(9)
+	one := NewNode("1")
+	two := NewNode("2")
+	three := NewNode("3")
+	four := NewNode("4")
+	five := NewNode("5")
+	six := NewNode("6")
+	seven := NewNode("7")
+	eight := NewNode("8")
+	nine := NewNode("9")
 
 	one.left = &two
 	one.right = &three
@@ -37,49 +37,44 @@ func TestCanCreate(t *testing.T) {
 		t.Error("TestCanCreate() reflect.TypeOf(tree)!='BinaryTree', actual=", reflect.TypeOf(tree))
 	}
 }
-
+func GetTypeArray(arr interface{}) reflect.Type {
+	return reflect.TypeOf(arr).Elem()
+}
 func TestTraversePre(t *testing.T) {
 	tree := HelperAddLots()
-	expected := []int{1, 2, 6, 7, 8, 9, 3, 4, 5}
+
+	var expected []interface{}
+	expected = append(expected, "1", "2", "6", "7", "8", "9", "3", "4", "5")
+
 	actual := tree.ReturnAsArr(TraversalOrderPre)
 
-	actualAsInt := make([]int, len(actual))
-	for i := range actual {
-		actualAsInt[i] = actual[i].(int)
-	}
-
-	if !reflect.DeepEqual(expected, actualAsInt) {
-		t.Error("TestTraversePre(), actual:", actualAsInt, " expected:", expected)
+	if !reflect.DeepEqual(expected, actual) {
+		t.Error("TestTraversePre(), actual:", actual, " expected:", expected)
 	}
 }
 
 func TestTraverseIn(t *testing.T) {
 	tree := HelperAddLots()
-	expected := []int{6, 8, 7, 9, 2, 1, 4, 3, 5}
+
+	var expected []interface{}
+	expected = append(expected, "6", "8", "7", "9", "2", "1", "4", "3", "5")
+
 	actual := tree.ReturnAsArr(TraversalOrderIn)
 
-	actualAsInt := make([]int, len(actual))
-	for i := range actual {
-		actualAsInt[i] = actual[i].(int)
-	}
-
-	if !reflect.DeepEqual(expected, actualAsInt) {
-		t.Error("TestTraverseIn(), actual:", actualAsInt, " expected:", expected)
+	if !reflect.DeepEqual(expected, actual) {
+		t.Error("TestTraverseIn(), actual:", actual, " expected:", expected)
 	}
 }
 
 func TestTraversePost(t *testing.T) {
 	tree := HelperAddLots()
-	expected := []int{8, 9, 7, 6, 2, 4, 5, 3, 1}
+
+	var expected []interface{}
+	expected = append(expected, "8", "9", "7", "6", "2", "4", "5", "3", "1")
 	actual := tree.ReturnAsArr(TraversalOrderPost)
 
-	actualAsInt := make([]int, len(actual))
-	for i := range actual {
-		actualAsInt[i] = actual[i].(int)
-	}
-
-	if !reflect.DeepEqual(expected, actualAsInt) {
-		t.Error("TestTraversePost(), actual:", actualAsInt, " expected:", expected)
+	if !reflect.DeepEqual(expected, actual) {
+		t.Error("TestTraversePost(), actual:", actual, " expected:", expected)
 	}
 }
 
@@ -97,17 +92,17 @@ func TestAddRoot(t *testing.T) {
 
 func TestAddSmaller(t *testing.T) {
 	tree := NewBinaryTree(nil)
-	tree.Add(50)
-	tree.Add(25)
+	tree.Add("m")
+	tree.Add("a")
 
 	ai := tree.root.Val
-	ei := 50
+	ei := "m"
 	if ai != ei {
 		t.Error("TestAddSmaller(), actual:", ai, " expected:", ei)
 	}
 
 	ai = tree.root.left.Val
-	ei = 25
+	ei = "a"
 	if ai != ei {
 		t.Error("TestAddSmaller(), actual:", ai, " expected:", ei)
 	}
@@ -115,17 +110,17 @@ func TestAddSmaller(t *testing.T) {
 
 func TestAddLarger(t *testing.T) {
 	tree := NewBinaryTree(nil)
-	tree.Add(50)
-	tree.Add(75)
+	tree.Add("m")
+	tree.Add("z")
 
 	ai := tree.root.Val
-	ei := 50
+	ei := "m"
 	if ai != ei {
 		t.Error("TestAddLarger(), actual:", ai, " expected:", ei)
 	}
 
 	ai = tree.root.right.Val
-	ei = 75
+	ei = "z"
 	if ai != ei {
 		t.Error("TestAddLarger(), actual:", ai, " expected:", ei)
 	}
@@ -133,8 +128,8 @@ func TestAddLarger(t *testing.T) {
 
 func TestContains(t *testing.T) {
 	tree := NewBinaryTree(nil)
-	tree.Add(50)
-	ab := tree.Contains(50)
+	tree.Add("m")
+	ab := tree.Contains("m")
 	eb := true
 	if ab != eb {
 		t.Error("TestContains(), actual:", ab, " expected:", eb)
@@ -143,7 +138,7 @@ func TestContains(t *testing.T) {
 
 func TestContainsEmpty(t *testing.T) {
 	tree := NewBinaryTree(nil)
-	ab := tree.Contains(50)
+	ab := tree.Contains("m")
 	eb := false
 	if ab != eb {
 		t.Error("TestContainsEmpty(), actual:", ab, " expected:", eb)
@@ -152,31 +147,37 @@ func TestContainsEmpty(t *testing.T) {
 
 func TestContainsNotFound(t *testing.T) {
 	tree := NewBinaryTree(nil)
-	tree.Add(50)
-	ab := tree.Contains(150)
+	tree.Add("m")
+	ab := tree.Contains("z")
 	eb := false
 	if ab != eb {
 		t.Error("TestContainsEmpty(), actual:", ab, " expected:", eb)
 	}
 }
 
+func TestComparisonFuncDefault(t *testing.T) {
+	tree := NewBinaryTree(nil)
+	tree.Add("1")
+	tree.Add("11")
+	tree.Add("111")
+	tree.Add("2")
+	tree.Add("22")
+	tree.Add("222")
+	tree.Add("3")
+	tree.Add("33")
+	tree.Add("333")
+
+	var expected []interface{}
+	expected = append(expected, "1", "11", "111", "2", "22", "222", "3", "33", "333")
+
+	actual := tree.ReturnAsArr(TraversalOrderIn)
+
+	if !reflect.DeepEqual(expected, actual) {
+		t.Error("TestComparisonFuncDefault(), actual:", actual, " expected:", expected)
+	}
+}
+
 /*
-def test_comparison_func_default():
-    tree = BinarySearchTree()
-    tree.add('1')
-    tree.add('11')
-    tree.add('111')
-    tree.add('2')
-    tree.add('22')
-    tree.add('222')
-    tree.add('3')
-    tree.add('33')
-    tree.add('333')
-    expected = [ '1', '11', '111', '2', '22', '222', '3', '33', '333']
-    actual = tree.returnAsArr(TraverseMethod.IN_ORDER)
-    assert expected == actual
-
-
 def test_comparison_func_userdef():
 
     def comparison_func(val1, val2, CS : ComparisonSign):

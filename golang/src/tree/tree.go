@@ -103,11 +103,11 @@ func (tree *BinaryTree) ReturnAsArr(method int) []interface{} {
 // comparison_func_default is the default of comparing values
 func (tree *BinaryTree) comparisonFuncDefault(val1 interface{}, val2 interface{}, CS int) bool {
 	if CS == ComparisonSignEqual {
-		return val1.(int) == val2.(int)
+		return val1.(string) == val2.(string)
 	} else if CS == ComparisonSignLess {
-		return val1.(int) < val2.(int)
+		return val1.(string) < val2.(string)
 	} else if CS == ComparisonSignGreater {
-		return val1.(int) > val2.(int)
+		return val1.(string) > val2.(string)
 	} else {
 		return false
 	}
@@ -187,31 +187,3 @@ func (tree *BinaryTree) Contains(targetVal interface{}) bool {
 
 	return _visit(tree.root)
 }
-
-/*
-   def contains(self, target_value) -> bool:
-       def _visit(node):
-           # recursive function for isiting each node
-
-           if self.comparison_func(node.value, target_value, ComparisonSign.EQUAL):
-               # if node.value == target_value:
-               return True
-           if self.comparison_func(node.value, target_value, ComparisonSign.GREATER):
-               # if node.value > target_value:
-               if node.left is None:
-                   return False
-               else:
-                   _visit(node.left)
-           if self.comparison_func(node.value, target_value, ComparisonSign.LESS):
-               # if node.value < target_value:
-               if node.right is None:
-                   return False
-               else:
-                   _visit(node.right)
-
-       if self.root is not None:
-           return _visit(self.root)
-       else:
-           return False
-
-*/
