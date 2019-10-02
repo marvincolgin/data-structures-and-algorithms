@@ -55,7 +55,7 @@ func NewBinaryTree(comparisonFunc func(val1 interface{}, val2 interface{}, CS in
 // Traverse of BinaryTree
 func (tree *BinaryTree) Traverse(method int, actionFunc func(val interface{})) {
 
-	///! @TODO : stuck here, need to figure out how to call _visit() from within _visit()
+	// formally defining the var to the func, will allow us to call-ourselves
 	var _visit func(node *Node)
 
 	_visit = func(node *Node) {

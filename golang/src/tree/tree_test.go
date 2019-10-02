@@ -2,6 +2,7 @@ package tree
 
 import (
 	"reflect"
+	"strconv"
 	"testing"
 )
 
@@ -177,36 +178,57 @@ func TestComparisonFuncDefault(t *testing.T) {
 	}
 }
 
+func TestComparisonFuncUserDef(t *testing.T) {
+
+	var _compare func(val1 interface{}, val2 interface{}, CS int) bool
+
+	_compare = func(val1 interface{}, val2 interface{}, CS int) bool {
+
+		// convert the un-typed interface (which is storing string) to int
+		// @TODO is this the best way?
+		var v1 int
+		var v2 int
+		v1, _ = strconv.Atoi(val1.(string))
+		v2, _ = strconv.Atoi(val2.(string))
+
+		if CS == ComparisonSignEqual {
+			return v1 == v2
+		} else if CS == ComparisonSignLess {
+			return v1 < v2
+		} else if CS == ComparisonSignGreater {
+			return v1 > v2
+		} else {
+			return false
+		}
+
+	}
+
+	tree := NewBinaryTree(_compare)
+	tree.Add("1")
+	tree.Add("11")
+	tree.Add("111")
+	tree.Add("2")
+	tree.Add("22")
+	tree.Add("222")
+	tree.Add("3")
+	tree.Add("33")
+	tree.Add("333")
+
+	expected := []int{1, 2, 3, 11, 22, 33, 111, 222, 333}
+
+	actual := tree.ReturnAsArr(TraversalOrderIn)
+
+	actualAsInt := make([]int, len(actual))
+	for i := range actual {
+		actualAsInt[i], _ = strconv.Atoi(actual[i].(string))
+	}
+
+	if !reflect.DeepEqual(expected, actualAsInt) {
+		t.Error("TestComparisonFuncDefault(), actual:", actualAsInt, " expected:", expected)
+	}
+}
+
 /*
-def test_comparison_func_userdef():
-
-    def comparison_func(val1, val2, CS : ComparisonSign):
-        # default comparison function
-
-        print(f'comp() val1:[{val1}] val2:[{val2}] cs:[{CS}]')
-
-        if CS == ComparisonSign.EQUAL:
-            return int(val1) == int(val2)
-        if CS == ComparisonSign.LESS:
-            return int(val1) < int(val2)
-        if CS == ComparisonSign.GREATER:
-            return int(val1) > int(val2)
-        return False  # Never get here
-
-    tree = BinarySearchTree(comparison_func)
-    tree.add('1')
-    tree.add('11')
-    tree.add('111')
-    tree.add('2')
-    tree.add('22')
-    tree.add('222')
-    tree.add('3')
-    tree.add('33')
-    tree.add('333')
-    expected = [ '1', '2', '3', '11', '22', '33', '111', '222', '333' ]
-    actual = tree.returnAsArr(TraverseMethod.IN_ORDER)
-    assert expected == actual
-
 def test_add_X_random():
 
     vals = []
