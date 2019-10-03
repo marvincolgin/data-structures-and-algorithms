@@ -482,7 +482,7 @@ class BinaryTree:
 ```
 Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/python/datastructs/tree)
 
-*API: Jode*
+*API: Node*
 
 ```javascript
 // enum class for traversal and processing order
