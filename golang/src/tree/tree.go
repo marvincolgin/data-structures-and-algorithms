@@ -35,15 +35,15 @@ func NewNode(val interface{}) Node {
 	return Node{val, nil, nil}
 }
 
-// BinaryTree implementation
-type BinaryTree struct {
+// BinarySearchTree implementation
+type BinarySearchTree struct {
 	root           *Node
 	comparisonFunc func(val1 interface{}, val2 interface{}, CS int) bool
 }
 
-// NewBinaryTree of Binary Tree
-func NewBinaryTree(comparisonFunc func(val1 interface{}, val2 interface{}, CS int) bool) BinaryTree {
-	t := BinaryTree{nil, nil}
+// NewBinarySearchTree of Binary Tree
+func NewBinarySearchTree(comparisonFunc func(val1 interface{}, val2 interface{}, CS int) bool) BinarySearchTree {
+	t := BinarySearchTree{nil, nil}
 	if comparisonFunc == nil {
 		t.comparisonFunc = t.comparisonFuncDefault
 	} else {
@@ -52,8 +52,8 @@ func NewBinaryTree(comparisonFunc func(val1 interface{}, val2 interface{}, CS in
 	return t
 }
 
-// Traverse of BinaryTree
-func (tree *BinaryTree) Traverse(method int, actionFunc func(val interface{})) {
+// Traverse of BinarySearchTree
+func (tree *BinarySearchTree) Traverse(method int, actionFunc func(val interface{})) {
 
 	// formally defining the var to the func, will allow us to call-ourselves
 	var _visit func(node *Node)
@@ -87,7 +87,7 @@ func (tree *BinaryTree) Traverse(method int, actionFunc func(val interface{})) {
 }
 
 // ReturnAsArr will return the tree as as array
-func (tree *BinaryTree) ReturnAsArr(method int) []interface{} {
+func (tree *BinarySearchTree) ReturnAsArr(method int) []interface{} {
 
 	var retval []interface{} = make([]interface{}, 0)
 
@@ -101,7 +101,7 @@ func (tree *BinaryTree) ReturnAsArr(method int) []interface{} {
 }
 
 // comparison_func_default is the default of comparing values
-func (tree *BinaryTree) comparisonFuncDefault(val1 interface{}, val2 interface{}, CS int) bool {
+func (tree *BinarySearchTree) comparisonFuncDefault(val1 interface{}, val2 interface{}, CS int) bool {
 	if CS == ComparisonSignEqual {
 		return val1.(string) == val2.(string)
 	} else if CS == ComparisonSignLess {
@@ -114,7 +114,7 @@ func (tree *BinaryTree) comparisonFuncDefault(val1 interface{}, val2 interface{}
 }
 
 // findAndInsert recursive method for evaluating a node and calling itself depending on the value
-func (tree *BinaryTree) findAndInsert(node *Node, newValue interface{}) {
+func (tree *BinarySearchTree) findAndInsert(node *Node, newValue interface{}) {
 
 	if tree.comparisonFunc == nil {
 		fmt.Printf("ERROR! tree.comparisonFunc==nil")
@@ -139,7 +139,7 @@ func (tree *BinaryTree) findAndInsert(node *Node, newValue interface{}) {
 }
 
 // Add a value to the Tree
-func (tree *BinaryTree) Add(newValue interface{}) {
+func (tree *BinarySearchTree) Add(newValue interface{}) {
 
 	if tree.root == nil {
 		node := Node{newValue, (*Node)(nil), (*Node)(nil)}
@@ -151,7 +151,7 @@ func (tree *BinaryTree) Add(newValue interface{}) {
 }
 
 // Contains accepts a value, and returns a boolean indicating whether or not the value is in the tree at least once.
-func (tree *BinaryTree) Contains(targetVal interface{}) bool {
+func (tree *BinarySearchTree) Contains(targetVal interface{}) bool {
 
 	// *** Return Early
 	if tree.root == nil {

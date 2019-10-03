@@ -8,7 +8,7 @@ import (
 	"testing"
 )
 
-func HelperAddLots() BinaryTree {
+func HelperAddLots() BinarySearchTree {
 	one := NewNode("1")
 	two := NewNode("2")
 	three := NewNode("3")
@@ -28,16 +28,16 @@ func HelperAddLots() BinaryTree {
 	seven.left = &eight
 	seven.right = &nine
 
-	retval := NewBinaryTree(nil)
+	retval := NewBinarySearchTree(nil)
 	retval.root = &one
 
 	return retval
 }
 
 func TestCanCreate(t *testing.T) {
-	tree := NewBinaryTree(nil)
-	if reflect.TypeOf(tree) != reflect.TypeOf((*BinaryTree)(nil)).Elem() {
-		t.Error("TestCanCreate() reflect.TypeOf(tree)!='BinaryTree', actual=", reflect.TypeOf(tree))
+	tree := NewBinarySearchTree(nil)
+	if reflect.TypeOf(tree) != reflect.TypeOf((*BinarySearchTree)(nil)).Elem() {
+		t.Error("TestCanCreate() reflect.TypeOf(tree)!='BinarySearchTree', actual=", reflect.TypeOf(tree))
 	}
 }
 func GetTypeArray(arr interface{}) reflect.Type {
@@ -82,7 +82,7 @@ func TestTraversePost(t *testing.T) {
 }
 
 func TestAddRoot(t *testing.T) {
-	tree := NewBinaryTree(nil)
+	tree := NewBinarySearchTree(nil)
 	tree.Add("apple")
 
 	as := tree.root.Val
@@ -94,7 +94,7 @@ func TestAddRoot(t *testing.T) {
 }
 
 func TestAddSmaller(t *testing.T) {
-	tree := NewBinaryTree(nil)
+	tree := NewBinarySearchTree(nil)
 	tree.Add("m")
 	tree.Add("a")
 
@@ -112,7 +112,7 @@ func TestAddSmaller(t *testing.T) {
 }
 
 func TestAddLarger(t *testing.T) {
-	tree := NewBinaryTree(nil)
+	tree := NewBinarySearchTree(nil)
 	tree.Add("m")
 	tree.Add("z")
 
@@ -130,7 +130,7 @@ func TestAddLarger(t *testing.T) {
 }
 
 func TestContains(t *testing.T) {
-	tree := NewBinaryTree(nil)
+	tree := NewBinarySearchTree(nil)
 	tree.Add("m")
 	ab := tree.Contains("m")
 	eb := true
@@ -140,7 +140,7 @@ func TestContains(t *testing.T) {
 }
 
 func TestContainsEmpty(t *testing.T) {
-	tree := NewBinaryTree(nil)
+	tree := NewBinarySearchTree(nil)
 	ab := tree.Contains("m")
 	eb := false
 	if ab != eb {
@@ -149,7 +149,7 @@ func TestContainsEmpty(t *testing.T) {
 }
 
 func TestContainsNotFound(t *testing.T) {
-	tree := NewBinaryTree(nil)
+	tree := NewBinarySearchTree(nil)
 	tree.Add("m")
 	ab := tree.Contains("z")
 	eb := false
@@ -159,7 +159,7 @@ func TestContainsNotFound(t *testing.T) {
 }
 
 func TestComparisonFuncDefault(t *testing.T) {
-	tree := NewBinaryTree(nil)
+	tree := NewBinarySearchTree(nil)
 	tree.Add("1")
 	tree.Add("11")
 	tree.Add("111")
@@ -203,7 +203,7 @@ func _compare(val1 interface{}, val2 interface{}, CS int) bool {
 
 func TestComparisonFuncUserDef(t *testing.T) {
 
-	tree := NewBinaryTree(_compare)
+	tree := NewBinarySearchTree(_compare)
 	tree.Add("1")
 	tree.Add("11")
 	tree.Add("111")
@@ -235,7 +235,7 @@ func TestAddXRandom(t *testing.T) {
 	// list of unique ints
 	vals := []int{}
 
-	tree := NewBinaryTree(_compare)
+	tree := NewBinarySearchTree(_compare)
 	for j := 0; j < 50; j++ {
 
 		// generate a uniq int
