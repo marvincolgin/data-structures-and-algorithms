@@ -49,10 +49,18 @@ https://linkedin.com/in/mcolgin
 
 
 ## Bubble Sort
+
+
+<details><summary>Python</summary>
+<p>
+*API*
 ```python
 def bubble_sort(arr):
     # BigO == n^2
 ```
+
+</p>
+</details>
 Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/python/algorithms/bubble_sort)
 
 ---
