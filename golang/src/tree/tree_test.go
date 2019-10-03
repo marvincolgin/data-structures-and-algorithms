@@ -1,7 +1,9 @@
 package tree
 
 import (
+	"math/rand"
 	"reflect"
+	"sort"
 	"strconv"
 	"testing"
 )
@@ -178,30 +180,28 @@ func TestComparisonFuncDefault(t *testing.T) {
 	}
 }
 
-func TestComparisonFuncUserDef(t *testing.T) {
+func _compare(val1 interface{}, val2 interface{}, CS int) bool {
 
-	var _compare func(val1 interface{}, val2 interface{}, CS int) bool
+	// convert the un-typed interface (which is storing string) to int
+	// @TODO is this the best way?
+	var v1 int
+	var v2 int
+	v1, _ = strconv.Atoi(val1.(string))
+	v2, _ = strconv.Atoi(val2.(string))
 
-	_compare = func(val1 interface{}, val2 interface{}, CS int) bool {
-
-		// convert the un-typed interface (which is storing string) to int
-		// @TODO is this the best way?
-		var v1 int
-		var v2 int
-		v1, _ = strconv.Atoi(val1.(string))
-		v2, _ = strconv.Atoi(val2.(string))
-
-		if CS == ComparisonSignEqual {
-			return v1 == v2
-		} else if CS == ComparisonSignLess {
-			return v1 < v2
-		} else if CS == ComparisonSignGreater {
-			return v1 > v2
-		} else {
-			return false
-		}
-
+	if CS == ComparisonSignEqual {
+		return v1 == v2
+	} else if CS == ComparisonSignLess {
+		return v1 < v2
+	} else if CS == ComparisonSignGreater {
+		return v1 > v2
+	} else {
+		return false
 	}
+
+}
+
+func TestComparisonFuncUserDef(t *testing.T) {
 
 	tree := NewBinaryTree(_compare)
 	tree.Add("1")
@@ -228,29 +228,48 @@ func TestComparisonFuncUserDef(t *testing.T) {
 	}
 }
 
-/*
-def test_add_X_random():
+func TestAddXRandom(t *testing.T) {
 
-    vals = []
-    tree = BinarySearchTree()
-    for j in range(50):
+	// @todo convert this method to Hashmap
 
-        # Generate a list of X elements (not duplicate)
-        while True:
-           x = str(random.randint(1,200))
-           try:
-               noused = vals.index(x)
-           except:
-               # No Found
-               break
+	// list of unique ints
+	vals := []int{}
 
-        vals.append(x)
-        tree.add(x)
+	tree := NewBinaryTree(_compare)
+	for j := 0; j < 50; j++ {
 
-    actual = tree.returnAsArr(TraverseMethod.IN_ORDER)
+		// generate a uniq int
+		var x int
+		for true {
+			x = rand.Intn(200)
 
-    vals.sort()
-    expected = vals
+			// make sure it's not in list
+			found := false
+			for k := 0; k < len(vals); k++ {
+				if vals[k] == x {
+					found = true
+					break
+				}
+			}
+			if !found {
+				break
+			}
+		}
 
-    assert expected == actual
-*/
+		vals = append(vals, x)
+		tree.Add(strconv.Itoa(x))
+	}
+
+	sort.Ints(vals)
+
+	actual := tree.ReturnAsArr(TraversalOrderIn)
+
+	actualAsInt := make([]int, len(actual))
+	for i := range actual {
+		actualAsInt[i], _ = strconv.Atoi(actual[i].(string))
+	}
+
+	if !reflect.DeepEqual(vals, actualAsInt) {
+		t.Error("TestComparisonFuncDefault(), actual:", actualAsInt, " expected:", vals)
+	}
+}
