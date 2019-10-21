@@ -328,6 +328,42 @@ class LinkList {
 ```
 </details>
 
+<details><summary>Java</summary>
+
+Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/java/src/main/java/datastructs/LinkList.java)
+
+```java
+public class LinkList {
+
+   public class RetObj {}
+
+   public Node head;
+
+   private BiFunction<String, String, Boolean> comparisonFunc;
+   public void setComparisonFunc(BiFunction f) {}
+
+   public LinkList(BiFunction cf) {}
+
+   class Node {}
+
+   public void insert(String value) {}
+   public int count() {}
+   public Boolean includes(String value) {}
+   public RetObj peek() {}
+   public String toStr() {}
+   public Boolean append(String value) {}
+   public Boolean remove(String value) {}
+   public String get(String value) {}
+   private Boolean insertBeforeOrAfter(String targetVal, String newVal, Boolean afterInstead) {}
+   public Boolean insertBefore(String targetVal, String newVal) {}
+   public Boolean insertAfter(String targetVal, String newVal) {}
+   public void traverse(Consumer actionFunc) {}
+   public String kthFromEnd(int k) {}
+   public LinkList mergeList(LinkList listA, LinkList listB) {}
+}
+```
+</details>
+
 ---
 
 ## Stack (LIFO)
@@ -349,11 +385,9 @@ class Stack():
 
 Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/golang/src/linklist)
 ```golang
-// Stack implementation of LIFO
 type Stack struct {
 	_data linklist.LinkList
 }
-
 func (stack *Stack) Init() {}
 func (stack *Stack) Count() int {}
 func (stack *Stack) Pop() (bool, interface{}) {}
@@ -373,6 +407,23 @@ class Stack {
    pop() {}
    push(val) {}
    peek() {)
+}
+```
+</details>
+
+<details><summary>Java</summary>
+
+Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/java/src/main/java/datastructs/Stack.java)
+```java
+public class Stack {
+   private LinkList _data = null;
+
+   public Stack() {}
+   public int count() {}
+   public Boolean push(String val) {}
+   public String pop() {}
+   public LinkList.RetObj peek() {}
+   public String toStr() {}
 }
 ```
 </details>
@@ -424,8 +475,6 @@ class Queue():
         # Get value from the head of the queue (without removing it)
 ```
 </details>
-
-*Source Code:*
 
 <details><summary>Python (stack)</summary>
 
@@ -493,6 +542,23 @@ func (queue *Queue) Dequeue(val interface{}) bool {}
 
 // Peek at the front value in the Queue
 func (queue *Queue) Peek() (bool, interface{}) {}
+```
+</details>
+
+<details><summary>Java</summary>
+
+Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/java/src/main/java/datastructs/Queue.java)
+```java
+public class Queue {
+   private LinkList _data = null;
+
+   public Queue() {}
+   public int count() {}
+   public Boolean enqueue(String val) {}
+   public Boolean dequeue(String val) {}
+   public LinkList.RetObj peek() {}
+   public String toStr() {}
+}
 ```
 </details>
 
