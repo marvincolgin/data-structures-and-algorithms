@@ -83,4 +83,12 @@ public class StackTest {
       assertTrue(s.count()==0);
    }
 
+   @Test
+   public void testToStr() {
+      Stack s = helperStackAddLots();
+
+      String[] arr = s.toStr().split(",");
+      assertTrue(arr.length == 3);
+   }
+
 }

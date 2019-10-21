@@ -37,4 +37,8 @@ public class Stack {
       return this._data.peek();
    }
 
+   public String toStr() {
+      return this._data.toStr();
+   }
+
 }
