@@ -6,11 +6,10 @@ import java.util.function.Consumer;
 
 import datastructs.LinkList;
 
-
-public class Stack {
+public class Queue {
    private LinkList _data = null;
 
-   public Stack() {
+   public Queue() {
       this._data = new LinkList(null);
    }
 
@@ -18,19 +17,13 @@ public class Stack {
       return this._data.count();
    }
 
-   public Boolean push(String val) {
-      this._data.insert(val);
+   public Boolean enqueue(String val) {
+      this._data.append(val);
       return true;
    }
 
-   public String pop() {
-      LinkList.RetObj retobj = this._data.peek();
-      if (!retobj.retBool) {
-         return new String("");
-      }
-
-      this._data.remove(retobj.retVal);
-      return retobj.retVal;
+   public Boolean dequeue(String val) {
+      return this._data.remove(val);
    }
 
    public LinkList.RetObj peek() {
