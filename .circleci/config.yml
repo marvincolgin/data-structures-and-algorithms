@@ -114,5 +114,6 @@ workflows:
   version: 2
   workflow:
     jobs:
-    - java
-    - python
+    # - java
+    # - python
+    - golang
