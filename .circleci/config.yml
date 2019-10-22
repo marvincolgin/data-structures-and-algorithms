@@ -52,7 +52,6 @@ jobs:
   python:
     docker:
       - image: circleci/python:3.6.1
-    working_directory: ~/repo
     steps:
       - checkout
       - restore_cache:
@@ -62,6 +61,7 @@ jobs:
       - run:
           name: install dependencies
           command: |
+            cd python/src
             python3 -m venv venv
             . venv/bin/activate
             pip install -r requirements.txt
