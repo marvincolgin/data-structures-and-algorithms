@@ -49,6 +49,7 @@ jobs:
           command: |
             # Skip this for other nodes
             if [ "$CIRCLE_NODE_INDEX" == 0 ]; then
+              cd java
               ./gradlew assemble
             fi
       # As the JAR was only assembled in the first build container, build/libs will be empty in all the other build containers.
