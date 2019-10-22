@@ -94,6 +94,8 @@ jobs:
 
       - run:
           name: Run unit tests
+          environment:
+            GOPATH: "~/"
           command: |
             cd golang/src
             go test ./...
