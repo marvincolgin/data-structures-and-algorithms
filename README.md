@@ -44,6 +44,12 @@ https://linkedin.com/in/mcolgin
 
 <!--te-->
 
+# CI/CD
+
+CircleCi for Tests:
+
+[![CircleCI](https://circleci.com/gh/marvincolgin/data-structures-and-algorithms.svg?style=svg)](https://circleci.com/gh/marvincolgin/data-structures-and-algorithms)
+
 
 # Algorithms
 
