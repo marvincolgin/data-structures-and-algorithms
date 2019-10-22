@@ -94,10 +94,9 @@ jobs:
 
       - run:
           name: Run unit tests
-          # environment:
-          #   GOPATH: "~/"
+          environment:
+            GOPATH: "/home/circleci/project/golang"
           command: |
-            pwd
             cd golang/src
             go test ./...
 
