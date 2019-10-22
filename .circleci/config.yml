@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build:
+  java:
     parallelism: 2
     environment:
       _JAVA_OPTIONS: "-Xmx3g"
@@ -78,4 +78,5 @@ workflows:
   version: 2
   workflow:
     jobs:
+    - java
     - python
