@@ -268,6 +268,7 @@ class ListNode()
     def __init__(self, value, next=None, prev=None):
          # constructor
 ```
+<<<<<<< Updated upstream
 </details>
 
 <details><summary>Golang</summary>
@@ -275,6 +276,11 @@ class ListNode()
 Source: [Github](https://github.com/marvincolgin/data-structures-and-algorithms/tree/master/golang/src/linklist)
 
 ```golang
+=======
+*API: Golang*
+Golang <a href="///marvincolgin/data-structures-and-algorithms/blob/master/data-structures/linked_list/linklist.go">Source Code</a>
+```
+>>>>>>> Stashed changes
 type LinkNode struct {
     value interface{}
 	next  *LinkNode
